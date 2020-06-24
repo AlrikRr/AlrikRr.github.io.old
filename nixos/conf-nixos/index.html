@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Configuration NIXOS - Beginners :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Thanks to Rayan Lahfa
+ Basic configruation file This configuration file can be found at /etc/nixos/configuration.nix
+Don&amp;rsquo;t forget to read and understand this configuration file !
+# Edit this configuration file to define what should be installed on # your system. Help is available in the configuration.nix(5) man page # and in the NixOS manual (accessible by running ‘nixos-help’). { config, pkgs, ... }: { imports = [ # Include the results of the hardware scan."/>
+<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/nixos/conf-nixos/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configuration NIXOS - Beginners"/>
+<meta name="twitter:description" content="How to configure NIXOS - Beginners"/>
+
+
+
+<meta property="og:title" content="Configuration NIXOS - Beginners" />
+<meta property="og:description" content="How to configure NIXOS - Beginners" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/nixos/conf-nixos/" />
+<meta property="article:published_time" content="2020-06-19T10:32:57+02:00" />
+<meta property="article:modified_time" content="2020-06-19T10:32:57+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/ml">MachineLearning</a></li>
+        
+      
+        
+          <li><a href="/nixos">NIXOS</a></li>
+        
+      
+        
+          <li><a href="/arch">Archlinux</a></li>
+        
+      
+        
+          <li><a href="/tuto">Tutorials</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/tuto">Tutorials</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/nixos/conf-nixos/">Configuration NIXOS - Beginners</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-19
+        </span>
+
+        
+      
+
+      <span class="post-author">— Written by Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/NIXOS/CONF/conf-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Thanks to <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a></p>
+<hr>
+<h2 id="basic-configruation-file">Basic configruation file</h2>
+<p>This configuration file can be found at <code>/etc/nixos/configuration.nix</code><br>
+Don&rsquo;t forget to read and understand this configuration file !</p>
+<pre><code># Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
+
+{
+imports =
+[ # Include the results of the hardware scan.
+./hardware-configuration.nix
+];
+nixpkgs.config.allowUnfree = true;
+# Use the systemd-boot EFI boot loader.
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
+
+networking.hostName = &quot;tanjiro&quot;; # Define your hostname.
+# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+# The global useDHCP flag is deprecated, therefore explicitly set to false here.
+# Per-interface useDHCP will be mandatory in the future, so this generated config
+# replicates the default behaviour.
+networking.useDHCP = false;
+networking.interfaces.enp0s3.useDHCP = true;
+
+# Configure network proxy if necessary
+# networking.proxy.default = &quot;http://user:password@proxy:port/&quot;;
+# networking.proxy.noProxy = &quot;127.0.0.1,localhost,internal.domain&quot;;
+
+# Select internationalisation properties.
+i18n.defaultLocale = &quot;fr_FR.UTF-8&quot;; # French UTF-8
+console = {
+font = &quot;Lat2-Terminus16&quot;;
+keyMap = &quot;fr&quot;; # French Keyboard
+};
+
+# Set your time zone.
+time.timeZone = &quot;Europe/Paris&quot;;
+
+# List packages installed in system profile. To search, run:
+# $ nix search wget
+environment.systemPackages = with pkgs; [
+wget vim dirb aircrack-ng mitmproxy git nmap metasploit wfuzz iftop file tree htop python3 ngrok
+];
+
+# Some programs need SUID wrappers, can be configured further or are
+# started in user sessions.
+# programs.mtr.enable = true;
+# programs.gnupg.agent = {
+#   enable = true;
+#   enableSSHSupport = true;
+#   pinentryFlavor = &quot;gnome3&quot;;
+# };
+
+# List services that you want to enable:
+
+# Enable the OpenSSH daemon.
+services.openssh.enable = true;
+
+# Open ports in the firewall.
+networking.firewall.allowedTCPPorts = [ 22 ];
+
+# Define a user account. Don't forget to set a password with ‘passwd’.
+users.users.eidorian = {
+isNormalUser = true;
+extraGroups = [ &quot;wheel&quot; ]; # Enable ‘sudo’ for the user.
+openssh.authorizedKeys.keys = [
+&quot;&lt;Add your pub key here for SSH&gt;&quot;
+];
+};
+
+# This value determines the NixOS release from which the default
+# settings for stateful data, like file locations and database versions
+# on your system were taken. It‘s perfectly fine and recommended to leave
+# this value at the release version of the first install of this system.
+# Before changing this value read the documentation for this option
+# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+system.stateVersion = &quot;20.03&quot;; # Did you read the comment?
+
+}
+
+</code></pre>
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Support Vector Machine :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="If you want a better tutorial, I recommend you to follow TechWithTim
+I&amp;rsquo;ll try to explain the theory in a simple way, i&amp;rsquo;m not an expert, this tutorial is also benefits for me to really understand the logic.
+ First of all, you need to know what&amp;rsquo;s an Hyperplane, this is really important for the SVM algorithm.
+ How the Hyperplane is generated, basically ?
+The purple distance line in this example is the same from each data point, the Hyperplane is traced in the middle."/>
+<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/ml/support-vector-machine/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Support Vector Machine"/>
+<meta name="twitter:description" content="Support Vector Machine tutorial and link to Python code."/>
+
+
+
+<meta property="og:title" content="Support Vector Machine" />
+<meta property="og:description" content="Support Vector Machine tutorial and link to Python code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/ml/support-vector-machine/" />
+<meta property="article:published_time" content="2020-06-18T22:39:10+02:00" />
+<meta property="article:modified_time" content="2020-06-18T22:39:10+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/ml">MachineLearning</a></li>
+        
+      
+        
+          <li><a href="/nixos">NIXOS</a></li>
+        
+      
+        
+          <li><a href="/arch">Archlinux</a></li>
+        
+      
+        
+          <li><a href="/tuto">Tutorials</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/tuto">Tutorials</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/ml/support-vector-machine/">Support Vector Machine</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-18
+        </span>
+
+        
+      
+
+      <span class="post-author">— Written by Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/ML/SVM/svm-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p><strong>If you want a better tutorial, I recommend you to follow <a href="https://techwithtim.net/tutorials/machine-learning-python/">TechWithTim</a></strong></p>
+<p>I&rsquo;ll try to explain the theory in a simple way, i&rsquo;m not an expert, this tutorial is also benefits for me to really understand the logic.</p>
+<hr>
+<p>First of all, you need to know what&rsquo;s an <a href="https://en.wikipedia.org/wiki/Hyperplane">Hyperplane</a>, this is really important for the SVM algorithm.</p>
+<hr>
+<p><img src="/img/ML/SVM/schema1.png" alt="schema1"></p>
+<p><strong>How the Hyperplane is generated, basically ?</strong><br>
+The purple distance line in this example is the same from each data point, the Hyperplane is traced in the middle.</p>
+<hr>
+<p><img src="/img/ML/SVM/schema2.png" alt="schema2"></p>
+<p>As you can see in this example, it&rsquo;s possible to draw a multitude of Hyperplane.<br>
+But the question is : <strong>Which one is the best ?</strong></p>
+<hr>
+<p><img src="/img/ML/SVM/schema3.png" alt="schema3"></p>
+<p>In this example, the Hyperplane that we choose is not the best. Indeed, the black data point si more likely to belong to the Green Class but here, it is classify with the Red Class because the computer files it on the left side.</p>
+<hr>
+<p><img src="/img/ML/SVM/schema4.png" alt="schema4"></p>
+<p>Here, in this example, the Hyperplane is the best, because the black datapoint belongs to the Green Class and not the Red, as one would hope.</p>
+<hr>
+<p><img src="/img/ML/SVM/schema5.png" alt="schema5"></p>
+<p><strong>But, in the real life ?</strong><br>
+Well, in the real life the datapoints are not really friendly with us. Unfortunatly, this kind of example will happend very often.</p>
+<hr>
+<p><img src="/img/ML/SVM/schema6.png" alt="schema6"></p>
+<p><strong>Where can I trace the Hyperplane ?</strong><br>
+The answer is pretty easy but hard to visualized, we need to increase by one dimension. Here in this example, I switched from a 2D plan to a 3D plan.<br>
+So that way , the datapoints are more organized and we can finaly draw the Hyperplane.</p>
+<p><strong>WARNING</strong> : Sometimes it&rsquo;s not enough, the computer will increase again and again &hellip; until we were able to trace our hyperplane !</p>
+<hr>
+<p><em>If you want an example of code check <a href="https://github.com/RedFou52/MachineLearningPython/blob/master/SVM/SVMworking.py">HERE</a></em></p>
+<hr>
+<p><img src="/img/ML/memes/ml-meme-5.png" alt="meme-5"></p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

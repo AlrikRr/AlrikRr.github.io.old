@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/</link>
+    <description>Recent content on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Fri, 25 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/post/tutorials/</link>
+      <pubDate>Sun, 21 Jun 2020 12:25:35 +0200</pubDate>
+      
+      <guid>/post/tutorials/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/tuto-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          IT for everyone!
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>/post/archlinux/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
+      
+      <guid>/post/archlinux/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ARCH/arch-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          I use Arch btw.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Dropbear - initramfs</title>
+      <link>/tuto/dropbear-initramfs/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
+      
+      <guid>/tuto/dropbear-initramfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/DROP/drop-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Decrypting remotely your linux before boot using dropbear.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NIXOS</title>
+      <link>/post/nixos/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/post/nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/NIXOS/nixos-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Nixos tutorials - Install and configuration
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Gitpage with Hugo</title>
+      <link>/tuto/gitpage-hugo/</link>
+      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
+      
+      <guid>/tuto/gitpage-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/GITHUGO/githugo-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to install and configure your first github page !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>MachineLearning</title>
+      <link>/post/machinelearning/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/post/machinelearning/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ML/ml-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          MachineLearning for Dummies.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ArchLinux Install</title>
+      <link>/arch/arch-install/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
+      
+      <guid>/arch/arch-install/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ARCH/INST/inst-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Install Archlinux EFI and LUKS encryption.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Install Nixos - Beginners</title>
+      <link>/nixos/install-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/nixos/install-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/NIXOS/INST/inst-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to install nixos - Beginners - Luks, EFI and BTRFS
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Configuration NIXOS - Beginners</title>
+      <link>/nixos/conf-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/nixos/conf-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/NIXOS/CONF/conf-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to configure NIXOS - Beginners
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Simple Configuration - Beginners</title>
+      <link>/nixos/ssh-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/nixos/ssh-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/NIXOS/SSH/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          SSH simple configuration for NIXOS - Beginners
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Wireguard configuration - NIXOS</title>
+      <link>/nixos/wireguard-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/nixos/wireguard-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/NIXOS/WIRE/wire-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to configure wireguard - NIXOS - And Android device
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Expert</title>
+      <link>/tuto/ssh-expert/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
+      
+      <guid>/tuto/ssh-expert/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/SSH/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          All you need to know about SSH
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Knockd</title>
+      <link>/tuto/knockd/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:36 +0200</pubDate>
+      
+      <guid>/tuto/knockd/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/KKD/kkd-banner.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Support Vector Machine</title>
+      <link>/ml/support-vector-machine/</link>
+      <pubDate>Thu, 18 Jun 2020 22:39:10 +0200</pubDate>
+      
+      <guid>/ml/support-vector-machine/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ML/SVM/svm-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Support Vector Machine tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>/ml/linear-regression/</link>
+      <pubDate>Thu, 18 Jun 2020 22:20:29 +0200</pubDate>
+      
+      <guid>/ml/linear-regression/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ML/LR/lr-banner.png&#34;/&gt;
+          
+        
+        
+        
+          linearRegression tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>K-Nearest Neighbors</title>
+      <link>/ml/k-nearest-neighbors/</link>
+      <pubDate>Thu, 18 Jun 2020 20:31:36 +0200</pubDate>
+      
+      <guid>/ml/k-nearest-neighbors/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ML/KNN/knn-banner.png&#34;/&gt;
+          
+        
+        
+        
+          K Nearest Neighbors tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hi there My name is Radek and I&amp;rsquo;m the author of this theme. I made it to help you present your ideas easier.
+We all know how hard is to start something on the web, especially these days. You need to prepare a bunch of stuff, configure them and when that’s done — create the content.
+This theme is pretty basic and covers all of the essentials. All you have to do is start typing!
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>/showcase/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/showcase/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

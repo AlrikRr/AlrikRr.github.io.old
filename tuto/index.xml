@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutos on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/tuto/</link>
+    <description>Recent content in Tutos on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Mon, 22 Jun 2020 14:32:49 +0200</lastBuildDate>
+    
+	<atom:link href="/tuto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dropbear - initramfs</title>
+      <link>/tuto/dropbear-initramfs/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
+      
+      <guid>/tuto/dropbear-initramfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/DROP/drop-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Decrypting remotely your linux before boot using dropbear.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Gitpage with Hugo</title>
+      <link>/tuto/gitpage-hugo/</link>
+      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
+      
+      <guid>/tuto/gitpage-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/GITHUGO/githugo-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to install and configure your first github page !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Expert</title>
+      <link>/tuto/ssh-expert/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
+      
+      <guid>/tuto/ssh-expert/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/SSH/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          All you need to know about SSH
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Knockd</title>
+      <link>/tuto/knockd/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:36 +0200</pubDate>
+      
+      <guid>/tuto/knockd/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/KKD/kkd-banner.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

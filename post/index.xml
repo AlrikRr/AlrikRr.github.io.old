@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/post/</link>
+    <description>Recent content in Posts on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Sun, 21 Jun 2020 12:25:35 +0200</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/post/tutorials/</link>
+      <pubDate>Sun, 21 Jun 2020 12:25:35 +0200</pubDate>
+      
+      <guid>/post/tutorials/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/tuto-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          IT for everyone!
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>/post/archlinux/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
+      
+      <guid>/post/archlinux/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ARCH/arch-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          I use Arch btw.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NIXOS</title>
+      <link>/post/nixos/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/post/nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/NIXOS/nixos-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Nixos tutorials - Install and configuration
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>MachineLearning</title>
+      <link>/post/machinelearning/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/post/machinelearning/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/ML/ml-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          MachineLearning for Dummies.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

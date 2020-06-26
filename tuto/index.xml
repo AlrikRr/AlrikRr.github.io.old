@@ -10,10 +10,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Mon, 22 Jun 2020 14:32:49 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2020 11:02:54 +0200</lastBuildDate>
     
 	<atom:link href="/tuto/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS</title>
+      <link>/tuto/secure-coffre-sshfs/</link>
+      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
+      
+      <guid>/tuto/secure-coffre-sshfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/COFFRE/coffre-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to create a secured vault with a remote mount/access with sshfs.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>SSH Expert</title>

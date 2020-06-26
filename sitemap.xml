@@ -4,7 +4,12 @@
   
   <url>
     <loc>/post/tutorials/</loc>
-    <lastmod>2020-06-21T12:25:35+02:00</lastmod>
+    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/secure-coffre-sshfs/</loc>
+    <lastmod>2020-06-26T11:02:54+02:00</lastmod>
   </url>
   
   <url>
@@ -63,13 +68,13 @@
   </url>
   
   <url>
-    <loc>/tuto/</loc>
-    <lastmod>2020-06-22T14:32:49+02:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-06-21T12:25:35+02:00</lastmod>
+    <loc>/tuto/</loc>
+    <lastmod>2020-06-26T11:02:54+02:00</lastmod>
   </url>
   
   <url>

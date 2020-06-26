@@ -18,7 +18,7 @@
     <item>
       <title>Tutorials</title>
       <link>/post/tutorials/</link>
-      <pubDate>Sun, 21 Jun 2020 12:25:35 +0200</pubDate>
+      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
       
       <guid>/post/tutorials/</guid>
       <description>
@@ -29,6 +29,25 @@
         
         
           IT for everyone!
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS</title>
+      <link>/tuto/secure-coffre-sshfs/</link>
+      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
+      
+      <guid>/tuto/secure-coffre-sshfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/TUTO/COFFRE/coffre-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to create a secured vault with a remote mount/access with sshfs.
           
         
         </description>

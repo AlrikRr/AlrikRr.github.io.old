@@ -78,6 +78,16 @@
   </url>
   
   <url>
+    <loc>/about/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/arch/</loc>
     <lastmod>2020-06-20T23:43:27+02:00</lastmod>
   </url>
@@ -105,16 +115,6 @@
   <url>
     <loc>/ml/k-nearest-neighbors/</loc>
     <lastmod>2020-06-18T20:31:36+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2019-01-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 25 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -263,6 +263,28 @@
     </item>
     
     <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hello there ! My name is Adrien I&amp;rsquo;m 22 years old and I&amp;rsquo;m currently studying computer security in Paris.
+I like to realize projects under linux or in programming, that&amp;rsquo;s why I wanted to share them on my github or in the form of tutorials !
+Just to remind you that I&amp;rsquo;m a student, I wanted to make this website in order to practice, I&amp;rsquo;m by no means an expert, I&amp;rsquo;m also here to learn as much as you are, if anytime I make big mistakes, don&amp;rsquo;t hesitate to let me know to clarify the subject ;) Especially in English because it&amp;rsquo;s not my native language !
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Support Vector Machine</title>
       <link>/ml/support-vector-machine/</link>
       <pubDate>Thu, 18 Jun 2020 22:39:10 +0200</pubDate>
@@ -314,28 +336,6 @@
         
         
           K Nearest Neighbors tutorial and link to Python code.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Hi there My name is Radek and I&amp;rsquo;m the author of this theme. I made it to help you present your ideas easier.
-We all know how hard is to start something on the web, especially these days. You need to prepare a bunch of stuff, configure them and when that’s done — create the content.
-This theme is pretty basic and covers all of the essentials. All you have to do is start typing!
           
         
         </description>

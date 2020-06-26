@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/tuto/ssh-expert/</loc>
+    <lastmod>2020-06-22T14:32:49+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/archlinux/</loc>
     <lastmod>2020-06-20T23:43:57+02:00</lastmod>
   </url>
@@ -58,18 +63,8 @@
   </url>
   
   <url>
-    <loc>/tuto/ssh-expert/</loc>
-    <lastmod>2020-06-22T14:32:49+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tuto/</loc>
     <lastmod>2020-06-22T14:32:49+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tuto/knockd/</loc>
-    <lastmod>2020-06-22T14:32:36+02:00</lastmod>
   </url>
   
   <url>

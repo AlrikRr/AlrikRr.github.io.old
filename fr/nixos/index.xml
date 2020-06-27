@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nixos on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/fr/nixos/</link>
+    <description>Recent content in Nixos on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Fri, 19 Jun 2020 10:32:57 +0200</lastBuildDate>
+    
+	<atom:link href="/fr/nixos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installation de  Nixos - Débutant</title>
+      <link>/fr/nixos/install-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/fr/nixos/install-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/nixos/install/inst-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Installation de nixos pour débutant -  Luks, EFI et BTRFS
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Configuration NIXOS - Débutant</title>
+      <link>/fr/nixos/conf-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/fr/nixos/conf-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/nixos/setup/conf-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Configuration basique de NIXOS pour débutant
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Simple Configuration</title>
+      <link>/fr/nixos/ssh-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/fr/nixos/ssh-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/nixos/ssh/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment configurer son SSH - Les bases
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Wireguard configuration - NIXOS</title>
+      <link>/fr/nixos/wireguard-nixos/</link>
+      <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
+      
+      <guid>/fr/nixos/wireguard-nixos/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/nixos/wireguard/wire-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment mettre en place un VPN wireguard maison et y accéder depuis son android.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

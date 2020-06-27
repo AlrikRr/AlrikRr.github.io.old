@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mls on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/en/ml/</link>
+    <description>Recent content in Mls on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Thu, 18 Jun 2020 22:39:10 +0200</lastBuildDate>
+    
+	<atom:link href="/en/ml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Support Vector Machine</title>
+      <link>/en/ml/support-vector-machine/</link>
+      <pubDate>Thu, 18 Jun 2020 22:39:10 +0200</pubDate>
+      
+      <guid>/en/ml/support-vector-machine/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/ml/svm/svm-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Support Vector Machine tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>/en/ml/linear-regression/</link>
+      <pubDate>Thu, 18 Jun 2020 22:20:29 +0200</pubDate>
+      
+      <guid>/en/ml/linear-regression/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/ml/lr/lr-banner.png&#34;/&gt;
+          
+        
+        
+        
+          linearRegression tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>K-Nearest Neighbors</title>
+      <link>/en/ml/k-nearest-neighbors/</link>
+      <pubDate>Thu, 18 Jun 2020 20:31:36 +0200</pubDate>
+      
+      <guid>/en/ml/k-nearest-neighbors/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/ml/knn/knn-banner.png&#34;/&gt;
+          
+        
+        
+        
+          K Nearest Neighbors tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

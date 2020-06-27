@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="how to create a secured vault with a remote mount/access with sshfs.
+Network  Requirements For this tutorial, you&amp;rsquo;ll need at least 1GB of free space from your vgs (lvm group).
+If you don&amp;rsquo;t know the free space available on your main volume groupe try :
+~ 竈門» vgs If you don&amp;rsquo;t have enough space of or you don&amp;rsquo;t want to resize your lvm, you can use this tutorial with a USB device."/>
+<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/en/tuto/coffre-securise-sshfs/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Secure &#39;Coffre&#39; and remote mount/access with SSHFS"/>
+<meta name="twitter:description" content="How to create a secured vault with a remote mount/access with sshfs."/>
+
+
+
+<meta property="og:title" content="Secure &#39;Coffre&#39; and remote mount/access with SSHFS" />
+<meta property="og:description" content="How to create a secured vault with a remote mount/access with sshfs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/en/tuto/coffre-securise-sshfs/" />
+<meta property="article:published_time" content="2020-06-26T11:02:54+02:00" />
+<meta property="article:modified_time" content="2020-06-26T11:02:54+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+<ul class="nav-list">
+    
+    
+        <a href="/fr/tuto/coffre-securise-sshfs/">Français</a>
+    
+    
+</ul>
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/en/ml">MachineLearning</a></li>
+        
+      
+        
+	<li><a href="/en/nixos">NIXOS</a></li>
+        
+      
+        
+	<li><a href="/en/arch">Archlinux</a></li>
+        
+      
+        
+	<li><a href="/en/tuto">Tutorials</a></li>
+        
+      
+        
+	<li><a href="/en/about">About</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/en/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/en/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/en/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/en/tuto">Tutorials</a></li>
+      
+    
+      
+        <li><a href="/en/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/en/tuto/coffre-securise-sshfs/">Secure &lsquo;Coffre&rsquo; and remote mount/access with SSHFS</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-26
+        </span>
+
+        
+      
+
+      <span class="post-author">— Written by Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/en/tuto/coffre/coffre-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>how to create a secured vault with a remote mount/access with sshfs.</p>
+<p><img src="/img/en/tuto/coffre/final.png" alt="final_result.png"></p>
+<h1 id="network">Network</h1>
+<hr>
+<h1 id="requirements">Requirements</h1>
+<p>For this tutorial, you&rsquo;ll need at least 1GB of free space from your vgs (lvm group).<br>
+If you don&rsquo;t know the free space available on your main volume groupe try :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» vgs
+</code></pre><p>If you don&rsquo;t have enough space of or you don&rsquo;t want to resize your lvm, you can use this tutorial with a USB device.<br>
+For my part, I didn&rsquo;t have enough free space on my volume group, so I resize my SWAP (3GB &ndash;&gt; 2GB) partition like this :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Show volume groups
+~ 竈門» sudo vgdisplay
+
+# Resize swap partition
+~ 竈門» sudo lvresize -L 2G /dev/mapper/xxxx-lv_swap
+
+# Turn off swap
+~ 竈門» sudo swapoff -a
+
+# Re-make swap
+~ 竈門» sudo mkswap /dev/mapper/xxxx-lv_swap
+
+# WARNING, if you edited your FSTAB with UUID, 
+# you had to edit the SWAP one because its UUID has changed.
+
+# Turn on swap
+~ 竈門»s sudo swapon -a
+</code></pre><p>Now, everything should be ok, we can start our vault !</p>
+<hr>
+<hr>
+<h1 id="vault-">Vault !</h1>
+<h2 id="create-new-lv">Create new LV</h2>
+<p>You need to create a new Logical Volume named as you want, here I call it *&ldquo;Coffre&rdquo;.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># VGCRYPT is my Volume Group name
+~ 竈門» lvcreate -L 1GB -n lv_coffre VGCRYPT
+</code></pre><p>*Coffre : Chest in French.</p>
+<hr>
+<h2 id="encryption-">Encryption !</h2>
+<p>You need to encrypt your vault as well.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» sudo cryptsetup luksFormat /dev/mapper/VGCRYPT-lv_coffre
+
+# Open the luks as COFFRE
+~ 竈門» sudo cryptsetup open /dev/mapper/VGCRYPT-lv_coffre COFFRE
+</code></pre><hr>
+<h2 id="format-xfs">Format XFS</h2>
+<p>Format your new LUKS vault with xfs.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» sudo mkfs.xfs /dev/mapper/COFFRE
+</code></pre><hr>
+<h2 id="mount-">Mount !</h2>
+<p>Now, check if everything is ok !</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Mount COFFRE into eidorian's home
+~ 竈門» sudo mount -t xfs /dev/mapper/COFFRE /home/eidorian/COFFRE/
+</code></pre><hr>
+<h2 id="keygen-for-luks">Keygen for LUKS</h2>
+<p>We need to create a keyfile for the local unlock.
+So that way, you don&rsquo;t need to enter a password to unlock the LUKS on the local machine.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Random key with dd
+~ 竈門» sudo dd if=/dev/random of=/root/foo.key bs=1 count=256
+
+# Add keyfile to 3rd SLOT
+~ 竈門» sudo cryptsetup -v luksAddKey /dev/sdb1 256.key -S 3
+
+# Restrict keyfile access
+~ 竈門» sudo chmod -R 700 /etc/keys/coffre.key
+
+# Edit your crypttab
+~ 竈門» sudo cat /etc/crypttab
+VGCRYPT-lv_coffre UUID=&lt;UUID&gt; /etc/keys/coffre.key luks,discard`
+
+# init crypttab
+~ 竈門» sudo cryptdisks_start VGCRYPT-lv_coffre
+</code></pre><hr>
+<hr>
+<h1 id="scripting">Scripting</h1>
+<p>We assume that you have another computer and a fully configured SSH with KeyAuthentication and NoPasswordAuthentication.<br>
+If you don&rsquo;t know what i am talking about, check my SSH tutorial <a href="https://redfou52.github.io/tuto/ssh-expert/">HERE</a><br>
+So, what we are going to do ?</p>
+<ul>
+<li>Let&rsquo;s say that your COFFRE is located into the @vault machine.</li>
+<li>You want to access to your COFFRE from your @client machine with sshfs.</li>
+<li>We are going to create 2 scripts into the @vault machine (mount &amp; unmount )</li>
+<li>Then we&rsquo;ll create 2 more scripts into the @client machine (remote_mount &amp; remote_umount)
+You&rsquo;ll understand with the example below.</li>
+</ul>
+<hr>
+<h2 id="script--local-mount-and-umount">script : local mount and umount</h2>
+<p>Those scripts will be executed by the user from @vault.<br>
+The mount script need to :</p>
+<ul>
+<li>Create /home/user/COFFRE</li>
+<li>Open LUKS</li>
+<li>mount COFFRE into /home/user/COFFRE</li>
+</ul>
+<p>The umount script need to :</p>
+<ul>
+<li>Umount LUKS</li>
+<li>Close LUKS</li>
+<li>Remove /home/user/COFFRE</li>
+</ul>
+<h3 id="localmountsh">local.mount.sh</h3>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#!/bin/bash
+
+mkdir /home/eidorian/COFFRE
+
+sudo cryptsetup open /dev/mapper/VGCRYPT-lv_coffre COFFRE --key-file /etc/keys/coffre.key
+echo &quot;mount COFFRE into /home/eidorian/COFFRE&quot;
+sudo mount /dev/mapper/COFFRE /home/eidorian/COFFRE
+</code></pre><h3 id="localumountsh">local.umount.sh</h3>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#!/bin/bash
+
+echo &quot;Umount COFFRE&quot;
+sudo umount /home/eidorian/COFFRE
+
+echo &quot;Close LUKS&quot;
+sudo cryptsetup close /dev/mapper/COFFRE
+
+rm -r /home/eidorian/COFFRE
+</code></pre><hr>
+<h2 id="script--remote-mount--umount">script : remote mount &amp; umount</h2>
+<p>Those scripts are executed by the @client user.<br>
+You&rsquo;ll need to execute with SSH the local script and then mount the COFFRE with sshfs.</p>
+<p>The mount script will:</p>
+<ul>
+<li>create /home/client/COFFRE</li>
+<li>execute local.mount.sh remotely with SSH</li>
+<li>use sshfs to mount /home/eidorian/COFFRE into /home/client/COFFRE</li>
+</ul>
+<p>The umount script will:</p>
+<ul>
+<li>umount sshfs</li>
+<li>execute local.umount.sh remotely with SSH</li>
+<li>remove /home/client/COFFRE</li>
+</ul>
+<h3 id="remotemountsh">remote.mount.sh</h3>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#!/bin/bash
+
+echo &quot;remote mount&quot;
+mkdir /home/client/COFFRE
+
+ssh -t vault &quot;bahs /home/eidorian/scripts/local.mount.sh&quot;
+sshfs -p 2222 eidorian@&lt;IP_vault&gt;:/home/eidorian/COFFRE /home/client/COFFRE
+# display remote sshfs
+df -h _x tmpfs | grep &quot;eidorian&quot;
+</code></pre><h3 id="remoteumountsh">remote.umount.sh</h3>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#!/bin/bash
+
+echo &quot;remote Umount&quot;
+fusermount -u /home/client/COFFRE
+ssh -t vault &quot;bash /home/eidorian/scripts/local.umount.sh&quot;
+rm -r /home/client/COFFRE
+echo &quot;Done.&quot;
+</code></pre><hr>
+<h2 id="tips">TIPS</h2>
+<p>If you keep using this configuration, the eidorian user will always ask the password user to run sudo command into the local.mount.sh and local.umount.sh scripts.<br>
+If you want to remove the password for those scripts, you need to edit your <code>/etc/sudoers</code> file:</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">eidorian ALL=(ALL) NOPASSWD:/user/sbin/cryptsetup open /dev/VGCRYPT-lv_root COFFRE
+eidorian ALL=(ALL) NOPASSWD:/user/bin/mount /dev/mapper/COFFRE /home/eidorian/COFFRE
+eidorian ALL=(ALL) NOPASSWD:/user/sbin/cryptsetup close COFFRE
+eidorian ALL=(ALL) NOPASSWD:/user/bin/umount /home/eidorian/COFFRE
+</code></pre>
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

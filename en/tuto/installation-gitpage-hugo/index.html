@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Gitpage with Hugo :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="How to install and configure your first github page with hugo theme.
+ Install hugo and git First of all, you need to install hugo and git on your computer.
+# Unix $ sudo apt install hugo git # MacOs $ brew install hugo git  Create git repo You need to create 2 repo git.
+The first one will be : &amp;lt;username&amp;gt;.github.io
+The second one will be : &amp;lt;username&amp;gt;.blog.github.io"/>
+<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/en/tuto/installation-gitpage-hugo/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gitpage with Hugo"/>
+<meta name="twitter:description" content="How to install and configure your first github page !"/>
+
+
+
+<meta property="og:title" content="Gitpage with Hugo" />
+<meta property="og:description" content="How to install and configure your first github page !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/en/tuto/installation-gitpage-hugo/" />
+<meta property="article:published_time" content="2020-06-21T15:47:56+02:00" />
+<meta property="article:modified_time" content="2020-06-21T15:47:56+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+<ul class="nav-list">
+    
+    
+        <a href="/fr/tuto/installation-gitpage-hugo/">Français</a>
+    
+    
+</ul>
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/en/ml">MachineLearning</a></li>
+        
+      
+        
+	<li><a href="/en/nixos">NIXOS</a></li>
+        
+      
+        
+	<li><a href="/en/arch">Archlinux</a></li>
+        
+      
+        
+	<li><a href="/en/tuto">Tutorials</a></li>
+        
+      
+        
+	<li><a href="/en/about">About</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/en/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/en/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/en/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/en/tuto">Tutorials</a></li>
+      
+    
+      
+        <li><a href="/en/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/en/tuto/installation-gitpage-hugo/">Gitpage with Hugo</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-21
+        </span>
+
+        
+      
+
+      <span class="post-author">— Written by Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/en/tuto/githugo/githugo-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>How to install and configure your first github page with hugo theme.</p>
+<hr>
+<h2 id="install-hugo-and-git">Install hugo and git</h2>
+<p>First of all, you need to install hugo and git on your computer.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Unix
+$ sudo apt install hugo git
+
+# MacOs
+$ brew install hugo git
+</code></pre><hr>
+<h2 id="create-git-repo">Create git repo</h2>
+<p>You need to create  2 repo git.<br>
+The first one will be  : <code>&lt;username&gt;.github.io</code><br>
+The second one will be : <code>&lt;username&gt;.blog.github.io</code><br>
+This is very important to use your github username and add github.io at the end, because it will be your web address.</p>
+<p><img src="/img/en/tuto/githugo/repo1.png" alt="repo1">
+<em>this repo will host your hugo site as an html version.</em></p>
+<p><img src="/img/en/tuto/githugo/repo2.png" alt="repo2">
+<em>this repo will host your hugo site configuration.</em></p>
+<hr>
+<h2 id="setup-your-hugo-env">Setup your hugo env</h2>
+<p>All these command lines work under linux and macOS, personally I use linux for the examples.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ mkdir eidorianlinux.blog
+# Create your hugo site
+$ hugo new site eidorianlinux.blog/
+$ cd eidorianlinux.blog
+</code></pre><p><img src="/img/en/tuto/githugo/cmd1.png" alt="cmd1"></p>
+<hr>
+<h2 id="setup-your-github-env">Setup your github env</h2>
+<p>First, you need to copy the clone link of your blog repo</p>
+<p><img src="/img/en/tuto/githugo/clone1.png" alt="clone1"></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ git init
+
+# Paste the clone https here
+$ git remote add origin https://github.com/eidorianlinux/eidorianlinux.blog.git
+$ git pull origin master
+
+# create .gitignore
+$ vim .gitignore
+# add public/ on the first line
+
+$ git add .
+$ git status
+</code></pre><p><img src="/img/en/tuto/githugo/cmd2.png" alt="git-status"></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ git commit -m &quot;Init blog&quot;
+$ git push -u origin master
+</code></pre><p>Now you should have something like that on your blog repo :</p>
+<p><img src="/img/en/tuto/githugo/repo-blog.png" alt="repo-blog"></p>
+<hr>
+<h2 id="chose-a-theme-">Chose a theme !</h2>
+<p>For this exemple I&rsquo;ll use the same theme as I use on my gitpage right now : <a href="https://github.com/panr/hugo-theme-hello-friend">hello-friend</a><br>
+Of course you can use the theme you want, the command are the same, check all the theme here : <a href="https://themes.gohugo.io/">hugo-theme</a></p>
+<hr>
+<h2 id="install-themes">Install themes</h2>
+<p>Once you have the theme you want, you have to install it.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ cd themes/
+$ git clone https://github.com/panr/hugo-theme-hello-friend.git
+</code></pre><p>Now the most important part of this install, you need to copy the <code>config.toml</code> from the theme to your <code>config.toml</code>.<br>
+For exemple, with hello-friend, there is a <code>config.toml</code> file available on the readme.<br>
+The theme doesn&rsquo;t require any advanced configuration. Just copy <code>config.toml</code> to <code>config.toml</code> file in your Hugo root directory and change params fields.</p>
+<p><img src="/img/en/tuto/githugo/config.png" alt="config.toml"><br>
+or :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ cp themes/hugo-theme-hello-friend/exampleSite/config.toml config.toml
+</code></pre><hr>
+<h2 id="start-hugo-server">Start hugo server</h2>
+<p>Now start hugo server and check if everuthing is working !</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ hugo server -w
+</code></pre><p>If you have this error :<br>
+<img src="/img/en/tuto/githugo/erro1.png" alt="error"></p>
+<p>You need to change the name of your theme into the <code>config.toml</code>.<br>
+For exemple my themes name is :<br>
+<img src="/img/en/tuto/githugo/erro2.png" alt="error"><br>
+So I need to change this line :<br>
+<img src="/img/en/tuto/githugo/erro3.png" alt="error"></p>
+<p>So, Now that should work.<br>
+You just need to go at this address : <em>127.0.0.1:1313</em></p>
+<p><img src="/img/en/tuto/githugo/themeok.png" alt="themeok"></p>
+<h2 id="create-exemple-posts">Create exemple posts</h2>
+<p>The website is empty right now, si you can copy/paste the exemple posts :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ pwd
+tuto/
+$ cp -r eidorianlinux.blog/themes/hugo-theme-hello-friend/exampleSite/content eidorianlinux.blog/
+$ cp -r eidorianlinux.blog/themes/hugo-theme-hello-friend/exampleSite/static eidorianlinux.blog/
+</code></pre><p>If the main page is still empty, change this line into the <code>config.toml</code> file:<br>
+<img src="/img/en/tuto/githugo/erro4.png" alt="error-posts"></p>
+<p><img src="/img/en/tuto/githugo/themeok2.png" alt="themeok"></p>
+<h2 id="create-new-post">Create new post</h2>
+<p>If you want to create a new post just :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ hugo new post/first-post.md
+</code></pre><p><img src="/img/en/tuto/githugo/newpost.png" alt="newpost"></p>
+<p>And then you need to edit this post, there is an exemple :
+<img src="/img/en/tuto/githugo/vnewpost.png" alt="v-newpost"></p>
+<p>And there is the final result:<br>
+<img src="/img/en/tuto/githugo/preview-newpost.png" alt="preview"></p>
+<h2 id="deploy-your-site">Deploy your site</h2>
+<p>Now, we need to deploy the hugo ste into your <code>&lt;username&gt;.github.io</code> repo.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ cd ../
+$ pwd
+tuto/
+
+$ git clone https://github.com/eidorianlinux/eidorianlinux.github.io.git
+$ cd eidorianlinux.blog
+$ hugo -d ../eidorianlinux.github.io/
+
+$ cd ../eidorianlinux.github.io
+$ git add --all
+$ git commit -m &quot;init web site&quot;
+$ git push origin master
+</code></pre><p>Now, your website should be working on your github page at the address : <code>https://&lt;username&gt;.github.io</code></p>
+<h2 id="deploy-script">Deploy script</h2>
+<p>I made a deploy.sh script to facilitate the deployment of the website.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#!/bin/bash
+
+# Usage : ./deploy.sh
+
+cd &lt;path to your username.blog repo&gt;
+echo &quot;Commit message :&quot;
+read commit
+
+git add .
+
+git commit -m &quot;$commit&quot;
+
+git push origin master
+
+hugo -d ../&lt;username.github.io&gt;
+
+cd ../&lt;username.github.io&gt;
+
+git add .
+
+git commit -m &quot;$commit&quot;
+
+git push origin master
+
+</code></pre><p>That&rsquo;s it, it&rsquo;s all done, I hope you enjoyed this little tutorial!</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutos on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/en/tuto/</link>
+    <description>Recent content in Tutos on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Fri, 26 Jun 2020 11:02:54 +0200</lastBuildDate>
+    
+	<atom:link href="/en/tuto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS</title>
+      <link>/en/tuto/coffre-securise-sshfs/</link>
+      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
+      
+      <guid>/en/tuto/coffre-securise-sshfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/coffre/coffre-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to create a secured vault with a remote mount/access with sshfs.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Expert</title>
+      <link>/en/tuto/ssh-expert-tips/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
+      
+      <guid>/en/tuto/ssh-expert-tips/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/ssh/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          All you need to know about SSH
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Dropbear - initramfs</title>
+      <link>/en/tuto/dropbear-initramfs/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
+      
+      <guid>/en/tuto/dropbear-initramfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/dropbear/drop-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Decrypting remotely your linux before boot using dropbear.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Gitpage with Hugo</title>
+      <link>/en/tuto/installation-gitpage-hugo/</link>
+      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
+      
+      <guid>/en/tuto/installation-gitpage-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/githugo/githugo-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to install and configure your first github page !
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

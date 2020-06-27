@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/en/post/</link>
+    <description>Recent content in Posts on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Fri, 26 Jun 2020 12:25:35 +0200</lastBuildDate>
+    
+	<atom:link href="/en/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorials !</title>
+      <link>/en/post/tutorials-presentation-category/</link>
+      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
+      
+      <guid>/en/post/tutorials-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/tuto-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          IT for everyone!
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>/en/post/archlinux-presentation-category/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
+      
+      <guid>/en/post/archlinux-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/arch/arch-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          I use Arch btw.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NIXOS</title>
+      <link>/en/post/nixos-presentation-category/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/en/post/nixos-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/nixos/nixos-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Nixos tutorials - Install and configuration
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>MachineLearning</title>
+      <link>/en/post/machine-learning-presentation-category/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/en/post/machine-learning-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/ml/ml-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          MachineLearning for Dummies.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

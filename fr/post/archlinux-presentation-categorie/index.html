@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Archlinux :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="La catégorie Archlinux vient d&amp;rsquo;arriver ! Pour le moment elle n&amp;rsquo;est pas très chargée mais ca ne serait tarder !
+On sait tous qu&amp;rsquo;il est assez difficile pour un début d&amp;rsquo;installer ArchLinux, mais c&amp;rsquo;est aussi ce qui fait son charme non ?
+Pour votre plus grand plaisir, je vous propose un tuto d&amp;rsquo;installation EFI et chiffrement LUKS.
+Vous pouvez retrouver ce tuto ICI !
+ Eidorian
+ "/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/fr/post/archlinux-presentation-categorie/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Archlinux"/>
+<meta name="twitter:description" content="I use Arch btw."/>
+
+
+
+<meta property="og:title" content="Archlinux" />
+<meta property="og:description" content="I use Arch btw." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fr/post/archlinux-presentation-categorie/" />
+<meta property="article:published_time" content="2020-06-20T23:43:57+02:00" />
+<meta property="article:modified_time" content="2020-06-20T23:43:57+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/fr/ml">MachineLearning</a></li>
+        
+      
+        
+	<li><a href="/fr/nixos">NIXOS</a></li>
+        
+      
+        
+	<li><a href="/fr/arch">Archlinux</a></li>
+        
+      
+        
+	<li><a href="/fr/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/fr/about">A propos</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/fr/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/fr/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/fr/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/fr/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/fr/about">A propos</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/fr/post/archlinux-presentation-categorie/">Archlinux</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-20
+        </span>
+
+        
+          
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/arch/arch-banner.gif" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>La catégorie Archlinux vient d&rsquo;arriver ! Pour le moment elle n&rsquo;est pas très chargée mais ca ne serait tarder !</p>
+<p>On sait tous qu&rsquo;il est assez difficile pour un début d&rsquo;installer ArchLinux, mais c&rsquo;est aussi ce qui fait son charme non ?</p>
+<p>Pour votre plus grand plaisir, je vous propose un tuto d&rsquo;installation EFI et chiffrement LUKS.</p>
+<p>Vous pouvez retrouver ce tuto <a href="../../arch/">ICI !</a></p>
+<blockquote>
+<p>Eidorian</p>
+</blockquote>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Lire d&#39;autres articles</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="/fr/post/les-tutos-presentation-categorie/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Les tutos sont arrivés !</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="/fr/post/nixos-presentation-categorie/">
+                  <span class="button__text">NIXOS</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+
+    
+      
+        
+
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

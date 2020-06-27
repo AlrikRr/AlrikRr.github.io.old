@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arches on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/fr/arch/</link>
+    <description>Recent content in Arches on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Sat, 20 Jun 2020 23:43:27 +0200</lastBuildDate>
+    
+	<atom:link href="/fr/arch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ArchLinux Installation</title>
+      <link>/fr/arch/arch-install/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
+      
+      <guid>/fr/arch/arch-install/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/install/inst-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Installation de Archlinux EFI et Chiffrement LUKS.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

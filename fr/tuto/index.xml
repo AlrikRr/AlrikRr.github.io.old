@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutos on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/fr/tuto/</link>
+    <description>Recent content in Tutos on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Fri, 26 Jun 2020 11:02:54 +0200</lastBuildDate>
+    
+	<atom:link href="/fr/tuto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mise en place d&#39;un coffre sécurisé avec montage distant SSHFS</title>
+      <link>/fr/tuto/coffre-securise-sshfs/</link>
+      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
+      
+      <guid>/fr/tuto/coffre-securise-sshfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/coffre/coffre-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Mise en place d&#39;un coffre sécurisé LUKS avec un montage/démontage distant en utilisant SSHFS.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Expert</title>
+      <link>/fr/tuto/ssh-expert-tips/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
+      
+      <guid>/fr/tuto/ssh-expert-tips/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/ssh/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Astuces pour vous faliciter la vie avec SSH !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation de Dropbear-initramfs</title>
+      <link>/fr/tuto/dropbear-initramfs/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
+      
+      <guid>/fr/tuto/dropbear-initramfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/dropbear/drop-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Déchiffrer votre machine à distance avant son démarrage avec dropbear !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Créer son site web avec Github-page et Hugo</title>
+      <link>/fr/tuto/installation-gitpage-hugo/</link>
+      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
+      
+      <guid>/fr/tuto/installation-gitpage-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/githugo/githugo-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Créer son site web avec Github-page et Hugo
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>ArchLinux Installation :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Merci à mattiaslundberg j&amp;rsquo;ai pu reprendre et modifier sa configuration par défaut.
+ Téléchargement de l&amp;rsquo;ISO et Live USB Premièrement, vous devez télécharger le fichier ISO disponible sur archlinux.org.
+Ensuite, vous devea faire une clé USB Bootable (Live USB), il y a une multitude de moyen pour le faire.
+Pour ma part, je vais utiliser l&amp;rsquo;outil dd sous linux.
+eidorian@root# dd if=archlinux.iso of=/dev/sdb bs=16M &amp;amp;&amp;amp; sync
+archlinux.iso est votre fichier ISO est sdb est votre clé USB."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/fr/arch/arch-install/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ArchLinux Installation"/>
+<meta name="twitter:description" content="Installation de Archlinux EFI et Chiffrement LUKS."/>
+
+
+
+<meta property="og:title" content="ArchLinux Installation" />
+<meta property="og:description" content="Installation de Archlinux EFI et Chiffrement LUKS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fr/arch/arch-install/" />
+<meta property="article:published_time" content="2020-06-20T23:43:27+02:00" />
+<meta property="article:modified_time" content="2020-06-20T23:43:27+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+<ul class="nav-list">
+    
+    
+        <a href="/en/arch/arch-install/">English</a>
+    
+    
+</ul>
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/fr/ml">MachineLearning</a></li>
+        
+      
+        
+	<li><a href="/fr/nixos">NIXOS</a></li>
+        
+      
+        
+	<li><a href="/fr/arch">Archlinux</a></li>
+        
+      
+        
+	<li><a href="/fr/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/fr/about">A propos</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/fr/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/fr/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/fr/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/fr/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/fr/about">A propos</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/fr/arch/arch-install/">ArchLinux Installation</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-20
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/arch/install/inst-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Merci à <a href="https://github.com/mattiaslundberg">mattiaslundberg</a> j&rsquo;ai pu reprendre et modifier sa configuration par défaut.</p>
+<hr>
+<h2 id="téléchargement-de-liso-et-live-usb">Téléchargement de l&rsquo;ISO et Live USB</h2>
+<p>Premièrement, vous devez télécharger le fichier ISO disponible sur <a href="https://www.archlinux.org/">archlinux.org</a>.<br>
+Ensuite, vous devea faire une clé USB Bootable (Live USB), il y a une multitude de moyen pour le faire.<br>
+Pour ma part, je vais utiliser l&rsquo;outil <code>dd</code> sous linux.</p>
+<p><code>eidorian@root# dd if=archlinux.iso of=/dev/sdb bs=16M &amp;&amp; sync</code></p>
+<p><code>archlinux.iso</code> est votre fichier ISO est <code>sdb</code> est votre clé USB.<br>
+Maintenant, vous avez juste à BOTTER sur votre clé USB. Si ça ne fonctionne pas, désactivez votre Secure Boot.</p>
+<h1 id="installation">Installation</h1>
+<p>Si vous rencontrez un problème, dirigez vous sur  <a href="https://wiki.archlinux.org/">Archlinux Wiki</a>.<br>
+<strong>N'écrivez aucunes commande avant de savoir ce qu&rsquo;elle fait.</strong><br>
+Le guide d&rsquo;<a href="https://wiki.archlinux.org/index.php/Installation_Guide">installation officiel</a> contient plus de détails.</p>
+<h2 id="première-étape">Première étape</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Modifier la configuration de votre clavier, passez le en Français AZERTY.
+loadkeys fr
+
+# Nous allons assumer que votre Ordinateur est connecté à  internet via WIFI.
+wifi-menu
+
+# Verifiez si vous avez bien accès à internet.
+ping 8.8.8.8
+</code></pre><h2 id="partitionnement">Partitionnement</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">cgdisk /dev/sdX
+
+# Partition EFI
+1 100MB EFI partition # Hex code ef00
+
+# Partition BOOT
+2 250MB Boot partition # Hex code 8300
+
+# Partition Chiffrée
+3 100% size partiton # Hex code 8300
+
+mkfs.vfat -F32 /dev/sdX1
+mkfs.ext4 /dev/sdX2
+</code></pre><h2 id="chiffrement">Chiffrement</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">cryptsetup -c aes-xts-plain64 -y --use-random luksFormat /dev/sdX3
+cryptsetup luksOpen /dev/sda3 luks
+
+# Création de la partition chiffrée
+# Ici nous allons crée une partition ROOT et SWAP
+# libre à vous de séparer /home ou d'autres. 
+pvcreate /dev/mapper/luks
+vgcreate vg_crypt /dev/mapper/luks
+lvcreate --size 8G vg_crypt --name lv_swap
+lvcreate -l +100%FREE vg_crypt --name lv_root
+
+# Formatage en ext4 et création du SWAP
+mkfs.ext4 /dev/mapper/vg_crypt-lv_root
+mkswap /dev/mapper/vg_crypt-lv_swap
+</code></pre><h2 id="montez-le-système">Montez le système</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">mount /dev/mapper/vg_crypt-lv_root /mnt
+swapon /dev/mapper/vg_crypt-lv_swap
+mkdir /mnt/boot
+mount /dev/sdX2 /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/sdX1 /mnt/boot/efi
+</code></pre><h2 id="installation-1">Installation</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Pour ne pas être embêter après votre installation, notamment avec les paquets wifi/réseau manquant, pensez à tout inclure ici.
+pacstrap /mnt base base-devel grub-efi-x86_64 vim git efibootmgr dialog wpa_supplicant linux lvm2 networkmanager dhcp
+</code></pre><h2 id="fstab">FSTAB</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">genfstab -pU /mnt &gt;&gt; /mnt/etc/fstab
+# Création du /tmp pour ramdisk (ajoutez la ligne suivante dans /mnt/etc/fstab)
+tmpfs	/tmp	tmpfs	defaults,noatime,mode=1777	0	0
+# Change relatime sur toutes les partitions non-boot en noatime (optimisé pour SSD)
+</code></pre><h2 id="chroot-new-system-and-setup">chroot new system and setup</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Enter en chroot sur le nouveau système
+arch-chroot /mnt /bin/bash
+
+# Configurez l'horloge
+ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
+hwclock --systohc --utc
+
+# Changez le hostname
+echo MYHOSTNAME &gt; /etc/hostname
+
+# Mettez à jour vos locale en Français
+echo LANG=fr_FR.UTF-8 &gt;&gt; /etc/locale.conf
+echo LANGUAGE=fr_US &gt;&gt; /etc/locale.conf
+echo LC_ALL=C &gt;&gt; /etc/locale.conf
+
+# Ajoutez un mot de passe pour le compte root
+passwd
+
+# Ajoutez un utilisateur, retirez l'option -s si vous ne voulez pas utiliser zsh
+useradd -m -g users -G wheel -s /bin/zsh USERNAME
+passwd USERNAME
+
+# Configurez mkinitcpio avec les bons modules  pour générer notre image
+vim /etc/mkinitcpio.conf
+# Ajoutez 'ext4' à MODULES
+# Ajotez 'encrypt' et 'lvm2' à HOOKS avant filesystems
+# :w! &amp; :q!  ;)
+mkinitcpio -p linux
+</code></pre><h2 id="configuration-du-grub">Configuration du GRUB</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">grub-install
+# Dans /etc/default/grub modifiez la ligne `GRUB_CMDLINE_LINUX` en `GRUB_CMDLINE_LINUX=&quot;cryptdevice=/dev/sdX3:luks:allow-discards&quot; ` et lancez:
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre><h2 id="quittez-et-redémarrez">Quittez et redémarrez</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">exit
+
+# Démontez toutes les partitions
+umount -R /mnt
+swapoff -a
+
+# Reboot et n'oubliez pas de retirer la clé USB !
+reboot
+</code></pre>
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

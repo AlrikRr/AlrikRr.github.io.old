@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Installation de Dropbear-initramfs :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Déchiffrer votre machine à distance avant son démarrage avec dropbear !
+ Le principal problème quand on a un serveur chiffré, c&amp;rsquo;est au moment du redémarrage de celui-ci, il faut être présent pour entrer la pass-phrase et ainsi démarrer sont serveur.
+Du moins, c&amp;rsquo;est ce que vous devriez faire si vous n&amp;rsquo;avait pas installer dropbear-initramfs !
+Dropbear-initramf est un petit serveur SSH qui va tourner juste après votre GRUB et avant que votre machine ne démarre."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/fr/tuto/dropbear-initramfs/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Installation de Dropbear-initramfs"/>
+<meta name="twitter:description" content="Déchiffrer votre machine à distance avant son démarrage avec dropbear !"/>
+
+
+
+<meta property="og:title" content="Installation de Dropbear-initramfs" />
+<meta property="og:description" content="Déchiffrer votre machine à distance avant son démarrage avec dropbear !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fr/tuto/dropbear-initramfs/" />
+<meta property="article:published_time" content="2020-06-22T14:32:29+02:00" />
+<meta property="article:modified_time" content="2020-06-22T14:32:29+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+<ul class="nav-list">
+    
+    
+        <a href="/en/tuto/dropbear-initramfs/">English</a>
+    
+    
+</ul>
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/fr/ml">MachineLearning</a></li>
+        
+      
+        
+	<li><a href="/fr/nixos">NIXOS</a></li>
+        
+      
+        
+	<li><a href="/fr/arch">Archlinux</a></li>
+        
+      
+        
+	<li><a href="/fr/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/fr/about">A propos</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/fr/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/fr/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/fr/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/fr/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/fr/about">A propos</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/fr/tuto/dropbear-initramfs/">Installation de Dropbear-initramfs</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-22
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/tuto/dropbear/drop-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Déchiffrer votre machine à distance avant son démarrage avec dropbear !</p>
+<hr>
+<p>Le principal problème quand on a un serveur chiffré, c&rsquo;est au moment du redémarrage de celui-ci, il faut être présent pour entrer la pass-phrase et ainsi démarrer sont serveur.</p>
+<p>Du moins, c&rsquo;est ce que vous devriez faire si vous n&rsquo;avait pas installer dropbear-initramfs !</p>
+<p>Dropbear-initramf est un petit serveur SSH qui va tourner juste après votre GRUB et avant que votre machine ne démarre.  De ce fait, vous pourrez vous y connecter et entrer la pass-phrase de votre serveur ! Magique non ?</p>
+<h2 id="installation">Installation</h2>
+<p>Premièrement, c&rsquo;est logique, vous devez installer le paquet <code>dropbear-initramfs</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ sudo apt install dropbear-Initramfs
+</code></pre><h2 id="copiercoller-vos-clés">Copier/Coller vos clés</h2>
+<p><strong>Attention - Dropbear ne support pas les clés ed25519</strong>
+Vous devez copier les clés publique que vous utilisée pour votre SSH (ou en ajouter de nouvelles c&rsquo;est vous qui voyez après tout !)</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ cp ~/.ssh/authorized_keys /etc/dropbear-initramfs/authorized_keys
+</code></pre><h2 id="configurez-dropbear">Configurez Dropbear</h2>
+<p>Pour la configuration, ici rien de compliqué nous aurons besoin d&rsquo;une seule option.<br>
+Le fichier de configuration se trouve ici : <code>/etc/dropbear-initramfs/config</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ cat /etc/dropbear-initramfs/config
+DROPBEAR_OPTIONS=&quot;-p 4748&quot;
+</code></pre><p>Cete option permet de préciser le port que vous allez devoir utiliser pour vous connecter à dropbear via SSH. Ne mettez pas le port 22 !</p>
+<p>Maintenant, c&rsquo;est le moment de mettre à jour initramfs !</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ sudo update-initramfs -u
+</code></pre><h2 id="configurez-le-grub-optionel">Configurez le GRUB (optionel)</h2>
+<p>Si vous avez peur que l&rsquo;adresse IP de votre dropbear change, rien de plus simple, il vous suffit d&rsquo;ajouter cette ligne dans le fichier de configuration de votre GRUB.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ sudo vim /etc/default/grub*
+#GRUB_CMDLINE_LINUX=&quot;ip=&lt;IP&gt;::&lt;gateway&gt;::&lt;mask&gt;::&lt;interface&gt;:off&quot;
+GRUB_CMDLINE_LINUX=&quot;ip=192.168.1.90::192.168.1.1:255.255.255.0::enp0s3:off&quot;
+</code></pre><p>Pensez à mettre à jour la configuration de votre GRUB :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ sudo update-grub
+</code></pre><h2 id="connexion-à-dropbear">Connexion à dropbear</h2>
+<p>Maintenant, c&rsquo;est le moment d'éteindre votre machine, de se connecter en SSH sur le bon port et de croiser les doigts !</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ ssh root@192.168.1.90 -p 4748
+</code></pre><p><img src="/img/fr/tuto/dropbear/drop1.png" alt="drop1">
+Si vous parvenez à avoir le même résultat que moi, vous êtes sur la bonne voie !<br>
+Sinon, jeter un oeil aux clés que vous avez ajouté.</p>
+<p>Pour dévérouiller votre machine, tapez la commande :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ # cryptroot-unlock
+</code></pre><p><img src="/img/fr/tuto/dropbear/drop2.png" alt="drop2"></p>
+<p>Voilà, vous avez plus qu&rsquo;a entrer votre pass-phrase. Suite à ca, vous allez être déconnecté. Il ne vous reste plus qu'à vous connecter en SSH normalement.</p>
+<p>Notes : Vous pouvez toujours entrer votre pass-phrase sur votre machine directement, même si le LUKS ne vous la demande pas.</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

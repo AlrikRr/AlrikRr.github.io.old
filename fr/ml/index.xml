@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mls on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/fr/ml/</link>
+    <description>Recent content in Mls on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Thu, 18 Jun 2020 22:39:10 +0200</lastBuildDate>
+    
+	<atom:link href="/fr/ml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Support Vector Machine</title>
+      <link>/fr/ml/support-vector-machine/</link>
+      <pubDate>Thu, 18 Jun 2020 22:39:10 +0200</pubDate>
+      
+      <guid>/fr/ml/support-vector-machine/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/ml/svm/svm-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Support Vector Machine explication et lien vers mon code Python.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Régression linéaire</title>
+      <link>/fr/ml/linear-regression/</link>
+      <pubDate>Thu, 18 Jun 2020 22:20:29 +0200</pubDate>
+      
+      <guid>/fr/ml/linear-regression/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/ml/lr/lr-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Régression linéaire explication et lien vers mon code Python
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>K-plus proches voisins</title>
+      <link>/fr/ml/k-nearest-neighbors/</link>
+      <pubDate>Thu, 18 Jun 2020 20:31:36 +0200</pubDate>
+      
+      <guid>/fr/ml/k-nearest-neighbors/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/ml/knn/knn-banner.png&#34;/&gt;
+          
+        
+        
+        
+          K-plus proches voisins - KNN en anglais
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

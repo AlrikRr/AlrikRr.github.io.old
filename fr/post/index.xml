@@ -10,10 +10,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 26 Jun 2020 12:25:35 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 22:38:55 +0200</lastBuildDate>
     
 	<atom:link href="/fr/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tradution du site disponible !</title>
+      <link>/fr/post/traduction-du-site/</link>
+      <pubDate>Sat, 27 Jun 2020 22:38:55 +0200</pubDate>
+      
+      <guid>/fr/post/traduction-du-site/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/traduction-banner.png&#34;/&gt;
+          
+        
+        
+        
+          C&amp;rsquo;est bon, après une journée complète de configuration et de modification des mes articles, la traduction est opérationnel !
+Vous pouvez switcher en cliquant sur la langue en haut dans le menu.
+Vous pouvez également changer de langue pendant la lecture d&amp;rsquo;un article ! Waw !
+Je ferais un tuto prochainement pour mettre ça en place.
+Bonne lecture !
+ Eidorian
+ 
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Les tutos sont arrivés !</title>
@@ -54,25 +79,6 @@
     </item>
     
     <item>
-      <title>NIXOS</title>
-      <link>/fr/post/nixos-presentation-categorie/</link>
-      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
-      
-      <guid>/fr/post/nixos-presentation-categorie/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/nixos/nixos-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          Catégorie NIXOS pour débutant !
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Machine Learning</title>
       <link>/fr/post/machine-learning-presentation-categorie/</link>
       <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
@@ -86,6 +92,25 @@
         
         
           Apprendre les bases simplement !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NIXOS</title>
+      <link>/fr/post/nixos-presentation-categorie/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/fr/post/nixos-presentation-categorie/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/nixos/nixos-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Catégorie NIXOS pour débutant !
           
         
         </description>

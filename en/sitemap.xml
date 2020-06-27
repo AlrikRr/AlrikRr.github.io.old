@@ -159,7 +159,7 @@
   
   <url>
     <loc>/en/post/</loc>
-    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
+    <lastmod>2020-06-27T22:38:55+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -169,6 +169,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="/en/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>/en/post/traduction-du-site/</loc>
+    <lastmod>2020-06-27T22:38:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/post/traduction-du-site/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/post/traduction-du-site/"
                 />
   </url>
   

@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/fr/post/les-tutos-presentation-categorie/</loc>
-    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/fr/tuto/coffre-securise-sshfs/</loc>
     <lastmod>2020-06-26T11:02:54+02:00</lastmod>
     <xhtml:link
@@ -38,11 +33,6 @@
   </url>
   
   <url>
-    <loc>/fr/post/archlinux-presentation-categorie/</loc>
-    <lastmod>2020-06-20T23:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/fr/tuto/dropbear-initramfs/</loc>
     <lastmod>2020-06-22T14:32:29+02:00</lastmod>
     <xhtml:link
@@ -58,11 +48,6 @@
   </url>
   
   <url>
-    <loc>/fr/post/nixos-presentation-categorie/</loc>
-    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/fr/tuto/installation-gitpage-hugo/</loc>
     <lastmod>2020-06-21T15:47:56+02:00</lastmod>
     <xhtml:link
@@ -75,11 +60,6 @@
                 hreflang="fr"
                 href="/fr/tuto/installation-gitpage-hugo/"
                 />
-  </url>
-  
-  <url>
-    <loc>/fr/post/machine-learning-presentation-categorie/</loc>
-    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
   </url>
   
   <url>
@@ -159,7 +139,7 @@
   
   <url>
     <loc>/fr/post/</loc>
-    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
+    <lastmod>2020-06-27T22:38:55+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -170,6 +150,26 @@
                 hreflang="fr"
                 href="/fr/post/"
                 />
+  </url>
+  
+  <url>
+    <loc>/fr/post/traduction-du-site/</loc>
+    <lastmod>2020-06-27T22:38:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/post/traduction-du-site/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/post/traduction-du-site/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/post/les-tutos-presentation-categorie/</loc>
+    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
   </url>
   
   <url>
@@ -215,6 +215,11 @@
                 hreflang="fr"
                 href="/fr/"
                 />
+  </url>
+  
+  <url>
+    <loc>/fr/post/archlinux-presentation-categorie/</loc>
+    <lastmod>2020-06-20T23:43:57+02:00</lastmod>
   </url>
   
   <url>
@@ -290,6 +295,16 @@
                 hreflang="fr"
                 href="/fr/ml/linear-regression/"
                 />
+  </url>
+  
+  <url>
+    <loc>/fr/post/machine-learning-presentation-categorie/</loc>
+    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/post/nixos-presentation-categorie/</loc>
+    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
   </url>
   
   <url>

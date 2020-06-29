@@ -16,25 +16,6 @@
     
     
     <item>
-      <title>Tutorials !</title>
-      <link>/en/post/tutorials-presentation-category/</link>
-      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
-      
-      <guid>/en/post/tutorials-presentation-category/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/en/tuto/tuto-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          IT for everyone!
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS</title>
       <link>/en/tuto/coffre-securise-sshfs/</link>
       <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
@@ -73,25 +54,6 @@
     </item>
     
     <item>
-      <title>Archlinux</title>
-      <link>/en/post/archlinux-presentation-category/</link>
-      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
-      
-      <guid>/en/post/archlinux-presentation-category/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/en/arch/arch-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          I use Arch btw.
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Dropbear - initramfs</title>
       <link>/en/tuto/dropbear-initramfs/</link>
       <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
@@ -111,25 +73,6 @@
     </item>
     
     <item>
-      <title>NIXOS</title>
-      <link>/en/post/nixos-presentation-category/</link>
-      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
-      
-      <guid>/en/post/nixos-presentation-category/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/en/nixos/nixos-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          Nixos tutorials - Install and configuration
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Gitpage with Hugo</title>
       <link>/en/tuto/installation-gitpage-hugo/</link>
       <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
@@ -143,25 +86,6 @@
         
         
           How to install and configure your first github page !
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>MachineLearning</title>
-      <link>/en/post/machine-learning-presentation-category/</link>
-      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
-      
-      <guid>/en/post/machine-learning-presentation-category/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/en/ml/ml-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          MachineLearning for Dummies.
           
         
         </description>
@@ -288,6 +212,25 @@ Have fun !
     </item>
     
     <item>
+      <title>Tutorials !</title>
+      <link>/en/post/tutorials-presentation-category/</link>
+      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
+      
+      <guid>/en/post/tutorials-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/tuto-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          IT for everyone!
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>/en/about/</link>
       <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
@@ -304,6 +247,25 @@ Have fun !
           Hello there ! My name is Adrien I&amp;rsquo;m 22 years old and I&amp;rsquo;m currently studying computer security in Paris.
 I like to realize projects under linux or in programming, that&amp;rsquo;s why I wanted to share them on my github or in the form of tutorials !
 Just to remind you that I&amp;rsquo;m a student, I wanted to make this website in order to practice, I&amp;rsquo;m by no means an expert, I&amp;rsquo;m also here to learn as much as you are, if anytime I make big mistakes, don&amp;rsquo;t hesitate to let me know to clarify the subject ;) Especially in English because it&amp;rsquo;s not my native language !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>/en/post/archlinux-presentation-category/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
+      
+      <guid>/en/post/archlinux-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/arch/arch-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          I use Arch btw.
           
         
         </description>
@@ -342,6 +304,44 @@ Just to remind you that I&amp;rsquo;m a student, I wanted to make this website i
         
         
           linearRegression tutorial and link to Python code.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>MachineLearning</title>
+      <link>/en/post/machine-learning-presentation-category/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/en/post/machine-learning-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/ml/ml-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          MachineLearning for Dummies.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NIXOS</title>
+      <link>/en/post/nixos-presentation-category/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/en/post/nixos-presentation-category/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/nixos/nixos-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Nixos tutorials - Install and configuration
           
         
         </description>

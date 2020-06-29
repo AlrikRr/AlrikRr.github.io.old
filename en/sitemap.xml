@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/en/post/tutorials-presentation-category/</loc>
-    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/en/tuto/coffre-securise-sshfs/</loc>
     <lastmod>2020-06-26T11:02:54+02:00</lastmod>
     <xhtml:link
@@ -38,11 +33,6 @@
   </url>
   
   <url>
-    <loc>/en/post/archlinux-presentation-category/</loc>
-    <lastmod>2020-06-20T23:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/en/tuto/dropbear-initramfs/</loc>
     <lastmod>2020-06-22T14:32:29+02:00</lastmod>
     <xhtml:link
@@ -58,11 +48,6 @@
   </url>
   
   <url>
-    <loc>/en/post/nixos-presentation-category/</loc>
-    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/en/tuto/installation-gitpage-hugo/</loc>
     <lastmod>2020-06-21T15:47:56+02:00</lastmod>
     <xhtml:link
@@ -75,11 +60,6 @@
                 hreflang="en"
                 href="/en/tuto/installation-gitpage-hugo/"
                 />
-  </url>
-  
-  <url>
-    <loc>/en/post/machine-learning-presentation-category/</loc>
-    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
   </url>
   
   <url>
@@ -188,6 +168,11 @@
   </url>
   
   <url>
+    <loc>/en/post/tutorials-presentation-category/</loc>
+    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/en/tuto/</loc>
     <lastmod>2020-06-26T11:02:54+02:00</lastmod>
     <xhtml:link
@@ -230,6 +215,11 @@
                 hreflang="en"
                 href="/en/"
                 />
+  </url>
+  
+  <url>
+    <loc>/en/post/archlinux-presentation-category/</loc>
+    <lastmod>2020-06-20T23:43:57+02:00</lastmod>
   </url>
   
   <url>
@@ -305,6 +295,16 @@
                 hreflang="en"
                 href="/en/ml/linear-regression/"
                 />
+  </url>
+  
+  <url>
+    <loc>/en/post/machine-learning-presentation-category/</loc>
+    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/en/post/nixos-presentation-category/</loc>
+    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
   </url>
   
   <url>

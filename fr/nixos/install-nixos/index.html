@@ -209,6 +209,12 @@ N&rsquo;hésitez pas à jeter un oeil au <strong>wiki</strong> ici : <a href="ht
 <pre><code class="language-bash/shell" data-lang="bash/shell"># Afficher l'aide NIXOS - Commande très importante ! 
 $ nixos-help  
 
+# Changer pour le clavier fr
+$ loadkeys fr
+
+# utilisez le compte root
+$ sudo -i
+
 # Affichez les partitions actuelle
 $ lsblk  
 
@@ -229,7 +235,7 @@ $ cryptsetup luksOpen /dev/sda1 nixos-root
 $ ls -l /dev/mapper
 
 # BTRFS
-mkfd.btrfs -L nixroot /dev/mapper/nixos-root
+mkfs.btrfs -L nixroot /dev/mapper/nixos-root
 
 # Creation du SWAP
 $ mkswap /dev/sda2
@@ -270,7 +276,24 @@ $ nixos-generate-config --root /mnt
 
 # Installation
 $ nixos-install
-</code></pre>
+</code></pre><h2 id="les-commandes-de-bases">Les commandes de bases</h2>
+<p>Voici quelques commandes de bases pour survivr à votre première installation NIXOS :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Rebuild votre OS
+$ nixos-rebuild switch
+
+# Rebuild votre OS et afficher les erreurs
+$ nixos-rebuild switch --show-case
+
+# Rechercher un paquet à installer
+$ nix search &lt;name&gt;
+
+# Installer un nouveau paquet
+$ nix-env -iA nixos.&lt;name&gt;
+
+</code></pre><p>Toute la magie de nixos repose sur sa configuration et les fichiers de configuration que vous allez y ajouter !<br>
+En effet, configurez votre Nixos via <code>/etc/nixos/configuration.nix</code>.<br>
+Une fois fait, vous pouvez copier/coller votre fichier de configuration sur un autre nixos fraichemetn installe pour automatiquement le configurer avec vos paramètres !</p>
+
     </div>
     
 

@@ -12,7 +12,7 @@ You can download the NIXOS ISO here : nixos.org/download
 Don&amp;rsquo;t forget to check the wiki here : nixos.org
 Install if you have any troubles, google it
 For this install I&amp;rsquo;ll use a 25Gb VirtualDisk.
-# Display help - Very important command ! $ nixos-help # Display partitions $ lsblk # Open parted and free 2GB for SWAP later $ parted /dev/sda -- mklabel gpt $ parted /dev/sda -- mkpart primary 512MiB -2GiB $ parted /dev/sda -- mkpart primary -2GiB 100% # Create ESP partition $ parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB $ parted /dev/sda -- set 3 boot on # Cryptsetup $ cryptsetup luksFormat /dev/sda1 $ cryptsetup luksOpen /dev/sda1 nixos-root # Check if everything is OK and continue $ ls -l /dev/mapper #BTRFS nixos-root mkfd."/>
+# Display help - Very important command ! $ nixos-help # root access $ sudo -i # Display partitions $ lsblk # Open parted and free 2GB for SWAP later $ parted /dev/sda -- mklabel gpt $ parted /dev/sda -- mkpart primary 512MiB -2GiB $ parted /dev/sda -- mkpart primary -2GiB 100% # Create ESP partition $ parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB $ parted /dev/sda -- set 3 boot on # Cryptsetup $ cryptsetup luksFormat /dev/sda1 $ cryptsetup luksOpen /dev/sda1 nixos-root # Check if everything is OK and continue $ ls -l /dev/mapper #BTRFS nixos-root mkfs."/>
 <meta name="keywords" content="linux, tutorials, programming, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/en/nixos/install-nixos/" />
@@ -209,6 +209,9 @@ Don&rsquo;t forget to check the <strong>wiki</strong> here : <a href="https://ni
 <pre><code class="language-bash/shell" data-lang="bash/shell"># Display help - Very important command !  
 $ nixos-help  
 
+# root access
+$ sudo -i
+
 # Display partitions  
 $ lsblk  
 
@@ -229,7 +232,7 @@ $ cryptsetup luksOpen /dev/sda1 nixos-root
 $ ls -l /dev/mapper
 
 #BTRFS nixos-root
-mkfd.btrfs -L nixroot /dev/mapper/nixos-root
+mkfs.btrfs -L nixroot /dev/mapper/nixos-root
 
 # Create SWAP
 $ mkswap /dev/sda2
@@ -270,7 +273,24 @@ $ nixos-generate-config --root /mnt
 
 # Install
 $ nixos-install
-</code></pre>
+</code></pre><h2 id="les-commandes-de-bases">Les commandes de bases</h2>
+<p>Here are some basic commands for surviving your first NIXOS installation:</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Rebuild your OS
+$ nixos-rebuild switch
+
+# Rebuild your OS and display errors
+$ nixos-rebuild switch --show-case
+
+# Search package name
+$ nix search &lt;name&gt;
+
+# Install new package
+$ nix-env -iA nixos.&lt;name&gt;
+
+</code></pre><p>All the magic of nixos lies in its configuration and the configuration files you&rsquo;ll be adding to it!
+Indeed, configure your Nixos via <code>/etc/nixos/configuration.nix</code>.
+Once done, you can copy/paste your configuration file to another nixos fraichemetn installer to automatically configure it with your settings!</p>
+
     </div>
     
 

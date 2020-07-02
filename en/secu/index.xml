@@ -16,19 +16,19 @@
     
     
     <item>
-      <title>Analyse Dynamique Android</title>
+      <title>Android Dynamic Analysis and SSL Pinning Bypass with Frida</title>
       <link>/en/secu/analyse-dynamique-android/</link>
       <pubDate>Wed, 01 Jul 2020 00:34:51 +0200</pubDate>
       
       <guid>/en/secu/analyse-dynamique-android/</guid>
       <description>
         
-          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          &lt;img src=&#34;/img/en/secu/android/android-sslpinning-banner.png&#34;/&gt;
           
         
         
         
-          
+          Android Dynamic Analysis of an Android APK with Brup Proxy and SSL Pinning Bypass with Frida.
           
         
         </description>

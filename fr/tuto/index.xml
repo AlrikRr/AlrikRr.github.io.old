@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 26 Jun 2020 11:02:54 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 20:43:15 +0200</lastBuildDate>
     
 	<atom:link href="/fr/tuto/index.xml" rel="self" type="application/rss+xml" />
     
@@ -86,6 +86,25 @@
         
         
           Créer son site web avec Github-page et Hugo
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Utiliser la fonction multilangage avec HUGO</title>
+      <link>/fr/tuto/traduction-avec-hugo/</link>
+      <pubDate>Tue, 30 Jun 2020 20:43:15 +0200</pubDate>
+      
+      <guid>/fr/tuto/traduction-avec-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          Salut, ici vous allez voir comment mettre en place la fonction Multilangage avec un site HUGO, comme le miens !
           
         
         </description>

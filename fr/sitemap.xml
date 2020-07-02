@@ -138,6 +138,66 @@
   </url>
   
   <url>
+    <loc>/fr/secu/analyse-dynamique-android/</loc>
+    <lastmod>2020-07-01T00:34:51+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/secu/analyse-dynamique-android/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/secu/analyse-dynamique-android/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/secu/</loc>
+    <lastmod>2020-07-01T00:34:51+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/secu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/secu/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tuto/</loc>
+    <lastmod>2020-06-30T20:43:15+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tuto/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tuto/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/tuto/traduction-avec-hugo/</loc>
+    <lastmod>2020-06-30T20:43:15+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tuto/traduction-avec-hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tuto/traduction-avec-hugo/"
+                />
+  </url>
+  
+  <url>
     <loc>/fr/post/</loc>
     <lastmod>2020-06-27T22:38:55+02:00</lastmod>
     <xhtml:link
@@ -170,21 +230,6 @@
   <url>
     <loc>/fr/post/les-tutos-presentation-categorie/</loc>
     <lastmod>2020-06-26T12:25:35+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/fr/tuto/</loc>
-    <lastmod>2020-06-26T11:02:54+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tuto/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tuto/"
-                />
   </url>
   
   <url>

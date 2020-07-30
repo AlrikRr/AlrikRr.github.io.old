@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/en/writeup/</link>
+    <description>Recent content in Writeups on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Thu, 30 Jul 2020 10:13:36 +0200</lastBuildDate>
+    
+	<atom:link href="/en/writeup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Admirer</title>
+      <link>/en/writeup/admirer/</link>
+      <pubDate>Thu, 30 Jul 2020 10:13:36 +0200</pubDate>
+      
+      <guid>/en/writeup/admirer/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Blunder</title>
+      <link>/en/writeup/blunder/</link>
+      <pubDate>Thu, 30 Jul 2020 10:13:24 +0200</pubDate>
+      
+      <guid>/en/writeup/blunder/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Traceback</title>
+      <link>/en/writeup/traceback/</link>
+      <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
+      
+      <guid>/en/writeup/traceback/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

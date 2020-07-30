@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Install MacOs on Linux with KVM :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="How to install MacOs Catalina with KVM on your linux.
+Thanks to foxlet for his amazing tutorial : foxlet/macOS-Simple-KVM
+ Requirements First of all, you need to install QEMU (3.1 or later), python3 and pip.
+MacOs.iso is not necessary for this install.
+Feel free to check the github link below for more verbose information.
+ Install Get the repo and start the install.
+~ 竈門» git clone https://github.com/foxlet/macOS-Simple-KVM.git # Run jumpstart."/>
+<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/en/tuto/macos-sur-linux-kvm/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install MacOs on Linux with KVM"/>
+<meta name="twitter:description" content="How to install MacOs Catalina with KVM on your Linux."/>
+
+
+
+<meta property="og:title" content="Install MacOs on Linux with KVM" />
+<meta property="og:description" content="How to install MacOs Catalina with KVM on your Linux." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/en/tuto/macos-sur-linux-kvm/" />
+<meta property="article:published_time" content="2020-06-26T10:52:56+02:00" />
+<meta property="article:modified_time" content="2020-06-26T10:52:56+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+<ul class="nav-list">
+    
+    
+        <a href="/fr/tuto/macos-sur-linux-kvm/" style="text-decoration:none" >🇫🇷</a>
+    
+    
+</ul>
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/en/tuto">Tutorials</a></li>
+        
+      
+        
+	<li><a href="/en/secu">Security</a></li>
+        
+      
+        
+	<li><a href="/en/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/en/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/en/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/en/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/en/about">About</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/en/tuto">Tutorials</a></li>
+      
+    
+      
+        <li><a href="/en/secu">Security</a></li>
+      
+    
+      
+        <li><a href="/en/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/en/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/en/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/en/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/en/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/en/tuto/macos-sur-linux-kvm/">Install MacOs on Linux with KVM</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-06-26
+        </span>
+
+        
+      
+
+      <span class="post-author">— Written by Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/en/tuto/macos/en-macos-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>How to install MacOs Catalina with KVM on your linux.</p>
+<p>Thanks to foxlet for his amazing tutorial : <a href="https://github.com/foxlet/macOS-Simple-KVM">foxlet/macOS-Simple-KVM</a></p>
+<hr>
+<h1 id="requirements">Requirements</h1>
+<p>First of all, you need to install QEMU (3.1 or later), python3 and pip.<br>
+MacOs.iso is not necessary for this install.</p>
+<p>Feel free to check the github link below for more verbose information.</p>
+<hr>
+<h1 id="install">Install</h1>
+<p>Get the repo and start the install.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» git clone https://github.com/foxlet/macOS-Simple-KVM.git
+# Run jumpstart.sh script. Default install is Catalina, change the option
+# if you want high-sierra or mojave
+~ 竈門» ./jumpstart --catalina
+</code></pre><hr>
+<h1 id="qemu-config">qemu config</h1>
+<p>Create an empty hard disk. Feel free to change the name and the size.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» qemu-img create -f qcow2 MyDisk.qcow2 60G
+</code></pre><hr>
+<h1 id="basicsh-edit">basic.sh edit</h1>
+<p>Next step is to edit the <code>basic.sh</code> file with your setup.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Add these line at the end of the file.
+-drive id=SystemDisk,if=none,file=MyDisk.qcow2 \
+-device ide=hd,bus=sata.4,drive=SystemDisk \
+</code></pre><p>Then run the <code>basic.sh</code> script, if you have any errors, look for typos or syntax errors in the file.</p>
+<h1 id="install-macos">Install MacOs</h1>
+<p>Select the <strong>Boot macOS Install from OS X Base System</strong> option.<br>
+<img src="/img/en/tuto/macos/macos_1.png" alt="macos-select-boot-install"></p>
+<p>Wait until MacOs Boot.</p>
+<p>Once you see the <strong>macOS Utilitiles</strong> menu, select <strong>Disk Utility</strong><br>
+<img src="/img/en/tuto/macos/macos_2.png" alt="macos-select-disk-utility"></p>
+<p>Select the <strong>QEMU HARDDISK Media</strong> 48.32GB and <strong>Erase</strong>
+<img src="/img/en/tuto/macos/macos_3.png" alt="macos-select-disk"></p>
+<p><img src="/img/en/tuto/macos/macos_4.png" alt="macos-select-disk-erase"></p>
+<p>Now go back to <strong>macOS Utilities</strong> and select <strong>Reinstall macOS</strong><br>
+<img src="/img/en/tuto/macos/macos_5.png" alt="macos-select-reinstall"></p>
+<p>Continue, select the <strong>MacOSX disk</strong> and <strong>Install</strong> <br>
+<img src="/img/en/tuto/macos/macos_6.png" alt="macos-select-disk-install"></p>
+<p>The install can take a while.</p>
+<p><strong>The Installation will continue after one reboot !</strong></p>
+<p>Once the installation is done, reboot and select <strong>Boot macOS from Max OSX</strong><br>
+<img src="/img/en/tuto/macos/macos_7.png" alt="macos-select-macOSX"></p>
+<p>Then you can continue to configure your MacOS.<br>
+<img src="/img/en/tuto/macos/macos_8.png" alt="macos-finish"></p>
+<p>If you want a video tutorial I can recommand you <a href="https://www.youtube.com/watch?=v=0pMrHVm-gRc">Antoun Sawires&rsquo;s</a> video.</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

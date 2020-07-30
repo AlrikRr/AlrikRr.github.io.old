@@ -16,6 +16,25 @@
     
     
     <item>
+      <title>Installation de  MacOs sur Linux avec KVM</title>
+      <link>/fr/tuto/macos-sur-linux-kvm/</link>
+      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      
+      <guid>/fr/tuto/macos-sur-linux-kvm/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment installer MacOS Catalina sur votre Linux avec KVM.
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Mise en place d&#39;un coffre sécurisé avec montage distant SSHFS</title>
       <link>/fr/tuto/coffre-securise-sshfs/</link>
       <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>

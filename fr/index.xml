@@ -16,6 +16,25 @@
     
     
     <item>
+      <title>Installation de  MacOs sur Linux avec KVM</title>
+      <link>/fr/tuto/macos-sur-linux-kvm/</link>
+      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      
+      <guid>/fr/tuto/macos-sur-linux-kvm/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment installer MacOS Catalina sur votre Linux avec KVM.
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Mise en place d&#39;un coffre sécurisé avec montage distant SSHFS</title>
       <link>/fr/tuto/coffre-securise-sshfs/</link>
       <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
@@ -181,6 +200,63 @@
         
         
           Comment mettre en place un VPN wireguard maison et y accéder depuis son android.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Admirer</title>
+      <link>/fr/writeup/admirer/</link>
+      <pubDate>Thu, 30 Jul 2020 10:13:36 +0200</pubDate>
+      
+      <guid>/fr/writeup/admirer/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Blunder</title>
+      <link>/fr/writeup/blunder/</link>
+      <pubDate>Thu, 30 Jul 2020 10:13:24 +0200</pubDate>
+      
+      <guid>/fr/writeup/blunder/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Traceback</title>
+      <link>/fr/writeup/traceback/</link>
+      <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
+      
+      <guid>/fr/writeup/traceback/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
           
         
         </description>

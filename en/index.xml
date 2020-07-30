@@ -16,6 +16,25 @@
     
     
     <item>
+      <title>Install MacOs on Linux with KVM</title>
+      <link>/en/tuto/macos-sur-linux-kvm/</link>
+      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      
+      <guid>/en/tuto/macos-sur-linux-kvm/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/en/tuto/macos/en-macos-banner.png&#34;/&gt;
+          
+        
+        
+        
+          How to install MacOs Catalina with KVM on your Linux.
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS</title>
       <link>/en/tuto/coffre-securise-sshfs/</link>
       <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
@@ -181,6 +200,63 @@
         
         
           How to configure wireguard - NIXOS - And Android device
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Admirer</title>
+      <link>/en/writeup/admirer/</link>
+      <pubDate>Thu, 30 Jul 2020 10:13:36 +0200</pubDate>
+      
+      <guid>/en/writeup/admirer/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Blunder</title>
+      <link>/en/writeup/blunder/</link>
+      <pubDate>Thu, 30 Jul 2020 10:13:24 +0200</pubDate>
+      
+      <guid>/en/writeup/blunder/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Traceback</title>
+      <link>/en/writeup/traceback/</link>
+      <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
+      
+      <guid>/en/writeup/traceback/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          
           
         
         </description>

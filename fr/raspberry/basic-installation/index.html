@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Installation simple et sécurisée de Raspbian OS (Lite) :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello, dans ce tutoriel qui est le premier de la catégorie Raspberry je vais vous montrer ma méthode d&amp;rsquo;installation et de configuration pour Raspbian OS en minimal.
+Ce tutoriel est là pour vous montrer les logiciels et configuration de base pour avoir une architecture simple et sécurisée. Je ne suis en aucun cas un expert, il se peut qu&amp;rsquo;il y ai des erreurs, mais l&amp;rsquo;essentiel et là :)
+Si jamais vous voyez une grosse boulette, n&amp;rsquo;hésitez pas à venir vers moi !"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/fr/raspberry/basic-installation/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Installation simple et sécurisée de Raspbian OS (Lite)"/>
+<meta name="twitter:description" content="Installation simple et sécurisée de Raspbian OS (Lite) sur Raspberry"/>
+
+
+
+<meta property="og:title" content="Installation simple et sécurisée de Raspbian OS (Lite)" />
+<meta property="og:description" content="Installation simple et sécurisée de Raspbian OS (Lite) sur Raspberry" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fr/raspberry/basic-installation/" />
+<meta property="article:published_time" content="2020-08-11T09:53:05+02:00" />
+<meta property="article:modified_time" content="2020-08-11T09:53:05+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+<ul class="nav-list">
+    
+    
+        <a href="/en/raspberry/basic-installation/" style="text-decoration:none" >🇬🇧</a>
+    
+    
+</ul>
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/fr/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/fr/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/fr/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Voir la suite
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/fr/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/fr/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/fr/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/fr/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/fr/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/fr/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/fr/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/fr/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/fr/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/fr/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/fr/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/fr/raspberry/basic-installation/">Installation simple et sécurisée de Raspbian OS (Lite)</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-08-11
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/raspberry/rasp-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Hello, dans ce tutoriel qui est le premier de la catégorie Raspberry je vais vous montrer ma méthode d&rsquo;installation et de configuration pour Raspbian OS en minimal.</p>
+<p>Ce tutoriel est là pour vous montrer les logiciels et configuration de base pour avoir une architecture simple et sécurisée. Je ne suis en aucun cas un expert, il se peut qu&rsquo;il y ai des erreurs, mais l&rsquo;essentiel et là :)</p>
+<p>Si jamais vous voyez une grosse boulette, n&rsquo;hésitez pas à venir vers moi !</p>
+<p>Bon Tuto !</p>
+<hr>
+<h1 id="pré-requis">Pré-Requis</h1>
+<p>Pour ce tutoriel vous allez avoir besoin :</p>
+<ul>
+<li>D&rsquo;une carte Raspberry Pi (peu importe le model)</li>
+<li>Une carte SD minimum 8GB (avec adaptateur SD/USB si besoin pour la brancher au PC)</li>
+<li>Un câble ethernet</li>
+<li>Une connexion internet</li>
+<li>Une clavier USB</li>
+</ul>
+<hr>
+<h1 id="installer-raspbian">Installer Raspbian</h1>
+<p>Pour l&rsquo;installation de Raspbian OS sur notre carte SD il nous faut télécharger l&rsquo;ISO Raspbian minimal (dernière version si possible) et d&rsquo;un outils pour flasher notre carte SD.</p>
+<h2 id="télécharger-liso">Télécharger l&rsquo;ISO</h2>
+<p>Pour télécharger l&rsquo;ISO (qui est en réalité un fichier <strong>.img</strong>) rendez vous sur le site de Raspberry : <a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">https://www.raspberrypi.org/downloads/raspberry-pi-os/</a></p>
+<p>Et téléchargez la version <strong>Raspberry Pi OS (32-bit) Lite</strong></p>
+<p>Si vous êtes plus à l&rsquo;aise avec un bureau, prenez la version <strong>Raspberry Pi OS (32-bit) with desktop</strong></p>
+<p>Il vou ssuffit alors de télécharger le fichier <strong>ZIP</strong> et de l&rsquo;extraire sur votre ordinateur.</p>
+<h2 id="flash-sd--linux">Flash SD : Linux</h2>
+<p>Pour flash la carte SD sous linux, rien de plus simple :</p>
+<p><strong>1-</strong> Branchez votre carte SD sur votre PC</p>
+<p><strong>2-</strong> Identifiez le nom de la carte SD dans votre système avec la commande <code>sudo fdisk -l</code><br>
+Par exemple <code>/dev/sdb</code></p>
+<p><strong>3-</strong> Utilisez l&rsquo;outil <strong>dd</strong> : <code>sudo dd if=raspbian.img of=/dev/sdb bs=4M</code><br>
+<code>if</code> correspond au chemin vers votre fichier <code>.img</code> raspbian<br>
+<code>of</code> correspond au chemin de votre carte SD récupérer juste avant.</p>
+<p><strong>4-</strong> Patientez le temps que l&rsquo;image soit flash dans la carte SD</p>
+<h2 id="flash-sd--windows">Flash SD : Windows</h2>
+<p>Pour flash la carte SD sous Windows, vous allez avoir besoin de télécharger un outil.</p>
+<p>Il en existe plein, je peux vous conseiller d&rsquo;utiliser <strong>balenaEtcher</strong> disponible ici : <a href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a></p>
+<p>Pour l&rsquo;utilisez rien de plus simple, il vous suffit de brancher votre carte SD sur votre PC, selectionner l&rsquo;image rapsbian et cliquer sur <strong>Flash!</strong></p>
+<hr>
+<h1 id="premier-boot">Premier BOOT</h1>
+<p>Si vous arrivez á booter, tant mieux c&rsquo;est que tout fonctionne.</p>
+<p>Maintenant avant de commencer, il y a quelques paramêtres á régler avant de continuer.</p>
+<h2 id="changement-des-mots-de-passe">Changement des mots de passe</h2>
+<p>Le mot de passe par défault du compte <strong>pi</strong> est <code>raspberry</code>.<br>
+Le mot de passe par défault du compte <strong>root</strong> est vide et comme vous pouvez l&rsquo;imaginer, il faut le changer !</p>
+<p>Pour changer le mot de passe du compte root :
+<code>sudo passwd root</code></p>
+<p>Changez aussi le mot de passe du compte <strong>pi</strong> si vous le voulez, de mon côté je vais supprimer le compte.</p>
+<h2 id="raspi-config">raspi-config</h2>
+<p>Maintenant, vous allez devoir paramêtrer votre rapsberry selon vos envies (clavier,langues,timezone,etc.)</p>
+<p>Pour modifier tout ca rien de plus simple, nous allons utiliser l&rsquo;outil <strong>raspi-config</strong></p>
+<p>Voici la documentation officielle, je vous laisse vous amuser avec.<br>
+<a href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">https://www.raspberrypi.org/documentation/configuration/raspi-config.md</a></p>
+<p>Pour la suite de notre tutoriel, vous allez juste avoir besoin d&rsquo;activer le serveur SSH.</p>
+<p>Voici un lien pour activer le SSH depuis raspi-config:<br>
+<a href="https://www.raspberrypi.org/documentation/remote-access/ssh/README.md">https://www.raspberrypi.org/documentation/remote-access/ssh/README.md</a></p>
+<p>Sinon en mode invite de commande :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sudo systemctl enable ssh
+sudo systemctl start ssh
+</code></pre><h1 id="swap-optionnel">SWAP (optionnel)</h1>
+<p>Pour cette installation, j&rsquo;utilise une raspberry pi 3 avec 1GB en RAM ce qui est très peu pour ce que je veux en faire, j&rsquo;ai décider d&rsquo;augmenter un peu le SWAP afin de ne pas trop surcharger ma carte.</p>
+<p>Premièrement, on va désactiver le SWAP avec cette commande :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root $ sudo dphys-swapfile swapoff
+</code></pre><p>Ensuite, on va editer le fichier suivant avec la taille du SWAP que l&rsquo;on veut :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root $ vim /etc/dphys-swapfile
+&gt; edit : CONF_SWAPSIZE=2000
+</code></pre><p>Il vous reste plus qu&rsquo;a setup et activer le SWAP :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root $ sudo dphys-swapfile setup
+
+root $ sudo dphys-swapfile swapon
+</code></pre><h1 id="nouvel-utilisateur">Nouvel Utilisateur</h1>
+<p>Il est important de créer un nouvel utilisateur et de ne pas garder l&rsquo;utilisateur <code>pi</code> qui est présent par défaut pour des questions de sécurité.</p>
+<h2 id="création-de-lutilisateur-et-nouveau-mot-de-passe">Création de l&rsquo;utilisateur et nouveau mot de passe</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root $ useradd -m sanji
+root $ passwd sanji
+</code></pre><p>Pour la suite de ma configuration, je vais faire le reste par SSH avec cet utilisateur, c&rsquo;est pourquoi je vais modifier le fichier <strong>sudoers</strong> pour lui donner tous les droits.</p>
+<p>Si jamais vous faites cette modification, pensez à bien la retirer après car si votre compte utilisateur est comprmis, celui-ci à autant de droits qu&rsquo;un compte root !</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root $ vim /etc/sudoers
+&gt; add : sanji ALL=(ALL:ALL) ALL
+
+root $ su sanji
+</code></pre><h2 id="ajout-dans-les-groupes">Ajout dans les groupes</h2>
+<p>J&rsquo;ajoute mon nouvel utilisateur dans les même groupe que l&rsquo;utilisateur <code>pi</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi sanji
+</code></pre><p>Pour voir les groupes de l&rsquo;utilisateur <code>pi</code> :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ groups pi
+</code></pre><h2 id="securisé-le-compte-pi">Securisé le compte pi</h2>
+<p>Comme je l&rsquo;ai dit plus haut, nous allons supprimer le compte <code>pi</code> du système.</p>
+<p>Premièrement, on va supprimer tous les processus appartenant au compte <code>pi</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo pkill -u pi
+</code></pre><p>Ensuite, on supprime l&rsquo;utilisateur avec la commande <code>deluser</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo deluser -remove-home pi
+</code></pre><p>Pour finir, nous allons faire en sorte que le mot de passe soit toujours demandé au moment d&rsquo;utiliser la commande <code>sudo</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo vim /etc/sudoers.d/010_pi-nopasswd
+&gt; edit pi to sanji
+</code></pre><h1 id="configuration-du-ssh">Configuration du SSH</h1>
+<p>Une bonne configuration du SSH est primordiale pour garantir la sécurité de notre raspberry.</p>
+<p>Nous allons préviligier une authentification par clé publique/Privé et non par mot de passe.</p>
+<h2 id="génération-des-clés">Génération des clés</h2>
+<p>Premièrement, il nous faut générer nos clé d&rsquo;authentification. Je vous recommande d&rsquo;utiliser une clé <code>ed25519</code> mais certaines applications ne sont pas compatible avec cette technologie, donc vous pouvez faire une deuxième clé <code>RSA</code>.</p>
+<p>Pensez à ne pas mettre de passh-pharse sur les clé si vous ne voulez pas entrer de mots de passe à chaque authentification.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ mkdir .ssh
+sanji $ ssh-keygen -t ed25519
+sanji $ ssh-keygen -t rsa
+</code></pre><p>Une fois les clés faites, elles se trouvent dans <code>/home/sanji/.ssh</code>
+La clé publique est identifier par <code>.pub</code> contrairement à la clé privée.</p>
+<p>Pensez à générer des clés aussi sur votre PC.</p>
+<p><strong>NE JAMAIS DIVULGUER LA CLE PRIVEE !!</strong></p>
+<h2 id="echange-de-clés">Echange de clés</h2>
+<p>Maintenant, depuis votre PC, vous allez copier la clé publique sur votre raspberry.</p>
+<p>Si vous êtes sous linux, vous pouvez utiliser la commande suivante depuis votre PC.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">host $ ssh-copy-id sanji@192.168.1.15
+</code></pre><p>Sinon, sous windows ou linux, copiez la clé publique de votre PC et collez là dans le fichier <code>/home/sanji/.ssh/authorized_keys</code>.</p>
+<p>Maintenant, vous devriez être capable de vous connecter en SSH sans utiliser de mot de passe.</p>
+<h2 id="configuration-ssh">Configuration SSH</h2>
+<p>Maintenant que vous avez une connexion ssh qui fonctionne avec l'échange de clé, il vous faut modifier le fichier <code>sshd_config</code> sur votre raspberry.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo vim /etc/ssh/sshd_config
+</code></pre><p>Voici les options à ajouter/modifier:</p>
+<pre><code># Changer le port par défaut du SSH
+Port 2222
+
+# Désactiver l'authentification par mot de passe
+PasswordAuthentication no
+
+# Désactiver la connexion du compte root en SSH
+PermitRootLogin no
+
+# Ajouter une belle bannière
+Banner /etc/issue.net
+</code></pre><p>Vous pouvez maintenant redémarrer le service SSH:</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo service ssh restart
+</code></pre><p>Pour plus d&rsquo;information sur la configuration sur SSH, je vous renvoie vers mon autre tuto sur le sujet : <a href="https://redfou52.github.io/fr/tuto/ssh-expert-tips/">https://redfou52.github.io/fr/tuto/ssh-expert-tips/</a></p>
+<h1 id="plus--zsh">Plus : ZSH</h1>
+<p>Pour une meilleure experience sur votre shell, je ne peux que vous recommander d&rsquo;utiliser <code>ZSH</code> avec les themes <strong>oh-my-zsh</strong>.</p>
+<p>Voici le lien pour plus d&rsquo;information, voici le lien :</p>
+<p><a href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
+<p>L&rsquo;installation est assez simple il vous suffit d&rsquo;executer la commande suivante :<br>
+<code>$ sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></p>
+<h1 id="plus--fail2ban">Plus : Fail2ban</h1>
+<p>Si votre raspberry va vous servir de serveur distant accessible depuis internet, je vous recommande d&rsquo;utiliser <strong>Fail2ban</strong>.</p>
+<p>Cet outil va vous servir de mini firewall afin de controler vos connexion depuis des ports définis.</p>
+<p>Par exemple, une personne executer plusieurs tentative de Brute Force sur votre port SSH, Fail2ban va bloquer l&rsquo;adresse IP pour empêcher d&rsquo;autres connexions de cette adresse IP.</p>
+<p>Je vais vous montrer une configuration minimal sur le service SSH</p>
+<h2 id="installation">Installation</h2>
+<p><code>sanji $ sudo apt install fail2ban</code></p>
+<h2 id="configuration">Configuration</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sanji $ sudo nano /etc/fail2ban/jail.local
+
+# Ajoutez les options suivantes
+[sshd]
+enabled = true
+filter = sshd
+banaction = iptables-multiport
+bantime = -1
+maxretry = 3
+</code></pre><p>On redémarre le service.<br>
+<code>sanji $ sudo service fail2ban restart</code></p>
+<h2 id="allez-plus-loin">Allez plus loin</h2>
+<ul>
+<li>Tuto Fail2ban EN <a href="https://pimylifeup.com/raspberry-pi-fail2ban/">https://pimylifeup.com/raspberry-pi-fail2ban/</a></li>
+<li>Tuto Fail2ban FR <a href="https://www.fanjoe.be/?p=1009">https://www.fanjoe.be/?p=1009</a></li>
+</ul>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

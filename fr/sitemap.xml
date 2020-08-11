@@ -153,62 +153,42 @@
   </url>
   
   <url>
-    <loc>/fr/writeup/admirer/</loc>
-    <lastmod>2020-07-30T10:13:36+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/writeup/admirer/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/writeup/admirer/"
-                />
+    <loc>/fr/writeup/none/</loc>
+    <lastmod>2020-08-11T19:56:18+02:00</lastmod>
   </url>
   
   <url>
     <loc>/fr/writeup/</loc>
-    <lastmod>2020-07-30T10:13:36+02:00</lastmod>
+    <lastmod>2020-08-11T19:56:18+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/raspberry/basic-installation/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/writeup/"
+                href="/en/raspberry/basic-installation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/writeup/"
+                href="/fr/raspberry/basic-installation/"
                 />
   </url>
   
   <url>
-    <loc>/fr/writeup/blunder/</loc>
-    <lastmod>2020-07-30T10:13:24+02:00</lastmod>
+    <loc>/fr/raspberry/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/writeup/blunder/"
+                href="/en/raspberry/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/writeup/blunder/"
-                />
-  </url>
-  
-  <url>
-    <loc>/fr/writeup/traceback/</loc>
-    <lastmod>2020-07-30T10:12:33+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/writeup/traceback/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/writeup/traceback/"
+                href="/fr/raspberry/"
                 />
   </url>
   

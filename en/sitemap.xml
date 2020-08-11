@@ -153,62 +153,32 @@
   </url>
   
   <url>
-    <loc>/en/writeup/admirer/</loc>
-    <lastmod>2020-07-30T10:13:36+02:00</lastmod>
+    <loc>/en/raspberry/basic-installation/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/writeup/admirer/"
+                href="/fr/raspberry/basic-installation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/writeup/admirer/"
+                href="/en/raspberry/basic-installation/"
                 />
   </url>
   
   <url>
-    <loc>/en/writeup/</loc>
-    <lastmod>2020-07-30T10:13:36+02:00</lastmod>
+    <loc>/en/raspberry/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/writeup/"
+                href="/fr/raspberry/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/writeup/"
-                />
-  </url>
-  
-  <url>
-    <loc>/en/writeup/blunder/</loc>
-    <lastmod>2020-07-30T10:13:24+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/writeup/blunder/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/writeup/blunder/"
-                />
-  </url>
-  
-  <url>
-    <loc>/en/writeup/traceback/</loc>
-    <lastmod>2020-07-30T10:12:33+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/writeup/traceback/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/writeup/traceback/"
+                href="/en/raspberry/"
                 />
   </url>
   

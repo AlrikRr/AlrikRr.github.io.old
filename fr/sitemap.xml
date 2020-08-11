@@ -153,6 +153,31 @@
   </url>
   
   <url>
+    <loc>/fr/post/</loc>
+    <lastmod>2020-08-11T20:34:50+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/post/presentation-raspberry/</loc>
+    <lastmod>2020-08-11T20:34:50+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/post/presentation-writeup-htb/</loc>
+    <lastmod>2020-08-11T20:23:55+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/fr/writeup/none/</loc>
     <lastmod>2020-08-11T19:56:18+02:00</lastmod>
   </url>
@@ -204,21 +229,6 @@
                 rel="alternate"
                 hreflang="fr"
                 href="/fr/post/presentation-categorie-securite/"
-                />
-  </url>
-  
-  <url>
-    <loc>/fr/post/</loc>
-    <lastmod>2020-07-02T11:02:42+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/"
                 />
   </url>
   

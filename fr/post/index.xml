@@ -10,10 +10,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Thu, 02 Jul 2020 11:02:42 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 20:34:50 +0200</lastBuildDate>
     
 	<atom:link href="/fr/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Presentation de la catégorie Raspberry !</title>
+      <link>/fr/post/presentation-raspberry/</link>
+      <pubDate>Tue, 11 Aug 2020 20:34:50 +0200</pubDate>
+      
+      <guid>/fr/post/presentation-raspberry/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/raspberry-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Prsentation de la catégorie Raspberry !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Presentation de la catégorie Write-Up HackTheBox !</title>
+      <link>/fr/post/presentation-writeup-htb/</link>
+      <pubDate>Tue, 11 Aug 2020 20:23:55 +0200</pubDate>
+      
+      <guid>/fr/post/presentation-writeup-htb/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/htb-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de la catégorie Write-Up des machines Hack The Box !
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Découvrez la catégorie Sécurité !</title>

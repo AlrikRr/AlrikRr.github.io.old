@@ -16,101 +16,6 @@
     
     
     <item>
-      <title>Installation de  MacOs sur Linux avec KVM</title>
-      <link>/fr/tuto/macos-sur-linux-kvm/</link>
-      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
-      
-      <guid>/fr/tuto/macos-sur-linux-kvm/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Comment installer MacOS Catalina sur votre Linux avec KVM.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Mise en place d&#39;un coffre sécurisé avec montage distant SSHFS</title>
-      <link>/fr/tuto/coffre-securise-sshfs/</link>
-      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
-      
-      <guid>/fr/tuto/coffre-securise-sshfs/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/tuto/coffre/coffre-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Mise en place d&#39;un coffre sécurisé LUKS avec un montage/démontage distant en utilisant SSHFS.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>SSH Expert</title>
-      <link>/fr/tuto/ssh-expert-tips/</link>
-      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
-      
-      <guid>/fr/tuto/ssh-expert-tips/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/tuto/ssh/ssh-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Astuces pour vous faliciter la vie avec SSH !
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Installation de Dropbear-initramfs</title>
-      <link>/fr/tuto/dropbear-initramfs/</link>
-      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
-      
-      <guid>/fr/tuto/dropbear-initramfs/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/tuto/dropbear/drop-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Déchiffrer votre machine à distance avant son démarrage avec dropbear !
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Créer son site web avec Github-page et Hugo</title>
-      <link>/fr/tuto/installation-gitpage-hugo/</link>
-      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
-      
-      <guid>/fr/tuto/installation-gitpage-hugo/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/tuto/githugo/githugo-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Créer son site web avec Github-page et Hugo
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>ArchLinux Installation</title>
       <link>/fr/arch/arch-install/</link>
       <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
@@ -200,6 +105,25 @@
         
         
           Comment mettre en place un VPN wireguard maison et y accéder depuis son android.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation POP_OS! 20.04 LUKS EFI et BTRFS</title>
+      <link>/fr/tuto/pop-os-installation-btrfs/</link>
+      <pubDate>Wed, 19 Aug 2020 09:04:36 +0200</pubDate>
+      
+      <guid>/fr/tuto/pop-os-installation-btrfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/pop-os/pop-os-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Tuto d&#39;installation de Pop_OS! 20.04 avec chiffrement LUKS, EFI et système de fichiers BTRFS !
           
         
         </description>
@@ -358,6 +282,44 @@
     </item>
     
     <item>
+      <title>Mise en place d&#39;un coffre sécurisé avec montage distant SSHFS</title>
+      <link>/fr/tuto/coffre-securise-sshfs/</link>
+      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
+      
+      <guid>/fr/tuto/coffre-securise-sshfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/coffre/coffre-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Mise en place d&#39;un coffre sécurisé LUKS avec un montage/démontage distant en utilisant SSHFS.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation de  MacOs sur Linux avec KVM</title>
+      <link>/fr/tuto/macos-sur-linux-kvm/</link>
+      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      
+      <guid>/fr/tuto/macos-sur-linux-kvm/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment installer MacOS Catalina sur votre Linux avec KVM.
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>A propos</title>
       <link>/fr/about/</link>
       <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
@@ -375,6 +337,63 @@
 J&amp;rsquo;aime bien réaliser des projets en rapport avec Linux et la programmation.
 Le but premier de ce blog est de partager mes projets et quelques tutoriels qui seront utile pour vous et moi :)
 Juste à titre d&amp;rsquo;information, je suis encore étudiant, ce blog me sert avant tout pour pratiquer des sujets qui m&amp;rsquo;interesses.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Expert</title>
+      <link>/fr/tuto/ssh-expert-tips/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
+      
+      <guid>/fr/tuto/ssh-expert-tips/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/ssh/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Astuces pour vous faliciter la vie avec SSH !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation de Dropbear-initramfs</title>
+      <link>/fr/tuto/dropbear-initramfs/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
+      
+      <guid>/fr/tuto/dropbear-initramfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/dropbear/drop-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Déchiffrer votre machine à distance avant son démarrage avec dropbear !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Créer son site web avec Github-page et Hugo</title>
+      <link>/fr/tuto/installation-gitpage-hugo/</link>
+      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
+      
+      <guid>/fr/tuto/installation-gitpage-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/githugo/githugo-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Créer son site web avec Github-page et Hugo
           
         
         </description>

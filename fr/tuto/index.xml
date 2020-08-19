@@ -10,25 +10,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 26 Jun 2020 11:02:54 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 09:04:36 +0200</lastBuildDate>
     
 	<atom:link href="/fr/tuto/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Installation de  MacOs sur Linux avec KVM</title>
-      <link>/fr/tuto/macos-sur-linux-kvm/</link>
-      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      <title>Installation POP_OS! 20.04 LUKS EFI et BTRFS</title>
+      <link>/fr/tuto/pop-os-installation-btrfs/</link>
+      <pubDate>Wed, 19 Aug 2020 09:04:36 +0200</pubDate>
       
-      <guid>/fr/tuto/macos-sur-linux-kvm/</guid>
+      <guid>/fr/tuto/pop-os-installation-btrfs/</guid>
       <description>
         
-          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/tuto/pop-os/pop-os-banner.png&#34;/&gt;
           
         
         
         
-          Comment installer MacOS Catalina sur votre Linux avec KVM.
+          Tuto d&#39;installation de Pop_OS! 20.04 avec chiffrement LUKS, EFI et système de fichiers BTRFS !
           
         
         </description>
@@ -48,6 +48,25 @@
         
         
           Mise en place d&#39;un coffre sécurisé LUKS avec un montage/démontage distant en utilisant SSHFS.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation de  MacOs sur Linux avec KVM</title>
+      <link>/fr/tuto/macos-sur-linux-kvm/</link>
+      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      
+      <guid>/fr/tuto/macos-sur-linux-kvm/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment installer MacOS Catalina sur votre Linux avec KVM.
           
         
         </description>

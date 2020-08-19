@@ -244,25 +244,6 @@
     </item>
     
     <item>
-      <title>Rien á voir pour le moment !</title>
-      <link>/fr/writeup/none/</link>
-      <pubDate>Tue, 11 Aug 2020 19:56:18 +0200</pubDate>
-      
-      <guid>/fr/writeup/none/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Installation simple et sécurisée de Raspbian OS (Lite)</title>
       <link>/fr/raspberry/basic-installation/</link>
       <pubDate>Tue, 11 Aug 2020 09:53:05 +0200</pubDate>
@@ -276,6 +257,25 @@
         
         
           Installation simple et sécurisée de Raspbian OS (Lite) sur Raspberry
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Traceback</title>
+      <link>/fr/writeup/traceback/</link>
+      <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
+      
+      <guid>/fr/writeup/traceback/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/writeup/traceback/htb-traceback.png&#34;/&gt;
+          
+        
+        
+        
+          HackTheBox : Traceback
           
         
         </description>
@@ -371,9 +371,10 @@
         
         
         
-          Hello there ! My name is Adrien I&amp;rsquo;m 22 years old and I&amp;rsquo;m currently studying computer security in Paris.
-I like to realize projects under linux or in programming, that&amp;rsquo;s why I wanted to share them on my github or in the form of tutorials !
-Just to remind you that I&amp;rsquo;m a student, I wanted to make this website in order to practice, I&amp;rsquo;m by no means an expert, I&amp;rsquo;m also here to learn as much as you are, if anytime I make big mistakes, don&amp;rsquo;t hesitate to let me know to clarify the subject ;) Especially in English because it&amp;rsquo;s not my native language !
+          Hello there ! Hello ! Je m&amp;rsquo;appelle Adrien, j&amp;rsquo;ai 22 ans. Je suis des études en sécurité informatique sur Paris.
+J&amp;rsquo;aime bien réaliser des projets en rapport avec Linux et la programmation.
+Le but premier de ce blog est de partager mes projets et quelques tutoriels qui seront utile pour vous et moi :)
+Juste à titre d&amp;rsquo;information, je suis encore étudiant, ce blog me sert avant tout pour pratiquer des sujets qui m&amp;rsquo;interesses.
           
         
         </description>

@@ -178,16 +178,6 @@
   </url>
   
   <url>
-    <loc>/fr/writeup/none/</loc>
-    <lastmod>2020-08-11T19:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/fr/writeup/</loc>
-    <lastmod>2020-08-11T19:56:18+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/fr/raspberry/basic-installation/</loc>
     <lastmod>2020-08-11T09:53:05+02:00</lastmod>
     <xhtml:link
@@ -215,6 +205,16 @@
                 hreflang="fr"
                 href="/fr/raspberry/"
                 />
+  </url>
+  
+  <url>
+    <loc>/fr/writeup/traceback/</loc>
+    <lastmod>2020-07-30T10:12:33+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/writeup/</loc>
+    <lastmod>2020-07-30T10:12:33+02:00</lastmod>
   </url>
   
   <url>

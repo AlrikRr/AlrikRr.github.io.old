@@ -10,25 +10,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Tue, 11 Aug 2020 19:56:18 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 10:12:33 +0200</lastBuildDate>
     
 	<atom:link href="/fr/writeup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Rien á voir pour le moment !</title>
-      <link>/fr/writeup/none/</link>
-      <pubDate>Tue, 11 Aug 2020 19:56:18 +0200</pubDate>
+      <title>Traceback</title>
+      <link>/fr/writeup/traceback/</link>
+      <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
       
-      <guid>/fr/writeup/none/</guid>
+      <guid>/fr/writeup/traceback/</guid>
       <description>
         
-          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/writeup/traceback/htb-traceback.png&#34;/&gt;
           
         
         
         
-          
+          HackTheBox : Traceback
           
         
         </description>

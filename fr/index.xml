@@ -187,6 +187,25 @@
     </item>
     
     <item>
+      <title>Magic</title>
+      <link>/fr/writeup/magic/</link>
+      <pubDate>Mon, 03 Aug 2020 16:01:32 +0200</pubDate>
+      
+      <guid>/fr/writeup/magic/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/writeup/magic/htb-magic.png&#34;/&gt;
+          
+        
+        
+        
+          HackTheBox : Magic
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Traceback</title>
       <link>/fr/writeup/traceback/</link>
       <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
@@ -333,7 +352,7 @@
         
         
         
-          Hello there ! Hello ! Je m&amp;rsquo;appelle Adrien, j&amp;rsquo;ai 22 ans. Je suis des études en sécurité informatique sur Paris.
+          Hello there ! Hello ! Je m&amp;rsquo;appelle Adrien, j&amp;rsquo;ai 22 ans. Je suis étudiant en sécurité informatique sur Paris.
 J&amp;rsquo;aime bien réaliser des projets en rapport avec Linux et la programmation.
 Le but premier de ce blog est de partager mes projets et quelques tutoriels qui seront utile pour vous et moi :)
 Juste à titre d&amp;rsquo;information, je suis encore étudiant, ce blog me sert avant tout pour pratiquer des sujets qui m&amp;rsquo;interesses.

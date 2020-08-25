@@ -78,6 +78,26 @@
   </url>
   
   <url>
+    <loc>/fr/post/le-vulga-num/</loc>
+    <lastmod>2020-08-25T15:27:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/post/</loc>
+    <lastmod>2020-08-25T15:27:28+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/post/"
+                />
+  </url>
+  
+  <url>
     <loc>/fr/tuto/pop-os-installation-btrfs/</loc>
     <lastmod>2020-08-19T09:04:36+02:00</lastmod>
   </url>
@@ -94,21 +114,6 @@
                 rel="alternate"
                 hreflang="fr"
                 href="/fr/tuto/"
-                />
-  </url>
-  
-  <url>
-    <loc>/fr/post/</loc>
-    <lastmod>2020-08-11T20:34:50+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/"
                 />
   </url>
   

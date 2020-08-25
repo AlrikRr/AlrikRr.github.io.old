@@ -10,10 +10,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Tue, 11 Aug 2020 20:34:50 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 15:27:28 +0200</lastBuildDate>
     
 	<atom:link href="/fr/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Le vulgarisateur numérique</title>
+      <link>/fr/post/le-vulga-num/</link>
+      <pubDate>Tue, 25 Aug 2020 15:27:28 +0200</pubDate>
+      
+      <guid>/fr/post/le-vulga-num/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/vulganum-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de notre site web/Blog POst colaboratif sur de la vulgarisation numérique !
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Presentation de la catégorie Raspberry !</title>

@@ -365,7 +365,7 @@ Les options de montage suivantes sont optimisées pour l&rsquo;utilisation d&rsq
 <p>Maintenant, on peut passer à la configuration et l&rsquo;installation de btrfs.<br>
 Contrairement à un partitionnement LVM standard, nous allons utilisé BTRFS pour remplacer un LVM.</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell"># Création du subvolume dans /mnt/@
-btrfs subvolume list /mnt/@
+btrfs subvolume create /mnt/@
 
 # Check la liste des volumes
 btrfs subvolume list /mnt
@@ -438,6 +438,8 @@ mkswap /mnt/@swap/swapfile
 <code>/swap/swapfile none swap default 0 0</code></p>
 <p><img src="/img/fr/tuto/pop-os/15-swap-fstab.png" alt="15-swap-fstab.png"></p>
 <h2 id="configuration-efi--kernel">Configuration EFI &amp; Kernel</h2>
+<p>Montez la partition EFI<br>
+<code>mount /dev/sda1 /mnt/@boot/efi</code></p>
 <h3 id="modification-loaderconf">Modification loader.conf</h3>
 <p>Ajoutez <code>timeout 2</code> au debut du fichier <code>/mnt/@/boot/efi/loader/loader.conf</code><br>
 Cette options permet de modifier le timer de grub avant le lancement automatique à 2 secondes.</p>

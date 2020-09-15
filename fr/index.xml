@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Mon, 14 Sep 2020 14:02:08 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2020 10:11:22 +0200</lastBuildDate>
     
 	<atom:link href="/fr/index.xml" rel="self" type="application/rss+xml" />
     
@@ -73,6 +73,25 @@
     </item>
     
     <item>
+      <title>Bufferoverflow 32bits</title>
+      <link>/fr/binary/4-bufferoverflow/</link>
+      <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
+      
+      <guid>/fr/binary/4-bufferoverflow/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/4-binary-bufferoverflow.png&#34;/&gt;
+          
+        
+        
+        
+          Initiation aux BufferOverflow sous linux
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Wireguard configuration - NIXOS</title>
       <link>/fr/nixos/wireguard-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
@@ -92,6 +111,25 @@
     </item>
     
     <item>
+      <title>Ret2win 32bits !</title>
+      <link>/fr/binary/5-ret2win/</link>
+      <pubDate>Tue, 15 Sep 2020 10:11:22 +0200</pubDate>
+      
+      <guid>/fr/binary/5-ret2win/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/5-ret2win-binary.png&#34;/&gt;
+          
+        
+        
+        
+          Exploitation d&#39;une ret2win sur un binaire 32bits
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Archlinux Post-Install ! </title>
       <link>/fr/arch/arch-postinstall/</link>
       <pubDate>Mon, 14 Sep 2020 14:02:08 +0200</pubDate>
@@ -105,25 +143,6 @@
         
         
           Configuration Archlinux i3-gaps et autres tools pour bien commencer !
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Bufferoverflow 32bits</title>
-      <link>/fr/binary/4-bufferoverflow/</link>
-      <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
-      
-      <guid>/fr/binary/4-bufferoverflow/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/binary/4-binary-bufferoverflow.png&#34;/&gt;
-          
-        
-        
-        
-          Initiation aux BufferOverflow sous linux
           
         
         </description>

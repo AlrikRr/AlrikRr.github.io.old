@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Sat, 12 Sep 2020 18:38:44 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2020 10:11:22 +0200</lastBuildDate>
     
 	<atom:link href="/fr/binary/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,6 +29,25 @@
         
         
           Initiation aux BufferOverflow sous linux
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Ret2win 32bits !</title>
+      <link>/fr/binary/5-ret2win/</link>
+      <pubDate>Tue, 15 Sep 2020 10:11:22 +0200</pubDate>
+      
+      <guid>/fr/binary/5-ret2win/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/5-ret2win-binary.png&#34;/&gt;
+          
+        
+        
+        
+          Exploitation d&#39;une ret2win sur un binaire 32bits
           
         
         </description>

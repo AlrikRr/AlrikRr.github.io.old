@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Binaries on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/fr/binary/</link>
+    <description>Recent content in Binaries on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian</copyright>
+    <lastBuildDate>Sat, 12 Sep 2020 18:38:44 +0200</lastBuildDate>
+    
+	<atom:link href="/fr/binary/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bufferoverflow 32bits</title>
+      <link>/fr/binary/4-bufferoverflow/</link>
+      <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
+      
+      <guid>/fr/binary/4-bufferoverflow/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/4-binary-bufferoverflow.png&#34;/&gt;
+          
+        
+        
+        
+          Initiation aux BufferOverflow sous linux
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

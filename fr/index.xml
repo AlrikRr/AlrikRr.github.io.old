@@ -10,29 +10,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 26 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 14:02:08 +0200</lastBuildDate>
     
 	<atom:link href="/fr/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>ArchLinux Installation</title>
-      <link>/fr/arch/arch-install/</link>
-      <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
-      
-      <guid>/fr/arch/arch-install/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/fr/arch/install/inst-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Installation de Archlinux EFI et Chiffrement LUKS.
-          
-        
-        </description>
-    </item>
     
     <item>
       <title>Installation de  Nixos - Débutant</title>
@@ -105,6 +86,66 @@
         
         
           Comment mettre en place un VPN wireguard maison et y accéder depuis son android.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux Post-Install ! </title>
+      <link>/fr/arch/arch-postinstall/</link>
+      <pubDate>Mon, 14 Sep 2020 14:02:08 +0200</pubDate>
+      
+      <guid>/fr/arch/arch-postinstall/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/arch-post/arch-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Configuration Archlinux i3-gaps et autres tools pour bien commencer !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Bufferoverflow 32bits</title>
+      <link>/fr/binary/4-bufferoverflow/</link>
+      <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
+      
+      <guid>/fr/binary/4-bufferoverflow/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/4-binary-bufferoverflow.png&#34;/&gt;
+          
+        
+        
+        
+          Initiation aux BufferOverflow sous linux
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mini Nas Rapsberry</title>
+      <link>/fr/raspberry/mini-nas-rapsberry/</link>
+      <pubDate>Fri, 11 Sep 2020 10:36:20 +0200</pubDate>
+      
+      <guid>/fr/raspberry/mini-nas-rapsberry/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          Hello !
+Dans ce tutoriel nous allons voir comment mettre en place un petit serveur NAS (1 seul disque) chez vous avec partage de fichier SAMBA !
+ Pré-Requis Pour ce tutorial je vais utiliser :
+ Raspberry Pi3 1Gb RAM Alim Raspberry Carte SD 32Gb Câble Ethernet Un Clavier USB Un disque Externe USB de 1To  Installation du raspberry Pour l&amp;rsquo;installation de base je vais vous rediriger vers ce tuto qui est assez complet : Installation-Basique-Raspberry
           
         
         </description>
@@ -451,6 +492,25 @@ Juste à titre d&amp;rsquo;information, je suis encore étudiant, ce blog me ser
         
         
           I use Arch btw.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ArchLinux Installation</title>
+      <link>/fr/arch/arch-install/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
+      
+      <guid>/fr/arch/arch-install/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/install/inst-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Installation de Archlinux EFI et Chiffrement LUKS.
           
         
         </description>

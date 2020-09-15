@@ -97,6 +97,10 @@ Bonne lecture !
           <ul class="menu__sub-inner-more hidden">
             
               
+	      <li><a href="/fr/binary">Exploit-Binaire</a></li>
+              
+            
+              
 	      <li><a href="/fr/raspberry">Raspberry</a></li>
               
             
@@ -134,6 +138,10 @@ Bonne lecture !
     
       
         <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/binary">Exploit-Binaire</a></li>
       
     
       
@@ -255,7 +263,7 @@ Une page de <strong>login</strong> est accessible à cette adresse : <code>http:
 <h2 id="enumeration">Enumeration</h2>
 <pre><code class="language-bash/shell" data-lang="bash/shell">$ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
-</code></pre><p>Maintenant que j&rsquo;ai un accès à la machine, il faut commencer l'énumération pour avoir un accès <strong>ROOT</strong>.</p>
+</code></pre><p>Maintenant que j&rsquo;ai un accès à la machine, il faut commencer l&rsquo;énumération pour avoir un accès <strong>ROOT</strong>.</p>
 <p><strong>db.php5</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">getMessage());
             }
@@ -321,7 +329,7 @@ SSH ne fonctionne pas, problème de clé publique.</li>
 <p>On va refaire une énumération mais cette fois en utilisant <a href="https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh">LinEnum</a></p>
 <p>A première vue, rien ne me saute au yeux dans le rapport <strong>linenum</strong>.</p>
 <h2 id="suid">SUID</h2>
-<p>Après avoir quelques heures d'énumération, je décide de regarder les binaire exploitable avec la commande <code> find / -type f \( -perm -4000 -o -perm -2000 \) -exec ls -l {} \;</code></p>
+<p>Après avoir quelques heures d&rsquo;énumération, je décide de regarder les binaire exploitable avec la commande <code> find / -type f \( -perm -4000 -o -perm -2000 \) -exec ls -l {} \;</code></p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">-rwsr-xr-x 1 root root 26696 Jan  8  2020 /bin/umount
 -rwsr-xr-x 1 root root 30800 Aug 11  2016 /bin/fusermount
 -rwsr-x--- 1 root users 22040 Oct 21  2019 /bin/sysinfo

@@ -106,6 +106,10 @@ archlinux.iso est votre fichier ISO est sdb est votre clé USB."/>
           <ul class="menu__sub-inner-more hidden">
             
               
+	      <li><a href="/fr/binary">Exploit-Binaire</a></li>
+              
+            
+              
 	      <li><a href="/fr/raspberry">Raspberry</a></li>
               
             
@@ -143,6 +147,10 @@ archlinux.iso est votre fichier ISO est sdb est votre clé USB."/>
     
       
         <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/binary">Exploit-Binaire</a></li>
       
     
       
@@ -230,7 +238,7 @@ Pour ma part, je vais utiliser l&rsquo;outil <code>dd</code> sous linux.</p>
 Maintenant, vous avez juste à BOTTER sur votre clé USB. Si ça ne fonctionne pas, désactivez votre Secure Boot.</p>
 <h1 id="installation">Installation</h1>
 <p>Si vous rencontrez un problème, dirigez vous sur  <a href="https://wiki.archlinux.org/">Archlinux Wiki</a>.<br>
-<strong>N'écrivez aucunes commande avant de savoir ce qu&rsquo;elle fait.</strong><br>
+<strong>N&rsquo;écrivez aucunes commande avant de savoir ce qu&rsquo;elle fait.</strong><br>
 Le guide d&rsquo;<a href="https://wiki.archlinux.org/index.php/Installation_Guide">installation officiel</a> contient plus de détails.</p>
 <h2 id="première-étape">Première étape</h2>
 <pre><code class="language-bash/shell" data-lang="bash/shell"># Modifier la configuration de votre clavier, passez le en Français AZERTY.
@@ -279,7 +287,7 @@ mkdir /mnt/boot/efi
 mount /dev/sdX1 /mnt/boot/efi
 </code></pre><h2 id="installation-1">Installation</h2>
 <pre><code class="language-bash/shell" data-lang="bash/shell"># Pour ne pas être embêter après votre installation, notamment avec les paquets wifi/réseau manquant, pensez à tout inclure ici.
-pacstrap /mnt base base-devel grub-efi-x86_64 vim git efibootmgr dialog wpa_supplicant linux lvm2 networkmanager dhcp
+pacstrap /mnt base base-devel grub-efi-x86_64 vim git efibootmgr dialog wpa_supplicant linux lvm2 networkmanager dhcp linux-firmware ranger discord db lib32-glibc  gcc-multilib lib32-gcc-libs
 </code></pre><h2 id="fstab">FSTAB</h2>
 <pre><code class="language-bash/shell" data-lang="bash/shell">genfstab -pU /mnt &gt;&gt; /mnt/etc/fstab
 # Création du /tmp pour ramdisk (ajoutez la ligne suivante dans /mnt/etc/fstab)
@@ -298,7 +306,7 @@ echo MYHOSTNAME &gt; /etc/hostname
 
 # Mettez à jour vos locale en Français
 echo LANG=fr_FR.UTF-8 &gt;&gt; /etc/locale.conf
-echo LANGUAGE=fr_US &gt;&gt; /etc/locale.conf
+echo LANGUAGE=fr_FR &gt;&gt; /etc/locale.conf
 echo LC_ALL=C &gt;&gt; /etc/locale.conf
 
 # Ajoutez un mot de passe pour le compte root
@@ -311,8 +319,9 @@ passwd USERNAME
 # Configurez mkinitcpio avec les bons modules  pour générer notre image
 vim /etc/mkinitcpio.conf
 # Ajoutez 'ext4' à MODULES
-# Ajotez 'encrypt' et 'lvm2' à HOOKS avant filesystems
-# :w! &amp; :q!  ;)
+# Ajoutez 'encrypt' et 'lvm2' à HOOKS avant filesystems
+# Mettre le clavier en FR pour dévérouiller LUKS
+# Ajoutez 'keyboard' et 'keymap' avant encrypt (pensez à retirer le keyboard à la fin) 
 mkinitcpio -p linux
 </code></pre><h2 id="configuration-du-grub">Configuration du GRUB</h2>
 <pre><code class="language-bash/shell" data-lang="bash/shell">grub-install

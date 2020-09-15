@@ -103,6 +103,10 @@ Si jamais vous voyez une grosse boulette, n&amp;rsquo;hésitez pas à venir vers
           <ul class="menu__sub-inner-more hidden">
             
               
+	      <li><a href="/fr/binary">Exploit-Binaire</a></li>
+              
+            
+              
 	      <li><a href="/fr/raspberry">Raspberry</a></li>
               
             
@@ -140,6 +144,10 @@ Si jamais vous voyez une grosse boulette, n&amp;rsquo;hésitez pas à venir vers
     
       
         <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/binary">Exploit-Binaire</a></li>
       
     
       
@@ -328,7 +336,7 @@ La clé publique est identifier par <code>.pub</code> contrairement à la clé p
 </code></pre><p>Sinon, sous windows ou linux, copiez la clé publique de votre PC et collez là dans le fichier <code>/home/sanji/.ssh/authorized_keys</code>.</p>
 <p>Maintenant, vous devriez être capable de vous connecter en SSH sans utiliser de mot de passe.</p>
 <h2 id="configuration-ssh">Configuration SSH</h2>
-<p>Maintenant que vous avez une connexion ssh qui fonctionne avec l'échange de clé, il vous faut modifier le fichier <code>sshd_config</code> sur votre raspberry.</p>
+<p>Maintenant que vous avez une connexion ssh qui fonctionne avec l&rsquo;échange de clé, il vous faut modifier le fichier <code>sshd_config</code> sur votre raspberry.</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">sanji $ sudo vim /etc/ssh/sshd_config
 </code></pre><p>Voici les options à ajouter/modifier:</p>
 <pre><code># Changer le port par défaut du SSH

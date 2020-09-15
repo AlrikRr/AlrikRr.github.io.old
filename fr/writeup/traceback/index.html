@@ -98,6 +98,10 @@ Il est vivement conseiller d&amp;rsquo;avoir fait cette machine avant de lire ce
           <ul class="menu__sub-inner-more hidden">
             
               
+	      <li><a href="/fr/binary">Exploit-Binaire</a></li>
+              
+            
+              
 	      <li><a href="/fr/raspberry">Raspberry</a></li>
               
             
@@ -135,6 +139,10 @@ Il est vivement conseiller d&amp;rsquo;avoir fait cette machine avant de lire ce
     
       
         <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/binary">Exploit-Binaire</a></li>
       
     
       
@@ -271,7 +279,7 @@ root@10.10.10.181: Permission denied (publickey,password).
 <p>Mhm .. très bien j&rsquo;ai fait ue recherche Google avec cette phrase et là miracle, je suis tombé sur un github avec pleins de webshell.</p>
 <p><a href="https://github.com/TheBinitGhimire/Web-Shells">TheBinitGhimire/Web-Shells</a></p>
 <p>J&rsquo;ai commencé à entrer chaque nom de webshell sur le site jusquèà tomber sur le bon <code>http://10.10.10.181/smevk.php</code>.</p>
-<p>C'était donc ça !</p>
+<p>C&rsquo;était donc ça !</p>
 <h2 id="webshell">Webshell</h2>
 <p><a href="https://github.com/TheBinitGhimire/Web-Shells/blob/master/smevk.php">smevk.php</a></p>
 <p>Ce webshell est très complet, pour se connecter, il suffit de regarder le code source sur github, il y a le login et le mot de passe.</p>
@@ -351,7 +359,7 @@ Il y a pas mal de fichier mais le seul dossier accessible semble être <code>.up
 <p><img src="/img/fr/writeup/traceback/backup_2.png" alt="backup_2"></p>
 <p>Tous les fichiers bannière sont présent ici. Accessible en lecture mais pas en ecriture donc aucuns moyen de les modifier pour le moment.</p>
 <h2 id="enumération-avec-enumsh">Enumération avec enum.sh</h2>
-<p>Après avoir essayé de mofifier les fichiers motd dans le répertoire <code>backup</code> je me retrouve désespéré, j&rsquo;utilise donc un script d'énumération pour trouver d&rsquo;autres indices.</p>
+<p>Après avoir essayé de mofifier les fichiers motd dans le répertoire <code>backup</code> je me retrouve désespéré, j&rsquo;utilise donc un script d&rsquo;énumération pour trouver d&rsquo;autres indices.</p>
 <p>Je vais récupérer mon scripts en utilise SimpleHttp en python</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">#Depuis mon host
 python -m SimpleHTTPServer 8000

@@ -3,21 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/fr/arch/arch-install/</loc>
-    <lastmod>2020-06-20T23:43:27+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/arch/arch-install/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/arch/arch-install/"
-                />
-  </url>
-  
-  <url>
     <loc>/fr/nixos/install-nixos/</loc>
     <lastmod>2020-06-19T10:32:57+02:00</lastmod>
     <xhtml:link
@@ -74,6 +59,71 @@
                 rel="alternate"
                 hreflang="fr"
                 href="/fr/nixos/wireguard-nixos/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/arch/</loc>
+    <lastmod>2020-09-14T14:02:08+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/arch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/arch/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/arch/arch-postinstall/</loc>
+    <lastmod>2020-09-14T14:02:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/</loc>
+    <lastmod>2020-09-14T14:02:08+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/binary/</loc>
+    <lastmod>2020-09-12T18:38:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/binary/4-bufferoverflow/</loc>
+    <lastmod>2020-09-12T18:38:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/raspberry/mini-nas-rapsberry/</loc>
+    <lastmod>2020-09-11T10:36:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/fr/raspberry/</loc>
+    <lastmod>2020-09-11T10:36:20+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/raspberry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/raspberry/"
                 />
   </url>
   
@@ -139,21 +189,6 @@
                 rel="alternate"
                 hreflang="fr"
                 href="/fr/raspberry/basic-installation/"
-                />
-  </url>
-  
-  <url>
-    <loc>/fr/raspberry/</loc>
-    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/raspberry/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/raspberry/"
                 />
   </url>
   
@@ -283,21 +318,6 @@
   </url>
   
   <url>
-    <loc>/fr/</loc>
-    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/"
-                />
-  </url>
-  
-  <url>
     <loc>/fr/tuto/ssh-expert-tips/</loc>
     <lastmod>2020-06-22T14:32:49+02:00</lastmod>
     <xhtml:link
@@ -348,17 +368,17 @@
   </url>
   
   <url>
-    <loc>/fr/arch/</loc>
+    <loc>/fr/arch/arch-install/</loc>
     <lastmod>2020-06-20T23:43:27+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/arch/"
+                href="/en/arch/arch-install/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/arch/"
+                href="/fr/arch/arch-install/"
                 />
   </url>
   

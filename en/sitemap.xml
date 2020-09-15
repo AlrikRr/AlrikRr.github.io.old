@@ -183,6 +183,21 @@
   </url>
   
   <url>
+    <loc>/en/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+  </url>
+  
+  <url>
     <loc>/en/post/presentation-categorie-securite/</loc>
     <lastmod>2020-07-02T11:02:42+02:00</lastmod>
     <xhtml:link
@@ -294,21 +309,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/en/about/"
-                />
-  </url>
-  
-  <url>
-    <loc>/en/</loc>
-    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/"
                 />
   </url>
   

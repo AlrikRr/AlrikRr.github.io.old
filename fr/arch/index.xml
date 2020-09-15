@@ -10,10 +10,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Sat, 20 Jun 2020 23:43:27 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 14:02:08 +0200</lastBuildDate>
     
 	<atom:link href="/fr/arch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Archlinux Post-Install ! </title>
+      <link>/fr/arch/arch-postinstall/</link>
+      <pubDate>Mon, 14 Sep 2020 14:02:08 +0200</pubDate>
+      
+      <guid>/fr/arch/arch-postinstall/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/arch-post/arch-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Configuration Archlinux i3-gaps et autres tools pour bien commencer !
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>ArchLinux Installation</title>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Archlinux Post-Install !  :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Post installation Archlinux Je vous mets à disposition mes fichiers de configuration à la fin de ce tuto.
+Bonne configuration :)
+Clavier Votre clavier n&amp;rsquo;est pas en français ?
+$ keymaps fr OU $ setxkbmap fr Pour changer la langue de manière permanante :
+$ sudo vim /etc/locale.gen et dé-commentez la ligne :
+#LANG=fr_FR.UTF-8 Voir : Clavier Archlinux Wiki
+Networking Impossible de ping ?
+Jettez un oeil à votre /etc/resolv.conf et ajoutez la ligne suivante"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/fr/arch/arch-postinstall/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Archlinux Post-Install ! "/>
+<meta name="twitter:description" content="Configuration Archlinux i3-gaps et autres tools pour bien commencer !"/>
+
+
+
+<meta property="og:title" content="Archlinux Post-Install ! " />
+<meta property="og:description" content="Configuration Archlinux i3-gaps et autres tools pour bien commencer !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/fr/arch/arch-postinstall/" />
+<meta property="article:published_time" content="2020-09-14T14:02:08+02:00" />
+<meta property="article:modified_time" content="2020-09-14T14:02:08+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/fr/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/fr/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/fr/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Voir la suite
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/fr/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/fr/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/fr/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/fr/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/fr/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/fr/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/fr/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/fr/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/fr/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/fr/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/fr/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/fr/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/fr/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/fr/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/fr/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/fr/arch/arch-postinstall/">Archlinux Post-Install !</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-09-14
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/arch/arch-post/arch-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <h1 id="post-installation-archlinux">Post installation Archlinux</h1>
+<p>Je vous mets à disposition mes fichiers de configuration à la fin de ce tuto.</p>
+<p>Bonne configuration :)</p>
+<h2 id="clavier">Clavier</h2>
+<p>Votre clavier n&rsquo;est pas en français ?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ keymaps fr
+OU
+$ setxkbmap fr
+</code></pre></div><p>Pour changer la langue de manière permanante :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vim /etc/locale.gen
+</code></pre></div><p>et dé-commentez la ligne :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#LANG=fr_FR.UTF-8</span>
+</code></pre></div><p>Voir : <a href="https://wiki.archlinux.fr/Clavier">Clavier Archlinux Wiki</a></p>
+<h2 id="networking">Networking</h2>
+<p>Impossible de ping ?</p>
+<p>Jettez un oeil à votre <code>/etc/resolv.conf</code> et ajoutez la ligne suivante</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nameserver 1.1.1.1 
+</code></pre></div><h3 id="ethernet">Ethernet</h3>
+<p>Si vous n&rsquo;arrivez toujours pas à accéder à internet :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl start systemd-networkd
+</code></pre></div><p>Récupéré le nom de votre interface ethernet <code>ip a</code> et créez le fichier suivant :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/systemd/network/&lt;interface&gt;.network
+</code></pre></div><p>Ajoutez :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
+Name<span style="color:#f92672">=</span>&lt;interface&gt;
+<span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
+DHCP<span style="color:#f92672">=</span>ipv4
+</code></pre></div><h3 id="wi-fi">Wi-Fi</h3>
+<p>Pour trouver le nom de la carte wifi :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lscpi
+</code></pre></div><p>De mon côté, j&rsquo;ai une carte <strong>Qualcomm Atheros QCA9377</strong>, je vais avoir besoin des drivers <code>ath10k_pci</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S NetworkManager
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+sudo pacman -S linux-firmware
+sudo modprobe -r ath10k_pci <span style="color:#f92672">&amp;&amp;</span> sudo modprobe ath10k_pci
+</code></pre></div><h2 id="update">Update</h2>
+<p>Pour voir si tout est ok, on va lancer une update :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Syu
+</code></pre></div><p>Si tout est ok, on peut continuer, sinon je vous invite à rechercher vos messages d&rsquo;erreurs ou vos equipement réseau sur internet et de fouiller sur les forums Archlinux :)</p>
+<h2 id="aur-yay">AUR yay</h2>
+<p>Pour téléchargez les paquets AUR de archlinux, nous allons utiliser [YAY](# AUR yay)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+</code></pre></div><p>Pour installer un paquet, c&rsquo;est comme pacman :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yay -S &lt;aur&gt;
+</code></pre></div><h2 id="interface-graphique">Interface graphique</h2>
+<h3 id="fonts">fonts</h3>
+<p>Les fonts sont nécessaire pour certaines applications afin d&rsquo;afficher des emojis et autres langues différentes :</p>
+<p>Les fonts que j&rsquo;utilise pour ma polybar</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts
+$ yay -S nerd-fonts-complete
+$ yay -S ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family
+</code></pre></div><p>Pour recharger la configuration des fonts :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fc-cache -vf
+</code></pre></div><h3 id="i3-gaps">I3-gaps</h3>
+<p>Pour l&rsquo;interface graphique, je vais installer <code>i3-gaps</code> et <code>Xorg-server</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S i3-gaps ttf-dejavu i3status i3blocks i3lock
+$ sudo pacman -S xorg xorg-init terminator
+$ sudo pacman -S xf86-video-intel mesa 
+$ pacman -S alsa-utils
+</code></pre></div><p>Modifiez le fichier suivant :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/X11/xinit/xinitrc
+</code></pre></div><p>Commentez :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># twm &amp;</span>
+<span style="color:#75715e"># exec xterm</span>
+</code></pre></div><p>Ajoutez :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec i3
+</code></pre></div><p>Créer un dossier <code>i3</code> das <code>.config</code> à la racine de votre home :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir ~/.config/i3
+</code></pre></div><p>Copier la configuration par défaut de i3 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /etc/i3/config ~/.config/i3/config
+</code></pre></div><p>Maintenant, on va démarrer notre interface graphique :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">startx
+</code></pre></div><h3 id="lightdm">lightdm</h3>
+<p>Il nous faut installer lightdm  pour choisir notre desktop et avoir une interface de connexion au démarrage.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+
+$ systemctl enable lightdm
+
+$ reboot
+
+</code></pre></div><p>Pour éditer le theme lightdm-greeter, lancer l&rsquo;application en root :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo lightdm-gtk-greeter-settings
+</code></pre></div><h3 id="polybar">polybar</h3>
+<p>Pour avoir la documentation complète, rendez-vous <a href="https://wiki.archlinux.org/index.php/Polybar">ICI</a>.</p>
+<p>Une liste de themes <a href="https://github.com/adi1090x/polybar-themes">ICI</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yay polybar
+</code></pre></div><p>Pensez à copier le fichier de configuration par défaut :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp /usr/share/doc/polybar/config /home/eidorian/.config/polybar/config
+</code></pre></div><p>Créez le script à l&rsquo;emplacement suivant <code>~/.config/polybar/launch.sh</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Terminate already running bar instances</span>
+killall -q polybar
+
+<span style="color:#75715e"># Wait until the processes have been shut down</span>
+<span style="color:#66d9ef">while</span> pgrep -u $UID -x polybar &gt;/dev/null; <span style="color:#66d9ef">do</span> sleep 1; <span style="color:#66d9ef">done</span>
+
+<span style="color:#75715e"># Launch Polybar, using default config location ~/.config/polybar/config</span>
+polybar mybar &amp;
+
+echo <span style="color:#e6db74">&#34;Polybar launched...&#34;</span>
+
+</code></pre></div><p>Et ajoutez la ligne suivante dans la configuration i3 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+</code></pre></div><p>Ne pas oublier de changer [bar/exemple] en [bar/mybar] dans le fichier de configruation de polybar.</p>
+<p>Pour plus d&rsquo;information sur polybar : <a href="https://github.com/polybar/polybar">rendez-vous ICI</a></p>
+<h3 id="rofi">rofi</h3>
+<p>rofi va nous service de lanceur d&rsquo;application.</p>
+<p>Installation :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S rofi
+</code></pre></div><p>Modifier le fichier de configuration i3</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.config/i3/config
+</code></pre></div><p>Modifier le bindsym associé par celui-là :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindsym Mod4+d exec rofi -modi drun -show drun -font <span style="color:#e6db74">&#34;DejaVu Sans 15&#34;</span> -show-icons -theme slate
+</code></pre></div><h3 id="feh">feh</h3>
+<p>feh va nous servir afin d&rsquo;afficher un fond d&rsquo;écran avec i3.</p>
+<p>Pour l&rsquo;installer :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S feh
+</code></pre></div><p>On ajoute ensuite cette ligne dans le fichier de configuration <code>i3</code> :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always --no-startup-id feh --bg-fill --randomize ~/Images/wallpaper/*
+</code></pre></div><h3 id="i3-gaps-1">i3-gaps</h3>
+<p>Pour l&rsquo;utilisation de i3-gaps, on va ajouter les lignes suivantes dans le fichier de configuration i3 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gaps inner <span style="color:#ae81ff">10</span>
+gaps outer <span style="color:#ae81ff">20</span>
+smart_gaps on
+for_window <span style="color:#f92672">[</span>class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;^.*&#34;</span><span style="color:#f92672">]</span> border pixel <span style="color:#ae81ff">0</span>
+</code></pre></div><h3 id="compton-et-picom">compton et picom</h3>
+<p>Pour la transparence du terminal j&rsquo;utilise picom, anciennement compton.
+Mon terminal est <code>Terminator</code></p>
+<p>installation :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S compton
+</code></pre></div><h4 id="ancienne-version-">Ancienne version :</h4>
+<p>Pour la configuration, on ajoute cette ligne dans le fichier de configuration i3:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always --no-startup-id compton --config /
+</code></pre></div><p>On va ensuite modifier le fichier de configuration compton, s&rsquo;il n&rsquo;existe pas, on va le créer:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.config/compton.config
+</code></pre></div><p>On ajoute :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opacity-rule <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;90:class_g = &#39;Terminator&#39;&#34;</span><span style="color:#f92672">]</span> 
+</code></pre></div><h4 id="nouvelle-version-">Nouvelle version :</h4>
+<p>Dans la config i3 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always --no-startup-id ~/.config/polybar/scripts/picom.sh
+</code></pre></div><p>Le script <code>picom.sh</code> :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim .config/polybar/scripts/picom.sh
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>killall picom
+picom -b
+</code></pre></div><p>Il ne nous reste plus qu&rsquo;à modifier la transparence directement avec les options du terminal.</p>
+<h2 id="neofetch">neofetch</h2>
+<p>Afficher les information du système dans le terminal :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S neofetch
+</code></pre></div><h2 id="flameshot">flameshot</h2>
+<p>Un outil très puissant pour les capture d&rsquo;écran, on va le blind avec un raccourci i3, la touche <code>impr</code> imprime-écran.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S flameshot
+</code></pre></div><p>On ajoute ensuite cette ligne dans la config i3 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindsym --release Print exec flameshot gui
+</code></pre></div><h2 id="outils-binaire">Outils Binaire</h2>
+<p>Pour l&rsquo;exploitation de binaire et le reverse, je vais devoir installer des librairies de la <code>libc</code> ainsi que d&rsquo;autres outils :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S gdb lib32-glibc  gcc-multilib lib32-gcc-libs
+</code></pre></div><p>Pour l&rsquo;installation de <code>gef</code> , le plugin GDB :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py
+$ echo source ~/.gdbinit-gef.py &gt;&gt; ~/.gdbinit
+</code></pre></div><p>Dispo sur le <a href="https://github.com/hugsy/gef">Github ICI</a></p>
+<h2 id="autres-applications">Autres applications</h2>
+<h3 id="ranger">ranger</h3>
+<p>Installation de ranger, l&rsquo;explorateur de fichier basé sur vim :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S ranger
+</code></pre></div><h3 id="bitwarden">bitwarden</h3>
+<p>Installation de bitwarden, le gestionnaire de mot de passe:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yay -S bitwarden
+</code></pre></div><h3 id="obsidian">Obsidian</h3>
+<p>Installation de l&rsquo;IDE markdown :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yay -S obsidian-appimage
+</code></pre></div><h2 id="fichier-de-configuration-">FIchier de configuration :</h2>
+<p>Attention, il ne sont pas tous forcément commenté.</p>
+<h3 id="i3-gaps-2">i3-gaps</h3>
+<p>Chemin du fichier : <code>~/.config/i3/config</code></p>
+<p>Lien : <a href="/docs/arch-config/i3/config">config</a></p>
+<h3 id="polybar-1">polybar</h3>
+<p>Chemin du fichier : <code>~/.config/polybar/config</code></p>
+<p>Lien : <a href="/docs/arch-config/polybar/config">config</a></p>
+<h3 id="terminator">terminator</h3>
+<p>Chemin du fichier : <code>~/.config/terminator/config</code></p>
+<p>Lien :<a href="/docs/arch-config/terminator/config">config</a></p>
+<h3 id="neofetch-1">neofetch</h3>
+<p>Chemin du fichier :<code>~/.config/neofetch/config.conf</code></p>
+<p>Lien :<a href="/docs/arch-config/neofetch/config.conf">config</a></p>
+<h3 id="rofi-1">rofi</h3>
+<p>Chemin du fichier :<code>~/.config/rofi/slate.rsi</code></p>
+<p>Lien :<a href="/docs/arch-install/rofi/slate.rsi">config</a></p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

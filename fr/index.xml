@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Tue, 15 Sep 2020 10:11:22 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2020 00:09:54 +0200</lastBuildDate>
     
 	<atom:link href="/fr/index.xml" rel="self" type="application/rss+xml" />
     
@@ -124,6 +124,25 @@
         
         
           Exploitation d&#39;un ROP sur un binaire 32bits !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Présentation de la catégorie Exploitation de Binaire !</title>
+      <link>/fr/post/presentation-exploit-binaire/</link>
+      <pubDate>Thu, 17 Sep 2020 00:09:54 +0200</pubDate>
+      
+      <guid>/fr/post/presentation-exploit-binaire/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/exploit-binaire-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de la catégorie Exploitation de Binaire
           
         
         </description>

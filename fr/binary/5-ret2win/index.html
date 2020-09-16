@@ -2,14 +2,14 @@
 <html lang="fr">
   <head>
     
-      <title>Ret2win 32bits ! :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+      <title>ROP 32 ! :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Qu&amp;rsquo;est ce qu&amp;rsquo;un Ret2Win ? Un ret2win fonctionne de la même manière qu&amp;rsquo;un buffer overflow à la différence qu&amp;rsquo;il n&amp;rsquo;y aura pas de shellcode ici !
-Le but d&amp;rsquo;un ret2win est d&amp;rsquo;appeler une fonction du programme qui n&amp;rsquo;est jamais appeler une seule fois dans le code du programme.
-Dans ce tutoriel je vais vous montrer comment exécuter un exploit ret2win sur un binaire 32bits.
-Ret2win 32bits Code Voici le code du programme que nous alons exploiter :"/>
+<meta name="description" content="Qu&amp;rsquo;est ce qu&amp;rsquo;un ROP 32 ? Un ROP 32 fonctionne de la même manière qu&amp;rsquo;un buffer overflow à la différence qu&amp;rsquo;il n&amp;rsquo;y aura pas de shellcode ici !
+Le but d&amp;rsquo;un ROP 32est d&amp;rsquo;appeler une fonction du programme qui n&amp;rsquo;est jamais appeler une seule fois dans le code du programme.
+Dans ce tutoriel je vais vous montrer comment exécuter un exploit ROP sur un binaire 32bits.
+ROP 32 Code Voici le code du programme que nous alons exploiter :"/>
 <meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/fr/binary/5-ret2win/" />
@@ -29,13 +29,13 @@ Ret2win 32bits Code Voici le code du programme que nous alons exploiter :"/>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ret2win 32bits !"/>
-<meta name="twitter:description" content="Exploitation d&#39;une ret2win sur un binaire 32bits"/>
+<meta name="twitter:title" content="ROP 32 !"/>
+<meta name="twitter:description" content="Exploitation d&#39;un ROP sur un binaire 32bits !"/>
 
 
 
-<meta property="og:title" content="Ret2win 32bits !" />
-<meta property="og:description" content="Exploitation d&#39;une ret2win sur un binaire 32bits" />
+<meta property="og:title" content="ROP 32 !" />
+<meta property="og:description" content="Exploitation d&#39;un ROP sur un binaire 32bits !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/fr/binary/5-ret2win/" />
 <meta property="article:published_time" content="2020-09-15T10:11:22+02:00" />
@@ -193,7 +193,7 @@ Ret2win 32bits Code Voici le code du programme que nous alons exploiter :"/>
   
 
   <div class="post">
-    <h1 class="post-title"><a href="/fr/binary/5-ret2win/">Ret2win 32bits !</a></h1>
+    <h1 class="post-title"><a href="/fr/binary/5-ret2win/">ROP 32 !</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -217,11 +217,11 @@ Ret2win 32bits Code Voici le code du programme que nous alons exploiter :"/>
 
     <div class="post-content">
       
-      <h1 id="quest-ce-quun-ret2win-">Qu&rsquo;est ce qu&rsquo;un Ret2Win ?</h1>
-<p>Un ret2win fonctionne de la même manière qu&rsquo;un buffer overflow à la différence qu&rsquo;il n&rsquo;y aura pas de shellcode ici !</p>
-<p>Le but d&rsquo;un ret2win est d&rsquo;appeler une fonction du programme qui n&rsquo;est jamais appeler une seule fois dans le code du programme.</p>
-<p>Dans ce tutoriel je vais vous montrer comment exécuter un exploit ret2win sur un binaire 32bits.</p>
-<h1 id="ret2win-32bits">Ret2win 32bits</h1>
+      <h1 id="quest-ce-quun-rop-32-">Qu&rsquo;est ce qu&rsquo;un ROP 32 ?</h1>
+<p>Un ROP 32 fonctionne de la même manière qu&rsquo;un buffer overflow à la différence qu&rsquo;il n&rsquo;y aura pas de shellcode ici !</p>
+<p>Le but d&rsquo;un ROP 32est d&rsquo;appeler une fonction du programme qui n&rsquo;est jamais appeler une seule fois dans le code du programme.</p>
+<p>Dans ce tutoriel je vais vous montrer comment exécuter un exploit ROP sur un binaire 32bits.</p>
+<h1 id="rop-32">ROP 32</h1>
 <h2 id="code">Code</h2>
 <p>Voici le code du programme que nous alons exploiter :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
@@ -262,7 +262,7 @@ La seule différence est l&rsquo;ajout d&rsquo;une fonction supplémentaire <cod
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern search 0x62616164
 </code></pre></div><p><img src="/img/fr/binary/5-pattern-EIP-112.png" alt="5-pattern-EIP-112.png"></p>
 <p>Notre padding fera 112.</p>
-<h2 id="ret2win">ret2win</h2>
+<h2 id="la-fonction-">La fonction !</h2>
 <p>Maintenant, on va récupérer l&rsquo;adresse de la fonction <code>win()</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  p win
 </code></pre></div><p><img src="/img/fr/binary/5-adresse-win.png" alt="5-adresse-win.png"></p>

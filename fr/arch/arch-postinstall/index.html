@@ -296,7 +296,9 @@ $ pacman -S alsa-utils
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /etc/i3/config ~/.config/i3/config
 </code></pre></div><p>Maintenant, on va démarrer notre interface graphique :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">startx
-</code></pre></div><h3 id="lightdm">lightdm</h3>
+</code></pre></div><p>Chemin du fichier : <code>~/.config/i3/config</code></p>
+<p>Mon fichier de conf : <a href="/docs/arch-config/i3/config">config</a></p>
+<h3 id="lightdm">lightdm</h3>
 <p>Il nous faut installer lightdm  pour choisir notre desktop et avoir une interface de connexion au démarrage.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 
@@ -329,6 +331,8 @@ echo <span style="color:#e6db74">&#34;Polybar launched...&#34;</span>
 </code></pre></div><p>Et ajoutez la ligne suivante dans la configuration i3 :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 </code></pre></div><p>Ne pas oublier de changer [bar/exemple] en [bar/mybar] dans le fichier de configruation de polybar.</p>
+<p>Chemin du fichier : <code>~/.config/polybar/config</code></p>
+<p>Mon fichier de conf : <a href="/docs/arch-config/polybar/config">config</a></p>
 <p>Pour plus d&rsquo;information sur polybar : <a href="https://github.com/polybar/polybar">rendez-vous ICI</a></p>
 <h3 id="rofi">rofi</h3>
 <p>rofi va nous service de lanceur d&rsquo;application.</p>
@@ -338,7 +342,9 @@ echo <span style="color:#e6db74">&#34;Polybar launched...&#34;</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.config/i3/config
 </code></pre></div><p>Modifier le bindsym associé par celui-là :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindsym Mod4+d exec rofi -modi drun -show drun -font <span style="color:#e6db74">&#34;DejaVu Sans 15&#34;</span> -show-icons -theme slate
-</code></pre></div><h3 id="feh">feh</h3>
+</code></pre></div><p>Chemin du fichier :<code>~/.config/rofi/slate.rsi</code></p>
+<p>Mon fichier de conf :<a href="/docs/arch-install/rofi/slate.rsi">config</a></p>
+<h3 id="feh">feh</h3>
 <p>feh va nous servir afin d&rsquo;afficher un fond d&rsquo;écran avec i3.</p>
 <p>Pour l&rsquo;installer :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S feh
@@ -355,7 +361,7 @@ for_window <span style="color:#f92672">[</span>class<span style="color:#f92672">
 Mon terminal est <code>Terminator</code></p>
 <p>installation :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S compton
-</code></pre></div><h4 id="ancienne-version-">Ancienne version :</h4>
+</code></pre></div><h4 id="ancienne-version-ne-fonctionne-plus">Ancienne version (ne fonctionne plus):</h4>
 <p>Pour la configuration, on ajoute cette ligne dans le fichier de configuration i3:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always --no-startup-id compton --config /
 </code></pre></div><p>On va ensuite modifier le fichier de configuration compton, s&rsquo;il n&rsquo;existe pas, on va le créer:</p>
@@ -374,7 +380,9 @@ picom -b
 <h2 id="neofetch">neofetch</h2>
 <p>Afficher les information du système dans le terminal :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S neofetch
-</code></pre></div><h2 id="flameshot">flameshot</h2>
+</code></pre></div><p>Chemin du fichier :<code>~/.config/neofetch/config.conf</code></p>
+<p>Mon fichier de conf :<a href="/docs/arch-config/neofetch/config.conf">config</a></p>
+<h2 id="flameshot">flameshot</h2>
 <p>Un outil très puissant pour les capture d&rsquo;écran, on va le blind avec un raccourci i3, la touche <code>impr</code> imprime-écran.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S flameshot
 </code></pre></div><p>On ajoute ensuite cette ligne dans la config i3 :</p>
@@ -387,6 +395,14 @@ picom -b
 $ echo source ~/.gdbinit-gef.py &gt;&gt; ~/.gdbinit
 </code></pre></div><p>Dispo sur le <a href="https://github.com/hugsy/gef">Github ICI</a></p>
 <h2 id="autres-applications">Autres applications</h2>
+<h3 id="firefox">firefox</h3>
+<p>Installer un navigateur internet pour visiter le wiki archlinux ;)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S firefox
+</code></pre></div><h3 id="terminator">terminator</h3>
+<p>Terminal très personnalisable:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S terminatir
+</code></pre></div><p>Chemin du fichier : <code>~/.config/terminator/config</code></p>
+<p>Mon fichier de conf :<a href="/docs/arch-config/terminator/config">config</a></p>
 <h3 id="ranger">ranger</h3>
 <p>Installation de ranger, l&rsquo;explorateur de fichier basé sur vim :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S ranger
@@ -394,25 +410,21 @@ $ echo source ~/.gdbinit-gef.py &gt;&gt; ~/.gdbinit
 <p>Installation de bitwarden, le gestionnaire de mot de passe:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yay -S bitwarden
 </code></pre></div><h3 id="obsidian">Obsidian</h3>
-<p>Installation de l&rsquo;IDE markdown :</p>
+<p>Installation de l&rsquo;IDE markdown très complet :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yay -S obsidian-appimage
-</code></pre></div><h2 id="fichier-de-configuration-">FIchier de configuration :</h2>
-<p>Attention, il ne sont pas tous forcément commenté.</p>
-<h3 id="i3-gaps-2">i3-gaps</h3>
-<p>Chemin du fichier : <code>~/.config/i3/config</code></p>
-<p>Lien : <a href="/docs/arch-config/i3/config">config</a></p>
-<h3 id="polybar-1">polybar</h3>
-<p>Chemin du fichier : <code>~/.config/polybar/config</code></p>
-<p>Lien : <a href="/docs/arch-config/polybar/config">config</a></p>
-<h3 id="terminator">terminator</h3>
-<p>Chemin du fichier : <code>~/.config/terminator/config</code></p>
-<p>Lien :<a href="/docs/arch-config/terminator/config">config</a></p>
-<h3 id="neofetch-1">neofetch</h3>
-<p>Chemin du fichier :<code>~/.config/neofetch/config.conf</code></p>
-<p>Lien :<a href="/docs/arch-config/neofetch/config.conf">config</a></p>
-<h3 id="rofi-1">rofi</h3>
-<p>Chemin du fichier :<code>~/.config/rofi/slate.rsi</code></p>
-<p>Lien :<a href="/docs/arch-install/rofi/slate.rsi">config</a></p>
+</code></pre></div><h3 id="udiskctl">udiskctl</h3>
+<p>Outils qui va vous permettre de monter des clés USB sans utiliser la commande sudo:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S udiskctl
+</code></pre></div><p>Lien sur le <a href="https://wiki.archlinux.org/index.php/Udisks">wiki archlinux </a></p>
+<h3 id="virtualbox">virtualbox</h3>
+<p>Vous permet de créer des Machines Virtuelles :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S virtualbox
+yay -S virtualbox-host-modules-arch
+sudo pacman -S virtualbox-guest-iso
+yay -S virtualbox-ext-oracle
+</code></pre></div><p>Chargement du module kernel :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo  modprobe vboxdrv
+</code></pre></div><p>Pour plus d&rsquo;information randez-vous sur <a href="https://wiki.archlinux.org/index.php/VirtualBox">le wiki archlinux </a></p>
 
     </div>
     

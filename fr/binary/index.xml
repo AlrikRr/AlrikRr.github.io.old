@@ -35,7 +35,7 @@
     </item>
     
     <item>
-      <title>Ret2win 32bits !</title>
+      <title>ROP 32 !</title>
       <link>/fr/binary/5-ret2win/</link>
       <pubDate>Tue, 15 Sep 2020 10:11:22 +0200</pubDate>
       
@@ -47,7 +47,7 @@
         
         
         
-          Exploitation d&#39;une ret2win sur un binaire 32bits
+          Exploitation d&#39;un ROP sur un binaire 32bits !
           
         
         </description>

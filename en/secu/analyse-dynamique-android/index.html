@@ -276,7 +276,7 @@ To check if the proxy works, go to its address and specify the port.</p>
 <h2 id="push-the-certificate">Push the certificate</h2>
 <p>We need to add the Burp certificate on our phone, for that we will use <code>adb push</code> :</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» adb push cacert.der /sdcard/burp.cer
-</code></pre><p>Be careful, it is important to give it the extension `.cer&rsquo; so that it can be recognized by the phone.</p>
+</code></pre><p>Be careful, it is important to give it the extension `.cer' so that it can be recognized by the phone.</p>
 <h2 id="add-the-certificate">Add the certificate</h2>
 <p>Access your phone&rsquo;s settings :</p>
 <ul>
@@ -332,7 +332,7 @@ As you can see with WireShark, the connection is interrupted.</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» sudo pip3 install frida-tools
 </code></pre><h2 id="install-frida-server">Install Frida-Server</h2>
 <p>Go <a href="https://github.com/frida/frida/releases">HERE</a> to download frida-server. On my side I will use the 12.2 Android-x86 version.</p>
-<p>Once you have the archive, you need to extract it and send it to your emulator with `adb push&rsquo;.</p>
+<p>Once you have the archive, you need to extract it and send it to your emulator with `adb push'.</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» unxz frida-server-12.2.23-android-x86.xz
 
 ~ 竈門» adb push frida-server-12.2.23-android-x86 /data/local/tmp/frida-server

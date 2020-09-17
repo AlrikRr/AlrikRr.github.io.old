@@ -1,18 +1,228 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <sitemap>
-    <loc>/en/sitemap.xml</loc>
-    
-      <lastmod>2020-08-11T09:53:05+02:00</lastmod>
-    
-  </sitemap>
+  <url>
+    <loc>/nixos/install-nixos/</loc>
+    <lastmod>2020-06-19T10:32:57+02:00</lastmod>
+  </url>
   
-  <sitemap>
-    <loc>/fr/sitemap.xml</loc>
-    
-      <lastmod>2020-09-17T00:09:54+02:00</lastmod>
-    
-  </sitemap>
+  <url>
+    <loc>/nixos/conf-nixos/</loc>
+    <lastmod>2020-06-19T10:32:57+02:00</lastmod>
+  </url>
   
-</sitemapindex>
+  <url>
+    <loc>/nixos/ssh-nixos/</loc>
+    <lastmod>2020-06-19T10:32:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/binary/4-bufferoverflow/</loc>
+    <lastmod>2020-09-12T18:38:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/nixos/wireguard-nixos/</loc>
+    <lastmod>2020-06-19T10:32:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/binary/5-ret2win/</loc>
+    <lastmod>2020-09-15T10:11:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-09-17T00:09:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/presentation-exploit-binaire/</loc>
+    <lastmod>2020-09-17T00:09:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-09-17T00:09:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/binary/</loc>
+    <lastmod>2020-09-15T10:11:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/arch/</loc>
+    <lastmod>2020-09-14T14:02:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/arch/arch-postinstall/</loc>
+    <lastmod>2020-09-14T14:02:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/raspberry/mini-nas-rapsberry/</loc>
+    <lastmod>2020-09-11T10:36:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/raspberry/</loc>
+    <lastmod>2020-09-11T10:36:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/le-vulga-num/</loc>
+    <lastmod>2020-08-25T15:27:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/pop-os-installation-btrfs/</loc>
+    <lastmod>2020-08-19T09:04:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/</loc>
+    <lastmod>2020-08-19T09:04:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/presentation-raspberry/</loc>
+    <lastmod>2020-08-11T20:34:50+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/presentation-writeup-htb/</loc>
+    <lastmod>2020-08-11T20:23:55+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/raspberry/basic-installation/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writeup/magic/</loc>
+    <lastmod>2020-08-03T16:01:32+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writeup/</loc>
+    <lastmod>2020-08-03T16:01:32+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/writeup/traceback/</loc>
+    <lastmod>2020-07-30T10:12:33+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/presentation-categorie-securite/</loc>
+    <lastmod>2020-07-02T11:02:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/secu/analyse-dynamique-android/</loc>
+    <lastmod>2020-07-01T00:34:51+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/secu/</loc>
+    <lastmod>2020-07-01T00:34:51+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/traduction-du-site/</loc>
+    <lastmod>2020-06-27T22:38:55+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/les-tutos-presentation-categorie/</loc>
+    <lastmod>2020-06-26T12:25:35+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/coffre-securise-sshfs/</loc>
+    <lastmod>2020-06-26T11:02:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/macos-sur-linux-kvm/</loc>
+    <lastmod>2020-06-26T10:52:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/ssh-expert-tips/</loc>
+    <lastmod>2020-06-22T14:32:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/dropbear-initramfs/</loc>
+    <lastmod>2020-06-22T14:32:29+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tuto/installation-gitpage-hugo/</loc>
+    <lastmod>2020-06-21T15:47:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/archlinux-presentation-categorie/</loc>
+    <lastmod>2020-06-20T23:43:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/arch/arch-install/</loc>
+    <lastmod>2020-06-20T23:43:27+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/nixos/</loc>
+    <lastmod>2020-06-19T10:32:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ml/</loc>
+    <lastmod>2020-06-18T22:39:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ml/support-vector-machine/</loc>
+    <lastmod>2020-06-18T22:39:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ml/linear-regression/</loc>
+    <lastmod>2020-06-18T22:20:29+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/machine-learning-presentation-categorie/</loc>
+    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/nixos-presentation-categorie/</loc>
+    <lastmod>2020-06-18T20:43:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ml/k-nearest-neighbors/</loc>
+    <lastmod>2020-06-18T20:31:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+</urlset>

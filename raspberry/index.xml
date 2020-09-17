@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberries on RedFou52 - BlogPost</title>
+    
+    
+    
+    <link>/raspberry/</link>
+    <description>Recent content in Raspberries on RedFou52 - BlogPost</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian - 2020</copyright>
+    <lastBuildDate>Fri, 11 Sep 2020 10:36:20 +0200</lastBuildDate>
+    
+	<atom:link href="/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mini Nas Rapsberry</title>
+      <link>/raspberry/mini-nas-rapsberry/</link>
+      <pubDate>Fri, 11 Sep 2020 10:36:20 +0200</pubDate>
+      
+      <guid>/raspberry/mini-nas-rapsberry/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          Hello !
+Dans ce tutoriel nous allons voir comment mettre en place un petit serveur NAS (1 seul disque) chez vous avec partage de fichier SAMBA !
+ Pré-Requis Pour ce tutorial je vais utiliser :
+ Raspberry Pi3 1Gb RAM Alim Raspberry Carte SD 32Gb Câble Ethernet Un Clavier USB Un disque Externe USB de 1To  Installation du raspberry Pour l&amp;rsquo;installation de base je vais vous rediriger vers ce tuto qui est assez complet : Installation-Basique-Raspberry
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation simple et sécurisée de Raspbian OS (Lite)</title>
+      <link>/raspberry/basic-installation/</link>
+      <pubDate>Tue, 11 Aug 2020 09:53:05 +0200</pubDate>
+      
+      <guid>/raspberry/basic-installation/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/raspberry/rasp-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Installation simple et sécurisée de Raspbian OS (Lite) sur Raspberry
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

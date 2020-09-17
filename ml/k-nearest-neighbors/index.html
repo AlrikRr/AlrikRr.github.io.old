@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     
-      <title>K-Nearest Neighbors :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+      <title>K-plus proches voisins :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="If you want a better tutorial, I recommend you to follow TechWithTim I&amp;rsquo;ll try to explain the theory in a simple way, i&amp;rsquo;m not an expert, this tutorial is also benefits for me to really understand the logic.
- We assume we have three classes, RED, BLUE and GREEN.
-But we don&amp;rsquo;t know the class of the BLACK one.
-Human Style : If you are a human, well at least I hope so, you can definitely put the BLACK one with the RED class because it is the closest than the other classes."/>
-<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="description" content="Si vous voulez un tutoriel plus complet, je vous recommande de suivre TechWithTim
+Je vais essayé d&amp;rsquo;expliquer très simplement avec mes mots, je ne suis pas un expert, ce tutoriel sera aussi bénéfique pour moi afin de bien comprendre la logique derrière cet algorithme.
+ Disons que nous avons 4 classes, Rouge, Bleu and Vert.
+La classe Noire correspond au datapoints qui n&amp;rsquo;ont pas encore de classe.
+Méthode &amp;ldquo;humain&amp;rdquo; : Si vous êtes un humain, enfin, je l&amp;rsquo;espère sinon je vais être obligé de mettre un CAPTCHA."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/ml/k-nearest-neighbors/" />
 
@@ -29,13 +30,13 @@ Human Style : If you are a human, well at least I hope so, you can definitely pu
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="K-Nearest Neighbors"/>
-<meta name="twitter:description" content="K Nearest Neighbors tutorial and link to Python code."/>
+<meta name="twitter:title" content="K-plus proches voisins"/>
+<meta name="twitter:description" content="K-plus proches voisins - KNN en anglais"/>
 
 
 
-<meta property="og:title" content="K-Nearest Neighbors" />
-<meta property="og:description" content="K Nearest Neighbors tutorial and link to Python code." />
+<meta property="og:title" content="K-plus proches voisins" />
+<meta property="og:description" content="K-plus proches voisins - KNN en anglais" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/ml/k-nearest-neighbors/" />
 <meta property="article:published_time" content="2020-06-18T20:31:36+02:00" />
@@ -62,32 +63,65 @@ Human Style : If you are a human, well at least I hope so, you can definitely pu
   
 </a>
 
+
+
+
     <span class="header__right">
       
         <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
+	<ul class="menu__inner menu__inner--desktop">
     
       
         
-          <li><a href="/ml">MachineLearning</a></li>
+	<li><a href="/tuto">Les Tutos</a></li>
         
       
         
-          <li><a href="/nixos">NIXOS</a></li>
+	<li><a href="/secu">Sécurité</a></li>
         
       
         
-          <li><a href="/arch">Archlinux</a></li>
+	<li><a href="/writeup">Write-Up</a></li>
         
       
-        
-          <li><a href="/tuto">Tutorials</a></li>
-        
       
-        
-          <li><a href="/about">About</a></li>
-        
-      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
       
     
   </ul>
@@ -95,7 +129,23 @@ Human Style : If you are a human, well at least I hope so, you can definitely pu
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/ml">MachineLearning</a></li>
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
       
     
       
@@ -107,15 +157,16 @@ Human Style : If you are a human, well at least I hope so, you can definitely pu
       
     
       
-        <li><a href="/tuto">Tutorials</a></li>
+        <li><a href="/ml">MachineLearning</a></li>
       
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">A propos !</a></li>
       
     
   </ul>
 </nav>
+
 
         <span class="menu-trigger">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -143,17 +194,19 @@ Human Style : If you are a human, well at least I hope so, you can definitely pu
   
 
   <div class="post">
-    <h1 class="post-title"><a href="/ml/k-nearest-neighbors/">K-Nearest Neighbors</a></h1>
+    <h1 class="post-title"><a href="/ml/k-nearest-neighbors/">K-plus proches voisins</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
-          2020-06-18
+          18-06-2020
         </span>
 
         
       
 
-      <span class="post-author">— Written by Eidorian</span>
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 3 Minutes</span>
       
     </div>
 
@@ -161,47 +214,57 @@ Human Style : If you are a human, well at least I hope so, you can definitely pu
 
     
       
-        <img src="/img/ML/KNN/knn-banner.png" class="post-cover" />
+        <img src="/img/fr/ml/knn/knn-banner.png" class="post-cover" />
       
     
 
     <div class="post-content">
       
-      <p><strong>If you want a better tutorial, I recommend you to follow <a href="https://techwithtim.net/tutorials/machine-learning-python/">TechWithTim</a></strong>
-I&rsquo;ll try to explain the theory in a simple way, i&rsquo;m not an expert, this tutorial is also benefits for me to really understand the logic.</p>
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#méthode-humain-">Méthode &ldquo;humain&rdquo; :</a></li>
+    <li><a href="#méthode-robot-">Méthode &ldquo;robot&rdquo; :</a></li>
+  </ul>
+</nav></aside>
+      
+      <p><strong>Si vous voulez un tutoriel plus complet, je vous recommande de suivre <a href="https://techwithtim.net/tutorials/machine-learning-python/">TechWithTim</a></strong></p>
+<p>Je vais essayé d&rsquo;expliquer très simplement avec mes mots, je ne suis pas un expert, ce tutoriel sera aussi bénéfique pour moi afin de bien comprendre la logique derrière cet algorithme.</p>
 <hr>
-<p>We assume we have three classes, RED, BLUE and GREEN.<br>
-But we don&rsquo;t know the class of the BLACK one.</p>
-<p><img src="/img/ML/KNN/schema1.png" alt="schema1"></p>
-<h2 id="human-style-">Human Style :</h2>
-<p>If you are a human, well at least I hope so, you can definitely put the BLACK one with the RED class because it is the closest than the other classes.</p>
+<p>Disons que nous avons 4 classes, Rouge, Bleu and Vert.<br>
+La classe Noire correspond au datapoints qui n&rsquo;ont pas encore de classe.</p>
+<p><img src="/img/fr/ml/knn/schema1.png" alt="schema1"></p>
+<h2 id="méthode-humain-">Méthode &ldquo;humain&rdquo; :</h2>
+<p>Si vous êtes un humain, enfin, je l&rsquo;espère sinon je vais être obligé de mettre un CAPTCHA. Vous allez logiquement mettre le datapoint Noir avec la classe ROUGE car il est le plus proche de celle là.</p>
 <hr>
-<p><img src="/img/ML/KNN/schema2.png" alt="schema2"></p>
-<h2 id="robot-style-">Robot Style :</h2>
-<p>Now if you are less human, you will require the K parameter, it represents the number of neighbors that we are looking for to class the BLACK point.</p>
+<p><img src="/img/fr/ml/knn/schema2.png" alt="schema2"></p>
+<h2 id="méthode-robot-">Méthode &ldquo;robot&rdquo; :</h2>
+<p>Maintenant, si vous êtes moins humain, il va vous falloir un paramètre en plus pour trouver la classe du datapoint Noir. Ce paramètre sera K, il correspond au nombre de voisins que vous voulez prendre en compte.</p>
 <hr>
-<p><img src="/img/ML/KNN/schema3.png" alt="schema3"></p>
-<p>As we can see, the 3 nearest point are going to vote, two RED and one GREEN so the BLACK point will be RED. Simple.<br>
-<strong>BUT</strong> now imagine if the K parameter is 4 and then you have 2 RED and 2 GREEN. What do we conclude?<br>
-Well, you just definitely don&rsquo;t set even number because we need a winner!</p>
+<p><img src="/img/fr/ml/knn/schema3.png" alt="schema3"></p>
+<p>Comme nous pouvons le voir, les 3 plus proches voisins vont devoir voter, 2 votes Rouge, 1 vote Vert. De ce fait, le datapoint Noir sera Rouge. Simple.<br>
+<strong>MAIS</strong> imaginons que notre paramètre K soit un nombre paire, 4. Vous allez avoir 2 votes Rouges, 2 votes Vert. Mais alors dans qu&rsquo;elle classe va appartenir notre datapoint Noir ?<br>
+Eh bien il y a une solution très simple, ne pas utiliser de nombre paire du tout ! l nous faudra un gagnant dans tout les cas.</p>
 <hr>
-<p><img src="/img/ML/KNN/schema4.png" alt="schema4"></p>
-<p>Let&rsquo;s explain the details of how the computer calculates the distance between the points and found the nearest neighbors.<br>
-As you can see, this is an Euclidian Distance, we need to determine the best magnitude, also the distance from each point of the BLACK point.</p>
+<p><img src="/img/fr/ml/knn/schema4.png" alt="schema4"></p>
+<p>Entrons un peu dans les détails et regardons commen l&rsquo;ordinateur calacule la distance entre chaque point pour trouver le voisin le plus proche.<br>
+Il s&rsquo;agit de la Distance Euclidienne, nous devons déterminer la meilleure magnitude ainsi que la distance entre chaque point à partir de datapoint Noir.</p>
 <hr>
-<p><img src="/img/ML/KNN/schema5.png" alt="schema5">
-KNN works with multiple Plan, here <strong>3D</strong> plan example.<br>
-Now let&rsquo;s see an error of the utilisation of KNN. In this example, the K number is excessively high. When we look at this 3D plan, the BLACK point is more likely to belong to the RED points but the K parameter is nine, there is only 4 RED points and 5 BLUE points.<br>
-At the end, the BLUE win because they are more numerous than the RED.<br>
-Therefore if you want to select a K parameter, be careful and don&rsquo;t use unnecessarily high value or the result will be compromise.</p>
+<p><img src="/img/fr/ml/knn/schema5.png" alt="schema5"></p>
+<p>KNN fonctionne avec plusieurs plans, ici un plan en <strong>3D</strong>.<br>
+Maintenant, regardons un erreur classique à éviter quand on utilise cet algorithme. Ici le paramètre K est un peu trop grand. Quand on regarde bien le datapoint Noir, il est très propable qu&rsquo;il appartienne à la classe Rouge.<br>
+Mais il n&rsquo;y a que 4 datapoint Rouge et 5 Bleu.<br>
+A la fin, le datapoint Noir va appartenir à la classe Bleu car il aura eu le plus de vote de sa part.<br>
+Il est donc important de ne pas mettre un paramaètre K trop grand, cela pourrait fausser vos résultats.</p>
 <hr>
-<p><img src="/img/ML/KNN/schema6.png" alt="schema6">
-KNN limitations must be taken into consideration. The computer will calculate the distance for ALL the data point on the plan to find the nearest. Imagine if there are 100,000,000 data points!<br>
-This is why it is useless to train this algorithm, because it needs calculating the distance each time we run it.</p>
+<p><img src="/img/fr/ml/knn/schema6.png" alt="schema6"></p>
+<p>La limitation de l&rsquo;algorithme KNN doit être pris en considération.<br>
+En effet, l&rsquo;odinateur lui, va &ldquo;bêtement&rdquo; calculer la distance pour TOUS les datapoints présent. Imaginez si vous avez plus de 100 000 000 datapoints.<br>
+C&rsquo;est pourquoi il est unitiles d&rsquo;entraîner cet algorithme, car il a besoin de calculer la distance à chaque fois qu&rsquo;il est lancé.</p>
 <hr>
-<p><em>If you want an example of code check <a href="https://github.com/RedFou52/MachineLearningPython/blob/master/KNN/KNNworking.py">HERE</a></em></p>
+<p><em>Si vous voulez un exemple en python, c&rsquo;est par <a href="https://github.com/RedFou52/MachineLearningPython/blob/master/KNN/KNNworking.py">ICI !</a></em></p>
 <hr>
-<p><img src="/img/ML/memes/ml-meme-3.png" alt="meme-3"></p>
+<p><img src="/img/fr/ml/memes/ml-meme-3.png" alt="meme-3"></p>
 
     </div>
     
@@ -219,7 +282,7 @@ This is why it is useless to train this algorithm, because it needs calculating 
         <footer class="footer">
   <div class="footer__inner">
     
-      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
     
   </div>
 </footer>

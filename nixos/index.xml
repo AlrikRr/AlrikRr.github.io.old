@@ -8,65 +8,65 @@
     <link>/nixos/</link>
     <description>Recent content in Nixos on RedFou52 - BlogPost</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>@RedFou52 - Eidorian</copyright>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian - 2020</copyright>
     <lastBuildDate>Fri, 19 Jun 2020 10:32:57 +0200</lastBuildDate>
     
 	<atom:link href="/nixos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Install Nixos - Beginners</title>
+      <title>Installation de  Nixos - Débutant</title>
       <link>/nixos/install-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
       
       <guid>/nixos/install-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/INST/inst-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/install/inst-banner.png&#34;/&gt;
           
         
         
         
-          How to install nixos - Beginners - Luks, EFI and BTRFS
+          Installation de nixos pour débutant -  Luks, EFI et BTRFS
           
         
         </description>
     </item>
     
     <item>
-      <title>Configuration NIXOS - Beginners</title>
+      <title>Configuration NIXOS - Débutant</title>
       <link>/nixos/conf-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
       
       <guid>/nixos/conf-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/CONF/conf-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/setup/conf-banner.png&#34;/&gt;
           
         
         
         
-          How to configure NIXOS - Beginners
+          Configuration basique de NIXOS pour débutant
           
         
         </description>
     </item>
     
     <item>
-      <title>SSH Simple Configuration - Beginners</title>
+      <title>SSH Simple Configuration</title>
       <link>/nixos/ssh-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
       
       <guid>/nixos/ssh-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/SSH/ssh-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/ssh/ssh-banner.png&#34;/&gt;
           
         
         
         
-          SSH simple configuration for NIXOS - Beginners
+          Comment configurer son SSH - Les bases
           
         
         </description>
@@ -80,12 +80,12 @@
       <guid>/nixos/wireguard-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/WIRE/wire-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/wireguard/wire-banner.png&#34;/&gt;
           
         
         
         
-          How to configure wireguard - NIXOS - And Android device
+          Comment mettre en place un VPN wireguard maison et y accéder depuis son android.
           
         
         </description>

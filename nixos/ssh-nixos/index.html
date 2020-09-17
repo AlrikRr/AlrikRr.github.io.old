@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     
-      <title>SSH Simple Configuration - Beginners :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+      <title>SSH Simple Configuration :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Thanks to Rayan Lahfa
- SSH configuration To edit the SSH config, you need to edit the nixos config file : /etc/nixos/configuration.nix
-Don&amp;rsquo;t forget to read and understand this configuration file !
-Enable openssh First steap, you need to enable OpenSSH Daemon.
-[...] # List services that you want to enable: # Enable the OpenSSH daemon. services.openssh.enable = true; [...] Enable root login If you want to enable root login with SSH add those lines."/>
-<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="description" content="Merci à Rayan Lahfa
+ SSH configuration Pour modifier la configuration de votre SSH,, vous devez modifier votre fichier de configuration nixos : /etc/nixos/configuration.nix
+Vous ne pouvez pas modifier le fichier par défault ssh situé dans /etc/ssh/sshd_config.
+Activez openssh Premièrement, vous devez activer le Daemon OpenSSH.
+[...] # List services that you want to enable: services.openssh.enable = true; [...] Activez le login ROOT via SSH Pour votre première configuration, vous devez vous connecter avec un compte ROOT."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/nixos/ssh-nixos/" />
 
@@ -30,13 +30,13 @@ Enable openssh First steap, you need to enable OpenSSH Daemon.
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SSH Simple Configuration - Beginners"/>
-<meta name="twitter:description" content="SSH simple configuration for NIXOS - Beginners"/>
+<meta name="twitter:title" content="SSH Simple Configuration"/>
+<meta name="twitter:description" content="Comment configurer son SSH - Les bases"/>
 
 
 
-<meta property="og:title" content="SSH Simple Configuration - Beginners" />
-<meta property="og:description" content="SSH simple configuration for NIXOS - Beginners" />
+<meta property="og:title" content="SSH Simple Configuration" />
+<meta property="og:description" content="Comment configurer son SSH - Les bases" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/nixos/ssh-nixos/" />
 <meta property="article:published_time" content="2020-06-19T10:32:57+02:00" />
@@ -63,32 +63,65 @@ Enable openssh First steap, you need to enable OpenSSH Daemon.
   
 </a>
 
+
+
+
     <span class="header__right">
       
         <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
+	<ul class="menu__inner menu__inner--desktop">
     
       
         
-          <li><a href="/ml">MachineLearning</a></li>
+	<li><a href="/tuto">Les Tutos</a></li>
         
       
         
-          <li><a href="/nixos">NIXOS</a></li>
+	<li><a href="/secu">Sécurité</a></li>
         
       
         
-          <li><a href="/arch">Archlinux</a></li>
+	<li><a href="/writeup">Write-Up</a></li>
         
       
-        
-          <li><a href="/tuto">Tutorials</a></li>
-        
       
-        
-          <li><a href="/about">About</a></li>
-        
-      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
       
     
   </ul>
@@ -96,7 +129,23 @@ Enable openssh First steap, you need to enable OpenSSH Daemon.
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/ml">MachineLearning</a></li>
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
       
     
       
@@ -108,15 +157,16 @@ Enable openssh First steap, you need to enable OpenSSH Daemon.
       
     
       
-        <li><a href="/tuto">Tutorials</a></li>
+        <li><a href="/ml">MachineLearning</a></li>
       
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">A propos !</a></li>
       
     
   </ul>
 </nav>
+
 
         <span class="menu-trigger">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -144,17 +194,19 @@ Enable openssh First steap, you need to enable OpenSSH Daemon.
   
 
   <div class="post">
-    <h1 class="post-title"><a href="/nixos/ssh-nixos/">SSH Simple Configuration - Beginners</a></h1>
+    <h1 class="post-title"><a href="/nixos/ssh-nixos/">SSH Simple Configuration</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
-          2020-06-19
+          19-06-2020
         </span>
 
         
       
 
-      <span class="post-author">— Written by Eidorian</span>
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 1 Minutes</span>
       
     </div>
 
@@ -162,41 +214,51 @@ Enable openssh First steap, you need to enable OpenSSH Daemon.
 
     
       
-        <img src="/img/NIXOS/SSH/ssh-banner.png" class="post-cover" />
+        <img src="/img/fr/nixos/ssh/ssh-banner.png" class="post-cover" />
       
     
 
     <div class="post-content">
       
-      <p>Thanks to <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a></p>
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-configuration">SSH configuration</a></li>
+    <li><a href="#activez-openssh">Activez openssh</a></li>
+    <li><a href="#activez-le-login-root-via-ssh">Activez le login ROOT via SSH</a></li>
+    <li><a href="#autorisez-tcp-port-22-pour-le--firewall">Autorisez TCP port 22 pour le  firewall</a></li>
+    <li><a href="#user-et-clé-publique">USER et Clé publique</a></li>
+  </ul>
+</nav></aside>
+      
+      <p>Merci à <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a></p>
 <hr>
 <h2 id="ssh-configuration">SSH configuration</h2>
-<p>To edit the SSH config, you need to edit the <strong>nixos config file</strong> : <code>/etc/nixos/configuration.nix</code><br>
-Don&rsquo;t forget to read and understand this configuration file !</p>
-<h2 id="enable-openssh">Enable openssh</h2>
-<p>First steap, you need to enable OpenSSH Daemon.</p>
+<p>Pour modifier la configuration de votre SSH,, vous devez modifier votre fichier de configuration nixos : <code>/etc/nixos/configuration.nix</code><br>
+Vous ne pouvez pas modifier le fichier par défault ssh situé dans <code>/etc/ssh/sshd_config</code>.</p>
+<h2 id="activez-openssh">Activez openssh</h2>
+<p>Premièrement, vous devez activer le Daemon OpenSSH.</p>
 <pre><code>[...]
 # List services that you want to enable:
-
-# Enable the OpenSSH daemon.
 services.openssh.enable = true;
 [...]
-</code></pre><h2 id="enable-root-login">Enable root login</h2>
-<p>If you want to enable root login with SSH add those lines.<br>
-<strong>Be careful</strong>, you can&rsquo;t edit the <code>/etc/ssh/sshd_config</code> file, all the configuration must be done to <code>/etc/nixos/configuration.nix</code><br>
-For more information check : <a href="https://nixos.org/nixos/options.html#permitroot">Nixos-permitroot</a></p>
-<pre><code># Enable root login
+</code></pre><h2 id="activez-le-login-root-via-ssh">Activez le login ROOT via SSH</h2>
+<p>Pour votre première configuration, vous devez vous connecter avec un compte ROOT.<br>
+<strong>ATTENTION</strong>, comme dit précédement, vous ne pouvez pas modifier le fichier <code>/etc/ssh/sshd_config</code>, toute la configuration se fait dans <code>/etc/nixos/configuration.nix</code><br>
+Pour plus d&rsquo;information : <a href="https://nixos.org/nixos/options.html#permitroot">Nixos-permitroot</a></p>
+<pre><code># Activer Root login
 services.openssh.permitRootLogin = &quot;yes&quot;;
-</code></pre><h2 id="allow-tcp-port-22-from-firewall">Allow TCP port 22 from firewall</h2>
+</code></pre><h2 id="autorisez-tcp-port-22-pour-le--firewall">Autorisez TCP port 22 pour le  firewall</h2>
 <pre><code># Open port in the firewall
 networking.firewall.allowedTCPPorts = [ 22 ];
-</code></pre><h2 id="define-user-and-pub-key">Define user and pub key</h2>
-<p>Last step, you need tu add user and add your public key.</p>
-<pre><code># Define a user account. Don't forget to set a password with ‘passwd’.
+</code></pre><h2 id="user-et-clé-publique">USER et Clé publique</h2>
+<p>Créez votre utilisateur.
+Vous devez ajouter votre clé publique pour pouvoir vous connecter à votre machine Nixos.</p>
+<pre><code># N'oubliez pas de lui attribuer un mot de passe avec ‘passwd’.
 users.users.eidorian = {
   isNormalUser = true;
-  extraGroups = [ &quot;wheel&quot; ]; # Enable ‘sudo’ for the user.
-  openssh.authorizedKeys.keys = [&quot;put your publikey here&quot;];
+  extraGroups = [ &quot;wheel&quot; ]; # Enable ‘sudo’.
+  openssh.authorizedKeys.keys = [&quot;Ajoutez votre clé publique ici&quot;];
 };
 </code></pre>
     </div>
@@ -215,7 +277,7 @@ users.users.eidorian = {
         <footer class="footer">
   <div class="footer__inner">
     
-      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
     
   </div>
 </footer>

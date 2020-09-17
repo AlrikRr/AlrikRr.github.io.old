@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>SSH Expert :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Ce tutoriel ne va pas vous apprendre comment fonctionne SSH mais vous monter quelques astuces que j&amp;rsquo;utilise et que me facilite grandement la vie avec SSH !
+ Génération de clés # Générer vos clés Publique et Privée ~ 竈門» shh-keygen -t &amp;lt;algorithm&amp;gt; ed25519 est recommandé mais certaines applications ne support pas cet alogithme,je vous conseil de créer 2 clés, une en ed25519 et une en RSA.
+Les clés que vous veneez de créer ont pour répertoire par défault : ~/."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/tuto/ssh-expert-tips/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSH Expert"/>
+<meta name="twitter:description" content="Astuces pour vous faliciter la vie avec SSH !"/>
+
+
+
+<meta property="og:title" content="SSH Expert" />
+<meta property="og:description" content="Astuces pour vous faliciter la vie avec SSH !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/tuto/ssh-expert-tips/" />
+<meta property="article:published_time" content="2020-06-22T14:32:49+02:00" />
+<meta property="article:modified_time" content="2020-06-22T14:32:49+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/tuto/ssh-expert-tips/">SSH Expert</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          22-06-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 7 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/tuto/ssh/ssh-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#astuces-de-sécurité">Astuces de sécurité</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#avant-connexion--issuenet">Avant-connexion : issue.net</a></li>
+    <li><a href="#après-connexion--motd">Après-connexion : motd</a></li>
+  </ul>
+</nav></aside>
+      
+      <p>Ce tutoriel ne va pas vous apprendre comment fonctionne SSH mais vous monter quelques astuces que j&rsquo;utilise et que me facilite grandement la vie avec SSH !</p>
+<hr>
+<h1 id="génération-de-clés">Génération de clés</h1>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Générer vos clés Publique et Privée
+~ 竈門» shh-keygen -t &lt;algorithm&gt;
+</code></pre><p><code>ed25519</code> est recommandé mais certaines applications ne support pas cet alogithme,je vous conseil de créer 2 clés, une en <code>ed25519</code> et une en  <code>RSA</code>.</p>
+<p>Les clés que vous veneez de créer ont pour répertoire par défault : <code>~/.ssh</code>
+Il n&rsquo;est pas nécessaire de mettre une pass-pharse, si vous voulez en mettre une vous pouvez mais elle vous sera demandée à chaque connexion.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» ls .ssh/   
+id_ed25519  id_ed25519.pub  id_rsa  id_rsa.pub
+</code></pre><p>Surtout, gardez bien vos clés privés secret ! Je vous conseil de les changer de répertoire ainsi que les droits d&rsquo;acces :)</p>
+<hr>
+<h1 id="pubkeyauthentication">PubkeyAuthentication</h1>
+<p>Comme nous avons vu juste avant la géénration de clés, ici nous allons activer l&rsquo;option que va nous permettre de nous connecter sans mot de passe.
+Pour cal, vous devez copier/coller vos clé privé dans le fichier <code>~/.ssh/autorized_keys</code> sur la machine dont vous voulez accéder.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># La méthode simple, mais aussi la méthode officielle. 
+~ 竈門» ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;user&gt;@&lt;IP&gt;
+
+# La méthode Hardcore
+~ 竈門» cat ~/.ssh/id_rsa.pub | ssh &lt;user&gt;@&lt;IP&gt; &quot;cat - &gt;&gt; ~/.ssh/authorized_keys&quot;
+# Après votre première connexion, le mot de passe de l'utilisateur vous sera demandé 
+une dernière fois.
+</code></pre><p>Cette optione st activé par défaut dans votre fichier <code>/etc/ssh/sshd_config</code> :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#PubkeyAuthentication yes
+</code></pre><h2 id="astuces-de-sécurité">Astuces de sécurité</h2>
+<p>Il est recommandé d&rsquo;utiliser une authentification par clé que par mot de passe pour plusieurs raisons. POur ce faire, vous devez modifier votre fichier de configuration <code>/etc/ssh/sshd_config</code> avec les paramètre suivant :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Désactiver l'auth par mot de passe
+PasswordAuthentication no
+# Désactiver la connexion via le compte root 
+PermitRootLogin no 
+</code></pre><hr>
+<h1 id="les-bannières">Les bannières</h1>
+<p>Mettre des bannières est une bonne pratique en matière de sécurité informatique. Pour des raison légales, un serveur qui affiche un gros &ldquo;WELCOME&rdquo; à plus de chance d&rsquo;attirer l&rsquo;attention de personnes malveillantes (après certains peuventy voir un honeypot mais c&rsquo;est un autre sujet), en revanche, mettre un message d&rsquo;avertissement avec quelques notion juridique ou de poursuite pénale peuvent quand même faire peur à certains.
+Biensur, cela ne vous protègera pas à 100% mais ça reste une bonne chose à mettre en place.
+De plus, certaines bannière comme vous allez le voir, ont une autre utilité, plus pratique :)</p>
+<p>Il y a deux type de bannières</p>
+<h2 id="avant-connexion--issuenet">Avant-connexion : issue.net</h2>
+<p>Cette bannière se trouve dans  <code>/etc/issue</code> ou <code>/etc/issue.net</code>.
+La bannière d&rsquo;avant connexion doit être activée dans le fichier de configuration ssh.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">Banner /etc/issue.net
+</code></pre><p>Tout ce que vous allez écrire dans ce fichier sera affiché à tous les utilisateurs qui voudront se connecter à votre machine en SSH.
+C&rsquo;est le moment de vous lâcher et de sortir vos plus belles menaces !</p>
+<p>Je vous place une exemple de ce que j&rsquo;utilise sur mes machines :</p>
+<pre><code>#Banner issue.net exemple
+    &lt;hostname&gt;
+***************************************************************************
+                            NOTICE TO USERS
+
+This computer system is the private property of its owner, whether
+individual, corporate or government.  It is for authorized use only.
+Users (authorized or unauthorized) have no explicit or implicit
+expectation of privacy.
+
+Any or all uses of this system and all files on this system may be
+intercepted, monitored, recorded, copied, audited, inspected, and
+disclosed to your employer, to authorized site, government, and law
+enforcement personnel, as well as authorized officials of government
+agencies, both domestic and foreign.
+
+By using this system, the user consents to such interception, monitoring,
+recording, copying, auditing, inspection, and disclosure at the
+discretion of such personnel or officials.  Unauthorized or improper use
+of this system may result in civil and criminal penalties and
+administrative or disciplinary action, as appropriate. By continuing to
+use this system you indicate your awareness of and consent to these terms
+and conditions of use. LOG OFF IMMEDIATELY if you do not agree to the
+conditions stated in this warning.
+
+****************************************************************************
+
+</code></pre><h2 id="après-connexion--motd">Après-connexion : motd</h2>
+<p>Cette bannière se trouve dans <code>/etc/motd</code>.
+Si vous voulez placer un message après la connexion, c&rsquo;est ici que ca se passe.</p>
+<p>Mais il est également possible de faire executer des scripts bash pour afficher diverses information sur votre machine.
+Pour faire ça, il faut placer votre script dans <code>/etc/update-motd.d/</code> attention à ne pas ajouter d&rsquo;extension à votre fichier.</p>
+<p>Voici un exemple qui affiche :</p>
+<ul>
+<li>Hostname</li>
+<li>Adresses IP privée / Publique</li>
+<li>Date</li>
+<li>Info système</li>
+<li>Info espace de stockage</li>
+<li>Mes logs fail2ban</li>
+<li>Mes logs SSH</li>
+<li>Les mises à jour en attentes</li>
+</ul>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» cat /etc/update-motd.d/system_print
+#!/bin/sh
+figlet &quot;Nezuko&quot;
+hostname=$(hostname)
+ippub=$(wget -qO- http://ipecho.net/plain | xargs echo)
+
+date=$('date')
+echo &quot;########################################################&quot;
+echo &quot;Informations:&quot;
+echo &quot;Hostname    = &quot;$hostname
+echo &quot;IP Publique = &quot;$ippub
+echo &quot;IP Privée   = 192.168.1.96&quot;
+echo &quot;Date        = &quot;$date
+echo &quot;-------------------------------------&quot;
+#version=$(uname -s -o)
+version=$(uname -v)
+uptime=$(uptime | cut -d' ' -f4,5)
+kernel=$(uname -r -o)
+user=$(who | wc -l)
+echo &quot;Système:&quot;
+echo &quot;-Version OS = &quot;$version
+echo &quot;-Uptime = &quot;$uptime
+echo &quot;-Kernel = &quot;$kernel
+echo &quot;-Utilisateurs = &quot;$user&quot; connecté(s)&quot;
+echo &quot;-------------------------------------&quot;
+memused=$(free -m | grep 'Mem' | cut -c 28-32)
+memtotal=$(free -m | grep 'Mem' | cut -c 15-20)
+memfree=$(free -m | grep 'Mem' | cut -c 40-45)
+echo &quot;Mémoire:&quot;
+echo &quot;-Utilisation mémoire   =&quot;$memused&quot;Mb sur &quot;$memtotal&quot;Mb soit &quot;$memfree&quot;Mb de libre.&quot;
+echo &quot;-------------------------------------&quot;
+use_swap=$(free -m | grep 'Swap' | cut -c 28-32)
+use_root=$(df -h | grep -w / | awk '{print $5}')
+use_home=$(df -h | grep -w /home | awk '{print $5}')
+use_var=$(df -h | grep -w /var | awk '{print $5}')
+use_tmp=$(df -h | grep -w /tmp | awk '{print $5}')
+echo &quot;Disques:&quot;
+echo &quot;-Utilisation du swap        = &quot;$use_swap&quot;Mb&quot;
+echo &quot;-Utilisation du /           = &quot;$use_root&quot;&quot;
+echo &quot;-Utilisation de /home       = &quot;$use_home&quot;&quot;
+echo &quot;-Utilisation de /tmp        = &quot;$use_tmp&quot;&quot;
+echo &quot;--------------------------------------&quot;
+echo &quot;Fail2Ban:&quot;
+check=$(cat /home/sanji/file/banip.txt)
+echo $check
+echo &quot;======================================&quot;
+echo &quot;SSH logs:&quot;
+sudo cat /var/log/auth.log | grep &quot;ssh&quot; | tail -n 5
+echo &quot;======================================&quot;
+echo &quot;Mise à jour en attente :&quot;
+echo &quot; &quot; $(apt list --upgradeable | sed 1d | cut -d'/' -f1)
+echo &quot;=====================================&quot;
+</code></pre><p><img src="/img/fr/tuto/ssh/motd_1.png" alt="motd-update.png"></p>
+<hr>
+<h1 id="fichier-config">Fichier config</h1>
+<p>Le fichier <code>config</code> est une alternative pour vos connexion ssh qui va vous changer la vie !<br>
+Sa configuration est très simple, le fichier doit être créer dans <code>~/.ssh/config</code>.</p>
+<p>Voici un exemple de syntaxe :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» cat ~/.ssh/config 
+Host senjuro
+        hostname 192.168.1.90
+        user root
+        port 22
+
+Host senjuro_d
+        hostname 192.168.1.90
+        user root
+        port 4748
+</code></pre><p>Tout ce que vous avez à faire, c&rsquo;est de vous connecter simplement en utilisant le hostanme d&rsquo;une machine par exemple :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» ssh senjuro
+</code></pre><p>Ajoutez à cela une connexion par clé publique, vous allez gagner beaucoup de temps !</p>
+<hr>
+<h1 id="reverse-ssh-tunneling">Reverse SSH Tunneling</h1>
+<p>Ce tutoriel utilise une vunérabilité ssh qui va vous permettre d&rsquo;accéder à une machine qui n&rsquo;est pas accéssible normalement.<br>
+Imaginez que votre machine @secure soit derrière un firewall qui n&rsquo;accepte aucune entrée SSH et qui en plus n&rsquo;a aucun port ouvert sur son ip publique pour y accéder sur l&rsquo;exterieur, mais cette machine peut accéder en SSH à la machine @hack.<br>
+Eh bien il est possible à la machine @hack de se connecter en SSH à la machine @secure.</p>
+<p>La méthode est simple, il faut utiliser un tunnel SSH.<br>
+La machine @secure va initialiser un tunnel SSH sur un port donné et son adresse locale 127.0.0.1 en se connectant à @hack.<br>
+De son coté @hack aura juste à lancer une connexion SSH sur le port utilisé par @hack sur l&rsquo;adresse 127.0.0.1</p>
+<p>Avant toute chose, il faut activer les options suivante sur la machine qui va accéder au tunnel, ici @hack :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root@hack $ sed -i &quot;s/#AllowTcpForwrading yes/AllowTcpForwarding yes&quot; /etc/ssh/sshd_config
+root@hack $ sed -i &quot;s/#GatewayPorts no/GatewayPorts yes/&quot; /etc/ssh/sshd_config
+</code></pre><p>Maintenant, vous pouvez lancer votre tunnel.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» cat ~/.ssh/config
+host hack
+	hostname 82.64.30.30
+	user root
+	port 7222
+# Commande à lancer depuis @secure
+~ 竈門» ssh -NR 20013:localhost:22 hack
+
+# Commande à lancer depuis @hack
+root@hack $ ssh -p 20013 root@127.0.0.1
+</code></pre><p>Pour terminer la connexion, il vous suffit de fermer votre terminal.</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

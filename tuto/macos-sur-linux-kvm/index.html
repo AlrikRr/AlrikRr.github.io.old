@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Installation de  MacOs sur Linux avec KVM :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Comment installer MacOS Catalina sur votre Linux avec KVM.
+Merci a foxlet pour son tutoriel disponible ici : foxlet/macOS-Simple-KVM
+ Requirements Premièrement, vous allez devoir installer QEMU (3.1&amp;gt;=), Python3 et pip. Il n&amp;rsquo;est pas necessaire d&amp;rsquo;avoir un ISO MacOs pour cette installation. C&amp;rsquo;est un avantage :)
+Pour avoir plus d&amp;rsquo;information, je vous conseil de regarder le lient vers le github de foxlet juste au dessus !
+ Installation Clonez le repo et commencez l&amp;rsquo;installation"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/tuto/macos-sur-linux-kvm/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Installation de  MacOs sur Linux avec KVM"/>
+<meta name="twitter:description" content="Comment installer MacOS Catalina sur votre Linux avec KVM."/>
+
+
+
+<meta property="og:title" content="Installation de  MacOs sur Linux avec KVM" />
+<meta property="og:description" content="Comment installer MacOS Catalina sur votre Linux avec KVM." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/tuto/macos-sur-linux-kvm/" />
+<meta property="article:published_time" content="2020-06-26T10:52:56+02:00" />
+<meta property="article:modified_time" content="2020-06-26T10:52:56+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/tuto/macos-sur-linux-kvm/">Installation de  MacOs sur Linux avec KVM</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          26-06-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 2 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/tuto/macos/fr-macos-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents"></nav></aside>
+      
+      <p>Comment installer MacOS Catalina sur votre Linux avec KVM.</p>
+<p>Merci a <strong>foxlet</strong> pour son tutoriel disponible ici : <a href="https://github.com/foxlet/macOS-Simple-KVM">foxlet/macOS-Simple-KVM</a></p>
+<hr>
+<h1 id="requirements">Requirements</h1>
+<p>Premièrement, vous allez devoir installer QEMU (3.1&gt;=), Python3 et pip.
+Il n&rsquo;est pas necessaire d&rsquo;avoir un ISO MacOs pour cette installation. C&rsquo;est un avantage :)</p>
+<p>Pour avoir plus d&rsquo;information, je vous conseil de regarder le lient vers le github de <strong>foxlet</strong> juste au dessus !</p>
+<hr>
+<h1 id="installation">Installation</h1>
+<p>Clonez le repo et commencez l&rsquo;installation</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» git clone https://github.com/foxlet/macOS-Simple-KVM.git
+# Executez jumpstart.sh. L'installation par defaut est Catalina
+# Il vous suffit de changer l'option pour high-sierra ou mojave.
+~ 竈門» ./jumpstart --catalina
+</code></pre><hr>
+<h1 id="qemu-configuration">qemu configuration</h1>
+<p>Créez un disque virtuel vide. Vous pouvez changer son nom est sa taille comme vous le voulez.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» qemu-img create -f qcow2 MyDisk.qcow2 60G
+</code></pre><hr>
+<h1 id="basicsh-modification">basic.sh modification</h1>
+<p>La prochaine étape est de modifier le script <code>basic.sh</code> avec votre configuration.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Ajoutez les lignes suivantes.
+-drive id=SystemDisk,if=none,file=MyDisk.qcow2 \
+-device ide=hd,bus=sata.4,drive=SystemDisk \
+</code></pre><p>Ensuite, pour démarrer la VM il vous faut executer le script <code>basic.sh</code>, si jamais vous avez des erreurs pendant l&rsquo;execution, regardez si vous n&rsquo;avez pas faire de fautes de frappe dans le fichier.</p>
+<h1 id="installation-de-macos">Installation de MacOs</h1>
+<p>Selectionnez <strong>Boot macOS Install from OS X Base System</strong><br>
+<img src="/img/en/tuto/macos/macos_1.png" alt="macos-select-boot-install"></p>
+<p>Attendez le boot de MacOs.</p>
+<p>Une fois que vous avez le menu <strong>macOS Utilitiles</strong>, selectionnez <strong>Disk Utility</strong><br>
+<img src="/img/en/tuto/macos/macos_2.png" alt="macos-select-disk-utility"></p>
+<p>Prennez votre Disque Virtuel <strong>QEMU HARDDISK Media</strong> et formatez le avec l&rsquo;option <strong>Erase</strong>
+<img src="/img/en/tuto/macos/macos_3.png" alt="macos-select-disk"></p>
+<p><img src="/img/en/tuto/macos/macos_4.png" alt="macos-select-disk-erase"></p>
+<p>Maintenant, retournez sur <strong>macOS Utilities</strong> et selectionnez <strong>Reinstall macOS</strong><br>
+<img src="/img/en/tuto/macos/macos_5.png" alt="macos-select-reinstall"></p>
+<p>COntinuez avec vos options, selectionnez <strong>MacOSX disk</strong> et <strong>Install</strong> <br>
+<img src="/img/en/tuto/macos/macos_6.png" alt="macos-select-disk-install"></p>
+<p>L&rsquo;installation peut prendre un certain temps suivant votre configuration.</p>
+<p><strong>Attention, l&rsquo;installation va continuez après un reboot !</strong></p>
+<p>Une fois que l&rsquo;installation est terminée, redémarrez et selectionnez <strong>Boot macOS from Max OSX</strong><br>
+<img src="/img/en/tuto/macos/macos_7.png" alt="macos-select-macOSX"></p>
+<p>Choisissez vos options pour la configuration de votre OS.<br>
+<img src="/img/en/tuto/macos/macos_8.png" alt="macos-finish"></p>
+<p>Et voilà, c&rsquo;est terminé :)</p>
+<p>Si vous voulez un tutoriel vidéo je vous recommande la vidéo de <a href="https://www.youtube.com/watch?=v=0pMrHVm-gRc">Antoun Sawires</a>.</p>
+<p>SI vous souhaitez changer la résoltion ou augmenter la RAM, je vous renvoie sur le GitHub, tout y est expliqué :)</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

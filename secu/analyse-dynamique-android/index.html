@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Analyse dynamique android avec proxy et SSL Pinning Bypass :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello, dans ce tutoriel nous allon svoir comment installer et configurer Android-Studio pour avoir un émulateur sous android.
+Ensuite nous allons configurer un proxy avec burp-suite pour analyse une application android.
+Pour finir, nous allons voir comment implémenter frida et frida-server pour bypass le SSL Pinning et voir le traffic via notre proxy.
+Bon tuto ;)
+ Pré-Requis Quelques pré-requis avant de vous lancer dans ce tutoriel :
+ Installer Burp-Suite Lien ICI   Android-Studio Rappel : Tout ce que vous allez voir à été réaliser sous Linux Pop!"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/secu/analyse-dynamique-android/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Analyse dynamique android avec proxy et SSL Pinning Bypass"/>
+<meta name="twitter:description" content="Analyse Dynamique d&#39;une application android sous un emultateur avec un Proxy Burp-Suite et SSL Pinning Bypass avec Frida."/>
+
+
+
+<meta property="og:title" content="Analyse dynamique android avec proxy et SSL Pinning Bypass" />
+<meta property="og:description" content="Analyse Dynamique d&#39;une application android sous un emultateur avec un Proxy Burp-Suite et SSL Pinning Bypass avec Frida." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/secu/analyse-dynamique-android/" />
+<meta property="article:published_time" content="2020-07-01T00:34:51+02:00" />
+<meta property="article:modified_time" content="2020-07-01T00:34:51+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/secu/analyse-dynamique-android/">Analyse dynamique android avec proxy et SSL Pinning Bypass</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          01-07-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 6 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/secu/android/android-sslpinning-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#téléchargement">Téléchargement</a></li>
+    <li><a href="#installation">Installation</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#avd-manager">AVD-Manager</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#configuration-proxy">Configuration Proxy</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#push-le-certificat">Push le certificat</a></li>
+    <li><a href="#ajouter-le-certificat">Ajouter le certificat</a></li>
+    <li><a href="#utilisez-le-proxy">Utilisez le proxy</a></li>
+    <li><a href="#essayez-">Essayez !</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#télécharger-lapk">Télécharger l&rsquo;apk</a></li>
+    <li><a href="#installer-lapk">Installer l&rsquo;apk</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#installer-frida">Installer Frida</a></li>
+    <li><a href="#installer-frida-server">Installer Frida-Server</a></li>
+    <li><a href="#install-ssl-pinning">Install SSL Pinning</a></li>
+  </ul>
+</nav></aside>
+      
+      <p>Hello, dans ce tutoriel nous allon svoir comment installer et configurer Android-Studio pour avoir un émulateur sous android.</p>
+<p>Ensuite nous allons configurer un proxy avec burp-suite pour analyse une application android.</p>
+<p>Pour finir, nous allons voir comment implémenter <strong>frida</strong> et <strong>frida-server</strong> pour bypass le <strong>SSL Pinning</strong>  et voir le traffic via notre proxy.</p>
+<p>Bon tuto ;)</p>
+<hr>
+<h1 id="pré-requis">Pré-Requis</h1>
+<p>Quelques pré-requis avant de vous lancer dans ce tutoriel :</p>
+<ul>
+<li>Installer Burp-Suite <a href="https://portswigger.net/burp/releases/professional-community-2020-5-1">Lien ICI</a></li>
+</ul>
+<hr>
+<h1 id="android-studio">Android-Studio</h1>
+<p>Rappel : Tout ce que vous allez voir à été réaliser sous Linux Pop!_OS 20.04 LTS.</p>
+<h2 id="téléchargement">Téléchargement</h2>
+<p>Avant toute chose, il nous faut Android-Studio d&rsquo;installer sur notre machine.<br>
+Pour cela rien de plus simple, dirigez vous sur le site officiel et télécharger l&rsquo;archive Android-Studio.zip : <a href="https://developer.android.com/studio">developer.android.com</a></p>
+<h2 id="installation">Installation</h2>
+<p>Pour installer Android-Studio il vous suffit d&rsquo;extraire l&rsquo;archive dans votre <code>/home</code> et le tour est joué.<br>
+IL ne vous reste plus qu&rsquo;à executer le script <code>studio.sh</code> qui se trouve dans <code>android-studio/bin/studio.sh</code>.<br>
+Je vous conseil de faire un raccourci ou un alias pour executer le script rapidement car c&rsquo;est avec celui-ci que vous allez devoir executer pour android-studio plus tard.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">alias studio='~/android-studio/bin/./studio.sh'
+</code></pre><p>Une fois le script executé, android-studio va vous demander de configurer l&rsquo;installation, faite comme vous voulez, ca ne devrait pas impacter la suite du tutoriel.</p>
+<p>On peut passer à l&rsquo;installation de l&rsquo;émulateur !</p>
+<hr>
+<h1 id="emulateur---partie-1">Emulateur - Partie 1</h1>
+<p>Pour ce tutoriel je vais installer un Nexus 6P - Android 7.1.1 avec les Google API&rsquo;s.</p>
+<h2 id="avd-manager">AVD-Manager</h2>
+<p>Pour créer un émulateur, vous devez vous rendre dans AVD-Manager qui se trouve dans le menu <strong>Configure</strong> au menu de démarrage Android-Studio :</p>
+<p><img src="/img/fr/secu/android/AVD-M.png" alt="AVD-Manager.png"></p>
+<p>Ensuite, il vous suffit de créer un nouveau virtual device.</p>
+<p><img src="/img/fr/secu/android/VD.png" alt="create-VD.png"></p>
+<p>Selectionnez ensuite le téléphone Nexus-6P :</p>
+<p><img src="/img/fr/secu/android/nexus.png" alt="nexus.png"></p>
+<p>Maintenant, vous allez devoir installer Nougat 7.1.1(Google APIs).<br>
+Pour ça, cliquez simplement sur <code>DOwnload</code> Android-Studio se charge du reste.<br>
+Une fois qu&rsquo;il est télécharger, faites suivant et terminez votre installation.</p>
+<p><img src="/img/fr/secu/android/version.png" alt="version.png"></p>
+<p>Si tout s&rsquo;est bien déroulé, vous devriez pouvoir lancer votre émulateur via les commandes <code>Actions</code>.</p>
+<p><img src="/img/fr/secu/android/emulateur.png" alt="emulateur.png"></p>
+<hr>
+<h1 id="brup-suite">Brup-suite</h1>
+<p>Très bien, maintenant que notre émulateur fonctionne, il nous faut un proxy.<br>
+Ca tombe bien, Brup peut nous en fournir un !</p>
+<h2 id="configuration-proxy">Configuration Proxy</h2>
+<p>Ouvrez Burp-Suite et rendez vous dans l&rsquo;onglet <strong>Proxy</strong> &ndash;&gt; <strong>Options</strong></p>
+<p>Maintenant, ajoutez un proxy listener avec cette configuration :</p>
+<p><img src="/img/fr/secu/android/proxy-listener.png" alt="proxy-listener.png"></p>
+<p>Utilisez bien votre adresse IPV4 car c&rsquo;est par ici que le léléphone va passer.<br>
+Pour vérifier si le proxy fonctionne, rendez vous à son adresse en précisant le port.</p>
+<p><img src="/img/fr/secu/android/proxy-ok.png" alt="proxy-ok.png"></p>
+<p>Si vous accédez à cette page, pensez à télécharger le Certificat, c&rsquo;est primordiale pour la suite.<br>
+CLiquez sur <code>CA Certificate</code></p>
+<hr>
+<h1 id="installer-adb">Installer ADB</h1>
+<p>Outils très important pour pouvoir manipuler notre émulateur et avoir notament un shell root, il faut installer adb-tools :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» sudo apt install adb
+
+# Passez votre adb en root
+~ 竈門» adb root
+</code></pre><hr>
+<h1 id="emulateur---partie-2">Emulateur - Partie 2</h1>
+<p>Maintenant, il nous faut configurer notre nouveau proxy sur notre téléphone pour pouvoir accéder au traffic HTTP.</p>
+<h2 id="push-le-certificat">Push le certificat</h2>
+<p>Il faut ajouter le certificat Burp sur notre téléphone, pour ça, nous allons utiliser <code>adb push</code> :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» adb push cacert.der /sdcard/burp.cer
+</code></pre><p>Attention, il est important de lui donner l&rsquo;extention <code>.cer</code> pour qu&rsquo;il soit reconnue par le téléphone.</p>
+<h2 id="ajouter-le-certificat">Ajouter le certificat</h2>
+<p>Accédez aux paramètres de votre téléphone :</p>
+<ul>
+<li>Settings</li>
+<li>Security</li>
+<li>Credential Storage</li>
+<li>Install from SD card</li>
+</ul>
+<p>Recherchez votre certificat, il devrait être dans <code>Android SDK built for x86</code>.</p>
+<p>Donnez lui un nom et validez.</p>
+<p><img src="/img/fr/secu/android/burp-cer.png" alt="burp-cer.png"></p>
+<p>Après ça, le système va vous demandez de mettre un PIN. Faites le.</p>
+<h2 id="utilisez-le-proxy">Utilisez le proxy</h2>
+<p>Maintenant que le certficat est en place, nous allons devoir forcer notre Wi-Fi à se connecter à notre Proxy.</p>
+<p>Dirigez vous dans :</p>
+<ul>
+<li>Settings</li>
+<li>WiFi</li>
+<li>Appuyez longtemps sur le WiFi <code>AndroidWifi</code></li>
+<li>CLiquez sur <code>Modify network</code> et <code>Advanced options</code></li>
+<li>Manual et entrez l&rsquo;adresse IPv4 de votre Proxy ainsi que son port</li>
+</ul>
+<p><img src="/img/fr/secu/android/proxy-wifi.png" alt="proxy-wifi.png"></p>
+<h2 id="essayez-">Essayez !</h2>
+<p>Maintenant, votre proxy devrait fonctionner et si vous accédez à internet depuis Chrome sur votre téléphone, il devrait y avoir des choses.</p>
+<p><img src="/img/fr/secu/android/proxy-work.png" alt="proxy-work.png"></p>
+<p>SI vous n&rsquo;avez pas grand chose, c&rsquo;est surement que votre proxy est en mode forwarding, désactivez le.</p>
+<p><img src="/img/fr/secu/android/proxy-forward.png" alt="proxy-forward.png"></p>
+<hr>
+<h1 id="installer-un-apk">Installer un apk</h1>
+<p>Dans cette partie nous allons voir comment télécharger notre apk depuis GooglePlayStore et ensuite comment l&rsquo;installer dans notre émulateur.</p>
+<h2 id="télécharger-lapk">Télécharger l&rsquo;apk</h2>
+<p>Rendez vous dans le <a href="https://play.google.com">GooglePlayStore</a> et choissez une application. Dans ce genre d&rsquo;analyse il est important pour débuter de choisir une application peut utilisée et nouvelle, ca ne sert à rien en tant que débutant de commencer une analyse avec l&rsquo;application Facebook par exemple.</p>
+<p>Pour la suite du tuto je vais utiliser <a href="https://play.google.com/store/apps/details?id=com.thirtydegreesray.openhub">OpenHub for GitHub</a>.</p>
+<p>Maintenant que vous avez votre application, rendez vous sur <a href="https://apps.evozi.com/apk-downloader/">apk-DOwnloader</a> et entrez l&rsquo;id de l&rsquo;apk.</p>
+<h2 id="installer-lapk">Installer l&rsquo;apk</h2>
+<p>Bien, il ne nous reste plus qu&rsquo;à installer notre apk sur l&rsquo;émulateur.<br>
+Rien de plus simple, nous allons utiliser <code>adb install</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» adb install com.thirtydegreesray.openhub_30_apps.evozi.com.apk
+</code></pre><p>Si vous avez comme message <code>Success</code> c&rsquo;est tout bon, sinon il doit manquer des librairies ou des API Google.</p>
+<h1 id="analyse-sans-ssl-pinning">Analyse sans SSL Pinning</h1>
+<p>On peut maintenant lancer notre analyse Dynamique en supposant qu&rsquo;il n&rsquo;y a aucun SSL Pinning même si c&rsquo;est assez rare de nos jours.</p>
+<p>Mais malheureusement, il nous est impossible d&rsquo;acccéder à l&rsquo;application comme vous pouvez le voir.</p>
+<p><img src="/img/fr/secu/android/connexion-impossible.png" alt="connexion-impossible.png"></p>
+<p>Notre proxy ne récupère rien car le certificat n&rsquo;est pas reconnue.<br>
+Comme vous pouvez le voir avec WireShark, la connexion est interrompue.</p>
+<p><img src="/img/fr/secu/android/wireshark.png" alt="wireshark.png"></p>
+<p>Vous devriez voir des &ldquo;EncryptALert&rdquo;.</p>
+<p>Il nous faut donc Bypass le SSL Pinning en utilisant Frida.</p>
+<h1 id="frida">Frida</h1>
+<h2 id="installer-frida">Installer Frida</h2>
+<p>Premièrement, il vous faut installer frida-tools.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» sudo pip3 install frida-tools
+</code></pre><h2 id="installer-frida-server">Installer Frida-Server</h2>
+<p>Rendez vous <a href="https://github.com/frida/frida/releases">ICI</a> pour télécharger frida-server. De mon côté je vais utiliser la version 12.2 Android-x86.</p>
+<p>Une fois que vous avez l&rsquo;archive, il vous faut l&rsquo;extraire et l&rsquo;envoyer sur votre émulateur avec <code>adb push</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» unxz frida-server-12.2.23-android-x86.xz
+
+~ 竈門» adb push frida-server-12.2.23-android-x86 /data/local/tmp/frida-server
+frida-server-12.2.23-android-x86: 1 file ...hed. 82.7 MB/s (30345464 bytes in 0.350s)
+
+# Donnez les droits d'execution au binaire
+~ 竈門» adb shell chmod 755 /data/local/tmp/frida-server
+
+# Envoyez le certificat burp sur votre emulateur
+~ 竈門» adb push cacert.der /data/local/tmp/cert-der.crt
+cacert.der: 1 file pushed. 0.1 MB/s (939 bytes in 0.009s)
+
+# Accedez à un shell root sur votre emulateur
+~ 竈門» adb shell
+
+# Depuis votre émulateur déplacez vous dans le /tmp où frida-server se trouve
+generic_x86:/ $ cd /data/local/tmp/
+
+# Executez le !
+generic_x86:/data/local/tmp # ./frida-server &amp;                                       
+[1] 5163
+</code></pre><h2 id="install-ssl-pinning">Install SSL Pinning</h2>
+<p>Maintenant, il vous faut l&rsquo;exploit SSL Pinning disponible <a href="/docs/android/sslpinning.js">ICI</a></p>
+<h1 id="analyse-avec-ssl-pinning">Analyse avec SSL Pinning</h1>
+<p>Très bien, tout semble ok maintenant, il ne nous reste plus qu&rsquo;à executer notre exploit :)</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Pensez à remplacer l'id de l'application, le même id dans l'url google play store
+~ 竈門» frida -U -f com.thirtydegreesray.openhub -l sslpinning.js
+</code></pre><p><img src="/img/fr/secu/android/frida_server_ok.png" alt="ssl_pinning_ok.png"></p>
+<p>Et voilà, normalement l&rsquo;application s&rsquo;est lancée toute seule et vous pouvez maintenant vous conecter.</p>
+<p><img src="/img/fr/secu/android/github.png" alt="burp_ssl_pinning_ok.png"></p>
+<p>Voici ce que l&rsquo;on peut voir sur notre proxy !</p>
+<p>Maintenant, libre à vous de vous amuser pour votre analyse dynamique :)</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

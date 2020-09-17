@@ -8,8 +8,8 @@
     <link>/ml/</link>
     <description>Recent content in Mls on RedFou52 - BlogPost</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>@RedFou52 - Eidorian</copyright>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian - 2020</copyright>
     <lastBuildDate>Thu, 18 Jun 2020 22:39:10 +0200</lastBuildDate>
     
 	<atom:link href="/ml/index.xml" rel="self" type="application/rss+xml" />
@@ -23,50 +23,50 @@
       <guid>/ml/support-vector-machine/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/SVM/svm-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/svm/svm-banner.png&#34;/&gt;
           
         
         
         
-          Support Vector Machine tutorial and link to Python code.
+          Support Vector Machine explication et lien vers mon code Python.
           
         
         </description>
     </item>
     
     <item>
-      <title>Linear Regression</title>
+      <title>Régression linéaire</title>
       <link>/ml/linear-regression/</link>
       <pubDate>Thu, 18 Jun 2020 22:20:29 +0200</pubDate>
       
       <guid>/ml/linear-regression/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/LR/lr-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/lr/lr-banner.png&#34;/&gt;
           
         
         
         
-          linearRegression tutorial and link to Python code.
+          Régression linéaire explication et lien vers mon code Python
           
         
         </description>
     </item>
     
     <item>
-      <title>K-Nearest Neighbors</title>
+      <title>K-plus proches voisins</title>
       <link>/ml/k-nearest-neighbors/</link>
       <pubDate>Thu, 18 Jun 2020 20:31:36 +0200</pubDate>
       
       <guid>/ml/k-nearest-neighbors/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/KNN/knn-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/knn/knn-banner.png&#34;/&gt;
           
         
         
         
-          K Nearest Neighbors tutorial and link to Python code.
+          K-plus proches voisins - KNN en anglais
           
         
         </description>

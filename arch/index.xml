@@ -8,27 +8,46 @@
     <link>/arch/</link>
     <description>Recent content in Arches on RedFou52 - BlogPost</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Sat, 20 Jun 2020 23:43:27 +0200</lastBuildDate>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian - 2020</copyright>
+    <lastBuildDate>Mon, 14 Sep 2020 14:02:08 +0200</lastBuildDate>
     
 	<atom:link href="/arch/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ArchLinux Install</title>
+      <title>Archlinux Post-Install ! </title>
+      <link>/arch/arch-postinstall/</link>
+      <pubDate>Mon, 14 Sep 2020 14:02:08 +0200</pubDate>
+      
+      <guid>/arch/arch-postinstall/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/arch-post/arch-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Configuration Archlinux i3-gaps et autres tools pour bien commencer !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ArchLinux Installation</title>
       <link>/arch/arch-install/</link>
       <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
       
       <guid>/arch/arch-install/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ARCH/INST/inst-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/arch/install/inst-banner.png&#34;/&gt;
           
         
         
         
-          Install Archlinux EFI and LUKS encryption.
+          Installation de Archlinux EFI et Chiffrement LUKS.
           
         
         </description>

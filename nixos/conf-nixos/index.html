@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     
-      <title>Configuration NIXOS - Beginners :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+      <title>Configuration NIXOS - Débutant :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Thanks to Rayan Lahfa
- Basic configruation file This configuration file can be found at /etc/nixos/configuration.nix
-Don&amp;rsquo;t forget to read and understand this configuration file !
-# Edit this configuration file to define what should be installed on # your system. Help is available in the configuration.nix(5) man page # and in the NixOS manual (accessible by running ‘nixos-help’). { config, pkgs, ... }: { imports = [ # Include the results of the hardware scan."/>
-<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="description" content="Merci à Rayan Lahfa
+ Fichier de configuration basique Le fichier de configuration Nixos ce trouve dans /etc/nixos/configuration.nix
+Il est recommandre de comprendre le fichier de configuration avant de le coller bêtement dans le votre, il y a certaines option à changer et à configurer par vos soins !
+# Edit this configuration file to define what should be installed on # your system. Help is available in the configuration.nix(5) man page # and in the NixOS manual (accessible by running ‘nixos-help’)."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/nixos/conf-nixos/" />
 
@@ -29,13 +29,13 @@ Don&amp;rsquo;t forget to read and understand this configuration file !
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Configuration NIXOS - Beginners"/>
-<meta name="twitter:description" content="How to configure NIXOS - Beginners"/>
+<meta name="twitter:title" content="Configuration NIXOS - Débutant"/>
+<meta name="twitter:description" content="Configuration basique de NIXOS pour débutant"/>
 
 
 
-<meta property="og:title" content="Configuration NIXOS - Beginners" />
-<meta property="og:description" content="How to configure NIXOS - Beginners" />
+<meta property="og:title" content="Configuration NIXOS - Débutant" />
+<meta property="og:description" content="Configuration basique de NIXOS pour débutant" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/nixos/conf-nixos/" />
 <meta property="article:published_time" content="2020-06-19T10:32:57+02:00" />
@@ -62,32 +62,65 @@ Don&amp;rsquo;t forget to read and understand this configuration file !
   
 </a>
 
+
+
+
     <span class="header__right">
       
         <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
+	<ul class="menu__inner menu__inner--desktop">
     
       
         
-          <li><a href="/ml">MachineLearning</a></li>
+	<li><a href="/tuto">Les Tutos</a></li>
         
       
         
-          <li><a href="/nixos">NIXOS</a></li>
+	<li><a href="/secu">Sécurité</a></li>
         
       
         
-          <li><a href="/arch">Archlinux</a></li>
+	<li><a href="/writeup">Write-Up</a></li>
         
       
-        
-          <li><a href="/tuto">Tutorials</a></li>
-        
       
-        
-          <li><a href="/about">About</a></li>
-        
-      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
       
     
   </ul>
@@ -95,7 +128,23 @@ Don&amp;rsquo;t forget to read and understand this configuration file !
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/ml">MachineLearning</a></li>
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
       
     
       
@@ -107,15 +156,16 @@ Don&amp;rsquo;t forget to read and understand this configuration file !
       
     
       
-        <li><a href="/tuto">Tutorials</a></li>
+        <li><a href="/ml">MachineLearning</a></li>
       
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">A propos !</a></li>
       
     
   </ul>
 </nav>
+
 
         <span class="menu-trigger">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -143,17 +193,19 @@ Don&amp;rsquo;t forget to read and understand this configuration file !
   
 
   <div class="post">
-    <h1 class="post-title"><a href="/nixos/conf-nixos/">Configuration NIXOS - Beginners</a></h1>
+    <h1 class="post-title"><a href="/nixos/conf-nixos/">Configuration NIXOS - Débutant</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
-          2020-06-19
+          19-06-2020
         </span>
 
         
       
 
-      <span class="post-author">— Written by Eidorian</span>
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 3 Minutes</span>
       
     </div>
 
@@ -161,17 +213,24 @@ Don&amp;rsquo;t forget to read and understand this configuration file !
 
     
       
-        <img src="/img/NIXOS/CONF/conf-banner.png" class="post-cover" />
+        <img src="/img/fr/nixos/setup/conf-banner.png" class="post-cover" />
       
     
 
     <div class="post-content">
       
-      <p>Thanks to <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a></p>
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#fichier-de-configuration-basique">Fichier de configuration basique</a></li>
+  </ul>
+</nav></aside>
+      
+      <p>Merci à <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a></p>
 <hr>
-<h2 id="basic-configruation-file">Basic configruation file</h2>
-<p>This configuration file can be found at <code>/etc/nixos/configuration.nix</code><br>
-Don&rsquo;t forget to read and understand this configuration file !</p>
+<h2 id="fichier-de-configuration-basique">Fichier de configuration basique</h2>
+<p>Le fichier de configuration Nixos ce trouve dans <code>/etc/nixos/configuration.nix</code><br>
+Il est recommandre de comprendre le fichier de configuration avant de le coller bêtement dans le votre, il y a certaines option à changer et à configurer par vos soins !</p>
 <pre><code># Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
@@ -270,7 +329,7 @@ system.stateVersion = &quot;20.03&quot;; # Did you read the comment?
         <footer class="footer">
   <div class="footer__inner">
     
-      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
     
   </div>
 </footer>

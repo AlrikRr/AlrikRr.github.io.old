@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     
-      <title>Support Vector Machine :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+      <title>Support Vector Machine :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="If you want a better tutorial, I recommend you to follow TechWithTim
-I&amp;rsquo;ll try to explain the theory in a simple way, i&amp;rsquo;m not an expert, this tutorial is also benefits for me to really understand the logic.
- First of all, you need to know what&amp;rsquo;s an Hyperplane, this is really important for the SVM algorithm.
- How the Hyperplane is generated, basically ?
-The purple distance line in this example is the same from each data point, the Hyperplane is traced in the middle."/>
-<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="description" content="Si vous voulez un tutoriel plus complet, je vous recommande de suivre TechWithTim
+Je vais essayé d&amp;rsquo;expliquer très simplement avec mes mots, je ne suis pas un expert, ce tutoriel sera aussi bénéfique pour moi afin de bien comprendre la logique derrière cet algorithme.
+ Premièrement, vous devez connaitre la base d&amp;rsquo;un Hyperplan, c&amp;rsquo;est assez important pour le SVM.
+ distance entre l&amp;rsquo;Hyperplan et les datapoints
+Comment un Hyperplan est tracé ?"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/ml/support-vector-machine/" />
 
@@ -31,12 +31,12 @@ The purple distance line in this example is the same from each data point, the H
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Support Vector Machine"/>
-<meta name="twitter:description" content="Support Vector Machine tutorial and link to Python code."/>
+<meta name="twitter:description" content="Support Vector Machine explication et lien vers mon code Python."/>
 
 
 
 <meta property="og:title" content="Support Vector Machine" />
-<meta property="og:description" content="Support Vector Machine tutorial and link to Python code." />
+<meta property="og:description" content="Support Vector Machine explication et lien vers mon code Python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/ml/support-vector-machine/" />
 <meta property="article:published_time" content="2020-06-18T22:39:10+02:00" />
@@ -63,32 +63,65 @@ The purple distance line in this example is the same from each data point, the H
   
 </a>
 
+
+
+
     <span class="header__right">
       
         <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
+	<ul class="menu__inner menu__inner--desktop">
     
       
         
-          <li><a href="/ml">MachineLearning</a></li>
+	<li><a href="/tuto">Les Tutos</a></li>
         
       
         
-          <li><a href="/nixos">NIXOS</a></li>
+	<li><a href="/secu">Sécurité</a></li>
         
       
         
-          <li><a href="/arch">Archlinux</a></li>
+	<li><a href="/writeup">Write-Up</a></li>
         
       
-        
-          <li><a href="/tuto">Tutorials</a></li>
-        
       
-        
-          <li><a href="/about">About</a></li>
-        
-      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
       
     
   </ul>
@@ -96,7 +129,23 @@ The purple distance line in this example is the same from each data point, the H
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/ml">MachineLearning</a></li>
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
       
     
       
@@ -108,15 +157,16 @@ The purple distance line in this example is the same from each data point, the H
       
     
       
-        <li><a href="/tuto">Tutorials</a></li>
+        <li><a href="/ml">MachineLearning</a></li>
       
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">A propos !</a></li>
       
     
   </ul>
 </nav>
+
 
         <span class="menu-trigger">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -148,13 +198,15 @@ The purple distance line in this example is the same from each data point, the H
     <div class="post-meta">
       
         <span class="post-date">
-          2020-06-18
+          18-06-2020
         </span>
 
         
       
 
-      <span class="post-author">— Written by Eidorian</span>
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 2 Minutes</span>
       
     </div>
 
@@ -162,44 +214,53 @@ The purple distance line in this example is the same from each data point, the H
 
     
       
-        <img src="/img/ML/SVM/svm-banner.png" class="post-cover" />
+        <img src="/img/fr/ml/svm/svm-banner.png" class="post-cover" />
       
     
 
     <div class="post-content">
       
-      <p><strong>If you want a better tutorial, I recommend you to follow <a href="https://techwithtim.net/tutorials/machine-learning-python/">TechWithTim</a></strong></p>
-<p>I&rsquo;ll try to explain the theory in a simple way, i&rsquo;m not an expert, this tutorial is also benefits for me to really understand the logic.</p>
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents"></nav></aside>
+      
+      <p><strong>Si vous voulez un tutoriel plus complet, je vous recommande de suivre <a href="https://techwithtim.net/tutorials/machine-learning-python/">TechWithTim</a></strong></p>
+<p>Je vais essayé d&rsquo;expliquer très simplement avec mes mots, je ne suis pas un expert, ce tutoriel sera aussi bénéfique pour moi afin de bien comprendre la logique derrière cet algorithme.</p>
 <hr>
-<p>First of all, you need to know what&rsquo;s an <a href="https://en.wikipedia.org/wiki/Hyperplane">Hyperplane</a>, this is really important for the SVM algorithm.</p>
+<p>Premièrement, vous devez connaitre la base d&rsquo;un <a href="https://fr.wikipedia.org/wiki/Hyperplan">Hyperplan</a>, c&rsquo;est assez important pour le SVM.</p>
 <hr>
-<p><img src="/img/ML/SVM/schema1.png" alt="schema1"></p>
-<p><strong>How the Hyperplane is generated, basically ?</strong><br>
-The purple distance line in this example is the same from each data point, the Hyperplane is traced in the middle.</p>
+<p><img src="/img/fr/ml/svm/schema1.png" alt="schema1">
+<em>distance entre l&rsquo;Hyperplan et les datapoints</em></p>
+<p><strong>Comment un Hyperplan est tracé ?</strong><br>
+Dans cet exemple, la distance tracée en rose et la même pour les deux datapoints, l&rsquo;Hyperplan est tracée au strict milieux.</p>
 <hr>
-<p><img src="/img/ML/SVM/schema2.png" alt="schema2"></p>
-<p>As you can see in this example, it&rsquo;s possible to draw a multitude of Hyperplane.<br>
-But the question is : <strong>Which one is the best ?</strong></p>
+<p><img src="/img/fr/ml/svm/schema2.png" alt="schema2"></p>
+<p>Comm vous pouvez le voir ici, il est possible de tracer plusieurs Hyperplan, d&rsquo;ailleur c&rsquo;est ce que fait l&rsquo;ordinateur. <br>
+Mais, alors, comment choisir le meilleur ?</p>
 <hr>
-<p><img src="/img/ML/SVM/schema3.png" alt="schema3"></p>
-<p>In this example, the Hyperplane that we choose is not the best. Indeed, the black data point si more likely to belong to the Green Class but here, it is classify with the Red Class because the computer files it on the left side.</p>
+<p><img src="/img/fr/ml/svm/schema3.png" alt="schema3"></p>
+<p>Dans cet exemple, l&rsquo;Hyperplan qui a été choisi n&rsquo;est pas le meilleur.<br>
+En effet, le datapoint de couleur noir doit appartenir à une des deux classe, ici il a plus de chance de devenir vert. Mais à cause d&rsquo;un mauvais Hyperplan, dans cette situation, le datapoint noir sera classé dans la catégorie rouge et non la verte, car il est deu coté gauche de la droite. C&rsquo;est comme ca qu&rsquo;un ordinateur l&rsquo;interpréterait.</p>
 <hr>
-<p><img src="/img/ML/SVM/schema4.png" alt="schema4"></p>
-<p>Here, in this example, the Hyperplane is the best, because the black datapoint belongs to the Green Class and not the Red, as one would hope.</p>
+<p><img src="/img/fr/ml/svm/schema4.png" alt="schema4"></p>
+<p>Ici, dans cet exemple l&rsquo;Hyperplan semble correspondre au mieux à notre schéma.<br>
+En effet, on peut voir que notre datapoint noir est bien dans la classe Verte.</p>
 <hr>
-<p><img src="/img/ML/SVM/schema5.png" alt="schema5"></p>
-<p><strong>But, in the real life ?</strong><br>
-Well, in the real life the datapoints are not really friendly with us. Unfortunatly, this kind of example will happend very often.</p>
+<p><img src="/img/fr/ml/svm/schema5.png" alt="schema5"></p>
+<p><strong>Mais dans la vraie vie, ca donne quoi  ?</strong><br>
+Eh bien, dans la vraie vie, les datapoints ne vont pas être tendre avec vous.
+Malheureusement, comme vous pouvez le voir, cet exemple arrive souvent.<br>
+Il devient difficile pour un humain normalement constitué de tracée un Hyperplan ici.</p>
 <hr>
-<p><img src="/img/ML/SVM/schema6.png" alt="schema6"></p>
-<p><strong>Where can I trace the Hyperplane ?</strong><br>
-The answer is pretty easy but hard to visualized, we need to increase by one dimension. Here in this example, I switched from a 2D plan to a 3D plan.<br>
-So that way , the datapoints are more organized and we can finaly draw the Hyperplane.</p>
-<p><strong>WARNING</strong> : Sometimes it&rsquo;s not enough, the computer will increase again and again &hellip; until we were able to trace our hyperplane !</p>
+<p><img src="/img/fr/ml/svm/schema6.png" alt="schema6"></p>
+<p><strong>Mais alors, comment ?</strong><br>
+La réponse est plutôt simple mais très difficile à visualiser.<br>
+En fait, dans ce genre de situation, l&rsquo;ordinateur va augmenter d&rsquo;une dimension le schéma. Dans cet exemple, on est passé en 3D.</p>
+<p>De ce fait, les datapoints sont plus organisé, il devient alors possible de de tracé un Hyperplan.</p>
+<p><strong>ATTENTION</strong> : SOuvent, augmenter d&rsquo;une seule dimension ne suffit pas, alors l&rsquo;ordinateur va augmenter de dimension jusqu&rsquo;à pourvoir tracer un Hyperplan !</p>
 <hr>
-<p><em>If you want an example of code check <a href="https://github.com/RedFou52/MachineLearningPython/blob/master/SVM/SVMworking.py">HERE</a></em></p>
+<p><em>Si vous voulez un exemple en python, c&rsquo;est par <a href="https://github.com/RedFou52/MachineLearningPython/blob/master/SVM/SVMworking.py">ICI !</a></em></p>
 <hr>
-<p><img src="/img/ML/memes/ml-meme-5.png" alt="meme-5"></p>
+<p><img src="/img/fr/ml/memes/ml-meme-5.png" alt="meme-5"></p>
 
     </div>
     
@@ -217,7 +278,7 @@ So that way , the datapoints are more organized and we can finaly draw the Hyper
         <footer class="footer">
   <div class="footer__inner">
     
-      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
     
   </div>
 </footer>

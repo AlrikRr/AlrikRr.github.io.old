@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     
-      <title>Wireguard configuration - NIXOS :: RedFou52 - BlogPost — Welcome to my BlogPost</title>
+      <title>Wireguard configuration - NIXOS :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Thanks to Rayan Lahfa
- Wiki link Check the configuration file here : Nixos-Wireguard
-Install and Configure Install WireGuard with this command.
-$ nix-env -iA nixos.wireguard Once it&amp;rsquo;s done, you need to creat the Wireguard configuration file.
-$ vim /etc/nixos/wireguard.nix And copy the default configuration file from the wiki link.
-You must edit a few things from the configuration file.
-Generate keys You need to generate pub/private key from your server and your android device (client)."/>
-<meta name="keywords" content="linux, tutorials, programming, python"/>
+<meta name="description" content="Merci à Rayan Lahfa
+Et Klaes ;)
+ Lien de WIKI Le fichier de configuration est disponible ici : Nixos-Wireguard
+Installation et configuration Voici la commande pour installer wireguard.
+$ nix-env -iA nixos.wireguard Maintenant que wireguard est installé, vous devez créer le fichier de configuration.
+$ vim /etc/nixos/wireguard.nix Et copier celui du wiki. Pensez à l&amp;rsquo;adaptder selon vos besoins.
+Génération des clés Vous devez créer des clés Privéd/Publique pour votre serveur et pour votre Android(client)."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/nixos/wireguard-nixos/" />
 
@@ -33,12 +33,12 @@ Generate keys You need to generate pub/private key from your server and your and
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Wireguard configuration - NIXOS"/>
-<meta name="twitter:description" content="How to configure wireguard - NIXOS - And Android device"/>
+<meta name="twitter:description" content="Comment mettre en place un VPN wireguard maison et y accéder depuis son android."/>
 
 
 
 <meta property="og:title" content="Wireguard configuration - NIXOS" />
-<meta property="og:description" content="How to configure wireguard - NIXOS - And Android device" />
+<meta property="og:description" content="Comment mettre en place un VPN wireguard maison et y accéder depuis son android." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/nixos/wireguard-nixos/" />
 <meta property="article:published_time" content="2020-06-19T10:32:57+02:00" />
@@ -65,32 +65,65 @@ Generate keys You need to generate pub/private key from your server and your and
   
 </a>
 
+
+
+
     <span class="header__right">
       
         <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
+	<ul class="menu__inner menu__inner--desktop">
     
       
         
-          <li><a href="/ml">MachineLearning</a></li>
+	<li><a href="/tuto">Les Tutos</a></li>
         
       
         
-          <li><a href="/nixos">NIXOS</a></li>
+	<li><a href="/secu">Sécurité</a></li>
         
       
         
-          <li><a href="/arch">Archlinux</a></li>
+	<li><a href="/writeup">Write-Up</a></li>
         
       
-        
-          <li><a href="/tuto">Tutorials</a></li>
-        
       
-        
-          <li><a href="/about">About</a></li>
-        
-      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
       
     
   </ul>
@@ -98,7 +131,23 @@ Generate keys You need to generate pub/private key from your server and your and
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/ml">MachineLearning</a></li>
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
       
     
       
@@ -110,15 +159,16 @@ Generate keys You need to generate pub/private key from your server and your and
       
     
       
-        <li><a href="/tuto">Tutorials</a></li>
+        <li><a href="/ml">MachineLearning</a></li>
       
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">A propos !</a></li>
       
     
   </ul>
 </nav>
+
 
         <span class="menu-trigger">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -150,13 +200,15 @@ Generate keys You need to generate pub/private key from your server and your and
     <div class="post-meta">
       
         <span class="post-date">
-          2020-06-19
+          19-06-2020
         </span>
 
         
       
 
-      <span class="post-author">— Written by Eidorian</span>
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 2 Minutes</span>
       
     </div>
 
@@ -164,56 +216,72 @@ Generate keys You need to generate pub/private key from your server and your and
 
     
       
-        <img src="/img/NIXOS/WIRE/wire-banner.png" class="post-cover" />
+        <img src="/img/fr/nixos/wireguard/wire-banner.png" class="post-cover" />
       
     
 
     <div class="post-content">
       
-      <p>Thanks to <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a></p>
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#lien-de-wiki">Lien de WIKI</a></li>
+    <li><a href="#installation-et-configuration">Installation et configuration</a></li>
+    <li><a href="#génération-des-clés">Génération des clés</a></li>
+    <li><a href="#modification-configurationnix">Modification configuration.nix</a></li>
+    <li><a href="#rebuild-nixos-et-redémarrez-le-service-wireguard">Rebuild Nixos et redémarrez le service wireguard</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#création-du-ficheir-de-configuration-android">Création du ficheir de configuration Android</a></li>
+    <li><a href="#générer-un-qrcode">Générer un QRcode</a></li>
+  </ul>
+</nav></aside>
+      
+      <p>Merci à <a href="https://github.com/RaitoBezarius">Rayan Lahfa</a><br>
+Et Klaes ;)</p>
 <hr>
-<h2 id="wiki-link">Wiki link</h2>
-<p>Check the configuration file here : <a href="https://nixos.wiki/wiki/Wireguard">Nixos-Wireguard</a></p>
-<h2 id="install-and-configure">Install and Configure</h2>
-<p>Install WireGuard with this command.</p>
+<h2 id="lien-de-wiki">Lien de WIKI</h2>
+<p>Le fichier de configuration est disponible ici : <a href="https://nixos.wiki/wiki/Wireguard">Nixos-Wireguard</a></p>
+<h2 id="installation-et-configuration">Installation et configuration</h2>
+<p>Voici la commande pour installer wireguard.</p>
 <pre><code>$ nix-env -iA nixos.wireguard
-</code></pre><p>Once it&rsquo;s done, you need to creat the Wireguard configuration file.</p>
+</code></pre><p>Maintenant que wireguard est installé, vous devez créer le fichier de configuration.</p>
 <pre><code>$ vim /etc/nixos/wireguard.nix
-</code></pre><p>And copy the default configuration file from the <strong>wiki link</strong>.<br>
-You must edit a few things from the configuration file.</p>
-<h2 id="generate-keys">Generate keys</h2>
-<p>You need to generate pub/private key from your server and your android device (client).</p>
-<pre><code># Create server keys
+</code></pre><p>Et copier celui du wiki.
+Pensez à l&rsquo;adaptder selon vos besoins.</p>
+<h2 id="génération-des-clés">Génération des clés</h2>
+<p>Vous devez créer des clés Privéd/Publique pour votre serveur et pour votre Android(client).</p>
+<pre><code># Création des clés serveur
 $ umask 077
 $ mkdir /etc/wireguard
 $ wg genkey &gt; /etc/wireguard/private
 $ wg pubkey &lt; /etc/wireguard/private &gt; /etc/wireguard/public
 
-# Create Client keys
+# Création des clés client
 $ mkdir -p /tmp/client
 $ wg genkey &gt; /tmp/client/private
 $ wg pubkey &lt; /tmp/client/private &gt; /tmp/client/public
-</code></pre><p><strong>Don&rsquo;t forget to edit you wireguard.nix</strong></p>
-<h2 id="edit-configurationnix">Edit configuration.nix</h2>
-<p>You need to add a path to the <code>wireguard.nix</code> file into the <code>imports</code> section from the <code>configuration.nix</code> file.</p>
+</code></pre><p><strong>N&rsquo;oubliez pas d&rsquo;ajouter votre clé serveur dans le fichier wireguard.nix</strong></p>
+<h2 id="modification-configurationnix">Modification configuration.nix</h2>
+<p>Vous devez indiquer à Nixos la chemin du fichier <code>wireguard.nix</code> dans la section <code>imports</code> de votre <code>configuration.nix</code>.</p>
 <pre><code>imports =
   [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./wireguard.nix
   ];
-</code></pre><h2 id="rebuild-nixos-and-restart-service">Rebuild nixos and restart service</h2>
-<p>You must rebuild your nixos configuration file and restart wireguard.</p>
+</code></pre><h2 id="rebuild-nixos-et-redémarrez-le-service-wireguard">Rebuild Nixos et redémarrez le service wireguard</h2>
 <pre><code># Rebuild nixos
 $ nixos-rebuild switch
 
 # Reload wireguard
 $ systemctl status wireguard-wg0.service
 $ systemctl restart wireguard-wg0.service
-</code></pre><h1 id="android-peer">Android peer</h1>
-<p>If you want to use your wireguard VPN from your Android device, follow theses steps.</p>
-<p>First of all, you need to open public port from your home router so that way you can access to you VPN from the public IP.</p>
-<h2 id="create-configuration-file">Create configuration file</h2>
-<p>This file will be used by your Android device.</p>
+</code></pre><h1 id="android-connexion">Android Connexion</h1>
+<p>Si vous voulez utiliser votre VPN depuis votre Android, suivez les indications.</p>
+<p>Premièrement, si vous voulez accéder à votre VPN depuis l&rsquo;exterieur, vous devez ouvir un port de votre Box internet à le rediriger sur le port par défault Wireguard.</p>
+<h2 id="création-du-ficheir-de-configuration-android">Création du ficheir de configuration Android</h2>
+<p>Ce fichier sera utilisé par votre Android pour se connecter à votre VPN.</p>
 <pre><code>$ cat conf_phone
 
 [Interface]
@@ -226,15 +294,15 @@ PublicKey = &lt;put-pubkey-server&gt;
 Endpoint = &lt;Public IP from your server with the port 50999&gt;
 AllowedIPs = 0.0.0.0/0
 PersistentKeepAlive = 25
-</code></pre><h2 id="create-qrcode">Create QRcode</h2>
-<p>If you don&rsquo;t want to write every configuration into your phone, just use a QRcode instead.</p>
-<pre><code># INstall qrencode
+</code></pre><h2 id="générer-un-qrcode">Générer un QRcode</h2>
+<p>Si vous ne voulez pas vous embêter à entrer la configuration à la main, avec l&rsquo;application wireguard il est possible de scanner un QRCODE. Je vais vous montrer comment créer un QRcode rapidement à partir d&rsquo;un fichier, ici notre fichier conf_phone.</p>
+<pre><code># Installer qrencode
 $ nix-env -iA nixos.qrencode
 
-# Gen the QRcode
+# Création du QRCODE à partir de conf_phone
 $ qrencode -t ansiutf8 &lt; conf_phone
-</code></pre><p>Now you can Scan this QRcode with the Wireguard application from your Android device.</p>
-<p><img src="/img/NIXOS/WIRE/wg-screen.png" alt="wg-command"></p>
+</code></pre><p>Maintenant, vous pouvez scanner votre QRcode avec l&rsquo;application XWireguard et vous connecter à votre VPN !</p>
+<p><img src="/img/fr/nixos/wireguard/wg-screen.png" alt="wg-command"></p>
 
     </div>
     
@@ -252,7 +320,7 @@ $ qrencode -t ansiutf8 &lt; conf_phone
         <footer class="footer">
   <div class="footer__inner">
     
-      <div class="copyright copyright--user">@RedFou52 - Eidorian</div>
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
     
   </div>
 </footer>

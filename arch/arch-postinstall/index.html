@@ -223,47 +223,6 @@ Jettez un oeil à votre /etc/resolv.conf et ajoutez la ligne suivante"/>
 
     <div class="post-content">
       
-        <h2>Table of Contents</h2>
-        <aside class="table-of-contents"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#clavier">Clavier</a></li>
-    <li><a href="#networking">Networking</a>
-      <ul>
-        <li><a href="#ethernet">Ethernet</a></li>
-        <li><a href="#wi-fi">Wi-Fi</a></li>
-      </ul>
-    </li>
-    <li><a href="#update">Update</a></li>
-    <li><a href="#aur-yay">AUR yay</a></li>
-    <li><a href="#interface-graphique">Interface graphique</a>
-      <ul>
-        <li><a href="#fonts">fonts</a></li>
-        <li><a href="#i3-gaps">I3-gaps</a></li>
-        <li><a href="#lightdm">lightdm</a></li>
-        <li><a href="#polybar">polybar</a></li>
-        <li><a href="#rofi">rofi</a></li>
-        <li><a href="#feh">feh</a></li>
-        <li><a href="#i3-gaps-1">i3-gaps</a></li>
-        <li><a href="#compton-et-picom">compton et picom</a></li>
-      </ul>
-    </li>
-    <li><a href="#neofetch">neofetch</a></li>
-    <li><a href="#flameshot">flameshot</a></li>
-    <li><a href="#outils-binaire">Outils Binaire</a></li>
-    <li><a href="#autres-applications">Autres applications</a>
-      <ul>
-        <li><a href="#firefox">firefox</a></li>
-        <li><a href="#terminator">terminator</a></li>
-        <li><a href="#ranger">ranger</a></li>
-        <li><a href="#bitwarden">bitwarden</a></li>
-        <li><a href="#obsidian">Obsidian</a></li>
-        <li><a href="#udiskctl">udiskctl</a></li>
-        <li><a href="#virtualbox">virtualbox</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></aside>
-      
       <h1 id="post-installation-archlinux">Post installation Archlinux</h1>
 <p>Je vous mets à disposition mes fichiers de configuration à la fin de ce tuto.</p>
 <p>Bonne configuration :)</p>
@@ -300,6 +259,14 @@ sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 sudo pacman -S linux-firmware
 sudo modprobe -r ath10k_pci <span style="color:#f92672">&amp;&amp;</span> sudo modprobe ath10k_pci
+</code></pre></div><p>si la carte wifi n&rsquo;est pas UP :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set wlan0 up
+</code></pre></div><p>Certaines cartes peuvent être soft-bloquées. Pour les débloquer, utiliser l&rsquo;outil <code>rfkill</code> :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S rfkill
+</code></pre></div><p>Pour afficher la liste des device bloqués :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rfkill
+</code></pre></div><p>Ensuite pour les débloquer :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo rfkill unblock all
 </code></pre></div><h2 id="update">Update</h2>
 <p>Pour voir si tout est ok, on va lancer une update :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Syu
@@ -457,7 +424,7 @@ $ echo source ~/.gdbinit-gef.py &gt;&gt; ~/.gdbinit
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yay -S obsidian-appimage
 </code></pre></div><h3 id="udiskctl">udiskctl</h3>
 <p>Outils qui va vous permettre de monter des clés USB sans utiliser la commande sudo:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S udiskctl
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S udiskie
 </code></pre></div><p>Lien sur le <a href="https://wiki.archlinux.org/index.php/Udisks">wiki archlinux </a></p>
 <h3 id="virtualbox">virtualbox</h3>
 <p>Vous permet de créer des Machines Virtuelles :</p>

@@ -10,13 +10,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian - 2020</copyright>
-    <lastBuildDate>Tue, 15 Sep 2020 10:11:22 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 19:50:59 +0200</lastBuildDate>
     
 	<atom:link href="/binary/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bufferoverflow 32bits</title>
+      <title>Bufferoverflow 32bits sans protection</title>
       <link>/binary/4-bufferoverflow/</link>
       <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
       
@@ -35,7 +35,7 @@
     </item>
     
     <item>
-      <title>ROP 32 !</title>
+      <title>ROP32 sans protection</title>
       <link>/binary/5-ret2win/</link>
       <pubDate>Tue, 15 Sep 2020 10:11:22 +0200</pubDate>
       
@@ -48,6 +48,25 @@
         
         
           Exploitation d&#39;un ROP sur un binaire 32bits !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Ret2libc avec protection NX</title>
+      <link>/binary/6-ret2libc/</link>
+      <pubDate>Fri, 18 Sep 2020 19:50:59 +0200</pubDate>
+      
+      <guid>/binary/6-ret2libc/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/6-ret2lib-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Exploitation avec protection NX sur un binaire en 32bits !
           
         
         </description>

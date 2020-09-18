@@ -10,7 +10,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <copyright>@RedFou52 - Eidorian - 2020</copyright>
-    <lastBuildDate>Thu, 17 Sep 2020 00:09:54 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 19:50:59 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -73,7 +73,7 @@
     </item>
     
     <item>
-      <title>Bufferoverflow 32bits</title>
+      <title>Bufferoverflow 32bits sans protection</title>
       <link>/binary/4-bufferoverflow/</link>
       <pubDate>Sat, 12 Sep 2020 18:38:44 +0200</pubDate>
       
@@ -111,7 +111,7 @@
     </item>
     
     <item>
-      <title>ROP 32 !</title>
+      <title>ROP32 sans protection</title>
       <link>/binary/5-ret2win/</link>
       <pubDate>Tue, 15 Sep 2020 10:11:22 +0200</pubDate>
       
@@ -124,6 +124,25 @@
         
         
           Exploitation d&#39;un ROP sur un binaire 32bits !
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Ret2libc avec protection NX</title>
+      <link>/binary/6-ret2libc/</link>
+      <pubDate>Fri, 18 Sep 2020 19:50:59 +0200</pubDate>
+      
+      <guid>/binary/6-ret2libc/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/binary/6-ret2lib-banner.png&#34;/&gt;
+          
+        
+        
+        
+          Exploitation avec protection NX sur un binaire en 32bits !
           
         
         </description>
@@ -298,6 +317,25 @@ Dans ce tutoriel nous allons voir comment mettre en place un petit serveur NAS (
         
         
           HackTheBox : Magic
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Remote</title>
+      <link>/writeup/remote/</link>
+      <pubDate>Sun, 02 Aug 2020 11:28:50 +0200</pubDate>
+      
+      <guid>/writeup/remote/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/fr/writeup/remote/htb-remote.png&#34;/&gt;
+          
+        
+        
+        
+          HackTheBox : Remote
           
         
         </description>

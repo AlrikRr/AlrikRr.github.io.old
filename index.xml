@@ -187,28 +187,6 @@
     </item>
     
     <item>
-      <title>Mini Nas Rapsberry</title>
-      <link>/raspberry/mini-nas-rapsberry/</link>
-      <pubDate>Fri, 11 Sep 2020 10:36:20 +0200</pubDate>
-      
-      <guid>/raspberry/mini-nas-rapsberry/</guid>
-      <description>
-        
-          &lt;img src=&#34;/img/Workinprogress.png&#34;/&gt;
-          
-        
-        
-        
-          Hello !
-Dans ce tutoriel nous allons voir comment mettre en place un petit serveur NAS (1 seul disque) chez vous avec partage de fichier SAMBA !
- Pré-Requis Pour ce tutorial je vais utiliser :
- Raspberry Pi3 1Gb RAM Alim Raspberry Carte SD 32Gb Câble Ethernet Un Clavier USB Un disque Externe USB de 1To  Installation du raspberry Pour l&amp;rsquo;installation de base je vais vous rediriger vers ce tuto qui est assez complet : Installation-Basique-Raspberry
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Le vulgarisateur numérique</title>
       <link>/post/le-vulga-num/</link>
       <pubDate>Tue, 25 Aug 2020 15:27:28 +0200</pubDate>

@@ -68,16 +68,6 @@
   </url>
   
   <url>
-    <loc>/raspberry/mini-nas-rapsberry/</loc>
-    <lastmod>2020-09-11T10:36:20+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/raspberry/</loc>
-    <lastmod>2020-09-11T10:36:20+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/le-vulga-num/</loc>
     <lastmod>2020-08-25T15:27:28+02:00</lastmod>
   </url>
@@ -104,6 +94,11 @@
   
   <url>
     <loc>/raspberry/basic-installation/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/raspberry/</loc>
     <lastmod>2020-08-11T09:53:05+02:00</lastmod>
   </url>
   

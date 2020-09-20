@@ -209,7 +209,7 @@ Jettez un oeil à votre /etc/resolv.conf et ajoutez la ligne suivante"/>
 
       <span class="post-author">— Ecrit par Eidorian</span>
       
-        <span class="post-read-time">— 6 Minutes</span>
+        <span class="post-read-time">— 7 Minutes</span>
       
     </div>
 
@@ -267,6 +267,20 @@ sudo modprobe -r ath10k_pci <span style="color:#f92672">&amp;&amp;</span> sudo m
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rfkill
 </code></pre></div><p>Ensuite pour les débloquer :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo rfkill unblock all
+</code></pre></div><h2 id="power-management">Power Management</h2>
+<p>Pour la gestion de l&rsquo;alimentation, il nous faut installer un outils pour gérer les différents profils d&rsquo;alimentation.</p>
+<p>Un problème assez embêtant sur la configuration actuelle c&rsquo;est la carte wifi qui se désactive quand le laptop est fermé.</p>
+<p>Pour résoudre le problème il nous faut installer et configuer <code>tlp</code> :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S tlp tlp-rdw
+</code></pre></div><p>Ensuite on initialise nos services :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl enable tlp.service
+systemctl enable NetworkManager-dispatcher.service
+systemctl mask systemd-rfkill.service
+systemctl mask systemd-rfkill.socket
+</code></pre></div><p>Ensuite pour la configuration, le fichier se trouve dans <code>/etc/tlp.conf</code>.
+Il vous faut modifier les lignes suivantes :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">WIFI_PWR_ON_AC <span style="color:#f92672">=</span> on
+WIFI_PWR_ON_BAT <span style="color:#f92672">=</span> on
 </code></pre></div><h2 id="update">Update</h2>
 <p>Pour voir si tout est ok, on va lancer une update :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Syu
@@ -404,7 +418,14 @@ picom -b
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py
 $ echo source ~/.gdbinit-gef.py &gt;&gt; ~/.gdbinit
 </code></pre></div><p>Dispo sur le <a href="https://github.com/hugsy/gef">Github ICI</a></p>
-<h2 id="autres-applications">Autres applications</h2>
+<h2 id="serveur-samba">Serveur Samba</h2>
+<p>Pour monter un serveur samba qui se trouve sur votre réseau, il vous faut les outils <code>cifs</code> :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S cifs-utils
+</code></pre></div><p>Une fois les outils installé, il vous faut redémarrer votre ordinateur et vérifier que le module kernel est bien chargé :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo modprobe cifs
+</code></pre></div><p>Bien, maintenant, il vous reste plus qu&rsquo;à monter votre partage :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mount -v -t cifs //192.168.1.100/public /home/eidorian/Public -o user<span style="color:#f92672">=</span>guest
+</code></pre></div><h2 id="autres-applications">Autres applications</h2>
 <h3 id="firefox">firefox</h3>
 <p>Installer un navigateur internet pour visiter le wiki archlinux ;)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S firefox

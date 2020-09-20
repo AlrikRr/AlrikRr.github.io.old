@@ -253,6 +253,8 @@ La seule différence est l&rsquo;ajout d&rsquo;une fonction supplémentaire <cod
 <h2 id="compilation">Compilation</h2>
 <p>Pour le compiler, on utilise <code>gcc</code> avec les options suivantes :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">しのぶ » gcc -m32 -fno-stack-protector -z execstack -o ret2win_32 ret2win_32.c -no-pie
+</code></pre></div><p>Pensez à désactiver l&rsquo;ASRL :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl kernel.randomize_va_space<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 </code></pre></div><h2 id="padding">Padding</h2>
 <p>Premièrement, il nous faut trouver le padding pour remplir le registre EIP.</p>
 <p>Pour cela, on utilise un pattern avec <a href="https://github.com/hugsy/gef">gef</a>.</p>

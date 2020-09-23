@@ -104,7 +104,7 @@ Jettez un oeil à votre /etc/resolv.conf et ajoutez la ligne suivante"/>
               
             
               
-	      <li><a href="/raspberry">Raspberry</a></li>
+	      <li><a href="/iot">IOT</a></li>
               
             
               
@@ -148,7 +148,7 @@ Jettez un oeil à votre /etc/resolv.conf et ajoutez la ligne suivante"/>
       
     
       
-        <li><a href="/raspberry">Raspberry</a></li>
+        <li><a href="/iot">IOT</a></li>
       
     
       
@@ -456,6 +456,15 @@ yay -S virtualbox-ext-oracle
 </code></pre></div><p>Chargement du module kernel :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo  modprobe vboxdrv
 </code></pre></div><p>Pour plus d&rsquo;information randez-vous sur <a href="https://wiki.archlinux.org/index.php/VirtualBox">le wiki archlinux </a></p>
+<h3 id="arduino">Arduino</h3>
+<p>Installation de l&rsquo;éditeur Arduino :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S arduino arduino-avr-core
+</code></pre></div><p>Ajout de l&rsquo;utilisateur dans les groupes <code>lock</code> et <code>uucp</code> :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -G lock eidorian
+sudo usermod -G uucp eidorian
+</code></pre></div><p>Chargez le module :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo modprobe cdc_acm
+</code></pre></div><p>Pour plus d&rsquo;information rangez-vous sur <a href="https://wiki.archlinux.org/index.php/Arduino">le wiki archlinux</a></p>
 
     </div>
     

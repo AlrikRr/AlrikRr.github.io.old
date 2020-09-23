@@ -38,12 +38,22 @@
   </url>
   
   <url>
-    <loc>/binary/</loc>
-    <lastmod>2020-09-18T19:50:59+02:00</lastmod>
+    <loc>/iot/</loc>
+    <lastmod>2020-09-23T20:42:24+02:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-09-23T20:42:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/iot/tty-whatch-2020-presentation-installation/</loc>
+    <lastmod>2020-09-23T20:42:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/binary/</loc>
     <lastmod>2020-09-18T19:50:59+02:00</lastmod>
   </url>
   
@@ -83,22 +93,12 @@
   </url>
   
   <url>
-    <loc>/post/presentation-raspberry/</loc>
-    <lastmod>2020-08-11T20:34:50+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/presentation-writeup-htb/</loc>
     <lastmod>2020-08-11T20:23:55+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/raspberry/basic-installation/</loc>
-    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/raspberry/</loc>
+    <loc>/iot/basic-installation/</loc>
     <lastmod>2020-08-11T09:53:05+02:00</lastmod>
   </url>
   
@@ -135,11 +135,6 @@
   <url>
     <loc>/secu/</loc>
     <lastmod>2020-07-01T00:34:51+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/traduction-du-site/</loc>
-    <lastmod>2020-06-27T22:38:55+02:00</lastmod>
   </url>
   
   <url>

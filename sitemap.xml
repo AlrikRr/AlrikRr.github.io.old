@@ -38,22 +38,12 @@
   </url>
   
   <url>
-    <loc>/iot/</loc>
-    <lastmod>2020-09-23T20:42:24+02:00</lastmod>
+    <loc>/binary/</loc>
+    <lastmod>2020-09-18T19:50:59+02:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-09-23T20:42:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/iot/tty-whatch-2020-presentation-installation/</loc>
-    <lastmod>2020-09-23T20:42:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/binary/</loc>
     <lastmod>2020-09-18T19:50:59+02:00</lastmod>
   </url>
   
@@ -99,6 +89,11 @@
   
   <url>
     <loc>/iot/basic-installation/</loc>
+    <lastmod>2020-08-11T09:53:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/iot/</loc>
     <lastmod>2020-08-11T09:53:05+02:00</lastmod>
   </url>
   

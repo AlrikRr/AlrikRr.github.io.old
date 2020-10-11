@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/alrikrr
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://AlrikRr.github.io
+  * I am alrikrr (https://keybase.io/alrikrr) on keybase.
+  * I have a public key ASCoLoFZb3Kuljf3OJ8LGYRNkLB4lAVJNOvayIHeGGJ1VAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a82e81596f72ae9637f7389f0b19844d90b07894054934ebdac881de186275540a",
+      "host": "keybase.io",
+      "kid": "0120a82e81596f72ae9637f7389f0b19844d90b07894054934ebdac881de186275540a",
+      "uid": "52fe6dd0ca036efbb09faf99b4863719",
+      "username": "alrikrr"
+    },
+    "merkle_root": {
+      "ctime": 1602434518,
+      "hash": "bd10ad54d51c73bf11705fd60f38b680ba843d2f7b845d5b61b4311fa2facf7cab45446cfd29964bee36b6458f34aa7f116b4980552c2f0951efb33d40ae47db",
+      "hash_meta": "2b27f95848d6f35db1a868e95c3cb018d2c2db761ee61d085da64b603e9cf509",
+      "seqno": 17800858
+    },
+    "service": {
+      "entropy": "l9+1aKE8NxhmqdLq0NWNSuW7",
+      "hostname": "AlrikRr.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.1"
+  },
+  "ctime": 1602434507,
+  "expire_in": 504576000,
+  "prev": "a644d187e1a706a38b9002a2e602ee13b3ea1b2a168efb510829a593f43db9ac",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgqC6BWW9yrpY39zifCxmETZCweJQFSTTr2siB3hhidVQKp3BheWxvYWTESpcCC8QgpkTRh+GnBqOLkAKi5gLuE7PqGyoWjvtRCCmlk/Q9uazEILgqAio7DD7OIwDbuu7yrh829dooqnB3fmX+R/xOHB5AAgHCo3NpZ8RAtzBJNUVLhxKWXCsSpiQ1QxavmoJ/uo51AcXVMKY41enTo0FrzYUev9vdsIcoKof194q4VF4yqFp7eA1CMCCjBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEICuY+6oapaqaIqaI+MxU2MQ3kUTo4HXFT3GaWTyweFsLo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alrikrr
+
+==================================================================

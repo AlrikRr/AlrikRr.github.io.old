@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="Qu&amp;rsquo;est ce qu&amp;rsquo;un BufferOverflow ? Un BufferOverflow consiste à écraser la pile EIP d&amp;rsquo;un programme à un moment donné afin de compromettre une application.
-L&amp;rsquo;écrasement de la pile peut se faire par différents moyens, mais le principal problème vient d&amp;rsquo;une mauvaise gestion d&amp;rsquo;un buffer pendant la saisie par un utilisateur.
+L&#39;écrasement de la pile peut se faire par différents moyens, mais le principal problème vient d&amp;rsquo;une mauvaise gestion d&amp;rsquo;un buffer pendant la saisie par un utilisateur.
 Pourquoi ?  Faire crash une application (un DOS) Avoir un shell avec des droits prévilégiés Voler des informations ( Leak Memory ) Avoir un reverse shell ou un bind shell à distance  Pré-Requis Avant de commencer l&amp;rsquo;exploitation de notre binaire, il faut désactiver la protection ASLR activée par défaut sous linux."/>
 <meta name="keywords" content="linux, tuto, programmation, python"/>
 <meta name="robots" content="noodp"/>
@@ -220,7 +220,7 @@ Pourquoi ?  Faire crash une application (un DOS) Avoir un shell avec des droits 
       
       <h1 id="quest-ce-quun-bufferoverflow-">Qu&rsquo;est ce qu&rsquo;un BufferOverflow ?</h1>
 <p>Un BufferOverflow consiste à écraser la pile EIP d&rsquo;un programme à un moment donné afin de compromettre une application.</p>
-<p>L&rsquo;écrasement de la pile peut se faire par différents moyens, mais le principal problème vient d&rsquo;une mauvaise gestion d&rsquo;un buffer pendant la saisie par un utilisateur.</p>
+<p>L'écrasement de la pile peut se faire par différents moyens, mais le principal problème vient d&rsquo;une mauvaise gestion d&rsquo;un buffer pendant la saisie par un utilisateur.</p>
 <h2 id="pourquoi-">Pourquoi ?</h2>
 <ul>
 <li>Faire crash une application (un DOS)</li>
@@ -259,7 +259,7 @@ Pourquoi ?  Faire crash une application (un DOS) Avoir un shell avec des droits 
 </code></pre></div><h2 id="explication">Explication</h2>
 <p>Le binaire est assez simple, il prend une chaîne de caractère.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> main(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
-</code></pre></div><p>Cette chaîne est ensuite envoyée comme argument à la fonction <code>vulnerable()</code> afin d&rsquo;être copié dans un buffer d&rsquo;une taille de 100 avec <code>strcpy()</code>.</p>
+</code></pre></div><p>Cette chaîne est ensuite envoyée comme argument à la fonction <code>vulnerable()</code> afin d'être copié dans un buffer d&rsquo;une taille de 100 avec <code>strcpy()</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">[...]
 vulnerable(argv[<span style="color:#ae81ff">1</span>]);
 [...]
@@ -267,7 +267,7 @@ strcpy(buffer, argv[<span style="color:#ae81ff">1</span>]);
 </code></pre></div><p>Si l&rsquo;utilisateur met une chaîne d&rsquo;une taille inférieur à 100, le programme s&rsquo;execute normalement.</p>
 <p>En revanche, si la chaîne fait plus d&rsquo;une centaine de caratères, plus grand que le buffer donc, ça plante ! Car la taille alloué au buffer ne sera pas suffisante !</p>
 <p><img src="/img/fr/binary/4-execution-buffer.png" alt="4-execution-buffer.png"></p>
-<p>Dans la capture d&rsquo;écran, on peut voir une première utilisation dite &ldquo;normale&rdquo; du programme.</p>
+<p>Dans la capture d'écran, on peut voir une première utilisation dite &ldquo;normale&rdquo; du programme.</p>
 <p>La deuxième commande va injecter avec l&rsquo;aide de python 101 caractère <strong>&ldquo;A&rdquo;</strong>, ce qui va faire planter le programme. (segmentation fault)</p>
 <h2 id="exploitation">Exploitation</h2>
 <h3 id="première-exécution">Première exécution</h3>
@@ -295,7 +295,7 @@ strcpy(buffer, argv[<span style="color:#ae81ff">1</span>]);
 <p>Maintenant, on vois bien pourquoi le programme plante.<br>
 EIP qui est sensé contenir l&rsquo;adresse de l&rsquo;instruction suivante se retrouve rempli avec <code>AAAA</code> ce qui donne en hexadecimal <code>0x41414141</code>.</p>
 <h3 id="calcule-du-padding">Calcule du padding</h3>
-<p>Maintenant que l&rsquo;on peut voir le contenu de EIP, nous allons trouver le padding, c&rsquo;est à dire le nombre de caractères qu&rsquo;il faut pour arriver jusqu&rsquo;à EIP.<br>
+<p>Maintenant que l&rsquo;on peut voir le contenu de EIP, nous allons trouver le padding, c&rsquo;est à dire le nombre de caractères qu&rsquo;il faut pour arriver jusqu'à EIP.<br>
 L&rsquo;objectif final est de pouvoir manipuler la valeur de EIP avec par exemple <code>ABCD</code>.</p>
 <p>Pour ce faire, nous allons créer un pattern :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern create <span style="color:#ae81ff">116</span>
@@ -305,7 +305,7 @@ L&rsquo;objectif final est de pouvoir manipuler la valeur de EIP avec par exempl
 <img src="/img/fr/binary/4-EIP-pattern.png" alt="4-EIP-pattern.png"></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  pattern search 0x62616164
 </code></pre></div><p><img src="/img/fr/binary/4-EIP-pattern-offset.png" alt="4-EIP-pattern-offset.png"></p>
-<p>Nous avons bien une taille de <strong>112</strong> avant d&rsquo;écraser <strong>EIP</strong>.</p>
+<p>Nous avons bien une taille de <strong>112</strong> avant d'écraser <strong>EIP</strong>.</p>
 <p>Maintenant, nous allons créer un pattern de 112 <strong>&ldquo;A&rdquo;</strong> et y ajouter <strong>&ldquo;ABCD&rdquo;</strong> à la fin, si tout va bien, on devrait voir apparaître &ldquo;ABCD&rdquo; dans <strong>EIP</strong>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  run AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCD
 </code></pre></div><p><img src="/img/fr/binary/4-EIP-ABCD.png" alt="4-EIP-ABCD.png"></p>
@@ -411,10 +411,10 @@ payload <span style="color:#f92672">=</span> shellcode <span style="color:#f9267
 <p>Alors attention ! Il ne faut pas toujours prendre l&rsquo;adresse de droite, il faut prendre l&rsquo;adresse de début du shellcode.</p>
 <p>Bien souvent il faut incrémenter l&rsquo;adresse jusqu&rsquo;a tomber dessus, une bonne technique est d&rsquo;utiliser la commande suivante :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  x/1xb &lt;address&gt;
-</code></pre></div><p>Vous placez votre adresse et augmentez de 1 (en hexa) jusqu&rsquo;à tomber sur votre &ldquo;\x31&rdquo; :
+</code></pre></div><p>Vous placez votre adresse et augmentez de 1 (en hexa) jusqu'à tomber sur votre &ldquo;\x31&rdquo; :
 <img src="/img/fr/binary/4-found-sip.png" alt="4-found-sip.png"></p>
 <h3 id="pwned-">Pwned !</h3>
-<p>Maintenant que votre payload est complet, il ne vous reste plus qu&rsquo;à l&rsquo;executer !</p>
+<p>Maintenant que votre payload est complet, il ne vous reste plus qu'à l&rsquo;executer !</p>
 <p><img src="/img/fr/binary/4-pwned-.png" alt="4-pwned-.png"></p>
 
     </div>

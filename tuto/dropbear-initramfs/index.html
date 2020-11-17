@@ -247,7 +247,7 @@ GRUB_CMDLINE_LINUX=&quot;ip=192.168.1.90::192.168.1.1:255.255.255.0::enp0s3:off&
 </code></pre><p>Pensez à mettre à jour la configuration de votre GRUB :</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">$ sudo update-grub
 </code></pre><h2 id="connexion-à-dropbear">Connexion à dropbear</h2>
-<p>Maintenant, c&rsquo;est le moment d&rsquo;éteindre votre machine, de se connecter en SSH sur le bon port et de croiser les doigts !</p>
+<p>Maintenant, c&rsquo;est le moment d'éteindre votre machine, de se connecter en SSH sur le bon port et de croiser les doigts !</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">$ ssh root@192.168.1.90 -p 4748
 </code></pre><p><img src="/img/fr/tuto/dropbear/drop1.png" alt="drop1">
 Si vous parvenez à avoir le même résultat que moi, vous êtes sur la bonne voie !<br>
@@ -255,7 +255,7 @@ Sinon, jeter un oeil aux clés que vous avez ajouté.</p>
 <p>Pour dévérouiller votre machine, tapez la commande :</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">~ # cryptroot-unlock
 </code></pre><p><img src="/img/fr/tuto/dropbear/drop2.png" alt="drop2"></p>
-<p>Voilà, vous avez plus qu&rsquo;a entrer votre pass-phrase. Suite à ca, vous allez être déconnecté. Il ne vous reste plus qu&rsquo;à vous connecter en SSH normalement.</p>
+<p>Voilà, vous avez plus qu&rsquo;a entrer votre pass-phrase. Suite à ca, vous allez être déconnecté. Il ne vous reste plus qu'à vous connecter en SSH normalement.</p>
 <p>Notes : Vous pouvez toujours entrer votre pass-phrase sur votre machine directement, même si le LUKS ne vous la demande pas.</p>
 
     </div>

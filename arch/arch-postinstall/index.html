@@ -369,7 +369,7 @@ echo <span style="color:#e6db74">&#34;Polybar launched...&#34;</span>
 </code></pre></div><p>Chemin du fichier :<code>~/.config/rofi/slate.rsi</code></p>
 <p>Mon fichier de conf :<a href="/docs/arch-install/rofi/slate.rsi">config</a></p>
 <h3 id="feh">feh</h3>
-<p>feh va nous servir afin d&rsquo;afficher un fond d&rsquo;écran avec i3.</p>
+<p>feh va nous servir afin d&rsquo;afficher un fond d'écran avec i3.</p>
 <p>Pour l&rsquo;installer :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S feh
 </code></pre></div><p>On ajoute ensuite cette ligne dans le fichier de configuration <code>i3</code> :</p>
@@ -400,14 +400,14 @@ Mon terminal est <code>Terminator</code></p>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>killall picom
 picom -b
-</code></pre></div><p>Il ne nous reste plus qu&rsquo;à modifier la transparence directement avec les options du terminal.</p>
+</code></pre></div><p>Il ne nous reste plus qu'à modifier la transparence directement avec les options du terminal.</p>
 <h2 id="neofetch">neofetch</h2>
 <p>Afficher les information du système dans le terminal :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S neofetch
 </code></pre></div><p>Chemin du fichier :<code>~/.config/neofetch/config.conf</code></p>
 <p>Mon fichier de conf :<a href="/docs/arch-config/neofetch/config.conf">config</a></p>
 <h2 id="flameshot">flameshot</h2>
-<p>Un outil très puissant pour les capture d&rsquo;écran, on va le blind avec un raccourci i3, la touche <code>impr</code> imprime-écran.</p>
+<p>Un outil très puissant pour les capture d'écran, on va le blind avec un raccourci i3, la touche <code>impr</code> imprime-écran.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S flameshot
 </code></pre></div><p>On ajoute ensuite cette ligne dans la config i3 :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindsym --release Print exec flameshot gui
@@ -423,7 +423,7 @@ $ echo source ~/.gdbinit-gef.py &gt;&gt; ~/.gdbinit
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S cifs-utils
 </code></pre></div><p>Une fois les outils installé, il vous faut redémarrer votre ordinateur et vérifier que le module kernel est bien chargé :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo modprobe cifs
-</code></pre></div><p>Bien, maintenant, il vous reste plus qu&rsquo;à monter votre partage :</p>
+</code></pre></div><p>Bien, maintenant, il vous reste plus qu'à monter votre partage :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mount -v -t cifs //192.168.1.100/public /home/eidorian/Public -o user<span style="color:#f92672">=</span>guest
 </code></pre></div><h2 id="autres-applications">Autres applications</h2>
 <h3 id="firefox">firefox</h3>
@@ -457,7 +457,7 @@ yay -S virtualbox-ext-oracle
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo  modprobe vboxdrv
 </code></pre></div><p>Pour plus d&rsquo;information randez-vous sur <a href="https://wiki.archlinux.org/index.php/VirtualBox">le wiki archlinux </a></p>
 <h3 id="arduino">Arduino</h3>
-<p>Installation de l&rsquo;éditeur Arduino :</p>
+<p>Installation de l'éditeur Arduino :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S arduino arduino-avr-core
 </code></pre></div><p>Ajout de l&rsquo;utilisateur dans les groupes <code>lock</code> et <code>uucp</code> :</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -G lock eidorian

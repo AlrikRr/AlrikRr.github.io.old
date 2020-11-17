@@ -239,11 +239,11 @@ Bon tuto ;)
 Pour cela rien de plus simple, dirigez vous sur le site officiel et télécharger l&rsquo;archive Android-Studio.zip : <a href="https://developer.android.com/studio">developer.android.com</a></p>
 <h2 id="installation">Installation</h2>
 <p>Pour installer Android-Studio il vous suffit d&rsquo;extraire l&rsquo;archive dans votre <code>/home</code> et le tour est joué.<br>
-IL ne vous reste plus qu&rsquo;à executer le script <code>studio.sh</code> qui se trouve dans <code>android-studio/bin/studio.sh</code>.<br>
+IL ne vous reste plus qu'à executer le script <code>studio.sh</code> qui se trouve dans <code>android-studio/bin/studio.sh</code>.<br>
 Je vous conseil de faire un raccourci ou un alias pour executer le script rapidement car c&rsquo;est avec celui-ci que vous allez devoir executer pour android-studio plus tard.</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">alias studio='~/android-studio/bin/./studio.sh'
 </code></pre><p>Une fois le script executé, android-studio va vous demander de configurer l&rsquo;installation, faite comme vous voulez, ca ne devrait pas impacter la suite du tutoriel.</p>
-<p>On peut passer à l&rsquo;installation de l&rsquo;émulateur !</p>
+<p>On peut passer à l&rsquo;installation de l'émulateur !</p>
 <hr>
 <h1 id="emulateur---partie-1">Emulateur - Partie 1</h1>
 <p>Pour ce tutoriel je vais installer un Nexus 6P - Android 7.1.1 avec les Google API&rsquo;s.</p>
@@ -323,7 +323,7 @@ CLiquez sur <code>CA Certificate</code></p>
 <p>Pour la suite du tuto je vais utiliser <a href="https://play.google.com/store/apps/details?id=com.thirtydegreesray.openhub">OpenHub for GitHub</a>.</p>
 <p>Maintenant que vous avez votre application, rendez vous sur <a href="https://apps.evozi.com/apk-downloader/">apk-DOwnloader</a> et entrez l&rsquo;id de l&rsquo;apk.</p>
 <h2 id="installer-lapk">Installer l&rsquo;apk</h2>
-<p>Bien, il ne nous reste plus qu&rsquo;à installer notre apk sur l&rsquo;émulateur.<br>
+<p>Bien, il ne nous reste plus qu'à installer notre apk sur l'émulateur.<br>
 Rien de plus simple, nous allons utiliser <code>adb install</code>.</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell">~ 竈門» adb install com.thirtydegreesray.openhub_30_apps.evozi.com.apk
 </code></pre><p>Si vous avez comme message <code>Success</code> c&rsquo;est tout bon, sinon il doit manquer des librairies ou des API Google.</p>
@@ -367,7 +367,7 @@ generic_x86:/data/local/tmp # ./frida-server &amp;
 </code></pre><h2 id="install-ssl-pinning">Install SSL Pinning</h2>
 <p>Maintenant, il vous faut l&rsquo;exploit SSL Pinning disponible <a href="/docs/android/sslpinning.js">ICI</a></p>
 <h1 id="analyse-avec-ssl-pinning">Analyse avec SSL Pinning</h1>
-<p>Très bien, tout semble ok maintenant, il ne nous reste plus qu&rsquo;à executer notre exploit :)</p>
+<p>Très bien, tout semble ok maintenant, il ne nous reste plus qu'à executer notre exploit :)</p>
 <pre><code class="language-bash/shell" data-lang="bash/shell"># Pensez à remplacer l'id de l'application, le même id dans l'url google play store
 ~ 竈門» frida -U -f com.thirtydegreesray.openhub -l sslpinning.js
 </code></pre><p><img src="/img/fr/secu/android/frida_server_ok.png" alt="ssl_pinning_ok.png"></p>

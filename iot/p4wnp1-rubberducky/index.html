@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>#2 P4wnP1: RubberDucky :: AlrikRr - BlogPost — Bienvenue sur mon BlogPost</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Hello !
+Aujourd&amp;rsquo;hui nous allons voir la configuration de notre P4wnP1 pour en faire une RubberDucky !
+Je vous invite à regarder l&amp;rsquo;installation de P4wnP1 si cela n&amp;rsquo;est pas encore fait !
+Comme je l&amp;rsquo;ai dit dans le tuto #1, P4wnP1 est beaucoup plus lent qu&amp;rsquo;un RubberDUcky classic. Si vous ne le branchez pas sur une batterie externe, votre script ne s&amp;rsquo;executera qu&amp;rsquo;après le démarrage de l&amp;rsquo;OS sur votre P4wnP1."/>
+<meta name="keywords" content="linux, tuto, programmation, python"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/iot/p4wnp1-rubberducky/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="#2 P4wnP1: RubberDucky"/>
+<meta name="twitter:description" content="Configuration d&#39;une RubberDucky avec P4wnP1"/>
+
+
+
+<meta property="og:title" content="#2 P4wnP1: RubberDucky" />
+<meta property="og:description" content="Configuration d&#39;une RubberDucky avec P4wnP1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/iot/p4wnp1-rubberducky/" />
+<meta property="article:published_time" content="2020-11-18T09:34:20+01:00" />
+<meta property="article:modified_time" content="2020-11-18T09:34:20+01:00" /><meta property="og:site_name" content="AlrikRr - BlogPost" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">AlrikRr - BlogPost</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+
+
+
+    <span class="header__right">
+      
+        <nav class="menu">
+	<ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+	<li><a href="/tuto">Les Tutos</a></li>
+        
+      
+        
+	<li><a href="/secu">Sécurité</a></li>
+        
+      
+        
+	<li><a href="/writeup">Write-Up</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Autres catégories
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+	      <li><a href="/binary">Exploit-Binaire</a></li>
+              
+            
+              
+	      <li><a href="/iot">IOT</a></li>
+              
+            
+              
+	      <li><a href="/nixos">NIXOS</a></li>
+              
+            
+              
+	      <li><a href="/arch">Archlinux</a></li>
+              
+            
+              
+	      <li><a href="/ml">MachineLearning</a></li>
+              
+            
+              
+	      <li><a href="/about">A propos !</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/tuto">Les Tutos</a></li>
+      
+    
+      
+        <li><a href="/secu">Sécurité</a></li>
+      
+    
+      
+        <li><a href="/writeup">Write-Up</a></li>
+      
+    
+      
+        <li><a href="/binary">Exploit-Binaire</a></li>
+      
+    
+      
+        <li><a href="/iot">IOT</a></li>
+      
+    
+      
+        <li><a href="/nixos">NIXOS</a></li>
+      
+    
+      
+        <li><a href="/arch">Archlinux</a></li>
+      
+    
+      
+        <li><a href="/ml">MachineLearning</a></li>
+      
+    
+      
+        <li><a href="/about">A propos !</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title"><a href="/iot/p4wnp1-rubberducky/">#2 P4wnP1: RubberDucky</a></h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          18-11-2020
+        </span>
+
+        
+      
+
+      <span class="post-author">— Ecrit par AlrikRr</span>
+      
+        <span class="post-read-time">— 3 Minutes</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/fr/iot/P4-RubberDucky/P4wnP1-rubberducky-banner.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+      <p>Hello !</p>
+<p>Aujourd&rsquo;hui nous allons voir la configuration de notre P4wnP1 pour en faire une RubberDucky !</p>
+<p>Je vous invite à regarder l&rsquo;<a href="https://alrikrr.github.io/iot/p4wnp1-installation/">installation de P4wnP1</a> si cela n&rsquo;est pas encore fait !</p>
+<p>Comme je l&rsquo;ai dit dans le tuto #1, P4wnP1 est beaucoup plus lent qu&rsquo;un RubberDUcky classic. Si vous ne le branchez pas sur une batterie externe, votre script ne s&rsquo;executera qu&rsquo;après le démarrage de l&rsquo;OS sur votre P4wnP1.</p>
+<h1 id="configuration-p4wnp1">Configuration P4wnP1</h1>
+<p>Par défaut notre P4wnP1 est déjà configuré pour executer des commandes RubberDucky.</p>
+<p><img src="/img/fr/iot/P4-RubberDucky/keyboard-config.png" alt="Keyboard Configuration"></p>
+<p>Comme vous pouvez le voir, vous avez aussi la possibilité d'écrire des scripts permettant de simuler une souris.</p>
+<p><img src="/img/fr/iot/P4-RubberDucky/usb-config.png" alt="USB Configuration"></p>
+<p>Vous pouvez également personnalisé totalement votre P4wnP1 pour que celle-ci soit reconnu comme le périphérique de votre choix par l&rsquo;ordinateur de votre victime.</p>
+<p><img src="/img/fr/iot/P4-RubberDucky/hid-script.png" alt="HID Scripts"></p>
+<p>Pour l'écriture de nos scripts, c&rsquo;est par ici !</p>
+<h1 id="scripting">Scripting</h1>
+<p>Le script par défaut devrait fonctionner sous windows sans aucun problème.<br>
+Mais il y a quelques modifications à apporter.</p>
+<p>Le language utilisé ici est du <strong>JavaScript</strong> ce qui laisse beaucoup plus de possibilité qu&rsquo;un simple language DuckyScript !</p>
+<h2 id="langue-du-clavier">Langue du clavier</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">layout</span>(<span style="color:#e6db74">&#39;us&#39;</span>);
+</code></pre></div><p>Par défaut, le script utilise un clavier <strong>US</strong>, si vous utilisez un clavier <strong>FR</strong> en AZERTY, il vous faut changer la langue du clavier.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">layout</span>(<span style="color:#e6db74">&#39;fr&#39;</span>);
+</code></pre></div><h2 id="delay">Delay</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">1000</span>);
+</code></pre></div><p><strong>Voici un delay d&rsquo;une seconde.</strong></p>
+<p>Les delay sont très important dans un script RubberDucky.<br>
+Si vous mettez des delay trop rapide, votre script risque de louper des commande et tout faire foirer.<br>
+Suivant la puissance de l&rsquo;ordniateur, il vous faudra adapter les delay. Le mieux est de mettre des delay trop lent que trop court.</p>
+<h2 id="quelques-commandes-javascript">Quelques commandes JavaScript</h2>
+<p>Voici quelques commandes qui peuvent vous être utile pour vos scripts :</p>
+<ul>
+<li><code>type(&quot;Hello, Friend.&quot;);</code> Permet de saisir du texte.
+<ul>
+<li>TIPS : Ajoutez un <code>\n</code> à la fin pour simuler la touche ENTER.</li>
+</ul>
+</li>
+<li><code>press(&quot;ENTER&quot;);</code> Permet d&rsquo;appuyer sur une touche, ici la touche ENTER (Entrée).</li>
+</ul>
+<h2 id="quelques-commandes-duckyscript">Quelques commandes DuckyScript</h2>
+<p>Vous l&rsquo;avez compris, les commandes DuckyScript seront utilisé dans les fonctions <code>press()</code>.<br>
+En voici quelques exemples :</p>
+<ul>
+<li><code>GUI</code> ou <code>WINDOWS</code> Simule la touche Windows</li>
+<li><code>SHIFT</code> Simule la touche SHIFT</li>
+<li><code>ALT</code> Simle la touche ALT</li>
+<li><code>CONTROL</code> ou <code>CTRL</code> Simule la touche Ctrl</li>
+<li><code>REPEAT n</code> Répète la dernière commande n fois</li>
+<li><code>CAPSLOCK</code> Simule la touche Majuscule</li>
+<li><code>ESC</code> ou <code>ESCAPE</code> Simule la touche Echape</li>
+<li><code>SPACE</code> Simule la touche Espace</li>
+<li><code>TAB</code> SImule la touche Tabulation</li>
+<li>Pour les autres, voici une <a href="https://github.com/JonnyBanana/Essential-USB-Rubber-Ducky-Printable-CHeat-Sheet">petite Cheatsheet</a></li>
+</ul>
+<h1 id="execution-de-notre-script">Execution de notre script</h1>
+<p><strong>ATTENTION aux commandes que vous allez écrire, je ne serais tenu responsable des dégats causé sur votre ordinateur !</strong></p>
+<p>Pour executer votre script RubberDucky, il vous suffit de cliquer sur le bouton <strong>RUN</strong></p>
+<p>Voici mon script compatible pour mon Linux.<br>
+J&rsquo;ai du mettre des delay un peu partout car j&rsquo;avais quelques soucis de latence.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">layout</span>(<span style="color:#e6db74">&#39;fr&#39;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">1000</span>);
+<span style="color:#a6e22e">press</span>(<span style="color:#e6db74">&#34;CONTROL ALT t&#34;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">2000</span>);
+<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#34;htop&#34;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">2000</span>);
+<span style="color:#a6e22e">press</span>(<span style="color:#e6db74">&#34;ENTER&#34;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">2000</span>);
+<span style="color:#a6e22e">press</span>(<span style="color:#e6db74">&#34;GUI&#34;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">2000</span>);
+<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#34;editeur&#34;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">2000</span>);
+<span style="color:#a6e22e">press</span>(<span style="color:#e6db74">&#34;ENTER&#34;</span>);
+<span style="color:#a6e22e">delay</span>(<span style="color:#ae81ff">2000</span>);
+<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#34;Hello, friend.&#34;</span>);
+</code></pre></div><p>Petite démonstration :</p>
+<p><img src="/img/fr/iot/P4-RubberDucky/hid-demo.gif" alt="HID Demo"></p>
+
+    </div>
+    
+
+
+    
+      
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">@AlrikRr - 2020</div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
